@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Microsoft.Xna.Framework.Input;
-
 namespace FlugelMario
 {
-    interface IController
+    enum InputState
     {
-        InputState Update();
+        RunRight,
+        RunLeft,
+        Jump,
+        Crouch,
+        Nothing
     }
 }

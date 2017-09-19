@@ -41,6 +41,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="Controllers\GamePadController.cs" />
+    <Compile Include="Controllers\InputState.cs" />
+    <Compile Include="Controllers\KeyboardController.cs" />
+>>>>>>> Umm.... I kind of got carried away and did all my tasks...
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Program.cs" />
