@@ -42,20 +42,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="Interfaces\IMario.cs" />
+    <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sprites\CrouchLeftBigMarioSprite.cs" />
-    <Compile Include="Sprites\CrouchLeftFireMarioSprite.cs" />
-    <Compile Include="Sprites\CrouchRightBigMarioSprite.cs" />
-    <Compile Include="Sprites\CrouchRightFireMarioSprite.cs" />
-    <Compile Include="Sprites\DeadMarioSprite.cs" />
-    <Compile Include="Sprites\IdleLeftBigMarioSprite.cs" />
-    <Compile Include="Sprites\IdleLeftFireMarioSprite.cs" />
-    <Compile Include="Sprites\IdleLeftSmallMarioSprite.cs" />
-    <Compile Include="Sprites\IdleRightBigMarioSprite.cs" />
-    <Compile Include="Sprites\IdleRightFireMarioSprite.cs" />
-    <Compile Include="Sprites\IdleRightSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\CrouchLeftBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\CrouchLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\CrouchRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\CrouchRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\DeadMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleLeftBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleLeftSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleRightSmallMarioSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
