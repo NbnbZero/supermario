@@ -42,10 +42,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
-    <Compile Include="interfaces\ISprite.cs" />
+    <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\CrouchLeftBigMarioSprite.cs" />
+    <Compile Include="Sprites\CrouchLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\CrouchRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\CrouchRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\DeadMarioSprite.cs" />
+    <Compile Include="Sprites\IdleLeftBigMarioSprite.cs" />
+    <Compile Include="Sprites\IdleLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\IdleLeftSmallMarioSprite.cs" />
+    <Compile Include="Sprites\IdleRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\IdleRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\IdleRightSmallMarioSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

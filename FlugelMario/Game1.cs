@@ -12,6 +12,8 @@ namespace FlugelMario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Texture2D marioTexture;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -41,6 +43,7 @@ namespace FlugelMario
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            marioTexture = Content.Load<Texture2D>("mario_sheet3");
         }
 
         /// <summary>
