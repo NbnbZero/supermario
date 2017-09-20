@@ -41,12 +41,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractClasses\MarioSprite.cs" />
+    <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpriteFactories\MarioSpriteFactory.cs" />
     <Compile Include="Sprites\Mario\CrouchLeftBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\CrouchLeftFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\CrouchRightBigMarioSprite.cs" />
@@ -58,6 +61,42 @@
     <Compile Include="Sprites\Mario\IdleRightBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\IdleRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\IdleRightSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\JumpLeftBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\JumpLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\JumpLeftSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\JumpRightBigMarioSprit.cs" />
+    <Compile Include="Sprites\Mario\JumpRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\JumpRightSmallMarioSprite.cs" />
+    <Compile Include="AbstractClasses\MarioRunningSprite.cs" />
+    <Compile Include="Sprites\Mario\RunningLeftBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\RunningLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\RunningLeftSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\RunningRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
+    <Compile Include="States\MarioStates\CrouchLeftBigMarioState.cs" />
+    <Compile Include="States\MarioStates\CrouchLeftFireMarioState.cs" />
+    <Compile Include="States\MarioStates\CrouchRightBigMarioState.cs" />
+    <Compile Include="States\MarioStates\CrouchRightFireMarioState.cs" />
+    <Compile Include="States\MarioStates\DeadMarioState.cs" />
+    <Compile Include="States\MarioStates\IdleLeftBigMarioState.cs" />
+    <Compile Include="States\MarioStates\IdleLeftFireMarioState.cs" />
+    <Compile Include="States\MarioStates\IdleLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioStates\IdleRightBigMarioState.cs" />
+    <Compile Include="States\MarioStates\IdleRightFireMarioState.cs" />
+    <Compile Include="States\MarioStates\IdleRightSmallMarioState.cs" />
+    <Compile Include="States\MarioStates\JumpLeftBigMarioState.cs" />
+    <Compile Include="States\MarioStates\JumpLeftFireMarioState.cs" />
+    <Compile Include="States\MarioStates\JumpLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioStates\JumpRightBigMarioState.cs" />
+    <Compile Include="States\MarioStates\JumpRightFireMarioState.cs" />
+    <Compile Include="States\MarioStates\JumpRightSmallMarioState.cs" />
+    <Compile Include="States\MarioStates\RunningLeftBigMarioState.cs" />
+    <Compile Include="States\MarioStates\RunningLeftFireMarioState.cs" />
+    <Compile Include="States\MarioStates\RunningLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioStates\RunningRightBigMarioState.cs" />
+    <Compile Include="States\MarioStates\RunningRightFireMarioState.cs" />
+    <Compile Include="States\MarioStates\RunningRightSmallMarioState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -73,6 +112,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

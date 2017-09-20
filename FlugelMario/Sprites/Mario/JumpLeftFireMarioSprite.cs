@@ -3,14 +3,14 @@ using FlugelMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.Sprites
+namespace FlugelMario.Sprites.Mario
 {
-    class CrouchRightFireMarioSprite : MarioSprite
+    class JumpLeftFireMarioSprite : MarioSprite
     {
-        private int TextureX = (int)MarioSpriteFactory.Instance.CrouchRightFireMarioCord.X;
-        private int TextureY = (int)MarioSpriteFactory.Instance.CrouchRightFireMarioCord.Y;
+        private int TextureX = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.Y;
 
-        public CrouchRightFireMarioSprite(Texture2D texture) : base(texture)
+        public JumpLeftFireMarioSprite(Texture2D texture) : base(texture)
         {
         }
 

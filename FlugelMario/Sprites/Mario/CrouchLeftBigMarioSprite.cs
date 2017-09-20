@@ -1,30 +1,27 @@
-﻿using FlugelMario.Interfaces;
+﻿using FlugelMario.AbstractClasses;
+using FlugelMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace FlugelMario.Sprites
 {
-    class CrouchLeftBigMarioSprite : ISprite
+    class CrouchLeftBigMarioSprite : MarioSprite
     {
-        public Texture2D Texture { get; set; }
-        Rectangle sourceRectangle;
-        private const int MarioWidth = 15;
-        private const int MarioHeight = 21;
-        private const int TextureX = 154;
-        private const int TextureY = 54;
+        private int TextureX = (int)MarioSpriteFactory.Instance.CrouchLeftBigMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.CrouchLeftBigMarioCord.Y;
 
-        public CrouchLeftBigMarioSprite()
+        public CrouchLeftBigMarioSprite(Texture2D texture) : base(texture)
         {
-            sourceRectangle = new Rectangle(TextureX, TextureY, MarioWidth, MarioHeight);
         }
-        public void Update() { }
-        public void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
-        {
-            Rectangle destinationRectangle = new Rectangle((int)marioLocation.X, (int)marioLocation.Y, MarioWidth, MarioHeight);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+        public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
+        {
+            int x = TextureX * MarioWidth;
+            int y = TextureY * MarioHeight;
+            int width = SourceRectangle.Width;
+            int height = SourceRectangle.Height;
+            SourceRectangle = new Rectangle(x, y, width, height);
+            base.Draw(spriteBatch, marioLocation);
         }
     }
 }
