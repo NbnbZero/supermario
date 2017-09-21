@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FlugelMario.SpriteFactories;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -56,6 +57,7 @@ namespace FlugelMario
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            MarioSpriteFactory.Instance.LoadAllTextures(Content);
         }
 
         /// <summary>
@@ -99,7 +101,6 @@ namespace FlugelMario
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        
             base.Draw(gameTime);
         }
     }
