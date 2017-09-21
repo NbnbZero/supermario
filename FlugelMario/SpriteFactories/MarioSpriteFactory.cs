@@ -30,7 +30,7 @@ namespace FlugelMario.SpriteFactories
 
         public void LoadAllTextures(ContentManager content)
         {
-            normalMarioSpriteSheet = content.Load<Texture2D>("mario_sheet3");
+            normalMarioSpriteSheet = content.Load<Texture2D>("Mariosheet");
         }
 
         public int NormalMarioWidth
