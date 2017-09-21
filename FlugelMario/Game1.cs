@@ -1,7 +1,8 @@
-﻿using FlugelMario.SpriteFactories;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FlugelMario
 {
@@ -12,6 +13,7 @@ namespace FlugelMario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Dictionary<IController, InputState> controllersWithStates; // Scalability ftw.
 
         public Game1()
         {
@@ -27,7 +29,19 @@ namespace FlugelMario
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            #region Controller Initializers
+
+            controllersWithStates = new Dictionary<IController, InputState>();
+
+            controllersWithStates.Add(new KeyboardController(Keyboard.GetState()), InputState.Nothing);
+
+            for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
+            {
+                if (GamePad.GetState(i).IsConnected)
+                    controllersWithStates.Add(new GamePadController(GamePad.GetState(i)), InputState.Nothing);
+            }
+
+            #endregion
 
             base.Initialize();
         }
@@ -42,7 +56,6 @@ namespace FlugelMario
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            MarioSpriteFactory.Instance.LoadAllTextures(Content);
         }
 
         /// <summary>
@@ -64,7 +77,16 @@ namespace FlugelMario
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            #region Controllers Update
+
+            foreach(IController controller in controllersWithStates.Keys.ToList())
+            {
+                controllersWithStates[controller] = controller.Update();
+            }
+
+            #endregion
+
+            // TODO: pass the InputState variable to the execute() method for a MarioAnimator.
 
             base.Update(gameTime);
         }
@@ -77,8 +99,7 @@ namespace FlugelMario
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
+        
             base.Draw(gameTime);
         }
     }

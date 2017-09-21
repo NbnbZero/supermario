@@ -45,9 +45,13 @@
     <Compile Include="AbstractClasses\MarioSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Game Controllers\GamePadController.cs" />
+    <Compile Include="Game Controllers\InputState.cs" />
+    <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
+    <Compile Include="Game Controllers\KeyboardController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpriteFactories\MarioSpriteFactory.cs" />
