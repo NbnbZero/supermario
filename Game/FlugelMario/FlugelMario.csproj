@@ -103,10 +103,7 @@
     <Compile Include="States\MarioStates\RunningRightBigMarioState.cs" />
     <Compile Include="States\MarioStates\RunningRightFireMarioState.cs" />
     <Compile Include="States\MarioStates\RunningRightSmallMarioState.cs" />
-    <Compile Include="States\PowerUpState\DeadMario.cs" />
-    <Compile Include="States\PowerUpState\FireMario.cs" />
-    <Compile Include="States\PowerUpState\StandardMario.cs" />
-    <Compile Include="States\PowerUpState\SuperMario.cs" />
+    <Compile Include="States\MarioPowerUpState\MarioPowerUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

@@ -6,12 +6,8 @@ namespace FlugelMario.Interfaces
 {
     public interface IPowerUp
     {
-        MarioPostureEnums MarioPosture { get; set; }
-        MarioDirectionEnums MarioDirection { get; set; }
         MarioShapeEnums MarioShape { get; set; }
-        ISprite StateSprite { get; set; }
         IController KeyboadrController { get; set; }
         void Update();
-        void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
 }
