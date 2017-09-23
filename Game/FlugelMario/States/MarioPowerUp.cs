@@ -9,9 +9,9 @@ using FlugelMario.AbstractClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.States.MarioPowerUpState
+namespace FlugelMario.States
 {
-    public class MarioPowerUp : IPowerUp
+    public class MarioPowerUp : IMarioPowerUp
     {
         public MarioState.MarioShapeEnums MarioShape { get; set; }
         public IController KeyboadrController { get; set; }

@@ -42,15 +42,19 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractClasses\BlockSprite.cs" />
+    <Compile Include="AbstractClasses\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Game Controllers\GamePadController.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
+    <Compile Include="Interfaces\IBlockStateChanges.cs" />
+    <Compile Include="Interfaces\IBlockState.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
-    <Compile Include="Interfaces\IPowerUp.cs" />
+    <Compile Include="Interfaces\IMarioPowerUp.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
     <Compile Include="Program.cs" />
@@ -80,6 +84,7 @@
     <Compile Include="Sprites\Mario\RunningRightBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
+    <Compile Include="States\BlockStateChanges.cs" />
     <Compile Include="States\MarioStates\CrouchLeftBigMarioState.cs" />
     <Compile Include="States\MarioStates\CrouchLeftFireMarioState.cs" />
     <Compile Include="States\MarioStates\CrouchRightBigMarioState.cs" />
@@ -103,7 +108,7 @@
     <Compile Include="States\MarioStates\RunningRightBigMarioState.cs" />
     <Compile Include="States\MarioStates\RunningRightFireMarioState.cs" />
     <Compile Include="States\MarioStates\RunningRightSmallMarioState.cs" />
-    <Compile Include="States\MarioPowerUpState\MarioPowerUp.cs" />
+    <Compile Include="States\MarioPowerUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

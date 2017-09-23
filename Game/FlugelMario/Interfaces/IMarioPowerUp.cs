@@ -4,7 +4,7 @@ using static FlugelMario.AbstractClasses.MarioState;
 
 namespace FlugelMario.Interfaces
 {
-    public interface IPowerUp
+    public interface IMarioPowerUp
     {
         MarioShapeEnums MarioShape { get; set; }
         IController KeyboadrController { get; set; }
