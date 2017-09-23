@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario
 {
-    interface IController
+    public interface IController
     {
         InputState Update();
     }

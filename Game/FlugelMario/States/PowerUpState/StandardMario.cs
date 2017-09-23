@@ -4,14 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario
+namespace FlugelMario.States.PowerUpState
 {
-    public enum InputState
+    class StandardMario
     {
-        RunRight,
-        RunLeft,
-        Jump,
-        Crouch,
-        Nothing
     }
 }

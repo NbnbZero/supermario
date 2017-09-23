@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario
 {
-    class GamePadController : IController
+    public class GamePadController : IController
     {
         private GamePadState _gamepad;
 

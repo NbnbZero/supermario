@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario
 {
-    class KeyboardController : IController
+    public class KeyboardController : IController
     {
         private KeyboardState _keyboard;
 

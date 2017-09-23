@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
+    <Compile Include="Interfaces\IPowerUp.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
     <Compile Include="Program.cs" />
@@ -102,6 +103,10 @@
     <Compile Include="States\MarioStates\RunningRightBigMarioState.cs" />
     <Compile Include="States\MarioStates\RunningRightFireMarioState.cs" />
     <Compile Include="States\MarioStates\RunningRightSmallMarioState.cs" />
+    <Compile Include="States\PowerUpState\DeadMario.cs" />
+    <Compile Include="States\PowerUpState\FireMario.cs" />
+    <Compile Include="States\PowerUpState\StandardMario.cs" />
+    <Compile Include="States\PowerUpState\SuperMario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
