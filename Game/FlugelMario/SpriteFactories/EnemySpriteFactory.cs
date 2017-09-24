@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FlugelMario.Interfaces;
+using FlugelMario.Sprites.Goomba;
+using FlugelMario.Sprites.Koopa;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -67,6 +70,17 @@ namespace FlugelMario.SpriteFactories
                 return enemyKoopaSpriteSheet.Height / KoopaSpriteSheetRows;
             }
         }
+
+        public ISprite CreateGoombaSprite()
+        {
+            return new GoombaSprite(enemyGoombaSpriteSheet);
+        }
+
+        public ISprite CreateKoopaSprite()
+        {
+            return new KoopaSprite(enemyKoopaSpriteSheet);
+        }
+
         public Vector2 GoombaWalkCord { get; } = new Vector2(0, 0);
         public Vector2 GoombaDeadCord { get; } = new Vector2(2, 0);
         public Vector2 KoopaWalkCord { get; } = new Vector2(0, 0);

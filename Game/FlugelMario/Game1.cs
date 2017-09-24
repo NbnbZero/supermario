@@ -58,6 +58,7 @@ namespace FlugelMario
 
             // TODO: use this.Content to load your game content here
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
         }
 
         /// <summary>
