@@ -1,4 +1,5 @@
-﻿using FlugelMario.SpriteFactories;
+﻿using FlugelMario.Interfaces;
+using FlugelMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -15,7 +16,9 @@ namespace FlugelMario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dictionary<IController, InputState> controllersWithStates; // Scalability ftw.
-
+        public ISprite Mario { get; set; }
+        public ISprite Goomba { get; set; }
+        public ISprite Koopa { get; set; }
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -43,7 +46,6 @@ namespace FlugelMario
             }
 
             #endregion
-
             base.Initialize();
         }
 
@@ -58,7 +60,10 @@ namespace FlugelMario
 
             // TODO: use this.Content to load your game content here
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
+            Mario = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            Goomba = EnemySpriteFactory.Instance.CreateGoombaSprite();
+            Koopa = EnemySpriteFactory.Instance.CreateKoopaSprite();
         }
 
         /// <summary>
@@ -88,9 +93,10 @@ namespace FlugelMario
             }
 
             #endregion
-
+            Mario.Update();
+            Goomba.Update();
+            Koopa.Update();
             // TODO: pass the InputState variable to the execute() method for a MarioAnimator.
-
             base.Update(gameTime);
         }
 
@@ -101,7 +107,9 @@ namespace FlugelMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            Goomba.Draw(spriteBatch, new Vector2(100, 100));
+            Koopa.Draw(spriteBatch, new Vector2(150, 100));
+            Mario.Draw(spriteBatch,new Vector2(100,200));
             base.Draw(gameTime);
         }
     }

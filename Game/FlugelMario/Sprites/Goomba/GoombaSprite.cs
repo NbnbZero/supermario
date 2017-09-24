@@ -46,9 +46,9 @@ namespace FlugelMario.Sprites.Goomba
             sourceRectangle = new Rectangle((TextureX + currentFrame) * GoombaWidth, TextureY * GoombaHeight, GoombaWidth, GoombaHeight);
             Destination = MakeDestinationRectangle(location);
 
-
+            spriteBatch.Begin();
             spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-
+            spriteBatch.End();
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)

@@ -45,9 +45,9 @@ namespace FlugelMario.Sprites.Koopa
             sourceRectangle = new Rectangle((TextureX + currentFrame) * KoopaWidth, TextureY * KoopaHeight, KoopaWidth, KoopaHeight);
             Destination = MakeDestinationRectangle(location);
 
-
+            spriteBatch.Begin();
             spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-
+            spriteBatch.End();
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
