@@ -252,21 +252,45 @@ namespace FlugelMario.States.MarioStates
         public void ChangeFireMode()
         {
             MarioShape = Shape.Fire;
+            if (MarioDirection == Direction.Right)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateIdleRightFireMarioSprite();
+            } else
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateIdleLeftFireMarioSprite();
+            }
         }
 
         public void ChangeSizeToBig()
         {
             MarioShape = Shape.Big;
+            if (MarioDirection == Direction.Right)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateIdleRightBigMarioSprite();
+            }
+            else
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateIdleLeftBigMarioSprite();
+            }
         }
 
         public void Terminated()
         {
             MarioShape = Shape.Dead;
+            StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
         }
 
         public void ChangeSizeToSmall()
         {
             MarioShape = Shape.Small;
+            if (MarioDirection == Direction.Right)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
+            }
+            else
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateIdleLeftSmallMarioSprite();
+            }
         }
 
         public void Update()

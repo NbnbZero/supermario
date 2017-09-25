@@ -33,6 +33,18 @@ namespace FlugelMario
                 case InputState.RunRight:
                     marioState.RunRight();
                     break;
+                case InputState.MakeSmall:
+                    marioState.ChangeSizeToSmall();
+                    break;
+                case InputState.MakeBig:
+                    marioState.ChangeSizeToBig();
+                    break;
+                case InputState.MakeFire:
+                    marioState.ChangeFireMode();
+                    break;
+                case InputState.MakeDead:
+                    marioState.Terminated();
+                    break;
                 default:
                     marioState.BeIdle();
                     break;

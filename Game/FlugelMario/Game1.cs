@@ -26,10 +26,6 @@ namespace FlugelMario
         public ISprite Koopa { get; set; }
         public Shape marioShape { get; set; }
 
-        Vector2 marioLocation;
-        Vector2 goombaLocation;
-        Vector2 koopaLocation;
-
         Viewport viewport;
         IMarioState marioState;
         InputState state;
@@ -46,6 +42,9 @@ namespace FlugelMario
         public ISprite BrickBlock { get; set; }
         public ISprite RockBlock { get; set; }
 
+        Vector2 marioLocation;
+        Vector2 goombaLocation;
+        Vector2 koopaLocation;
         Vector2 flowerLocation;
         Vector2 coinLocation;
         Vector2 superMushroomLocation;
@@ -157,8 +156,6 @@ namespace FlugelMario
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            #region Controllers Update
-            
             foreach(Controller controller in controllersWithStates.Keys)
             {
                 InputState newState = controller.Update(Keyboard.GetState());
@@ -170,10 +167,7 @@ namespace FlugelMario
                 }
                 
                 marioState.StateSprite.Update();
-
             }
-
-            #endregion
 
             Goomba.Update();
             Koopa.Update();
@@ -181,8 +175,7 @@ namespace FlugelMario
             Coin.Update();
             Star.Update();
             QuestionBlock.Update();
-            // TODO: pass the InputState variable to the execute() method for a MarioAnimator.
-            marioAction.Execute(state, marioState);
+
             base.Update(gameTime);
         }
 

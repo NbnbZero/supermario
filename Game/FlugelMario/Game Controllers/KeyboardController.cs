@@ -34,19 +34,19 @@ namespace FlugelMario
             }
             else if (currentKeyboardState.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
             {
-                marioState.MarioShape = Enums.Shape.Small
+                state = InputState.MakeSmall;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.L) && !previousKeyboardState.IsKeyDown(Keys.L))
+            else if (currentKeyboardState.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
             {
-                marioState.ChangeFireMode();
+                state = InputState.MakeFire;
             }
             else if (currentKeyboardState.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
             {
-                marioState.ChangeSizeToBig();
+                state = InputState.MakeBig;
             }
             else if (currentKeyboardState.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
             {
-                marioState.Terminated();
+                state = InputState.MakeDead;
             }
 
             previousKeyboardState = currentKeyboardState;

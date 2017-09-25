@@ -14,6 +14,10 @@ namespace FlugelMario
         IdleRight,
         RunRight,
         Jump,
+        MakeSmall,
+        MakeBig,
+        MakeFire,
+        MakeDead,
         Crouch
     }
 }
