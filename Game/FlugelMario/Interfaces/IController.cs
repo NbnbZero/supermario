@@ -87,26 +87,6 @@ namespace FlugelMario
                 state = InputState.RunRight;
             }
         }
-
-        protected void changeShape(KeyboardState keyboard)
-        {
-            if (keyboard.IsKeyDown(Keys.Y))
-            {
-                marioState.ChangeSizeToSmall();
-            }
-            else if (keyboard.IsKeyDown(Keys.L))
-            {
-                marioState.ChangeFireMode();
-            }
-            else if (keyboard.IsKeyDown(Keys.U))
-            {
-                marioState.ChangeSizeToBig();
-            }
-            else if (keyboard.IsKeyDown(Keys.O))
-            {
-                marioState.Terminated();
-            }
-        }
         #endregion
     }
 }

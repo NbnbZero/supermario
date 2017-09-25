@@ -46,9 +46,6 @@ namespace FlugelMario
         public ISprite BrickBlock { get; set; }
         public ISprite RockBlock { get; set; }
 
-        Vector2 marioLocation;
-        Vector2 goombaLocation;
-        Vector2 koopaLocation;
         Vector2 flowerLocation;
         Vector2 coinLocation;
         Vector2 superMushroomLocation;
@@ -59,11 +56,6 @@ namespace FlugelMario
         Vector2 questionBlockLocation;
         Vector2 brickBlockLocation;
         Vector2 rockBlockLocation;
-
-        Viewport viewport;
-        IMarioState marioState;
-        InputState state;
-        Action marioAction;
 
         public Game1()
         {
