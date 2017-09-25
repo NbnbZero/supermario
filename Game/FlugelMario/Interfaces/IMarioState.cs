@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using FlugelMario.Enums;
+using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario.Interfaces
 {
@@ -16,7 +17,7 @@ namespace FlugelMario.Interfaces
         void Crouch();
         void ChangeFireMode();
         void Terminated();
-        void Update();
+        void Update(); 
         void Draw(SpriteBatch spriteBatch, Vector2 location);
         void RunLeft();
         void RunRight();

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.Linq;
 using FlugelMario.States.MarioStates;
+using FlugelMario.Enums;
 
 namespace FlugelMario
 {
@@ -23,6 +24,17 @@ namespace FlugelMario
 
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
+        public Shape marioShape { get; set; }
+
+        Vector2 marioLocation;
+        Vector2 goombaLocation;
+        Vector2 koopaLocation;
+
+        Viewport viewport;
+        IMarioState marioState;
+        InputState state;
+        Action marioAction;
+
         public ISprite Flower { get; set; }
         public ISprite Coin { get; set; }
         public ISprite SuperMushroom { get; set; }
@@ -87,7 +99,7 @@ namespace FlugelMario
 
             marioAction = new Action();
             state = InputState.Nothing;
-
+            marioShape = Shape.Small;
             base.Initialize();
         }
 
@@ -164,7 +176,7 @@ namespace FlugelMario
                     marioAction.Execute(newState, marioState);
                     state = newState;
                 }
-
+                
                 marioState.StateSprite.Update();
             }
 

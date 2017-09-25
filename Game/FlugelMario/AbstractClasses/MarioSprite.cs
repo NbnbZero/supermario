@@ -33,6 +33,7 @@ namespace FlugelMario.AbstractClasses
 
         public virtual void Update()
         {
+
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
