@@ -170,6 +170,7 @@ namespace FlugelMario
                 }
                 
                 marioState.StateSprite.Update();
+
             }
 
             #endregion
@@ -181,6 +182,7 @@ namespace FlugelMario
             Star.Update();
             QuestionBlock.Update();
             // TODO: pass the InputState variable to the execute() method for a MarioAnimator.
+            marioAction.Execute(state, marioState);
             base.Update(gameTime);
         }
 
