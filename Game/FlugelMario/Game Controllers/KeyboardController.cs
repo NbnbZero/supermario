@@ -32,6 +32,10 @@ namespace FlugelMario
             {
                 HandleRight();
             }
+            else
+            {
+                changeShape(currentKeyboardState);
+            }
 
             previousKeyboardState = currentKeyboardState;
 
