@@ -1,6 +1,7 @@
 using FlugelMario.AbstractClasses;
 using FlugelMario.Interfaces;
 using FlugelMario.SpriteFactories;
+using FlugelMario.Sprites.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -30,6 +31,16 @@ namespace FlugelMario
         IMarioState marioState;
         InputState state;
         Action marioAction;
+        public ISprite Flower { get; set; }
+        public ISprite Coin { get; set; }
+        public ISprite SuperMushroom { get; set; }
+        public ISprite UpMushroom { get; set; }
+        public ISprite Star { get; set; }
+        public ISprite StairBlock { get; set; }
+        public ISprite UsedBlock { get; set; }
+        public ISprite QuestionBlock { get; set; }
+        public ISprite BrickBlock { get; set; }
+        public ISprite RockBlock { get; set; }
 
         public Game1()
         {
@@ -66,7 +77,7 @@ namespace FlugelMario
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             // TODO: use this.Content to load your game content here
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
 
@@ -83,6 +94,20 @@ namespace FlugelMario
                 if (GamePad.GetState(i).IsConnected)
                     controllersWithStates.Add(new GamePadController(GamePad.GetState(i), marioState), InputState.Nothing);
             }
+
+            ItemSpriteFactory.Instance.LoadAllTextures(Content);
+            Flower = ItemSpriteFactory.Instance.CreateFlowerSprite();
+            Coin = ItemSpriteFactory.Instance.CreateCoinSprite();
+            SuperMushroom = ItemSpriteFactory.Instance.CreateSuperMushroomSprite();
+            UpMushroom = ItemSpriteFactory.Instance.CreateUpMushroomSprite();
+            Star = ItemSpriteFactory.Instance.CreateStarSprite();
+
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            StairBlock = BlockSpriteFactory.Instance.CreateStairBlock();
+            UsedBlock = BlockSpriteFactory.Instance.CreateUsedBlock();
+            QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
+            BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
+            RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
         }
 
         /// <summary>
@@ -123,6 +148,10 @@ namespace FlugelMario
 
             Goomba.Update();
             Koopa.Update();
+            Flower.Update();
+            Coin.Update();
+            Star.Update();
+            QuestionBlock.Update();
             // TODO: pass the InputState variable to the execute() method for a MarioAnimator.
             base.Update(gameTime);
         }
@@ -138,6 +167,21 @@ namespace FlugelMario
             Koopa.Draw(spriteBatch, koopaLocation);
 
             marioState.StateSprite.Draw(spriteBatch, marioLocation);
+
+            Goomba.Draw(spriteBatch, new Vector2(100, 100));
+            Koopa.Draw(spriteBatch, new Vector2(150, 100));
+
+            Flower.Draw(spriteBatch,new Vector2(100,150));
+            Coin.Draw(spriteBatch, new Vector2(150, 150));
+            SuperMushroom.Draw(spriteBatch, new Vector2(200, 150));
+            UpMushroom.Draw(spriteBatch, new Vector2(250, 150));
+            Star.Draw(spriteBatch, new Vector2(300, 150));
+
+            StairBlock.Draw(spriteBatch, new Vector2(100, 200));
+            UsedBlock.Draw(spriteBatch, new Vector2(150, 200));
+            QuestionBlock.Draw(spriteBatch, new Vector2(200, 200));
+            BrickBlock.Draw(spriteBatch, new Vector2(250, 200));
+            RockBlock.Draw(spriteBatch, new Vector2(300, 200));
 
             base.Draw(gameTime);
         }
