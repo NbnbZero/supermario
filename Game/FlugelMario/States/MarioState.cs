@@ -37,6 +37,10 @@ namespace FlugelMario.States.MarioStates
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateRunningLeftFireMarioSprite();
             }
+            else if (MarioShape == Shape.Dead)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
+            }
 
 
             MarioDirection = Direction.Left;
@@ -56,6 +60,10 @@ namespace FlugelMario.States.MarioStates
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateRunningRightFireMarioSprite();
             }
+            else if (MarioShape == Shape.Dead)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
+            } 
 
 
             MarioDirection = Direction.Right;
@@ -96,6 +104,10 @@ namespace FlugelMario.States.MarioStates
                     StateSprite = MarioSpriteFactory.Instance.CreateIdleLeftFireMarioSprite();
                 }
             }
+            else if (MarioShape == Shape.Dead)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
+            }
 
         }
 
@@ -115,6 +127,10 @@ namespace FlugelMario.States.MarioStates
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateIdleLeftFireMarioSprite();
                 }
+                else if (MarioShape == Shape.Dead)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
+                }
             }
             else
             {
@@ -129,6 +145,10 @@ namespace FlugelMario.States.MarioStates
                 else if (MarioShape == Shape.Fire)
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateIdleRightFireMarioSprite();
+                }
+                else if (MarioShape == Shape.Dead)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
                 }
             }
         }
@@ -160,6 +180,10 @@ namespace FlugelMario.States.MarioStates
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateRunningLeftFireMarioSprite();
             }
+            else if (MarioShape == Shape.Dead)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
+            }
         }
 
         private void ChangeToRight()
@@ -176,6 +200,10 @@ namespace FlugelMario.States.MarioStates
             else if (MarioShape == Shape.Fire)
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateRunningRightFireMarioSprite();
+            }
+            else if (MarioShape == Shape.Dead)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
             }
         }
 
@@ -195,6 +223,10 @@ namespace FlugelMario.States.MarioStates
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateJumpRightFireMarioSprite();
                 }
+                else if (MarioShape == Shape.Dead)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
+                }
             }
             else
             {
@@ -209,6 +241,10 @@ namespace FlugelMario.States.MarioStates
                 else if (MarioShape == Shape.Fire)
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateJumpLeftFireMarioSprite();
+                }
+                else if (MarioShape == Shape.Dead)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
                 }
             }
         }
