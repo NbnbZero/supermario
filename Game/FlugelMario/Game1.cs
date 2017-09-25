@@ -1,10 +1,12 @@
-﻿using FlugelMario.Interfaces;
+using FlugelMario.AbstractClasses;
+using FlugelMario.Interfaces;
 using FlugelMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.Linq;
+using FlugelMario.States.MarioStates;
 
 namespace FlugelMario
 {
@@ -16,9 +18,19 @@ namespace FlugelMario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dictionary<IController, InputState> controllersWithStates; // Scalability ftw.
-        public ISprite Mario { get; set; }
+
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
+
+        Vector2 marioLocation;
+        Vector2 goombaLocation;
+        Vector2 koopaLocation;
+
+        Viewport viewport;
+        IMarioState marioState;
+        InputState state;
+        Action marioAction;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -46,6 +58,15 @@ namespace FlugelMario
             }
 
             #endregion
+
+            viewport = graphics.GraphicsDevice.Viewport;
+            marioLocation = new Vector2(viewport.Width / 2f, viewport.Height / 2f);
+            goombaLocation = new Vector2(viewport.Width / 4f, viewport.Height / 4f);
+            koopaLocation = new Vector2(3f*(viewport.Width / 4f), viewport.Height / 4f);
+
+            marioAction = new Action();
+            state = InputState.Nothing;
+
             base.Initialize();
         }
 
@@ -60,10 +81,12 @@ namespace FlugelMario
 
             // TODO: use this.Content to load your game content here
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
-            Mario = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
+
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             Goomba = EnemySpriteFactory.Instance.CreateGoombaSprite();
             Koopa = EnemySpriteFactory.Instance.CreateKoopaSprite();
+
+            marioState = new MarioState();
         }
 
         /// <summary>
@@ -86,14 +109,22 @@ namespace FlugelMario
                 Exit();
 
             #region Controllers Update
-
-            foreach(IController controller in controllersWithStates.Keys.ToList())
+            
+            foreach(IController controller in controllersWithStates.Keys)
             {
-                controllersWithStates[controller] = controller.Update();
+                InputState newState = controller.Update(Keyboard.GetState());
+
+                if (newState != state)
+                {
+                    marioAction.Execute(newState, marioState);
+                    state = newState;
+                }
+
+                marioState.StateSprite.Update();
             }
 
             #endregion
-            Mario.Update();
+
             Goomba.Update();
             Koopa.Update();
             // TODO: pass the InputState variable to the execute() method for a MarioAnimator.
@@ -107,9 +138,11 @@ namespace FlugelMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            Goomba.Draw(spriteBatch, new Vector2(100, 100));
-            Koopa.Draw(spriteBatch, new Vector2(150, 100));
-            Mario.Draw(spriteBatch,new Vector2(100,200));
+            Goomba.Draw(spriteBatch, goombaLocation);
+            Koopa.Draw(spriteBatch, koopaLocation);
+
+            marioState.StateSprite.Draw(spriteBatch, marioLocation);
+
             base.Draw(gameTime);
         }
     }

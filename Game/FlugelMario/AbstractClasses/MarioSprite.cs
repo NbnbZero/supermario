@@ -24,6 +24,7 @@ namespace FlugelMario.AbstractClasses
             Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
             SourceRectangle = new Rectangle(SourceRectangle.X, SourceRectangle.Y + 1, MarioWidth, MarioHeight);
+
             spriteBatch.Begin();
             spriteBatch.Draw(Texture, destinationRectangle, SourceRectangle, Color.White);
             spriteBatch.End();

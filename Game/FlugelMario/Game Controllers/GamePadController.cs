@@ -9,35 +9,35 @@ namespace FlugelMario
 {
     public class GamePadController : IController
     {
-        private GamePadState _gamepad;
+        private GamePadState previousGamepadState;
 
         public GamePadController(GamePadState gamepad)
         {
-            _gamepad = gamepad;
+            previousGamepadState = gamepad;
         }
 
         #region Interface Implementation
 
-        public InputState Update()
+        public override InputState Update(GamePadState currentGamepadState)
         {
-            InputState state = InputState.Nothing;
+            if (currentGamepadState.IsButtonDown(Buttons.DPadUp) && !previousGamepadState.IsButtonDown(Buttons.DPadUp))
+            {
+                HandleUp();
+            }
+            else if (currentGamepadState.IsButtonDown(Buttons.DPadDown) && !previousGamepadState.IsButtonDown(Buttons.DPadDown))
+            {
+                HandleDown();
+            }
+            else if (currentGamepadState.IsButtonDown(Buttons.DPadLeft) && !previousGamepadState.IsButtonDown(Buttons.DPadLeft))
+            {
+                HandleLeft();
+            }
+            else if (currentGamepadState.IsButtonDown(Buttons.DPadRight) && !previousGamepadState.IsButtonDown(Buttons.DPadRight))
+            {
+                HandleRight();
+            }
 
-            if (_gamepad.IsButtonDown(Buttons.DPadUp))
-            {
-                state = InputState.Jump;
-            }
-            else if (_gamepad.IsButtonDown(Buttons.DPadDown))
-            {
-                state = InputState.Crouch;
-            }
-            else if (_gamepad.IsButtonDown(Buttons.DPadLeft))
-            {
-                state = InputState.RunLeft;
-            }
-            else if (_gamepad.IsButtonDown(Buttons.DPadRight))
-            {
-                state = InputState.RunRight;
-            }
+            previousGamepadState = currentGamepadState;
 
             return state;
         }

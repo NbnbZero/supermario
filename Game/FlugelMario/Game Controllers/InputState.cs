@@ -8,10 +8,12 @@ namespace FlugelMario
 {
     public enum InputState
     {
-        RunRight,
+        Nothing,
         RunLeft,
+        IdleLeft,
+        IdleRight,
+        RunRight,
         Jump,
-        Crouch,
-        Nothing
+        Crouch
     }
 }

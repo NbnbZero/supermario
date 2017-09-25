@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -34,6 +35,7 @@
     <DefineConstants>TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -45,18 +47,22 @@
     <Compile Include="AbstractClasses\BlockSprite.cs" />
     <Compile Include="AbstractClasses\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
-    <Compile Include="AbstractClasses\MarioState.cs" />
+    <Compile Include="Enums\MarioDirection.cs" />
+    <Compile Include="Enums\MarioPosture.cs" />
+    <Compile Include="Enums\MarioShape.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Game Controllers\GamePadController.cs" />
-    <Compile Include="Game Controllers\InputState.cs" />
     <Compile Include="Interfaces\IBlockStateChanges.cs" />
     <Compile Include="Interfaces\IBlockState.cs" />
+    <Compile Include="Game Controllers\InputState.cs" />
+    <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\IMarioPowerUp.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
+    <Compile Include="MarioAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpriteFactories\EnemySpriteFactory.cs" />
@@ -89,31 +95,7 @@
     <Compile Include="Sprites\Mario\RunningRightBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
-    <Compile Include="States\BlockStateChanges.cs" />
-    <Compile Include="States\MarioStates\CrouchLeftBigMarioState.cs" />
-    <Compile Include="States\MarioStates\CrouchLeftFireMarioState.cs" />
-    <Compile Include="States\MarioStates\CrouchRightBigMarioState.cs" />
-    <Compile Include="States\MarioStates\CrouchRightFireMarioState.cs" />
-    <Compile Include="States\MarioStates\DeadMarioState.cs" />
-    <Compile Include="States\MarioStates\IdleLeftBigMarioState.cs" />
-    <Compile Include="States\MarioStates\IdleLeftFireMarioState.cs" />
-    <Compile Include="States\MarioStates\IdleLeftSmallMarioState.cs" />
-    <Compile Include="States\MarioStates\IdleRightBigMarioState.cs" />
-    <Compile Include="States\MarioStates\IdleRightFireMarioState.cs" />
-    <Compile Include="States\MarioStates\IdleRightSmallMarioState.cs" />
-    <Compile Include="States\MarioStates\JumpLeftBigMarioState.cs" />
-    <Compile Include="States\MarioStates\JumpLeftFireMarioState.cs" />
-    <Compile Include="States\MarioStates\JumpLeftSmallMarioState.cs" />
-    <Compile Include="States\MarioStates\JumpRightBigMarioState.cs" />
-    <Compile Include="States\MarioStates\JumpRightFireMarioState.cs" />
-    <Compile Include="States\MarioStates\JumpRightSmallMarioState.cs" />
-    <Compile Include="States\MarioStates\RunningLeftBigMarioState.cs" />
-    <Compile Include="States\MarioStates\RunningLeftFireMarioState.cs" />
-    <Compile Include="States\MarioStates\RunningLeftSmallMarioState.cs" />
-    <Compile Include="States\MarioStates\RunningRightBigMarioState.cs" />
-    <Compile Include="States\MarioStates\RunningRightFireMarioState.cs" />
-    <Compile Include="States\MarioStates\RunningRightSmallMarioState.cs" />
-    <Compile Include="States\MarioPowerUp.cs" />
+    <Compile Include="States\MarioState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

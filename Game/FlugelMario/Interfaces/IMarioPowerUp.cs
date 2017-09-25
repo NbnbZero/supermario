@@ -1,12 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FlugelMario.Enums;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static FlugelMario.AbstractClasses.MarioState;
 
 namespace FlugelMario.Interfaces
 {
     public interface IMarioPowerUp
     {
-        MarioShapeEnums MarioShape { get; set; }
+        Shape MarioShape { get; set; }
         IController KeyboadrController { get; set; }
         void Update();
     }

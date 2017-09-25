@@ -1,47 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario
 {
     public class KeyboardController : IController
     {
-        private KeyboardState _keyboard;
+        private KeyboardState previousKeyboardState;
 
         public KeyboardController (KeyboardState keyboard)
         {
-            _keyboard = keyboard;
+            previousKeyboardState = keyboard;
+            state = InputState.Nothing;
         }
 
-        #region Interface Implementation
-
-        public InputState Update()
+        public override InputState Update(KeyboardState currentKeyboardState)
         {
-            InputState state = InputState.Nothing;
+            if (currentKeyboardState.IsKeyDown(Keys.Up) && !previousKeyboardState.IsKeyDown(Keys.Up))
+            {
+                HandleUp();
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.Down) && !previousKeyboardState.IsKeyDown(Keys.Down))
+            {
+                HandleDown();
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.Left) && !previousKeyboardState.IsKeyDown(Keys.Left))
+            {
+                HandleLeft();
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.Right) && !previousKeyboardState.IsKeyDown(Keys.Right))
+            {
+                HandleRight();
+            }
 
-            if (_keyboard.IsKeyDown(Keys.W))
-            {
-                state = InputState.Jump;
-            }
-            else if (_keyboard.IsKeyDown(Keys.S))
-            {
-                state = InputState.Crouch;
-            }
-            else if (_keyboard.IsKeyDown(Keys.A))
-            {
-                state = InputState.RunLeft;
-            }
-            else if (_keyboard.IsKeyDown(Keys.D))
-            {
-                state = InputState.RunRight;
-            }
+            previousKeyboardState = currentKeyboardState;
 
             return state;
         }
-
-        #endregion
     }
 }
