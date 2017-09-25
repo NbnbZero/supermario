@@ -19,18 +19,10 @@ namespace FlugelMario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
+        Texture2D background;
 
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
-
-        Vector2 marioLocation;
-        Vector2 goombaLocation;
-        Vector2 koopaLocation;
-
-        Viewport viewport;
-        IMarioState marioState;
-        InputState state;
-        Action marioAction;
         public ISprite Flower { get; set; }
         public ISprite Coin { get; set; }
         public ISprite SuperMushroom { get; set; }
@@ -41,6 +33,25 @@ namespace FlugelMario
         public ISprite QuestionBlock { get; set; }
         public ISprite BrickBlock { get; set; }
         public ISprite RockBlock { get; set; }
+
+        Vector2 marioLocation;
+        Vector2 goombaLocation;
+        Vector2 koopaLocation;
+        Vector2 flowerLocation;
+        Vector2 coinLocation;
+        Vector2 superMushroomLocation;
+        Vector2 upMushroomLocation;
+        Vector2 starLocation;
+        Vector2 stairBlockLocation;
+        Vector2 usedBlockLocation;
+        Vector2 questionBlockLocation;
+        Vector2 brickBlockLocation;
+        Vector2 rockBlockLocation;
+
+        Viewport viewport;
+        IMarioState marioState;
+        InputState state;
+        Action marioAction;
 
         public Game1()
         {
@@ -59,9 +70,20 @@ namespace FlugelMario
             controllersWithStates = new Dictionary<Controller, InputState>();
 
             viewport = graphics.GraphicsDevice.Viewport;
+
             marioLocation = new Vector2(viewport.Width / 2f, viewport.Height / 2f);
             goombaLocation = new Vector2(viewport.Width / 4f, viewport.Height / 4f);
             koopaLocation = new Vector2(3f*(viewport.Width / 4f), viewport.Height / 4f);
+            flowerLocation = new Vector2(1f * (viewport.Width / 10f), viewport.Height / 5f);
+            coinLocation = new Vector2(2f * (viewport.Width / 10f), viewport.Height / 5f);
+            superMushroomLocation = new Vector2(3f * (viewport.Width / 10f), viewport.Height / 5f);
+            upMushroomLocation = new Vector2(4f * (viewport.Width / 10f), viewport.Height / 5f);
+            starLocation = new Vector2(5f * (viewport.Width / 10f), viewport.Height / 5f);
+            stairBlockLocation = new Vector2(6f * (viewport.Width / 10f), viewport.Height / 5f);
+            usedBlockLocation = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 5f);
+            questionBlockLocation = new Vector2(8f * (viewport.Width / 10f), viewport.Height / 5f);
+            brickBlockLocation = new Vector2(9f * (viewport.Width / 10f), viewport.Height / 5f);
+            rockBlockLocation = new Vector2(10f * (viewport.Width / 10f), viewport.Height / 5f);
 
             marioAction = new Action();
             state = InputState.Nothing;
@@ -108,6 +130,8 @@ namespace FlugelMario
             QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
             BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
             RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
+
+            background = Content.Load<Texture2D>("Background");
         }
 
         /// <summary>
@@ -163,25 +187,25 @@ namespace FlugelMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            Goomba.Draw(spriteBatch, goombaLocation);
-            Koopa.Draw(spriteBatch, koopaLocation);
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            spriteBatch.End();
 
             marioState.StateSprite.Draw(spriteBatch, marioLocation);
 
-            Goomba.Draw(spriteBatch, new Vector2(100, 100));
-            Koopa.Draw(spriteBatch, new Vector2(150, 100));
-
-            Flower.Draw(spriteBatch,new Vector2(100,150));
-            Coin.Draw(spriteBatch, new Vector2(150, 150));
-            SuperMushroom.Draw(spriteBatch, new Vector2(200, 150));
-            UpMushroom.Draw(spriteBatch, new Vector2(250, 150));
-            Star.Draw(spriteBatch, new Vector2(300, 150));
-
-            StairBlock.Draw(spriteBatch, new Vector2(100, 200));
-            UsedBlock.Draw(spriteBatch, new Vector2(150, 200));
-            QuestionBlock.Draw(spriteBatch, new Vector2(200, 200));
-            BrickBlock.Draw(spriteBatch, new Vector2(250, 200));
-            RockBlock.Draw(spriteBatch, new Vector2(300, 200));
+            Goomba.Draw(spriteBatch, goombaLocation);
+            Koopa.Draw(spriteBatch, koopaLocation);
+            Flower.Draw(spriteBatch, flowerLocation);
+            Coin.Draw(spriteBatch, coinLocation);
+            SuperMushroom.Draw(spriteBatch, superMushroomLocation);
+            UpMushroom.Draw(spriteBatch, upMushroomLocation);
+            Star.Draw(spriteBatch, starLocation);
+            StairBlock.Draw(spriteBatch, stairBlockLocation);
+            UsedBlock.Draw(spriteBatch, usedBlockLocation);
+            QuestionBlock.Draw(spriteBatch, questionBlockLocation);
+            BrickBlock.Draw(spriteBatch, brickBlockLocation);
+            RockBlock.Draw(spriteBatch, rockBlockLocation);
 
             base.Draw(gameTime);
         }
