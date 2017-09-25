@@ -7,7 +7,7 @@ namespace FlugelMario.Interfaces
     public interface IMarioPowerUp
     {
         Shape MarioShape { get; set; }
-        IController KeyboadrController { get; set; }
+        Controller KeyboadrController { get; set; }
         void Update();
     }
 }

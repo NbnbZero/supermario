@@ -1,12 +1,14 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using FlugelMario.Interfaces;
+using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario
 {
-    public class KeyboardController : IController
+    public class KeyboardController : Controller
     {
         private KeyboardState previousKeyboardState;
 
-        public KeyboardController (KeyboardState keyboard)
+        public KeyboardController (KeyboardState keyboard, IMarioState marioState)
+            : base (marioState)
         {
             previousKeyboardState = keyboard;
             state = InputState.Nothing;

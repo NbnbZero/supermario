@@ -10,7 +10,7 @@ namespace FlugelMario.Interfaces
     public interface IBlockStateChanges
     {
         BlockTypeEnums BlockType { get; set; }
-        IController KeyboadrController { get; set; }
+        Controller KeyboadrController { get; set; }
         void Update();
     }
 }

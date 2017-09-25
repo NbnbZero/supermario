@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
+using FlugelMario.Interfaces;
 
 namespace FlugelMario
 {
-    public class GamePadController : IController
+    public class GamePadController : Controller
     {
         private GamePadState previousGamepadState;
 
-        public GamePadController(GamePadState gamepad)
+        public GamePadController(GamePadState gamepad, IMarioState marioState) : base (marioState)
         {
             previousGamepadState = gamepad;
         }

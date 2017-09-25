@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
+using FlugelMario.Interfaces;
 
 namespace FlugelMario
 {
-    public abstract class IController
+    public abstract class Controller
     {
         protected InputState state;
+        protected IMarioState marioState;
+
+        public Controller(IMarioState state)
+        {
+            marioState = state;
+        }
 
         public virtual InputState Update(KeyboardState keyboard)
         {
@@ -41,7 +48,7 @@ namespace FlugelMario
             {
                 state = InputState.Nothing;
             }
-            else
+            else if (marioState.MarioShape == Enums.Shape.Big)
             {
                 state = InputState.Crouch;
             }

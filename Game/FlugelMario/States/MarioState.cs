@@ -10,17 +10,17 @@ namespace FlugelMario.States.MarioStates
 {
     public class MarioState : IMarioState
     {
+        public ISprite StateSprite { get; set; }
         public Posture MarioPosture { get; set; }
         public Direction MarioDirection { get; set; }
         public Shape MarioShape { get; set; }
-        public ISprite StateSprite { get; set; }
 
         public MarioState()
         {
             StateSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
-            this.MarioPosture = Posture.Stand;
-            this.MarioDirection = Direction.Right;
-            this.MarioShape = Shape.Small;
+            MarioPosture = Posture.Stand;
+            MarioDirection = Direction.Right;
+            MarioShape = Shape.Small;
         }
 
         public void RunLeft()

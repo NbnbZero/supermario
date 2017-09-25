@@ -7,6 +7,9 @@ namespace FlugelMario.Interfaces
     public interface IMarioState
     {   
         ISprite StateSprite { get; set; }
+        Posture MarioPosture { get; set; }
+        Direction MarioDirection { get; set; }
+        Shape MarioShape { get; set; }
         void Jump();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();

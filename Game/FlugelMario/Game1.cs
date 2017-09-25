@@ -17,7 +17,7 @@ namespace FlugelMario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Dictionary<IController, InputState> controllersWithStates; // Scalability ftw.
+        Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
 
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
@@ -45,19 +45,7 @@ namespace FlugelMario
         /// </summary>
         protected override void Initialize()
         {
-            #region Controller Initializers
-
-            controllersWithStates = new Dictionary<IController, InputState>();
-
-            controllersWithStates.Add(new KeyboardController(Keyboard.GetState()), InputState.Nothing);
-
-            for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
-            {
-                if (GamePad.GetState(i).IsConnected)
-                    controllersWithStates.Add(new GamePadController(GamePad.GetState(i)), InputState.Nothing);
-            }
-
-            #endregion
+            controllersWithStates = new Dictionary<Controller, InputState>();
 
             viewport = graphics.GraphicsDevice.Viewport;
             marioLocation = new Vector2(viewport.Width / 2f, viewport.Height / 2f);
@@ -87,6 +75,14 @@ namespace FlugelMario
             Koopa = EnemySpriteFactory.Instance.CreateKoopaSprite();
 
             marioState = new MarioState();
+
+            controllersWithStates.Add(new KeyboardController(Keyboard.GetState(), marioState), InputState.Nothing);
+
+            for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
+            {
+                if (GamePad.GetState(i).IsConnected)
+                    controllersWithStates.Add(new GamePadController(GamePad.GetState(i), marioState), InputState.Nothing);
+            }
         }
 
         /// <summary>
@@ -110,7 +106,7 @@ namespace FlugelMario
 
             #region Controllers Update
             
-            foreach(IController controller in controllersWithStates.Keys)
+            foreach(Controller controller in controllersWithStates.Keys)
             {
                 InputState newState = controller.Update(Keyboard.GetState());
 
