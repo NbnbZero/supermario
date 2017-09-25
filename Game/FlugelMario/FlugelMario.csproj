@@ -47,6 +47,13 @@
     <Compile Include="AbstractClasses\BlockSprite.cs" />
     <Compile Include="AbstractClasses\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
+    <Compile Include="Commnad\ExitCommand.cs" />
+    <Compile Include="Commnad\MarioCommand\JumpCommand.cs" />
+    <Compile Include="Commnad\MarioCommand\ChangeFireModeCommand.cs" />
+    <Compile Include="Commnad\MarioCommand\RunLeftCommand.cs" />
+    <Compile Include="Commnad\MarioCommand\CrouchCommand.cs" />
+    <Compile Include="Commnad\MarioCommand\RunRightCommand.cs" />
+    <Compile Include="Commnad\MarioCommand\PauseCommand.cs" />
     <Compile Include="Enums\MarioDirection.cs" />
     <Compile Include="Enums\MarioPosture.cs" />
     <Compile Include="Enums\MarioShape.cs" />
@@ -56,6 +63,7 @@
     <Compile Include="Interfaces\IBlockState.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
     <Compile Include="Interfaces\IAction.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />

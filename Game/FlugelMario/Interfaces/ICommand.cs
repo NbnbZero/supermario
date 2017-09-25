@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario.ICommands
+namespace FlugelMario.Interfaces
+
 {
-    public interface ICommands
+    public interface ICommand
     {
 
         void Execute();
