@@ -155,7 +155,7 @@ namespace FlugelMario.States.MarioStates
 
         public void Crouch()
         {
-            if (MarioDirection == Direction.Right)
+            if (MarioDirection == Direction.Right && MarioShape == Shape.Big)
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightBigMarioSprite();
             }
