@@ -270,7 +270,13 @@ namespace FlugelMario
             {
                 QuestionBlock.Draw(spriteBatch, location);
             }
-
+            if (state == InputState.ChangeToVisable)
+            {
+                foreach (Vector2 location in hiddenBlockLocations)
+                {
+                    BrickBlock.Draw(spriteBatch, location);
+                }
+            }
             BrickBlock.Draw(spriteBatch, brickBlockLocation1);
 
             RockBlock.Draw(spriteBatch, rockBlockLocation);

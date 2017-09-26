@@ -70,7 +70,7 @@ namespace FlugelMario
                 }
                 
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
+            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
             {
                 state = InputState.ChangeToVisable;
             }
