@@ -27,9 +27,10 @@ namespace FlugelMario.SpriteFactories
         public int QuestionSpriteSheetRows { get; } = 1;
         public int QuestionBlockAnimeTotalFrame { get; } = 3;
 
-        public int BrickSpriteSheetColum { get; } = 1;
+        public int BrickSpriteSheetColum { get; } = 3;
         public int BrickSpriteSheetRows { get; } = 1;
-        public int BrickBlockAnimeTotalFrame { get; } = 1;
+        public int BrickBlockAnimeTotalFrame { get; } = 3;
+
         public int RockSpriteSheetColum { get; } = 1;
         public int RockSpriteSheetRows { get; } = 1;
         public int RockBlockAnimeTotalFrame { get; } = 1;

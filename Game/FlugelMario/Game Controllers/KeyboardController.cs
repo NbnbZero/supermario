@@ -33,35 +33,35 @@ namespace FlugelMario
             {
                 HandleRight();
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
+            else if (currentKeyboardState.IsKeyDown(Keys.Y))
             {
                 state = InputState.MakeSmall;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
+            else if (currentKeyboardState.IsKeyDown(Keys.I))
             {
                 state = InputState.MakeFire;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
+            else if (currentKeyboardState.IsKeyDown(Keys.U))
             {
                 state = InputState.MakeBig;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
+            else if (currentKeyboardState.IsKeyDown(Keys.O))
             {
                 state = InputState.MakeDead;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.X) && !previousKeyboardState.IsKeyDown(Keys.X))
+            else if (currentKeyboardState.IsKeyDown(Keys.X))
             {
                 state = InputState.ChangeToUsed;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.B) && !previousKeyboardState.IsKeyDown(Keys.B))
+            else if (currentKeyboardState.IsKeyDown(Keys.B))
             {
-                if (Game1.MarioShape != Shape.Big)
+                if (Game1.MarioShape == Shape.Big || Game1.MarioShape == Shape.Fire)
                 {
-                    state = InputState.BumpUp;
+                    state = InputState.BreakBrick;
                 }
                 else
                 {
-                    state = InputState.BreakBrick;
+                    state = InputState.BumpUp;
                 }
                 
             }
