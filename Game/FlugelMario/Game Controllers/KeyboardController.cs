@@ -33,23 +33,23 @@ namespace FlugelMario
             {
                 HandleRight();
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.Y))
+            else if (currentKeyboardState.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
             {
                 state = InputState.MakeSmall;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.I))
+            else if (currentKeyboardState.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
             {
                 state = InputState.MakeFire;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.U))
+            else if (currentKeyboardState.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
             {
                 state = InputState.MakeBig;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.O))
+            else if (currentKeyboardState.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
             {
                 state = InputState.MakeDead;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            else if (currentKeyboardState.IsKeyDown(Keys.X) && !previousKeyboardState.IsKeyDown(Keys.X))
             {
                 state = InputState.ChangeToUsed;
             }
@@ -65,7 +65,7 @@ namespace FlugelMario
                 }
                 
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
+            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
             {
                 state = InputState.ChangeToVisable;
             }
