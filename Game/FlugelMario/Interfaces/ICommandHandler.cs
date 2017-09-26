@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace FlugelMario.Interfaces
 {
-    interface ICommand
+    interface ICommandHandler
     {
-        void Execute(InputState state, IMarioState marioState);
-
-        void Execute();
+        void Update();
     }
 }
