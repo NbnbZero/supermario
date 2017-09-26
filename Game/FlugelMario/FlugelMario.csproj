@@ -51,13 +51,6 @@
     <Compile Include="Sprites\Blocks\HiddenBlockSprite.cs" />
     <Compile Include="States\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
-    <Compile Include="Commnad\ExitCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\JumpCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\ChangeFireModeCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\RunLeftCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\CrouchCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\RunRightCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\PauseCommand.cs" />
     <Compile Include="Enums\MarioDirection.cs" />
     <Compile Include="Enums\MarioPosture.cs" />
     <Compile Include="Enums\MarioShape.cs" />

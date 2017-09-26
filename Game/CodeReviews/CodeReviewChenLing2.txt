@@ -1,0 +1,16 @@
+Author: Chen Ling
+Date: 2017.9.25
+Sprint Number: 1
+Reviewed File: ItemSpriteFactory.cs & StarSprite/CoinSprite.cs
+Author of Reviewed File: Haobin Xu
+Review Time: 20 min
+
+Code Quality:
+The classes are in high cohesion because the ItemSpriteFactory.cs only focuses on handling the basic information of all item sprites?information.
+By doing so,the width and height of each small sprite can be precisely calculated instead of creating a magic number. 
+StarSprite.cs is only responsible for concrete implementations of star sprite changes. 
+And almost all of the sprite classes have the same structure and similar implementations, which is well organized.
+
+Flexitiblity to Hypothetical Change:
+Some constructions in ItemSpriteFactory.cs such as CoinAnimation2 have no upstream public or protected callers, which is not a good practice. 
+Everything in the class should have at least 1 references in order to improve code quality.
