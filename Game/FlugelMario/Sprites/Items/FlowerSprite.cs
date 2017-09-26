@@ -17,7 +17,7 @@ namespace FlugelMario.Sprites.Items
         public Rectangle Destination { get; set; }
 
         private Rectangle sourceRectangle;
-        private int FlowerWidth = ItemSpriteFactory.Instance.FlowerWith;
+        private int FlowerWtidth = ItemSpriteFactory.Instance.FlowerWith;
         private int FlowerHeight = ItemSpriteFactory.Instance.FlowerHeight;
         private int TextureX = (int)ItemSpriteFactory.Instance.FlowerAnimation1.X;
         private int TextureY = (int)ItemSpriteFactory.Instance.FlowerAnimation1.Y;
@@ -46,7 +46,7 @@ namespace FlugelMario.Sprites.Items
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) *FlowerWidth,TextureY*FlowerHeight, FlowerWidth,FlowerHeight);
+            sourceRectangle = new Rectangle((TextureX + currentFrame) *FlowerWtidth,TextureY*FlowerHeight, FlowerWtidth,FlowerHeight);
             Destination = MakeDestinationRectangle(location);
 
             spriteBatch.Begin();
@@ -56,7 +56,7 @@ namespace FlugelMario.Sprites.Items
 
          public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            return new Rectangle((int)location.X, (int)location.Y, FlowerWidth, FlowerHeight);
+            return new Rectangle((int)location.X, (int)location.Y, FlowerWtidth, FlowerHeight);
         }
     }
 }
