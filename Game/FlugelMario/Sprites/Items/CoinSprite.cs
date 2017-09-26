@@ -17,7 +17,7 @@ namespace FlugelMario.Sprites.Items
         public Rectangle Destination { get; set; }
 
         private Rectangle sourceRectangle;
-        private int CoinWtidth = ItemSpriteFactory.Instance.CoinWith;
+        private int CoinWidth = ItemSpriteFactory.Instance.CoinWith;
         private int CoinHeight = ItemSpriteFactory.Instance.CoinHeight;
         private int TextureX = (int)ItemSpriteFactory.Instance.CoinAnimation1.X;
         private int TextureY = (int)ItemSpriteFactory.Instance.CoinAnimation1.Y;
@@ -46,7 +46,7 @@ namespace FlugelMario.Sprites.Items
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) * CoinWtidth, TextureY * CoinHeight, CoinWtidth, CoinHeight);
+            sourceRectangle = new Rectangle((TextureX + currentFrame) * CoinWidth, TextureY * CoinHeight, CoinWidth, CoinHeight);
             Destination = MakeDestinationRectangle(location);
 
             spriteBatch.Begin();
@@ -56,7 +56,7 @@ namespace FlugelMario.Sprites.Items
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            return new Rectangle((int)location.X, (int)location.Y, CoinWtidth, CoinHeight);
+            return new Rectangle((int)location.X, (int)location.Y, CoinWidth, CoinHeight);
         }
     }
 }

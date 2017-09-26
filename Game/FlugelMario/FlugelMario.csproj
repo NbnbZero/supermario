@@ -58,8 +58,8 @@
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
-    <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\IMarioPowerUp.cs" />
+    <Compile Include="Interfaces\IMarioState.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
     <Compile Include="Commands\MarioCommand.cs" />
