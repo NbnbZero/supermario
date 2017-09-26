@@ -111,9 +111,9 @@ namespace FlugelMario.States.MarioStates
 
         }
 
-        public void BeIdle(InputState state)
+        public void BeIdle(Input state)
         {
-            if (state == InputState.IdleLeft)
+            if (state == Input.IdleLeft)
             {
                 if (MarioShape == Shape.Small)
                 {
@@ -155,7 +155,7 @@ namespace FlugelMario.States.MarioStates
 
         public void Crouch()
         {
-            if (MarioDirection == Direction.Right)
+            if (MarioDirection == Direction.Right && MarioShape==Shape.Big)
             {
                 if (MarioShape == Shape.Big)
                 {
@@ -166,7 +166,7 @@ namespace FlugelMario.States.MarioStates
                     StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightFireMarioSprite();
                 }
             }
-            else
+            else if(MarioDirection == Direction.Left && MarioShape == Shape.Big)
             {
                 if (MarioShape == Shape.Big)
                 {
@@ -177,6 +177,14 @@ namespace FlugelMario.States.MarioStates
                     StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftFireMarioSprite();
                 }
                 
+            }
+            else if (MarioDirection == Direction.Right && MarioShape == Shape.Fire)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightFireMarioSprite();
+            }
+            else if (MarioDirection == Direction.Left && MarioShape == Shape.Fire)
+            {
+                StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftFireMarioSprite();
             }
         }
 

@@ -9,40 +9,40 @@ using FlugelMario.AbstractClasses;
 
 namespace FlugelMario
 {
-    class Action : IAction
+    class MarioCommand : ICommand
     {
-        public void Execute(InputState state, IMarioState marioState)
+        public void Execute(Input state, IMarioState marioState)
         {
             switch (state)
             {
-                case InputState.Crouch:
+                case Input.Crouch:
                     marioState.Crouch();
                     break;
-                case InputState.Jump:
+                case Input.Jump:
                     marioState.Jump();
                     break;
-                case InputState.RunLeft:
+                case Input.RunLeft:
                     marioState.RunLeft();
                     break;
-                case InputState.IdleLeft:
-                    marioState.BeIdle(InputState.IdleLeft);
+                case Input.IdleLeft:
+                    marioState.BeIdle(Input.IdleLeft);
                     break;
-                case InputState.IdleRight:
-                    marioState.BeIdle(InputState.IdleRight);
+                case Input.IdleRight:
+                    marioState.BeIdle(Input.IdleRight);
                     break;
-                case InputState.RunRight:
+                case Input.RunRight:
                     marioState.RunRight();
                     break;
-                case InputState.MakeSmall:
+                case Input.MakeSmall:
                     marioState.ChangeSizeToSmall();
                     break;
-                case InputState.MakeBig:
+                case Input.MakeBig:
                     marioState.ChangeSizeToBig();
                     break;
-                case InputState.MakeFire:
+                case Input.MakeFire:
                     marioState.ChangeFireMode();
                     break;
-                case InputState.MakeDead:
+                case Input.MakeDead:
                     marioState.Terminated();
                     break;
                 default:

@@ -12,7 +12,7 @@ namespace FlugelMario
 {
     public abstract class Controller
     {
-        protected InputState state;
+        protected Input state;
         protected IMarioState marioState;
 
         public Controller(IMarioState state)
@@ -20,71 +20,71 @@ namespace FlugelMario
             marioState = state;
         }
 
-        public virtual InputState Update(KeyboardState keyboard)
+        public virtual Input Update(KeyboardState keyboard)
         {
-            return InputState.Nothing;
+            return Input.Nothing;
         }
 
-        public virtual InputState Update(GamePadState keyboard)
+        public virtual Input Update(GamePadState keyboard)
         {
-            return InputState.Nothing;
+            return Input.Nothing;
         }
 
         #region Direction Logic
 
         protected void HandleUp()
         {
-            if (state == InputState.Crouch)
+            if (state == Input.Crouch)
             {
-                state = InputState.Nothing;
+                state = Input.Nothing;
             }
             else
             {
-                state = InputState.Jump;
+                state = Input.Jump;
             }
         }
 
         protected void HandleDown()
         {
-            if (state == InputState.Jump)
+            if (state == Input.Jump)
             {
-                state = InputState.Nothing;
+                state = Input.Nothing;
             }
             else if (marioState.MarioShape == Enums.Shape.Big)
             {
-                state = InputState.Crouch;
+                state = Input.Crouch;
             }
         }
 
         protected void HandleLeft()
         {
-            if (state == InputState.RunRight)
+            if (state == Input.RunRight)
             {
-                state = InputState.IdleRight;
+                state = Input.IdleRight;
             }
-            else if (state == InputState.IdleRight)
+            else if (state == Input.IdleRight)
             {
-                state = InputState.IdleLeft;
+                state = Input.IdleLeft;
             }
             else
             {
-                state = InputState.RunLeft;
+                state = Input.RunLeft;
             }
         }
 
         protected void HandleRight()
         {
-            if (state == InputState.RunLeft)
+            if (state == Input.RunLeft)
             {
-                state = InputState.IdleLeft;
+                state = Input.IdleLeft;
             }
-            else if (state == InputState.IdleLeft)
+            else if (state == Input.IdleLeft)
             {
-                state = InputState.IdleRight;
+                state = Input.IdleRight;
             }
             else
             {
-                state = InputState.RunRight;
+                state = Input.RunRight;
             }
         }
         #endregion

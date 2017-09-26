@@ -2,11 +2,7 @@
 using FlugelMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FlugelMario.Sprites.Items
 {
@@ -17,7 +13,7 @@ namespace FlugelMario.Sprites.Items
         public Rectangle Destination { get; set; }
 
         private Rectangle sourceRectangle;
-        private int StarWtidth = ItemSpriteFactory.Instance.StarWith;
+        private int StarWidth = ItemSpriteFactory.Instance.StarWith;
         private int StarHeight = ItemSpriteFactory.Instance.StarHeight;
         private int TextureX = (int)ItemSpriteFactory.Instance.StarAnimation1.X;
         private int TextureY = (int)ItemSpriteFactory.Instance.StarAnimation1.Y;
@@ -46,7 +42,7 @@ namespace FlugelMario.Sprites.Items
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) * StarWtidth, TextureY * StarHeight, StarWtidth, StarHeight);
+            sourceRectangle = new Rectangle((TextureX + currentFrame) * StarWidth, TextureY * StarHeight, StarWidth, StarHeight);
             Destination = MakeDestinationRectangle(location);
 
             spriteBatch.Begin();
@@ -56,7 +52,7 @@ namespace FlugelMario.Sprites.Items
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            return new Rectangle((int)location.X, (int)location.Y, StarWtidth, StarHeight);
+            return new Rectangle((int)location.X, (int)location.Y, StarWidth, StarHeight);
         }
     }
 }

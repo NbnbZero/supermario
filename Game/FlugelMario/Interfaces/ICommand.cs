@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FlugelMario.Interfaces
-
 {
-    public interface ICommand
+    interface ICommand
     {
-
-        void Execute();
+        void Execute(Input state, IMarioState marioState);
     }
 }

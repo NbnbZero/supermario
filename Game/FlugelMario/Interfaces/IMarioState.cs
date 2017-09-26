@@ -22,6 +22,6 @@ namespace FlugelMario.Interfaces
         void RunLeft();
         void RunRight();
         void BeIdle();
-        void BeIdle(InputState state);
+        void BeIdle(Input state);
     }
 }

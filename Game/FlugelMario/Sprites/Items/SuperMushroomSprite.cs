@@ -17,7 +17,7 @@ namespace FlugelMario.Sprites.Items
         public Rectangle Destination { get; set; }
 
         private Rectangle sourceRectangle;
-        private int SuperMushroomWtidth = ItemSpriteFactory.Instance.SuperMushroomWith;
+        private int SuperMushroomWidth = ItemSpriteFactory.Instance.SuperMushroomWith;
         private int SuperMushroomHeight = ItemSpriteFactory.Instance.SuperMushroomHeight;
         private int TextureX = (int)ItemSpriteFactory.Instance.SuperMushroomAnimation1.X;
         private int TextureY = (int)ItemSpriteFactory.Instance.SuperMushroomAnimation1.Y;
@@ -46,7 +46,7 @@ namespace FlugelMario.Sprites.Items
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) * SuperMushroomWtidth, TextureY * SuperMushroomHeight, SuperMushroomWtidth, SuperMushroomHeight);
+            sourceRectangle = new Rectangle((TextureX + currentFrame) * SuperMushroomWidth, TextureY * SuperMushroomHeight, SuperMushroomWidth, SuperMushroomHeight);
             Destination = MakeDestinationRectangle(location);
 
             spriteBatch.Begin();
@@ -56,7 +56,7 @@ namespace FlugelMario.Sprites.Items
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            return new Rectangle((int)location.X, (int)location.Y, SuperMushroomWtidth, SuperMushroomHeight);
+            return new Rectangle((int)location.X, (int)location.Y, SuperMushroomWidth, SuperMushroomHeight);
         }
     }
 }
