@@ -19,7 +19,7 @@ namespace FlugelMario.Interfaces
         void ChangeToBrickBlock(Vector2 BlockLocation);
         void ChangeToQuestionBlock(Vector2 BlockLocation);
         void BlockBumpUp(Vector2 BlockLocation);
-        void BreakBrick(Vector2 BlockLocation);
+        void BreakBrickBlock(Vector2 BlockLocation);
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
