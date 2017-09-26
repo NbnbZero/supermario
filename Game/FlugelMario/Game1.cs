@@ -64,7 +64,7 @@ namespace FlugelMario
         public Vector2 usedBlockLocation1;
         public Vector2 questionBlockLocation1;
         public Vector2 hiddenBlock1;
-        public Vector2 brickBlockLocation1;
+        public static Vector2 brickBlockLocation1;
         public Vector2 rockBlockLocation;
 
         public Game1()
@@ -183,6 +183,7 @@ namespace FlugelMario
 
             foreach(Controller controller in controllersWithStates.Keys)
             {
+
                 InputState newState = controller.Update(Keyboard.GetState());
 
                 if (newState != state)
@@ -191,23 +192,32 @@ namespace FlugelMario
 
                     if (newState == InputState.ChangeToUsed)
                     {
-                        QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1, MarioShape);
+                        QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
                     }
                     else if (newState == InputState.ChangeToVisable)
                     {
-                        BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1, MarioShape);
+                        BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
                     }
-                    else if (newState == InputState.BumpUp || newState == InputState.BreakBrick)
+                    else if (newState == InputState.BumpUp)
                     {
-                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1, MarioShape);
+                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                    }
+                    else if (newState == InputState.BreakBrick)
+                    {
+                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
                     }
                     
                     state = newState;
                 }
-                
+
                 marioState.StateSprite.Update();
                 QuestionBlockState.StateSprite.Update();
-                BrickBlockState.StateSprite.Update();
+            }
+
+            if (state == InputState.BumpUp)
+            {
+                brickBlockLocations.Remove(brickBlockLocation1);
+                BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
             }
 
             Goomba.Update();
@@ -252,7 +262,7 @@ namespace FlugelMario
             }
             foreach (Vector2 location in brickBlockLocations)
             {
-                BrickBlock.Draw(spriteBatch, location);
+                BrickBlock.Draw(spriteBatch, location);                       
             }            
             RockBlock.Draw(spriteBatch, rockBlockLocation);
 
