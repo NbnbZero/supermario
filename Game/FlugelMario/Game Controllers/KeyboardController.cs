@@ -1,16 +1,21 @@
 ﻿using FlugelMario.Enums;
 using FlugelMario.Interfaces;
 using Microsoft.Xna.Framework.Input;
-
+using System.Collections.Generic;
+using FlugelMario;
 namespace FlugelMario
 {
     public class KeyboardController : Controller
     {
         private KeyboardState previousKeyboardState;
+        Dictionary<Keys, ICommand> gameControl;
+        Game1 mygame;
 
         public KeyboardController (KeyboardState keyboard, IMarioState marioState)
             : base (marioState)
         {
+            gameControl = new Dictionary<Keys, ICommand>();
+            gameControl.Add(Keys.Q, new QuitGameCommand(mygame));
             previousKeyboardState = keyboard;
             state = InputState.Nothing;
         }
@@ -69,9 +74,6 @@ namespace FlugelMario
             {
                 state = InputState.ChangeToVisable;
             }
-
-            previousKeyboardState = currentKeyboardState;
-
             return state;
         }
     }

@@ -9,7 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using FlugelMario.States.MarioStates;
 using FlugelMario.Enums;
-
+using System.Collections;
+using FlugelMario.Game_Controllers;
 namespace FlugelMario
 {
     /// <summary>
@@ -66,6 +67,7 @@ namespace FlugelMario
         public Vector2 hiddenBlock1;
         public static Vector2 brickBlockLocation1;
         public Vector2 rockBlockLocation;
+        private ArrayList controllerList;
 
         public Game1()
         {
@@ -82,6 +84,8 @@ namespace FlugelMario
         protected override void Initialize()
         {
             controllersWithStates = new Dictionary<Controller, InputState>();
+            controllerList = new ArrayList();
+            controllerList.Add(new KeyboardController_GameControl(this));
 
             viewport = graphics.GraphicsDevice.Viewport;
 
@@ -181,7 +185,12 @@ namespace FlugelMario
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            foreach(Controller controller in controllersWithStates.Keys)
+            foreach (ICommandHandler controller in controllerList)
+            {
+                controller.Update();
+            }
+
+            foreach (Controller controller in controllersWithStates.Keys)
             {
 
                 InputState newState = controller.Update(Keyboard.GetState());
