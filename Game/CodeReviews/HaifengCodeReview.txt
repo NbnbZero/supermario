@@ -1,0 +1,22 @@
+Date: 9/26/2017
+
+
+Sprint: 1
+
+
+File Being Reviewed: BrickBlockSprite.cs
+
+
+Author of File:	Yanbodu
+
+
+Comments on Quality:
+-Arrangement with state machine for blocks
+-BlockSprite execution written to Game1.cs may not be clean, it is better to be put into command style
+to keep consistence with the Mariocommand.
+
+time taken: 20 mins
+
+Hypothetical changes:
+-In the collision work later, bump state could be made a boolean to determine whether the block is hit.
+Which means no matter which type of bricks could all be controlled by that block state reflect to it. 
