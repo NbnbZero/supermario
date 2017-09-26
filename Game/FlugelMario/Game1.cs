@@ -32,7 +32,7 @@ namespace FlugelMario
         IMarioState marioState;
         IBlockState QuestionBlockState;
         IBlockState BrickBlockState;
-        InputState state;
+        public static InputState state;
         BlockChange QuestionBlockChange;
         BlockChange BrickBlockChange;
         Action marioAction;
@@ -61,7 +61,6 @@ namespace FlugelMario
         public static List<Vector2> questionBlockLocations = new List<Vector2>();
         public static List<Vector2> brickBlockLocations = new List<Vector2>();
         public static List<Vector2> hiddenBlockLocations = new List<Vector2>();
-        public static List<Vector2> birckBlockLocations = new List<Vector2>();
         public Vector2 usedBlockLocation1;
         public Vector2 questionBlockLocation1;
         public Vector2 hiddenBlock1;
@@ -218,16 +217,18 @@ namespace FlugelMario
                     
                     state = newState;
                 }
-
+                else if (state == InputState.BumpUp)
+                {
+                    BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
+                }
+                else if (state == InputState.BreakBrick)
+                {
+                    BrickBlock.Update();
+                }
                 marioState.StateSprite.Update();
                 QuestionBlockState.StateSprite.Update();
             }
 
-            if (state == InputState.BumpUp)
-            {
-                brickBlockLocations.Remove(brickBlockLocation1);
-                BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
-            }
 
             Goomba.Update();
             Koopa.Update();
@@ -269,10 +270,9 @@ namespace FlugelMario
             {
                 QuestionBlock.Draw(spriteBatch, location);
             }
-            foreach (Vector2 location in brickBlockLocations)
-            {
-                BrickBlock.Draw(spriteBatch, location);                       
-            }            
+
+            BrickBlock.Draw(spriteBatch, brickBlockLocation1);
+
             RockBlock.Draw(spriteBatch, rockBlockLocation);
 
             base.Draw(gameTime);

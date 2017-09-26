@@ -44,7 +44,7 @@ namespace FlugelMario.Sprites.Blocks
         {
 
             Destination = MakeDestinationRectangle(location);
-            if (counter % 10 == 0)
+            if (counter % 20 == 0)
             {
                 currentFrame++;
                 currentFrame = currentFrame % TotalFrames;
