@@ -11,10 +11,10 @@ namespace FlugelMario
             : base (marioState)
         {
             previousKeyboardState = keyboard;
-            state = InputState.Nothing;
+            state = Input.Nothing;
         }
 
-        public override InputState Update(KeyboardState currentKeyboardState)
+        public override Input Update(KeyboardState currentKeyboardState)
         {
             if (currentKeyboardState.IsKeyDown(Keys.Up) && !previousKeyboardState.IsKeyDown(Keys.Up))
             {
@@ -34,19 +34,19 @@ namespace FlugelMario
             }
             else if (currentKeyboardState.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
             {
-                state = InputState.MakeSmall;
+                state = Input.MakeSmall;
             }
             else if (currentKeyboardState.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
             {
-                state = InputState.MakeFire;
+                state = Input.MakeFire;
             }
             else if (currentKeyboardState.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
             {
-                state = InputState.MakeBig;
+                state = Input.MakeBig;
             }
             else if (currentKeyboardState.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
             {
-                state = InputState.MakeDead;
+                state = Input.MakeDead;
             }
 
             previousKeyboardState = currentKeyboardState;

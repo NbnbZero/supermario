@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlugelMario
 {
-    public enum InputState
+    public enum Input
     {
         Nothing,
         RunLeft,

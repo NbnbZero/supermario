@@ -111,9 +111,9 @@ namespace FlugelMario.States.MarioStates
 
         }
 
-        public void BeIdle(InputState state)
+        public void BeIdle(Input state)
         {
-            if (state == InputState.IdleLeft)
+            if (state == Input.IdleLeft)
             {
                 if (MarioShape == Shape.Small)
                 {

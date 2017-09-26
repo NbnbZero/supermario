@@ -17,20 +17,12 @@ namespace FlugelMario
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
-        Texture2D background;
+
+        #region Sprite Declarations
 
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
         public Shape marioShape { get; set; }
-
-        Viewport viewport;
-        IMarioState marioState;
-        InputState state;
-        Action marioAction;
-
         public ISprite Flower { get; set; }
         public ISprite Coin { get; set; }
         public ISprite SuperMushroom { get; set; }
@@ -41,6 +33,10 @@ namespace FlugelMario
         public ISprite QuestionBlock { get; set; }
         public ISprite BrickBlock { get; set; }
         public ISprite RockBlock { get; set; }
+
+        #endregion
+
+        #region Location Declarations
 
         Vector2 marioLocation;
         Vector2 goombaLocation;
@@ -56,6 +52,22 @@ namespace FlugelMario
         Vector2 brickBlockLocation;
         Vector2 rockBlockLocation;
 
+        #endregion
+
+        #region Miscelaneous Declarations
+
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        Dictionary<Controller, Input> controllersWithStates;
+        Texture2D background;
+        Viewport viewport;
+        IMarioState marioState;
+        Input state;
+        MarioCommand marioAction;
+
+        #endregion
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -70,27 +82,44 @@ namespace FlugelMario
         /// </summary>
         protected override void Initialize()
         {
-            controllersWithStates = new Dictionary<Controller, InputState>();
+            controllersWithStates = new Dictionary<Controller, Input>();
 
             viewport = graphics.GraphicsDevice.Viewport;
 
-            marioLocation = new Vector2(viewport.Width / 2f, viewport.Height / 2f);
-            goombaLocation = new Vector2(viewport.Width / 4f, viewport.Height / 4f);
-            koopaLocation = new Vector2(3f*(viewport.Width / 4f), viewport.Height / 4f);
-            flowerLocation = new Vector2(1f * (viewport.Width / 10f), viewport.Height / 5f);
-            coinLocation = new Vector2(2f * (viewport.Width / 10f), viewport.Height / 5f);
-            superMushroomLocation = new Vector2(3f * (viewport.Width / 10f), viewport.Height / 5f);
-            upMushroomLocation = new Vector2(4f * (viewport.Width / 10f), viewport.Height / 5f);
-            starLocation = new Vector2(5f * (viewport.Width / 10f), viewport.Height / 5f);
-            stairBlockLocation = new Vector2(6f * (viewport.Width / 10f), viewport.Height / 5f);
-            usedBlockLocation = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 5f);
-            questionBlockLocation = new Vector2(8f * (viewport.Width / 10f), viewport.Height / 5f);
-            brickBlockLocation = new Vector2(9f * (viewport.Width / 10f), viewport.Height / 5f);
-            rockBlockLocation = new Vector2(10f * (viewport.Width / 10f), viewport.Height / 5f);
+            marioAction = new MarioCommand();
 
-            marioAction = new Action();
-            state = InputState.Nothing;
+            // Start Mario off as small doing nothing.
+            state = Input.Nothing;
             marioShape = Shape.Small;
+
+            #region Sprite Location Definitions
+
+            // Put Mario in the middle just because.
+            var middleHeight = viewport.Height / 2f;
+            var middleWidth = viewport.Width / 2f;
+
+            marioLocation = new Vector2(middleWidth, middleHeight);
+
+            // Put all the other sprites somwehere random
+            var row1 = viewport.Height / 5f;
+            var row2 = viewport.Height / 4f;
+            var columndWidth = viewport.Width / 10f;
+
+            goombaLocation = new Vector2(viewport.Width / 4f, row2);
+            koopaLocation = new Vector2(3f*(viewport.Width / 4f), row2);
+            flowerLocation = new Vector2(1f * columndWidth, row1);
+            coinLocation = new Vector2(2f * columndWidth, row1);
+            superMushroomLocation = new Vector2(3f * columndWidth, row1);
+            upMushroomLocation = new Vector2(4f * columndWidth, row1);
+            starLocation = new Vector2(5f * columndWidth, row1);
+            stairBlockLocation = new Vector2(6f * columndWidth, row1);
+            usedBlockLocation = new Vector2(7f * columndWidth, row1);
+            questionBlockLocation = new Vector2(8f * columndWidth, row1);
+            brickBlockLocation = new Vector2(9f * columndWidth, row1);
+            rockBlockLocation = new Vector2(10f * columndWidth, row1);
+
+            #endregion
+
             base.Initialize();
         }
 
@@ -102,37 +131,44 @@ namespace FlugelMario
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
-            // TODO: use this.Content to load your game content here
+
+            #region Controller Initialization Logic
+
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
+
+            marioState = new MarioState();
+
+            controllersWithStates.Add(new KeyboardController(Keyboard.GetState(), marioState), Input.Nothing);
+
+            for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
+            {
+                if (GamePad.GetState(i).IsConnected)
+                    controllersWithStates.Add(new GamePadController(GamePad.GetState(i), marioState), Input.Nothing);
+            }
+
+            #endregion
+
+            #region Sprite Defitions
 
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             Goomba = EnemySpriteFactory.Instance.CreateGoombaSprite();
             Koopa = EnemySpriteFactory.Instance.CreateKoopaSprite();
 
-            marioState = new MarioState();
-
-            controllersWithStates.Add(new KeyboardController(Keyboard.GetState(), marioState), InputState.Nothing);
-
-            for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
-            {
-                if (GamePad.GetState(i).IsConnected)
-                    controllersWithStates.Add(new GamePadController(GamePad.GetState(i), marioState), InputState.Nothing);
-            }
-
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
-            Flower = ItemSpriteFactory.Instance.CreateFlowerSprite();
-            Coin = ItemSpriteFactory.Instance.CreateCoinSprite();
+            Flower =        ItemSpriteFactory.Instance.CreateFlowerSprite();
+            Coin =          ItemSpriteFactory.Instance.CreateCoinSprite();
             SuperMushroom = ItemSpriteFactory.Instance.CreateSuperMushroomSprite();
-            UpMushroom = ItemSpriteFactory.Instance.CreateUpMushroomSprite();
-            Star = ItemSpriteFactory.Instance.CreateStarSprite();
+            UpMushroom =    ItemSpriteFactory.Instance.CreateUpMushroomSprite();
+            Star =          ItemSpriteFactory.Instance.CreateStarSprite();
 
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            StairBlock = BlockSpriteFactory.Instance.CreateStairBlock();
-            UsedBlock = BlockSpriteFactory.Instance.CreateUsedBlock();
+            StairBlock =    BlockSpriteFactory.Instance.CreateStairBlock();
+            UsedBlock =     BlockSpriteFactory.Instance.CreateUsedBlock();
             QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
-            BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
-            RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
+            BrickBlock =    BlockSpriteFactory.Instance.CreateBrickBlock();
+            RockBlock =     BlockSpriteFactory.Instance.CreateRockBlock();
+
+            #endregion
 
             background = Content.Load<Texture2D>("Background");
         }
@@ -156,9 +192,11 @@ namespace FlugelMario
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            #region Mario Update
+
             foreach(Controller controller in controllersWithStates.Keys)
             {
-                InputState newState = controller.Update(Keyboard.GetState());
+                Input newState = controller.Update(Keyboard.GetState());
 
                 if (newState != state)
                 {
@@ -169,12 +207,18 @@ namespace FlugelMario
                 marioState.StateSprite.Update();
             }
 
+            #endregion
+
+            #region Other Sprite Updates
+
             Goomba.Update();
             Koopa.Update();
             Flower.Update();
             Coin.Update();
             Star.Update();
             QuestionBlock.Update();
+
+            #endregion
 
             base.Update(gameTime);
         }
@@ -191,8 +235,9 @@ namespace FlugelMario
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
             spriteBatch.End();
 
-            marioState.StateSprite.Draw(spriteBatch, marioLocation);
+            #region Sprite Draws
 
+            marioState.StateSprite.Draw(spriteBatch, marioLocation);
             Goomba.Draw(spriteBatch, goombaLocation);
             Koopa.Draw(spriteBatch, koopaLocation);
             Flower.Draw(spriteBatch, flowerLocation);
@@ -205,6 +250,8 @@ namespace FlugelMario
             QuestionBlock.Draw(spriteBatch, questionBlockLocation);
             BrickBlock.Draw(spriteBatch, brickBlockLocation);
             RockBlock.Draw(spriteBatch, rockBlockLocation);
+
+            #endregion
 
             base.Draw(gameTime);
         }
