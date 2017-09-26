@@ -39,36 +39,38 @@ namespace FlugelMario.AbstractClasses
             BlockType = type;
         }
 
-        public void ChangeToUsedBlock()
+        public void ChangeToUsedBlock(Vector2 BlockLocation)
         {
-            BlockType = BlockType.Used;
-            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock();
+            BlockType = BlockType.Used;           
+            Game1.usedBlockLocations.Add(BlockLocation);
+            Game1.questionBlockLocations.Remove(BlockLocation);
         }
 
-        public void ChangeToBrickBlock()
+        public void ChangeToBrickBlock(Vector2 BlockLocation)
         {
             BlockType = BlockType.Brick;
-            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock();
+            Game1.brickBlockLocations.Add(BlockLocation);
         }
-
-        public void ChangeToHiddenBlock()
-        {
-            BlockType = BlockType.Hidden;
-            StateSprite = BlockSpriteFactory.Instance.CreateHiddenBlock();
-        }
-
-        public void ChangeToQuestionBlock()
+        public void ChangeToQuestionBlock(Vector2 BlockLocation)
         {
             BlockType = BlockType.Question;
-            StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock();
         }
 
-        public void BlockBumpUp()
+        public void BlockBumpUp(Vector2 BlockLocation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BreakBrick(Vector2 BlockLocation)
         {
             throw new NotImplementedException();
         }
 
         public void Update()
+        {
+            throw new NotImplementedException();
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             throw new NotImplementedException();
         }

@@ -49,15 +49,23 @@ namespace FlugelMario
             {
                 state = InputState.MakeDead;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            else if (currentKeyboardState.IsKeyDown(Keys.X) && !previousKeyboardState.IsKeyDown(Keys.X))
             {
                 state = InputState.ChangeToUsed;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.B))
+            else if (currentKeyboardState.IsKeyDown(Keys.B) && !previousKeyboardState.IsKeyDown(Keys.B))
             {
-                state = InputState.BumpUp;
+                if (Game1.MarioShape != Shape.Big)
+                {
+                    state = InputState.BumpUp;
+                }
+                else
+                {
+                    state = InputState.BreakBrick;
+                }
+                
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
             {
                 state = InputState.ChangeToVisable;
             }

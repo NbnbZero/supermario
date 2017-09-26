@@ -21,6 +21,7 @@ namespace FlugelMario
         Crouch,
         ChangeToUsed,
         BumpUp,
-        ChangeToVisable
+        ChangeToVisable,
+        BreakBrick
     }
 }
