@@ -34,7 +34,7 @@ namespace FlugelMario.SpriteFactories
         }
         public void LoadAllTextures(ContentManager content)
         {
-            FireballSpritesheet = content.Load<Texture2D>("misc-3");
+            FireballSpritesheet = content.Load<Texture2D>("Fireball");
         }
 
         public int FireballWidth
