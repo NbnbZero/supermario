@@ -1,0 +1,18 @@
+Author: Chen Ling
+Date: 2017.9.25
+Sprint Number: 1
+Reviewed File: ItemSpriteFactory.cs & StarSprite/CoinSprite.cs
+Author of Reviewed File: Haobin Xu
+Review Time: 20 min
+
+Readiblity:
+Haobin constantly conforms to a good naming convention in these files. 
+All class members and parameters are in Camel Casing style while the names of classes, properties and methods are in Pascal style. 
+The names of the variables and methods are clear and easy to understand. Also ItemSpriteFactory is a nice try. 
+Here Haobin declares all of the necessary variables and texture coordinates, which can be easily found and used in the future.
+
+Flexitiblity to Hypothetical Change:
+Adding a state machine class for item might be better. 
+For instance, if a missing mode is needed for coin, 
+what Haobin needs to do is simply to add a boolean variable named "isMissing" to indicated the state of coin and add a MissingCoin implementation in an ItemStateMachine class. 
+And then only some minor changes in the state machine class are needed for the state transitions.
