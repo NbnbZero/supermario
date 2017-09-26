@@ -58,10 +58,12 @@ namespace FlugelMario.AbstractClasses
 
         public void BlockBumpUp(Vector2 BlockLocation)
         {
-            throw new NotImplementedException();
+            Game1.brickBlockLocations.Remove(BlockLocation);
+            BlockLocation.Y-=5;
+            Game1.brickBlockLocations.Add(BlockLocation);
         }
 
-        public void BreakBrick(Vector2 BlockLocation)
+        public void BreakBrickBlock(Vector2 BlockLocation)
         {
             throw new NotImplementedException();
         }

@@ -64,7 +64,7 @@ namespace FlugelMario
         public Vector2 usedBlockLocation1;
         public Vector2 questionBlockLocation1;
         public Vector2 hiddenBlock1;
-        public Vector2 brickBlockLocation1;
+        public static Vector2 brickBlockLocation1;
         public Vector2 rockBlockLocation;
 
         public Game1()
@@ -191,15 +191,15 @@ namespace FlugelMario
 
                     if (newState == InputState.ChangeToUsed)
                     {
-                        QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1, MarioShape);
+                        QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
                     }
                     else if (newState == InputState.ChangeToVisable)
                     {
-                        BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1, MarioShape);
+                        BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
                     }
-                    else if (newState == InputState.BumpUp || newState == InputState.BreakBrick)
+                    else if (newState == InputState.BumpUp)
                     {
-                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1, MarioShape);
+                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
                     }
                     
                     state = newState;
