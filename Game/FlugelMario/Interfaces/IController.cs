@@ -50,7 +50,7 @@ namespace FlugelMario
             {
                 state = InputState.Nothing;
             }
-            else if (marioState.MarioShape == Enums.Shape.Big)
+            else if (marioState.MarioShape == Enums.Shape.Big || marioState.MarioShape == Enums.Shape.Fire)
             {
                 state = InputState.Crouch;
             }
