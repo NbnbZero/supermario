@@ -74,16 +74,16 @@ namespace FlugelMario.AbstractClasses
             }        
         }
 
-        public void BreakBrick(Vector2 BlockLocation)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update()
         {
             throw new NotImplementedException();
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BreakBrickBlock(Vector2 BlockLocation)
         {
             throw new NotImplementedException();
         }
