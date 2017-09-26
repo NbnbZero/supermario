@@ -13,7 +13,6 @@ namespace FlugelMario.Interfaces
         void Explode();
         void Update();
         void shoot(Vector2 Location, Vector2 direction);
-        void draw(SpriteBatch batch);
-        void Execute(Input state, IMarioState marioState);
+        void draw(SpriteBatch batch);        
     }
 }
