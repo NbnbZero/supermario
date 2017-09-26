@@ -8,6 +8,6 @@ namespace FlugelMario.Interfaces
 {
     interface ICommand
     {
-        void Execute(Input state, IMarioState marioState);
+        void Execute(InputState state, IMarioState marioState);
     }
 }

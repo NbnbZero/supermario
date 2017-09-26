@@ -19,7 +19,7 @@ namespace FlugelMario
 
         #region Interface Implementation
 
-        public override Input Update(GamePadState currentGamepadState)
+        public override InputState Update(GamePadState currentGamepadState)
         {
             if (currentGamepadState.IsButtonDown(Buttons.DPadUp) && !previousGamepadState.IsButtonDown(Buttons.DPadUp))
             {
