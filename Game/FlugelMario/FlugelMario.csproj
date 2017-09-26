@@ -48,7 +48,10 @@
     <Compile Include="Enums\BlockTypes.cs" />
     <Compile Include="Interfaces\IBlockStateChange.cs" />
     <Compile Include="Action.cs" />
+    <Compile Include="Interfaces\IFireballState.cs" />
+    <Compile Include="SpriteFactories\FireballSpriteFactory.cs" />
     <Compile Include="Sprites\Blocks\HiddenBlockSprite.cs" />
+    <Compile Include="Sprites\Fireball\FireballSprite.cs" />
     <Compile Include="States\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
     <Compile Include="Enums\MarioDirection.cs" />
