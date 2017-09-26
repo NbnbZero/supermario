@@ -19,4 +19,4 @@ time taken: 20 mins
 
 Hypothetical changes:
 -In the collision work later, bump state could be made a boolean to determine whether the block is hit.
-Which means no matter which type of bricks could all be controlled by that block state reflect to it. 
+Which means no matter which type of bricks could all be controlled by that block state; 
