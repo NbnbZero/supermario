@@ -18,6 +18,8 @@ namespace FlugelMario.AbstractClasses
         public BlockType BlockType { get; set; }
         public Shape MarioShape { get; set; }
 
+        public int counter = 10;
+
         public BlockState(BlockType type)
         {
             if (type == BlockType.Question)
@@ -58,12 +60,21 @@ namespace FlugelMario.AbstractClasses
 
         public void BlockBumpUp(Vector2 BlockLocation)
         {
-            Game1.brickBlockLocations.Remove(BlockLocation);
-            BlockLocation.Y-=5;
-            Game1.brickBlockLocations.Add(BlockLocation);
+            if (counter<=10 && counter >=0)
+            {
+                Game1.brickBlockLocation1.Y-=3;
+                Game1.brickBlockLocations.Add(BlockLocation);
+                counter--;
+            }
+            else if (counter<=0 && counter>=-10)
+            {
+                Game1.brickBlockLocation1.Y+=3;
+                Game1.brickBlockLocations.Add(BlockLocation);
+                counter--;
+            }        
         }
 
-        public void BreakBrickBlock(Vector2 BlockLocation)
+        public void BreakBrick(Vector2 BlockLocation)
         {
             throw new NotImplementedException();
         }

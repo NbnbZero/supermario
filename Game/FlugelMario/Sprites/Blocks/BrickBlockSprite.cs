@@ -18,6 +18,7 @@ namespace FlugelMario.Sprites.Blocks
         public Vector2 Location { get; set; }
         public Rectangle Destination { get; set; }
         public BlockType BlockType { get; set; }
+        public InputState State { get; set; }
 
         private Rectangle sourceRectangle;
         private int BrickBlockWtidth = BlockSpriteFactory.Instance.BrickBlockWidth;
@@ -27,17 +28,22 @@ namespace FlugelMario.Sprites.Blocks
         private int currentFrame;
         private int TotalFrames = BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame;
         private int counter = 0;
+        private static Vector2 location;
+        private InputState state;
 
         public BrickBlockSprite(Texture2D texture)
         {
             currentFrame = 0;
             this.Texture = texture;
+            location = Location;
+            state = State;
             BlockType = BlockType.Brick;
         }
 
         public void Update()
         {
-            Destination = MakeDestinationRectangle(Location);
+
+            Destination = MakeDestinationRectangle(location);
             if (counter % 10 == 0)
             {
                 currentFrame++;
@@ -49,7 +55,6 @@ namespace FlugelMario.Sprites.Blocks
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Location = location;
             sourceRectangle = new Rectangle((TextureX + currentFrame) * BrickBlockWtidth, TextureY * BrickBlockHeight, BrickBlockWtidth, BrickBlockHeight);
             Destination = MakeDestinationRectangle(location);
 
