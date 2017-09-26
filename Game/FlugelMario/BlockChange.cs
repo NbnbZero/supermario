@@ -25,7 +25,7 @@ namespace FlugelMario
                     BlockState.ChangeToBrickBlock(BlockLocation);
                     break;
                 case InputState.BreakBrick:
-                    BlockState.BreakBrick(BlockLocation);
+                    BlockState.BreakBrickBlock(BlockLocation);
                     break;
                 default:                    
                     break;
