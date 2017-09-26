@@ -6,7 +6,7 @@ Author of Reviewed File: Haobin Xu
 Review Time: 20 min
 
 Code Quality:
-The classes are in high cohesion because the ItemSpriteFactory.cs only focuses on handling the basic information of all item sprites’ information.
+The classes are in high cohesion because the ItemSpriteFactory.cs only focuses on handling the basic information of all item sprites?information.
 By doing so,the width and height of each small sprite can be precisely calculated instead of creating a magic number. 
 StarSprite.cs is only responsible for concrete implementations of star sprite changes. 
 And almost all of the sprite classes have the same structure and similar implementations, which is well organized.
