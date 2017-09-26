@@ -25,10 +25,13 @@ namespace FlugelMario
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
         public Shape marioShape { get; set; }
+        public BlockType BlockType { get; set; }
 
         Viewport viewport;
         IMarioState marioState;
+        IBlockState QuestionBlockState;        
         InputState state;
+        BlockChange QuestionBlockChange;
         Action marioAction;
 
         public ISprite Flower { get; set; }
@@ -89,6 +92,7 @@ namespace FlugelMario
             rockBlockLocation = new Vector2(10f * (viewport.Width / 10f), viewport.Height / 5f);
 
             marioAction = new Action();
+            QuestionBlockChange = new BlockChange();
             state = InputState.Nothing;
             marioShape = Shape.Small;
             base.Initialize();
@@ -130,6 +134,7 @@ namespace FlugelMario
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             StairBlock = BlockSpriteFactory.Instance.CreateStairBlock();
             UsedBlock = BlockSpriteFactory.Instance.CreateUsedBlock();
+            QuestionBlockState = new BlockState(BlockType.Question);
             QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
             BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
             RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
@@ -163,10 +168,12 @@ namespace FlugelMario
                 if (newState != state)
                 {
                     marioAction.Execute(newState, marioState);
+                    QuestionBlockChange.Execute(newState, QuestionBlockState);
                     state = newState;
                 }
                 
                 marioState.StateSprite.Update();
+                QuestionBlockState.StateSprite.Update();
             }
 
             Goomba.Update();

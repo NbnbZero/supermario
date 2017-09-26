@@ -1,15 +1,23 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using static FlugelMario.AbstractClasses.BlockState;
+﻿using FlugelMario.Enums;
+using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FlugelMario.Interfaces
 {
     public interface IBlockState
     {
-        BlockTypeEnums BlockType { get; set; }
         ISprite StateSprite { get; set; }
-   
+        BlockType BlockType { get; set; }      
+        Shape MarioShape { get; set; }
+        void ChangeToUsedBlock();
+        void ChangeToBrickBlock();
+        void ChangeToHiddenBlock();
+        void ChangeToQuestionBlock();
+        void BlockBumpUp();
         void Update();
-        void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
 }

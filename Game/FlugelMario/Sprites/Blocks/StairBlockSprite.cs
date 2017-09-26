@@ -1,4 +1,5 @@
-﻿using FlugelMario.Interfaces;
+﻿using FlugelMario.Enums;
+using FlugelMario.Interfaces;
 using FlugelMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static FlugelMario.AbstractClasses.BlockState;
 
 namespace FlugelMario.Sprites.StairBlocks
 {
@@ -15,6 +17,7 @@ namespace FlugelMario.Sprites.StairBlocks
         public Texture2D Texture { get; set; }
         public Vector2 Location { get; set; }
         public Rectangle Destination { get; set; }
+        public BlockType BlockType { get; set; }
 
         private Rectangle sourceRectangle;
         private int StairBlockWtidth = BlockSpriteFactory.Instance.StairBlockWidth;
@@ -29,6 +32,7 @@ namespace FlugelMario.Sprites.StairBlocks
         {
             currentFrame = 0;
             this.Texture = texture;
+            BlockType = BlockType.Stair;
         }
 
         public void Update()

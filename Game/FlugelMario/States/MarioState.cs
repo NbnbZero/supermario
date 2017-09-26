@@ -157,11 +157,26 @@ namespace FlugelMario.States.MarioStates
         {
             if (MarioDirection == Direction.Right)
             {
-                StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightBigMarioSprite();
+                if (MarioShape == Shape.Big)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightBigMarioSprite();
+                }
+                else if (MarioShape == Shape.Fire)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightFireMarioSprite();
+                }
             }
             else
             {
-                StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftBigMarioSprite();
+                if (MarioShape == Shape.Big)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftBigMarioSprite();
+                }
+                else if (MarioShape == Shape.Fire)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftFireMarioSprite();
+                }
+                
             }
         }
 

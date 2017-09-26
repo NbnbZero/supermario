@@ -44,8 +44,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AbstractClasses\BlockSprite.cs" />
-    <Compile Include="AbstractClasses\BlockState.cs" />
+    <Compile Include="BlockChange.cs" />
+    <Compile Include="Enums\BlockTypes.cs" />
+    <Compile Include="Interfaces\IBlockStateChange.cs" />
+    <Compile Include="Sprites\Blocks\HiddenBlockSprite.cs" />
+    <Compile Include="States\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
     <Compile Include="Commnad\ExitCommand.cs" />
     <Compile Include="Commnad\MarioCommand\JumpCommand.cs" />
@@ -59,7 +62,6 @@
     <Compile Include="Enums\MarioShape.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Game Controllers\GamePadController.cs" />
-    <Compile Include="Interfaces\IBlockStateChanges.cs" />
     <Compile Include="Interfaces\IBlockState.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
     <Compile Include="Interfaces\IAction.cs" />
@@ -67,7 +69,6 @@
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IMario.cs" />
     <Compile Include="Interfaces\IMarioState.cs" />
-    <Compile Include="Interfaces\IMarioPowerUp.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
     <Compile Include="MarioAction.cs" />

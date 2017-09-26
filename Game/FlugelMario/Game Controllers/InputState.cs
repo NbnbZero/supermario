@@ -18,6 +18,9 @@ namespace FlugelMario
         MakeBig,
         MakeFire,
         MakeDead,
-        Crouch
+        Crouch,
+        ChangeToUsed,
+        BumpUp,
+        ChangeToVisable
     }
 }

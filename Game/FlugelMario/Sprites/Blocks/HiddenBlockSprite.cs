@@ -12,7 +12,7 @@ using static FlugelMario.AbstractClasses.BlockState;
 
 namespace FlugelMario.Sprites.Blocks
 {
-    class UsedBlockSprite : ISprite
+    class HiddenBlockSprite : ISprite
     {
         public Texture2D Texture { get; set; }
         public Vector2 Location { get; set; }
@@ -28,7 +28,7 @@ namespace FlugelMario.Sprites.Blocks
         private int TotalFrames = BlockSpriteFactory.Instance.UsedBlockAnimeTotalFrame;
         private int counter = 0;
 
-        public UsedBlockSprite(Texture2D texture)
+        public HiddenBlockSprite(Texture2D texture)
         {
             currentFrame = 0;
             this.Texture = texture;
@@ -54,7 +54,7 @@ namespace FlugelMario.Sprites.Blocks
             Destination = MakeDestinationRectangle(location);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+            //spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
             spriteBatch.End();
         }
 

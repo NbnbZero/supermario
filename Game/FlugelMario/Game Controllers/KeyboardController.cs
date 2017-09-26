@@ -1,4 +1,5 @@
-﻿using FlugelMario.Interfaces;
+﻿using FlugelMario.Enums;
+using FlugelMario.Interfaces;
 using Microsoft.Xna.Framework.Input;
 
 namespace FlugelMario
@@ -47,6 +48,18 @@ namespace FlugelMario
             else if (currentKeyboardState.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
             {
                 state = InputState.MakeDead;
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            {
+                state = InputState.ChangeToUsed;
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.B))
+            {
+                state = InputState.BumpUp;
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            {
+                state = InputState.ChangeToVisable;
             }
 
             previousKeyboardState = currentKeyboardState;

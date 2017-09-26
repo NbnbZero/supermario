@@ -162,6 +162,10 @@ namespace FlugelMario.SpriteFactories
         {
             return new RockBlockSprite(RockSpriteSheet);
         }
+        public ISprite CreateHiddenBlock()
+        {
+            return new HiddenBlockSprite(UsedSpriteSheet);
+        }
 
 
         public Vector2 StairBlockAnimation1 { get; } = new Vector2(0, 0);
