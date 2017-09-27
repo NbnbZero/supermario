@@ -1,10 +1,10 @@
-﻿using FlugelMario.AbstractClasses;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.AbstractClasses;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace FlugelMario.Sprites
+namespace SuperMario.Sprites
 {
     class IdleRightFireMarioSprite : MarioSprite
     {

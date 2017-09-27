@@ -1,5 +1,5 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.Sprites.Items;
+﻿using SuperMario.Interfaces;
+using SuperMario.Sprites.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario.SpriteFactories
+namespace SuperMario.SpriteFactories
 {
     class ItemSpriteFactory
     {
@@ -164,21 +164,21 @@ namespace FlugelMario.SpriteFactories
 
 
         public Vector2 FlowerAnimation1 { get; } = new Vector2(0, 0);
-        public Vector2 FlowerAnimation2 { get; } = new Vector2(1, 0);
-        public Vector2 FlowerAnimation3 { get; } = new Vector2(2, 0);
-        public Vector2 FlowerAnimation4 { get; } = new Vector2(3, 0);
+        //public Vector2 FlowerAnimation2 = new Vector2(1, 0);
+        //public Vector2 FlowerAnimation3 { get; } = new Vector2(2, 0);
+        //public Vector2 FlowerAnimation4 { get; } = new Vector2(3, 0);
 
         public Vector2 CoinAnimation1 { get; } = new Vector2(0, 0);
-        public Vector2 CoinAnimation2 { get; } = new Vector2(1, 0);
-        public Vector2 CoinAnimation3 { get; } = new Vector2(2, 0);
-        public Vector2 CoinAnimation4 { get; } = new Vector2(3, 0);
+        //public Vector2 CoinAnimation2 { get; } = new Vector2(1, 0);
+        //public Vector2 CoinAnimation3 { get; } = new Vector2(2, 0);
+        //public Vector2 CoinAnimation4 { get; } = new Vector2(3, 0);
 
         public Vector2 SuperMushroomAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 UpMushroomAnimation1 { get; } = new Vector2(0, 0);
 
         public Vector2 StarAnimation1 { get; } = new Vector2(0, 0);
-        public Vector2 StarAnimation2 { get; } = new Vector2(1, 0);
-        public Vector2 StarAnimation3 { get; } = new Vector2(2, 0);
-        public Vector2 StarAnimation4 { get; } = new Vector2(3, 0);
+        //public Vector2 StarAnimation2 { get; } = new Vector2(1, 0);
+        //public Vector2 StarAnimation3 { get; } = new Vector2(2, 0);
+        //public Vector2 StarAnimation4 { get; } = new Vector2(3, 0);
     }
 }

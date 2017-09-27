@@ -1,6 +1,6 @@
-﻿using FlugelMario.Enums;
-using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.Enums;
+using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static FlugelMario.AbstractClasses.BlockState;
+using static SuperMario.AbstractClasses.BlockState;
 
-namespace FlugelMario.Sprites.Blocks
+namespace SuperMario.Sprites.Blocks
 {
     class QuestionBlockSprite : ISprite
     {
@@ -18,7 +18,6 @@ namespace FlugelMario.Sprites.Blocks
         public Texture2D Texture { get; set; }
         public Vector2 Location { get; set; }
         public Rectangle Destination { get; set; }
-        public BlockType BlockType { get; set; }
 
         private Rectangle sourceRectangle;
         private int QuestionBlockWtidth = BlockSpriteFactory.Instance.QuestionBlockWidth;
@@ -33,7 +32,6 @@ namespace FlugelMario.Sprites.Blocks
         {
             currentFrame = 0;
             this.Texture = texture;
-            BlockType = BlockType.Question;
         }
 
         public void Update()
@@ -54,9 +52,12 @@ namespace FlugelMario.Sprites.Blocks
             sourceRectangle = new Rectangle((TextureX + currentFrame) * QuestionBlockWtidth, TextureY * QuestionBlockHeight, QuestionBlockWtidth, QuestionBlockHeight);
             Destination = MakeDestinationRectangle(location);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-            spriteBatch.End();
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+                spriteBatch.End();
+            }
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)

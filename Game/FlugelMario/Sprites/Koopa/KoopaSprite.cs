@@ -1,9 +1,9 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.Sprites.Koopa
+namespace SuperMario.Sprites.Koopa
 {
     class KoopaSprite : ISprite
     {
@@ -45,9 +45,12 @@ namespace FlugelMario.Sprites.Koopa
             sourceRectangle = new Rectangle((TextureX + currentFrame) * KoopaWidth, TextureY * KoopaHeight, KoopaWidth, KoopaHeight);
             Destination = MakeDestinationRectangle(location);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-            spriteBatch.End();
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+                spriteBatch.End();
+            }
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)

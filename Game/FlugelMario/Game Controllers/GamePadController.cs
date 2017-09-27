@@ -4,41 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using FlugelMario.Interfaces;
+using SuperMario.Interfaces;
 
-namespace FlugelMario
+namespace SuperMario
 {
-    public class GamePadController : Controller
+    public class GamepadController : Controller
     {
-        private GamePadState previousGamepadState;
+        private GamePadState previousGamePadState;
 
-        public GamePadController(GamePadState gamepad, IMarioState marioState) : base (marioState)
+        public GamepadController(GamePadState gamepad, IMarioState marioState) : base (marioState)
         {
-            previousGamepadState = gamepad;
+            previousGamePadState = gamepad;
         }
 
         #region Interface Implementation
 
-        public override InputState Update(GamePadState currentGamepadState)
+        public override InputState Update(GamePadState gamepad)
         {
-            if (currentGamepadState.IsButtonDown(Buttons.DPadUp) && !previousGamepadState.IsButtonDown(Buttons.DPadUp))
+            if (gamepad.IsButtonDown(Buttons.DPadUp) && !previousGamePadState.IsButtonDown(Buttons.DPadUp))
             {
                 HandleUp();
             }
-            else if (currentGamepadState.IsButtonDown(Buttons.DPadDown) && !previousGamepadState.IsButtonDown(Buttons.DPadDown))
+            else if (gamepad.IsButtonDown(Buttons.DPadDown) && !previousGamePadState.IsButtonDown(Buttons.DPadDown))
             {
                 HandleDown();
             }
-            else if (currentGamepadState.IsButtonDown(Buttons.DPadLeft) && !previousGamepadState.IsButtonDown(Buttons.DPadLeft))
+            else if (gamepad.IsButtonDown(Buttons.DPadLeft) && !previousGamePadState.IsButtonDown(Buttons.DPadLeft))
             {
                 HandleLeft();
             }
-            else if (currentGamepadState.IsButtonDown(Buttons.DPadRight) && !previousGamepadState.IsButtonDown(Buttons.DPadRight))
+            else if (gamepad.IsButtonDown(Buttons.DPadRight) && !previousGamePadState.IsButtonDown(Buttons.DPadRight))
             {
                 HandleRight();
             }
 
-            previousGamepadState = currentGamepadState;
+            previousGamePadState = gamepad;
 
             return state;
         }

@@ -1,9 +1,9 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.Sprites.Koopa
+namespace SuperMario.Sprites.Koopa
 {
     class DeadKoopaSprite : ISprite
     {
@@ -33,8 +33,10 @@ namespace FlugelMario.Sprites.Koopa
             sourceRectangle = new Rectangle(TextureX * KoopaWidth, TextureY * KoopaHeight, KoopaWidth, KoopaHeight);
             Destination = MakeDestinationRectangle(location);
 
-
-            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+            if (spriteBatch != null)
+            {
+                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+            }
 
         }
 

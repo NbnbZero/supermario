@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlugelMario
+namespace SuperMario
 {
 #if WINDOWS || LINUX
     /// <summary>

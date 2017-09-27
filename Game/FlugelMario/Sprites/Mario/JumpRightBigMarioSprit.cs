@@ -1,9 +1,9 @@
-﻿using FlugelMario.AbstractClasses;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.AbstractClasses;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.Sprites.Mario
+namespace SuperMario.Sprites.Mario
 {
     class JumpRightBigMarioSprite : MarioSprite
     {

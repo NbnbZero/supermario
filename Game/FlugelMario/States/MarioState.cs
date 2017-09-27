@@ -1,13 +1,13 @@
-﻿using FlugelMario.AbstractClasses;
-using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.AbstractClasses;
+using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using FlugelMario.Enums;
-using FlugelMario.Sprites.Mario;
+using SuperMario.Enums;
+using SuperMario.Sprites.Mario;
 using Microsoft.Xna.Framework.Input;
 
-namespace FlugelMario.States.MarioStates
+namespace SuperMario.States.MarioStates
 {
     public class MarioState : IMarioState
     {
@@ -170,48 +170,6 @@ namespace FlugelMario.States.MarioStates
             else if (MarioDirection == Direction.Left && MarioShape == Shape.Fire)
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftFireMarioSprite();
-            }
-        }
-
-        private void ChangeToLeft()
-        {
-            MarioDirection = Direction.Left;
-            if (MarioShape == Shape.Small)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateRunningLeftSmallMarioSprite();
-            }
-            else if (MarioShape == Shape.Big)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateRunningLeftBigMarioSprite();
-            }
-            else if (MarioShape == Shape.Fire)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateRunningLeftFireMarioSprite();
-            }
-            else if (MarioShape == Shape.Dead)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
-            }
-        }
-
-        private void ChangeToRight()
-        {
-            MarioDirection = Direction.Right;
-            if (MarioShape == Shape.Small)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateRunningRightSmallMarioSprite();
-            }
-            else if (MarioShape == Shape.Big)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateRunningRightBigMarioSprite();
-            }
-            else if (MarioShape == Shape.Fire)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateRunningRightFireMarioSprite();
-            }
-            else if (MarioShape == Shape.Dead)
-            {
-                StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
             }
         }
 

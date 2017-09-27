@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using FlugelMario.Enums;
+using SuperMario.Enums;
 using Microsoft.Xna.Framework.Input;
 
-namespace FlugelMario.Interfaces
+namespace SuperMario.Interfaces
 {
     public interface IMarioState
     {   

@@ -1,8 +1,8 @@
-﻿using FlugelMario.Enums;
-using FlugelMario.Interfaces;
+﻿using SuperMario.Enums;
+using SuperMario.Interfaces;
 using Microsoft.Xna.Framework.Input;
 
-namespace FlugelMario
+namespace SuperMario
 {
     public class KeyboardController : Controller
     {
@@ -15,54 +15,54 @@ namespace FlugelMario
             state = InputState.Nothing;
         }
 
-        public override InputState Update(KeyboardState currentKeyboardState)
+        public override InputState Update(KeyboardState keyboard)
         {
-            if (currentKeyboardState.IsKeyDown(Keys.Up) && !previousKeyboardState.IsKeyDown(Keys.Up))
+            if (keyboard.IsKeyDown(Keys.Up) && !previousKeyboardState.IsKeyDown(Keys.Up))
             {
                 HandleUp();
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.Down) && !previousKeyboardState.IsKeyDown(Keys.Down))
+            else if (keyboard.IsKeyDown(Keys.Down) && !previousKeyboardState.IsKeyDown(Keys.Down))
             {
                 HandleDown();
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.Left) && !previousKeyboardState.IsKeyDown(Keys.Left))
+            else if (keyboard.IsKeyDown(Keys.Left) && !previousKeyboardState.IsKeyDown(Keys.Left))
             {
                 HandleLeft();
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.Right) && !previousKeyboardState.IsKeyDown(Keys.Right))
+            else if (keyboard.IsKeyDown(Keys.Right) && !previousKeyboardState.IsKeyDown(Keys.Right))
             {
                 HandleRight();
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
+            else if (keyboard.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
             {
                 state = InputState.MakeSmall;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
+            else if (keyboard.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
             {
                 state = InputState.MakeFire;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
+            else if (keyboard.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
             {
                 state = InputState.MakeBig;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
+            else if (keyboard.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
             {
                 state = InputState.MakeDead;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            else if (keyboard.IsKeyDown(Keys.X))
             {
                 state = InputState.ChangeToUsed;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.B))
+            else if (keyboard.IsKeyDown(Keys.B))
             {
                 state = InputState.BumpUp;
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.X))
+            else if (keyboard.IsKeyDown(Keys.X))
             {
-                state = InputState.ChangeToVisable;
+                state = InputState.ChangeToVisible;
             }
 
-            previousKeyboardState = currentKeyboardState;
+            previousKeyboardState = keyboard;
 
             return state;
         }

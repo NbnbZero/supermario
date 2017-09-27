@@ -1,12 +1,12 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.Sprites;
-using FlugelMario.Sprites.Mario;
+﻿using SuperMario.Interfaces;
+using SuperMario.Sprites;
+using SuperMario.Sprites.Mario;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace FlugelMario.SpriteFactories
+namespace SuperMario.SpriteFactories
 {
     public class MarioSpriteFactory
     {
@@ -30,7 +30,10 @@ namespace FlugelMario.SpriteFactories
 
         public void LoadAllTextures(ContentManager content)
         {
-            normalMarioSpriteSheet = content.Load<Texture2D>("Mariosheet");
+            if (content != null)
+            {
+                normalMarioSpriteSheet = content.Load<Texture2D>("Mariosheet");
+            }
         }
 
         public int NormalMarioWidth

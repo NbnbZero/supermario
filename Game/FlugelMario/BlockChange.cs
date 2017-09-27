@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlugelMario.Interfaces;
+using SuperMario.Interfaces;
 
-namespace FlugelMario
+namespace SuperMario
 {
     class BlockChange : IBlockStateChange
     {
         public void Execute(InputState state, IBlockState BlockState)
         {
-            switch (state)
+            if (BlockState != null)
             {
-                case InputState.ChangeToUsed:
-                    BlockState.ChangeToUsedBlock();
-                    break;
-                case InputState.BumpUp:
-                    BlockState.BlockBumpUp();
-                    break;
-                case InputState.ChangeToVisable:
-                    BlockState.ChangeToBrickBlock();
-                    break;
-                default:                    
-                    break;
+                switch (state)
+                {
+                    case InputState.ChangeToUsed:
+                        BlockState.ChangeToUsedBlock();
+                        break;
+                    case InputState.BumpUp:
+                        BlockState.BlockBumpUp();
+                        break;
+                    case InputState.ChangeToVisible:
+                        BlockState.ChangeToBrickBlock();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

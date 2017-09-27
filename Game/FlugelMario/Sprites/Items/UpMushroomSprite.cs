@@ -1,5 +1,5 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace FlugelMario.Sprites.Items
+namespace SuperMario.Sprites.Items
 {
     class UpMushroomSprite : ISprite
     {
@@ -51,9 +51,12 @@ namespace FlugelMario.Sprites.Items
             sourceRectangle = new Rectangle((TextureX + currentFrame) * UpMushroomWtidth, TextureY * UpMushroomHeight, UpMushroomWtidth, UpMushroomHeight);
             Destination = MakeDestinationRectangle(location);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-            spriteBatch.End();
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+                spriteBatch.End();
+            }
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)

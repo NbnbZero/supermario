@@ -46,18 +46,12 @@
   <ItemGroup>
     <Compile Include="BlockChange.cs" />
     <Compile Include="Enums\BlockTypes.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IBlockStateChange.cs" />
     <Compile Include="Action.cs" />
     <Compile Include="Sprites\Blocks\HiddenBlockSprite.cs" />
     <Compile Include="States\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
-    <Compile Include="Commnad\ExitCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\JumpCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\ChangeFireModeCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\RunLeftCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\CrouchCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\RunRightCommand.cs" />
-    <Compile Include="Commnad\MarioCommand\PauseCommand.cs" />
     <Compile Include="Enums\MarioDirection.cs" />
     <Compile Include="Enums\MarioPosture.cs" />
     <Compile Include="Enums\MarioShape.cs" />
@@ -133,7 +127,9 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Commnad\MarioCommand\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

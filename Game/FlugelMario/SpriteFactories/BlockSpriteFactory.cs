@@ -1,7 +1,7 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.Sprites.Blocks;
-using FlugelMario.Sprites.Items;
-using FlugelMario.Sprites.StairBlocks;
+﻿using SuperMario.Interfaces;
+using SuperMario.Sprites.Blocks;
+using SuperMario.Sprites.Items;
+using SuperMario.Sprites.StairBlocks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario.SpriteFactories
+namespace SuperMario.SpriteFactories
 {
     class BlockSpriteFactory
     {
@@ -172,8 +172,6 @@ namespace FlugelMario.SpriteFactories
         public Vector2 UsedBlockAnimation1 { get; } = new Vector2(0, 0);
 
         public Vector2 QuestionBlockAnimation1 { get; } = new Vector2(0, 0);
-        public Vector2 QuestionBlockAnimation2 { get; } = new Vector2(1, 0);
-        public Vector2 QuestionAnimation3 { get; } = new Vector2(2, 0);
 
         public Vector2 BrickBlockAnimation1 { get; } = new Vector2(0, 0);
 

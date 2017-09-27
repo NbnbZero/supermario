@@ -1,9 +1,9 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.Sprites.Goomba
+namespace SuperMario.Sprites.Goomba
 {
     class GoombaSprite : ISprite
     {
@@ -46,9 +46,12 @@ namespace FlugelMario.Sprites.Goomba
             sourceRectangle = new Rectangle((TextureX + currentFrame) * GoombaWidth, TextureY * GoombaHeight, GoombaWidth, GoombaHeight);
             Destination = MakeDestinationRectangle(location);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-            spriteBatch.End();
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
+                spriteBatch.End();
+            }
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)

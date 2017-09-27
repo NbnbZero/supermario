@@ -1,4 +1,4 @@
-﻿using FlugelMario.Interfaces;
+﻿using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using FlugelMario.Enums;
-using FlugelMario.SpriteFactories;
+using SuperMario.Enums;
+using SuperMario.SpriteFactories;
 
-namespace FlugelMario.AbstractClasses
+namespace SuperMario.AbstractClasses
 {
     public class BlockState : IBlockState
     {

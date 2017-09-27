@@ -1,14 +1,14 @@
-﻿using FlugelMario.Interfaces;
+﻿using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario
+namespace SuperMario
 {
     public interface IBlockStateChange
     {
-        void Execute(InputState state, IBlockState BlockState);
+        void Execute(InputState state, IBlockState blockState);
     }
 }

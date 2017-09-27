@@ -1,11 +1,11 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.Sprites.Goomba;
-using FlugelMario.Sprites.Koopa;
+﻿using SuperMario.Interfaces;
+using SuperMario.Sprites.Goomba;
+using SuperMario.Sprites.Koopa;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.SpriteFactories
+namespace SuperMario.SpriteFactories
 {
     public class EnemySpriteFactory
     {
@@ -35,8 +35,11 @@ namespace FlugelMario.SpriteFactories
         }
         public void LoadAllTextures(ContentManager content)
         {
-            enemyGoombaSpriteSheet = content.Load<Texture2D>("GoombaSheet");
-            enemyKoopaSpriteSheet = content.Load<Texture2D>("TurtleSheet1");
+            if (content != null)
+            {
+                enemyGoombaSpriteSheet = content.Load<Texture2D>("GoombaSheet");
+                enemyKoopaSpriteSheet = content.Load<Texture2D>("TurtleSheet1");
+            }
         }
 
         public int GoombaWidth

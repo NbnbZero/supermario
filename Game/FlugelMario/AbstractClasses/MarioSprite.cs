@@ -1,9 +1,9 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.AbstractClasses
+namespace SuperMario.AbstractClasses
 {
     public abstract class MarioSprite : ISprite
     {
@@ -25,9 +25,12 @@ namespace FlugelMario.AbstractClasses
 
             SourceRectangle = new Rectangle(SourceRectangle.X, SourceRectangle.Y + 1, MarioWidth, MarioHeight);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(Texture, destinationRectangle, SourceRectangle, Color.White);
-            spriteBatch.End();
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(Texture, destinationRectangle, SourceRectangle, Color.White);
+                spriteBatch.End();
+            }
 
         }
 

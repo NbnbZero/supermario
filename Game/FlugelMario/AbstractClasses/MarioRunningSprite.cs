@@ -1,9 +1,9 @@
-﻿using FlugelMario.AbstractClasses;
-using FlugelMario.SpriteFactories;
+﻿using SuperMario.AbstractClasses;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlugelMario.Sprites.Mario
+namespace SuperMario.Sprites.Mario
 {
    public abstract class MarioRunningSprite : MarioSprite
     {
@@ -14,7 +14,7 @@ namespace FlugelMario.Sprites.Mario
         private int runningDrawingFrameDelay = 5;
         private int baseFrame = 0;
 
-        public MarioRunningSprite(Texture2D texture) : base(texture)
+        protected MarioRunningSprite(Texture2D texture) : base(texture)
         {
             currentRunningDrawingFrame = baseFrame;
         }

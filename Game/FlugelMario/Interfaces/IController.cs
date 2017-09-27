@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
-using FlugelMario.AbstractClasses;
+using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
+using SuperMario.AbstractClasses;
 
-namespace FlugelMario
+namespace SuperMario
 {
     public abstract class Controller
     {
@@ -25,7 +25,7 @@ namespace FlugelMario
             return InputState.Nothing;
         }
 
-        public virtual InputState Update(GamePadState keyboard)
+        public virtual InputState Update(GamePadState gamepad)
         {
             return InputState.Nothing;
         }

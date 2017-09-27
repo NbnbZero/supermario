@@ -1,16 +1,16 @@
-using FlugelMario.AbstractClasses;
-using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
-using FlugelMario.Sprites.Items;
+using SuperMario.AbstractClasses;
+using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
+using SuperMario.Sprites.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.Linq;
-using FlugelMario.States.MarioStates;
-using FlugelMario.Enums;
+using SuperMario.States.MarioStates;
+using SuperMario.Enums;
 
-namespace FlugelMario
+namespace SuperMario
 {
     /// <summary>
     /// This is the main type for your game.
@@ -23,8 +23,9 @@ namespace FlugelMario
         Texture2D background;
 
         public ISprite Goomba { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Koopa")]
         public ISprite Koopa { get; set; }
-        public Shape marioShape { get; set; }
+        public Shape MarioShape { get; set; }
         public BlockType BlockType { get; set; }
 
         Viewport viewport;
@@ -94,7 +95,7 @@ namespace FlugelMario
             marioAction = new Action();
             QuestionBlockChange = new BlockChange();
             state = InputState.Nothing;
-            marioShape = Shape.Small;
+            MarioShape = Shape.Small;
             base.Initialize();
         }
 
@@ -121,7 +122,7 @@ namespace FlugelMario
             for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
             {
                 if (GamePad.GetState(i).IsConnected)
-                    controllersWithStates.Add(new GamePadController(GamePad.GetState(i), marioState), InputState.Nothing);
+                    controllersWithStates.Add(new GamepadController(GamePad.GetState(i), marioState), InputState.Nothing);
             }
 
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
