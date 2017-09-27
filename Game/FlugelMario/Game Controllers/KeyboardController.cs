@@ -74,6 +74,7 @@ namespace FlugelMario
             {
                 state = InputState.ChangeToVisable;
             }
+            previousKeyboardState = currentKeyboardState;
             return state;
         }
     }

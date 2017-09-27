@@ -131,6 +131,7 @@ namespace FlugelMario.States.MarioStates
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
                 }
+                MarioDirection = Direction.Left;
             }
             else
             {
@@ -150,6 +151,7 @@ namespace FlugelMario.States.MarioStates
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
                 }
+                MarioDirection = Direction.Right;
             }
         }
 

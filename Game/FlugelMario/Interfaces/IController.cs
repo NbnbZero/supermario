@@ -13,11 +13,13 @@ namespace FlugelMario
     public abstract class Controller
     {
         protected InputState state;
+        protected InputState previousMovingState;
         protected IMarioState marioState;
 
         public Controller(IMarioState state)
         {
             marioState = state;
+            previousMovingState = InputState.Nothing;
         }
 
         public virtual InputState Update(KeyboardState keyboard)
@@ -38,7 +40,7 @@ namespace FlugelMario
             {
                 state = InputState.Nothing;
             }
-            else
+            else 
             {
                 state = InputState.Jump;
             }
@@ -48,7 +50,19 @@ namespace FlugelMario
         {
             if (state == InputState.Jump)
             {
-                state = InputState.Nothing;
+                if (previousMovingState == InputState.RunLeft)
+                {
+                    state = InputState.RunLeft;
+                }
+                else if(previousMovingState == InputState.RunRight)
+                {
+                    state = InputState.RunRight;
+                }
+                else
+                {
+                    state = InputState.Nothing;
+                }
+               
             }
             else if (marioState.MarioShape == Enums.Shape.Big || marioState.MarioShape == Enums.Shape.Fire)
             {
@@ -61,14 +75,17 @@ namespace FlugelMario
             if (state == InputState.RunRight)
             {
                 state = InputState.IdleRight;
+                previousMovingState = InputState.Nothing;
             }
             else if (state == InputState.IdleRight)
             {
                 state = InputState.IdleLeft;
+                previousMovingState = InputState.Nothing;
             }
             else
             {
                 state = InputState.RunLeft;
+                previousMovingState = InputState.RunLeft;
             }
         }
 
@@ -77,14 +94,17 @@ namespace FlugelMario
             if (state == InputState.RunLeft)
             {
                 state = InputState.IdleLeft;
+                previousMovingState = InputState.Nothing;
             }
             else if (state == InputState.IdleLeft)
             {
                 state = InputState.IdleRight;
+                previousMovingState = InputState.Nothing;
             }
             else
             {
                 state = InputState.RunRight;
+                previousMovingState = InputState.RunRight;
             }
         }
         #endregion
