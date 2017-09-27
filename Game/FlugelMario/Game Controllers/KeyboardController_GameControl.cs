@@ -21,6 +21,8 @@ namespace FlugelMario.Game_Controllers
         public void RegisterCommand()
         {
             controllerMappings.Add(Keys.Q, new QuitGameCommand(Game));
+            controllerMappings.Add(Keys.P , new PauseGame(Game));
+            controllerMappings.Add(Keys.R, new ResumeGame(Game));
         }
 
         public void Update()

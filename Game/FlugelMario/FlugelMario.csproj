@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="BlockChange.cs" />
     <Compile Include="Commands\MarioCommand.cs" />
+    <Compile Include="Commands\ResumeGame.cs" />
+    <Compile Include="Commands\PauseGame.cs" />
     <Compile Include="Commands\QuitGameCommand.cs" />
     <Compile Include="Enums\BlockTypes.cs" />
     <Compile Include="Game Controllers\KeyboardController_GameControl.cs" />

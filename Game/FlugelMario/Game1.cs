@@ -23,11 +23,13 @@ namespace FlugelMario
         Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
         Texture2D background;
 
+        public bool isPause=true;
+        
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
         public static Shape MarioShape { get; set; }
         public BlockType BlockType { get; set; }
-
+        
         Viewport viewport;
         IMarioState marioState;
         IBlockState QuestionBlockState;
@@ -36,6 +38,7 @@ namespace FlugelMario
         BlockChange QuestionBlockChange;
         BlockChange BrickBlockChange;
         Action marioAction;
+
 
         public ISprite Flower { get; set; }
         public ISprite Coin { get; set; }
@@ -188,55 +191,56 @@ namespace FlugelMario
             {
                 controller.Update();
             }
-
-            foreach (Controller controller in controllersWithStates.Keys)
+            if (isPause)
             {
-
-                InputState newState = controller.Update(Keyboard.GetState());
-
-                if (newState != state)
+                foreach (Controller controller in controllersWithStates.Keys)
                 {
-                    marioAction.Execute(newState, marioState);
 
-                    if (newState == InputState.ChangeToUsed)
+                    InputState newState = controller.Update(Keyboard.GetState());
+
+                    if (newState != state)
                     {
-                        QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
+                        marioAction.Execute(newState, marioState);
+
+                        if (newState == InputState.ChangeToUsed)
+                        {
+                            QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
+                        }
+                        else if (newState == InputState.ChangeToVisable)
+                        {
+                            BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
+                        }
+                        else if (newState == InputState.BumpUp)
+                        {
+                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                        }
+                        else if (newState == InputState.BreakBrick)
+                        {
+                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                        }
+
+                        state = newState;
                     }
-                    else if (newState == InputState.ChangeToVisable)
+                    else if (state == InputState.BumpUp)
                     {
-                        BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
+                        BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
                     }
-                    else if (newState == InputState.BumpUp)
+                    else if (state == InputState.BreakBrick)
                     {
-                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                        BrickBlock.Update();
                     }
-                    else if (newState == InputState.BreakBrick)
-                    {
-                        BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
-                    }
-                    
-                    state = newState;
+                    marioState.StateSprite.Update();
+                    QuestionBlockState.StateSprite.Update();
                 }
-                else if (state == InputState.BumpUp)
-                {
-                    BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
-                }
-                else if (state == InputState.BreakBrick)
-                {
-                    BrickBlock.Update();
-                }
-                marioState.StateSprite.Update();
-                QuestionBlockState.StateSprite.Update();
+
+
+                Goomba.Update();
+                Koopa.Update();
+                Flower.Update();
+                Coin.Update();
+                Star.Update();
+                QuestionBlock.Update();
             }
-
-
-            Goomba.Update();
-            Koopa.Update();
-            Flower.Update();
-            Coin.Update();
-            Star.Update();
-            QuestionBlock.Update();
-
             base.Update(gameTime);
         }
 
