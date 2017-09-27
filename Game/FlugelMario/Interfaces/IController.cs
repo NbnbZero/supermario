@@ -40,7 +40,7 @@ namespace FlugelMario
             {
                 state = InputState.Nothing;
             }
-            else 
+            else
             {
                 state = InputState.Jump;
             }
@@ -54,15 +54,19 @@ namespace FlugelMario
                 {
                     state = InputState.RunLeft;
                 }
-                else if(previousMovingState == InputState.RunRight)
+                else if (previousMovingState == InputState.RunRight)
                 {
                     state = InputState.RunRight;
                 }
-                else
-                {
-                    state = InputState.Nothing;
-                }
-               
+            }
+            else
+            if(state == InputState.RunRight)
+            {
+                state = InputState.IdleRight;
+            } 
+            else if(state == InputState.RunLeft)
+            {
+                state = InputState.IdleLeft;
             }
             else if (marioState.MarioShape == Enums.Shape.Big || marioState.MarioShape == Enums.Shape.Fire)
             {
