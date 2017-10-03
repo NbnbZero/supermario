@@ -1,16 +1,21 @@
 ﻿using SuperMario.Enums;
 using SuperMario.Interfaces;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace SuperMario
 {
     public class KeyboardController : Controller
     {
         private KeyboardState previousKeyboardState;
+        Dictionary<Keys, ICommand> gameControl;
+        Game1 mygame;
 
         public KeyboardController (KeyboardState keyboard, IMarioState marioState)
             : base (marioState)
         {
+            gameControl = new Dictionary<Keys, ICommand>();
+            gameControl.Add(Keys.Q, new QuitGameCommand(mygame));
             previousKeyboardState = keyboard;
             state = InputState.Nothing;
         }
@@ -49,15 +54,22 @@ namespace SuperMario
             {
                 state = InputState.MakeDead;
             }
-            else if (keyboard.IsKeyDown(Keys.X))
+            else if (keyboard.IsKeyDown(Keys.X) && !previousKeyboardState.IsKeyDown(Keys.X))
             {
                 state = InputState.ChangeToUsed;
             }
-            else if (keyboard.IsKeyDown(Keys.B))
+            else if (keyboard.IsKeyDown(Keys.B) && !previousKeyboardState.IsKeyDown(Keys.B))
             {
-                state = InputState.BumpUp;
-            }
-            else if (keyboard.IsKeyDown(Keys.X))
+                if (Game1.MarioShape == Shape.Big)
+                {
+                    state = InputState.BreakBrick;                    
+                }
+                else
+                {
+                    state = InputState.BumpUp;
+                }
+                
+            } else if (keyboard.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
             {
                 state = InputState.ChangeToVisible;
             }

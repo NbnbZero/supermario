@@ -131,6 +131,7 @@ namespace SuperMario.States.MarioStates
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
                 }
+                MarioDirection = Direction.Left;
             }
             else
             {
@@ -150,12 +151,13 @@ namespace SuperMario.States.MarioStates
                 {
                     StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
                 }
+                MarioDirection = Direction.Right;
             }
         }
 
         public void Crouch()
         {
-            if (MarioDirection == Direction.Right)
+            if (MarioDirection == Direction.Right && MarioShape == Shape.Big)
             {
                 StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightBigMarioSprite();
             }

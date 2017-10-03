@@ -1,9 +1,31 @@
 Author: Chris Hutchinson
-Date: 9/25/2017
-Sprint: 1
-File Being Reviewed:
-Author of File:
-Comments on Quality:
 
-Minutes Taken:
+
+Date: 9/25/2017
+
+
+Sprint: 1
+
+
+File Being Reviewed: BrickBlockSprite.cs
+
+
+Author of File: Haobin Xu
+
+
+Comments on Quality:
+	- "Width" is misspelled in "BrickBlockWtidth"
+	- Capitalization for variables is inconsistent (usually, its camelCase or private variables start with _)
+	- In Update() you could probably use BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame so you have SPOC
+	- Line 49 is pretty messy. Personally, I'm more of a fan of declaring a variable that is the value of the
+		expression you're passing in, but thats a style thing and other people would disagree with me.
+	- I dig the use of variables for certain things you access in MarioSpriteFactory, my only suggestion is to make
+		them constants with const.
+
+
+Minutes Taken: 20 min
+
+
 Hypothetical Change:
+	- Make the variable names consistently camelCase
+	- Use constants for things you will never change in the file.

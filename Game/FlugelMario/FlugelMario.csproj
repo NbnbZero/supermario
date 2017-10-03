@@ -45,11 +45,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BlockChange.cs" />
+    <Compile Include="Commands\MarioCommand.cs" />
+    <Compile Include="Commands\ResumeGame.cs" />
+    <Compile Include="Commands\PauseGame.cs" />
+    <Compile Include="Commands\QuitGameCommand.cs" />
     <Compile Include="Enums\BlockTypes.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Game Controllers\KeyboardController_GameControl.cs" />
     <Compile Include="Interfaces\IBlockStateChange.cs" />
     <Compile Include="Action.cs" />
+    <Compile Include="Interfaces\ICommandHandler.cs" />
+    <Compile Include="Interfaces\IFireballState.cs" />
+    <Compile Include="SpriteFactories\FireballSpriteFactory.cs" />
     <Compile Include="Sprites\Blocks\HiddenBlockSprite.cs" />
+    <Compile Include="Sprites\Fireball\FireballSprite.cs" />
     <Compile Include="States\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
     <Compile Include="Enums\MarioDirection.cs" />

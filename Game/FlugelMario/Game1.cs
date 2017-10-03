@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using SuperMario.States.MarioStates;
 using SuperMario.Enums;
+using System.Collections;
+using SuperMario.Game_Controllers;
 
 namespace SuperMario
 {
@@ -22,18 +24,23 @@ namespace SuperMario
         Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
         Texture2D background;
 
+        public bool isPause=true;
+        
         public ISprite Goomba { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Koopa")]
         public ISprite Koopa { get; set; }
-        public Shape MarioShape { get; set; }
+        public static Shape MarioShape { get; set; }
         public BlockType BlockType { get; set; }
-
+        
         Viewport viewport;
         IMarioState marioState;
-        IBlockState QuestionBlockState;        
-        InputState state;
+        IBlockState QuestionBlockState;
+        IBlockState BrickBlockState;
+        public static InputState state;
         BlockChange QuestionBlockChange;
+        BlockChange BrickBlockChange;
         Action marioAction;
+
 
         public ISprite Flower { get; set; }
         public ISprite Coin { get; set; }
@@ -53,12 +60,18 @@ namespace SuperMario
         Vector2 coinLocation;
         Vector2 superMushroomLocation;
         Vector2 upMushroomLocation;
-        Vector2 starLocation;
-        Vector2 stairBlockLocation;
-        Vector2 usedBlockLocation;
-        Vector2 questionBlockLocation;
-        Vector2 brickBlockLocation;
-        Vector2 rockBlockLocation;
+        public Vector2 starLocation;
+        public Vector2 stairBlockLocation;
+        public static List<Vector2> usedBlockLocations = new List<Vector2>();
+        public static List<Vector2> questionBlockLocations = new List<Vector2>();
+        public static List<Vector2> brickBlockLocations = new List<Vector2>();
+        public static List<Vector2> hiddenBlockLocations = new List<Vector2>();
+        public Vector2 usedBlockLocation1;
+        public Vector2 questionBlockLocation1;
+        public Vector2 hiddenBlock1;
+        public static Vector2 brickBlockLocation1;
+        public Vector2 rockBlockLocation;
+        private ArrayList controllerList;
 
         public Game1()
         {
@@ -75,6 +88,8 @@ namespace SuperMario
         protected override void Initialize()
         {
             controllersWithStates = new Dictionary<Controller, InputState>();
+            controllerList = new ArrayList();
+            controllerList.Add(new KeyboardController_GameControl(this));
 
             viewport = graphics.GraphicsDevice.Viewport;
 
@@ -87,15 +102,25 @@ namespace SuperMario
             upMushroomLocation = new Vector2(4f * (viewport.Width / 10f), viewport.Height / 5f);
             starLocation = new Vector2(5f * (viewport.Width / 10f), viewport.Height / 5f);
             stairBlockLocation = new Vector2(6f * (viewport.Width / 10f), viewport.Height / 5f);
-            usedBlockLocation = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 5f);
-            questionBlockLocation = new Vector2(8f * (viewport.Width / 10f), viewport.Height / 5f);
-            brickBlockLocation = new Vector2(9f * (viewport.Width / 10f), viewport.Height / 5f);
+            usedBlockLocation1 = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 5f);
+            questionBlockLocation1 = new Vector2(8f * (viewport.Width / 10f), viewport.Height / 5f);
+            brickBlockLocation1 = new Vector2(9f * (viewport.Width / 10f), viewport.Height / 5f);
             rockBlockLocation = new Vector2(10f * (viewport.Width / 10f), viewport.Height / 5f);
+            hiddenBlock1 = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 2f);
 
             marioAction = new Action();
+
             QuestionBlockChange = new BlockChange();
+            BrickBlockChange = new BlockChange();
+
             state = InputState.Nothing;
             MarioShape = Shape.Small;
+
+            usedBlockLocations.Add(usedBlockLocation1);
+            questionBlockLocations.Add(questionBlockLocation1);
+            hiddenBlockLocations.Add(hiddenBlock1);
+            brickBlockLocations.Add(brickBlockLocation1);
+
             base.Initialize();
         }
 
@@ -134,11 +159,13 @@ namespace SuperMario
 
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             StairBlock = BlockSpriteFactory.Instance.CreateStairBlock();
-            UsedBlock = BlockSpriteFactory.Instance.CreateUsedBlock();
-            QuestionBlockState = new BlockState(BlockType.Question);
+            UsedBlock = BlockSpriteFactory.Instance.CreateUsedBlock();            
             QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
             BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
             RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
+
+            QuestionBlockState = new BlockState(BlockType.Question);
+            BrickBlockState = new BlockState(BlockType.Brick);
 
             background = Content.Load<Texture2D>("Background");
         }
@@ -162,28 +189,60 @@ namespace SuperMario
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            foreach(Controller controller in controllersWithStates.Keys)
+            foreach (ICommandHandler controller in controllerList)
             {
-                InputState newState = controller.Update(Keyboard.GetState());
-
-                if (newState != state)
-                {
-                    marioAction.Execute(newState, marioState);
-                    QuestionBlockChange.Execute(newState, QuestionBlockState);
-                    state = newState;
-                }
-                
-                marioState.StateSprite.Update();
-                QuestionBlockState.StateSprite.Update();
+                controller.Update();
             }
+            if (isPause)
+            {
+                foreach (Controller controller in controllersWithStates.Keys)
+                {
 
-            Goomba.Update();
-            Koopa.Update();
-            Flower.Update();
-            Coin.Update();
-            Star.Update();
-            QuestionBlock.Update();
+                    InputState newState = controller.Update(Keyboard.GetState());
 
+                    if (newState != state)
+                    {
+                        marioAction.Execute(newState, marioState);
+
+                        if (newState == InputState.ChangeToUsed)
+                        {
+                            QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
+                        }
+                        else if (newState == InputState.ChangeToVisible)
+                        {
+                            BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
+                        }
+                        else if (newState == InputState.BumpUp)
+                        {
+                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                        }
+                        else if (newState == InputState.BreakBrick)
+                        {
+                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                        }
+
+                        state = newState;
+                    }
+                    else if (state == InputState.BumpUp)
+                    {
+                        BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
+                    }
+                    else if (state == InputState.BreakBrick)
+                    {
+                        BrickBlock.Update();
+                    }
+                    marioState.StateSprite.Update();
+                    QuestionBlockState.StateSprite.Update();
+                }
+
+
+                Goomba.Update();
+                Koopa.Update();
+                Flower.Update();
+                Coin.Update();
+                Star.Update();
+                QuestionBlock.Update();
+            }
             base.Update(gameTime);
         }
 
@@ -209,9 +268,23 @@ namespace SuperMario
             UpMushroom.Draw(spriteBatch, upMushroomLocation);
             Star.Draw(spriteBatch, starLocation);
             StairBlock.Draw(spriteBatch, stairBlockLocation);
-            UsedBlock.Draw(spriteBatch, usedBlockLocation);
-            QuestionBlock.Draw(spriteBatch, questionBlockLocation);
-            BrickBlock.Draw(spriteBatch, brickBlockLocation);
+            foreach (Vector2 location in usedBlockLocations)
+            {
+                UsedBlock.Draw(spriteBatch, location);
+            }
+            foreach (Vector2 location in questionBlockLocations)
+            {
+                QuestionBlock.Draw(spriteBatch, location);
+            }
+            if (state == InputState.ChangeToVisible)
+            {
+                foreach (Vector2 location in hiddenBlockLocations)
+                {
+                    BrickBlock.Draw(spriteBatch, location);
+                }
+            }
+            BrickBlock.Draw(spriteBatch, brickBlockLocation1);
+
             RockBlock.Draw(spriteBatch, rockBlockLocation);
 
             base.Draw(gameTime);

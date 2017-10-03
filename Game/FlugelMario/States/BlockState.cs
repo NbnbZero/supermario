@@ -18,6 +18,8 @@ namespace SuperMario.AbstractClasses
         public BlockType BlockType { get; set; }
         public Shape MarioShape { get; set; }
 
+        public int counter = 10;
+
         public BlockState(BlockType type)
         {
             if (type == BlockType.Question)
@@ -39,36 +41,49 @@ namespace SuperMario.AbstractClasses
             BlockType = type;
         }
 
-        public void ChangeToUsedBlock()
+        public void ChangeToUsedBlock(Vector2 BlockLocation)
         {
-            BlockType = BlockType.Used;
-            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock();
+            BlockType = BlockType.Used;           
+            Game1.usedBlockLocations.Add(BlockLocation);
+            Game1.questionBlockLocations.Remove(BlockLocation);
         }
 
-        public void ChangeToBrickBlock()
+        public void ChangeToBrickBlock(Vector2 BlockLocation)
         {
             BlockType = BlockType.Brick;
-            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock();
+            Game1.brickBlockLocations.Add(BlockLocation);
         }
-
-        public void ChangeToHiddenBlock()
-        {
-            BlockType = BlockType.Hidden;
-            StateSprite = BlockSpriteFactory.Instance.CreateHiddenBlock();
-        }
-
-        public void ChangeToQuestionBlock()
+        public void ChangeToQuestionBlock(Vector2 BlockLocation)
         {
             BlockType = BlockType.Question;
-            StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock();
         }
 
-        public void BlockBumpUp()
+        public void BlockBumpUp(Vector2 BlockLocation)
+        {
+            if (counter<=10 && counter >=0)
+            {
+                Game1.brickBlockLocation1.Y-=3;
+                Game1.brickBlockLocations.Add(BlockLocation);
+                counter--;
+            }
+            else if (counter<=0 && counter>=-10)
+            {
+                Game1.brickBlockLocation1.Y+=3;
+                Game1.brickBlockLocations.Add(BlockLocation);
+                counter--;
+            }        
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public void BreakBrickBlock(Vector2 BlockLocation)
         {
             throw new NotImplementedException();
         }

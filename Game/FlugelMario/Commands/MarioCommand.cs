@@ -1,54 +1,56 @@
-﻿using FlugelMario.Interfaces;
-using FlugelMario.SpriteFactories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlugelMario.AbstractClasses;
+using SuperMario.AbstractClasses;
+using SuperMario.Interfaces;
 
-namespace FlugelMario
+namespace SuperMario
 {
     class MarioCommand : ICommand
     {
-        public void Execute(Input state, IMarioState marioState)
+        public void Execute(InputState state, IMarioState marioState)
         {
             switch (state)
             {
-                case Input.Crouch:
+                case InputState.Crouch:
                     marioState.Crouch();
                     break;
-                case Input.Jump:
+                case InputState.Jump:
                     marioState.Jump();
                     break;
-                case Input.RunLeft:
+                case InputState.RunLeft:
                     marioState.RunLeft();
                     break;
-                case Input.IdleLeft:
-                    marioState.BeIdle(Input.IdleLeft);
+                case InputState.IdleLeft:
+                    marioState.BeIdle(InputState.IdleLeft);
                     break;
-                case Input.IdleRight:
-                    marioState.BeIdle(Input.IdleRight);
+                case InputState.IdleRight:
+                    marioState.BeIdle(InputState.IdleRight);
                     break;
-                case Input.RunRight:
+                case InputState.RunRight:
                     marioState.RunRight();
                     break;
-                case Input.MakeSmall:
+                case InputState.MakeSmall:
                     marioState.ChangeSizeToSmall();
                     break;
-                case Input.MakeBig:
+                case InputState.MakeBig:
                     marioState.ChangeSizeToBig();
                     break;
-                case Input.MakeFire:
+                case InputState.MakeFire:
                     marioState.ChangeFireMode();
                     break;
-                case Input.MakeDead:
+                case InputState.MakeDead:
                     marioState.Terminated();
                     break;
                 default:
                     marioState.BeIdle();
                     break;
             }
+        }
+        public void Execute()
+        {
         }
     }
 }

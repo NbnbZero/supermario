@@ -21,6 +21,7 @@ namespace SuperMario
         Crouch,
         ChangeToUsed,
         BumpUp,
-        ChangeToVisible
+        ChangeToVisible,
+        BreakBrick
     }
 }
