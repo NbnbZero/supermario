@@ -15,13 +15,11 @@ namespace FlugelMario.AbstractClasses
     public class BlockState : IBlockState
     {
         public ISprite StateSprite { get; set; }
-        public BlockType BlockType { get; set; }
-        public Shape MarioShape { get; set; }
+        public BlockType type { get; set; }
 
-        public int counter = 10;
-
-        public BlockState(BlockType type)
+        public BlockState(BlockType Type)
         {
+            type = Type;
             if (type == BlockType.Question)
             {
                 StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock();
@@ -38,40 +36,27 @@ namespace FlugelMario.AbstractClasses
             {
                 StateSprite = BlockSpriteFactory.Instance.CreateHiddenBlock();
             }
-            BlockType = type;
         }
 
-        public void ChangeToUsedBlock(Vector2 BlockLocation)
+        public void ChangeToUsedBlock()
         {
-            BlockType = BlockType.Used;           
-            Game1.usedBlockLocations.Add(BlockLocation);
-            Game1.questionBlockLocations.Remove(BlockLocation);
+            type = BlockType.Used;
+            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock();
         }
 
-        public void ChangeToBrickBlock(Vector2 BlockLocation)
+        public void ChangeToBrickBlock()
         {
-            BlockType = BlockType.Brick;
-            Game1.brickBlockLocations.Add(BlockLocation);
-        }
-        public void ChangeToQuestionBlock(Vector2 BlockLocation)
-        {
-            BlockType = BlockType.Question;
+            type = BlockType.Brick;
+            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock();
         }
 
-        public void BlockBumpUp(Vector2 BlockLocation)
+        public void BlockBumpUp()
         {
-            if (counter<=10 && counter >=0)
-            {
-                Game1.brickBlockLocation1.Y-=3;
-                Game1.brickBlockLocations.Add(BlockLocation);
-                counter--;
-            }
-            else if (counter<=0 && counter>=-10)
-            {
-                Game1.brickBlockLocation1.Y+=3;
-                Game1.brickBlockLocations.Add(BlockLocation);
-                counter--;
-            }        
+   
+        }
+        public void BreakBrickBlock()
+        {
+
         }
 
         public void Update()
@@ -79,11 +64,6 @@ namespace FlugelMario.AbstractClasses
             throw new NotImplementedException();
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void BreakBrickBlock(Vector2 BlockLocation)
         {
             throw new NotImplementedException();
         }

@@ -13,13 +13,11 @@ namespace FlugelMario.Interfaces
     public interface IBlockState
     {
         ISprite StateSprite { get; set; }
-        BlockType BlockType { get; set; }      
-        Shape MarioShape { get; set; }
-        void ChangeToUsedBlock(Vector2 BlockLocation);
-        void ChangeToBrickBlock(Vector2 BlockLocation);
-        void ChangeToQuestionBlock(Vector2 BlockLocation);
-        void BlockBumpUp(Vector2 BlockLocation);
-        void BreakBrickBlock(Vector2 BlockLocation);
+        BlockType type { get; set; }      
+        void ChangeToUsedBlock();
+        void ChangeToBrickBlock();
+        void BlockBumpUp();
+        void BreakBrickBlock();
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
     }

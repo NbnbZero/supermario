@@ -11,6 +11,6 @@ namespace FlugelMario
 {
     public interface IBlockStateChange
     {
-        void Execute(InputState state, IBlockState BlockState, Vector2 BlockLocation);
+        void Execute(InputState state, IBlockState BlockState);
     }
 }

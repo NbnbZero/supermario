@@ -11,21 +11,21 @@ namespace FlugelMario
 {
     class BlockChange : IBlockStateChange
     {
-        public void Execute(InputState state, IBlockState BlockState, Vector2 BlockLocation)
+        public void Execute(InputState state, IBlockState BlockState)
         {
             switch (state)
             {
                 case InputState.ChangeToUsed:
-                    BlockState.ChangeToUsedBlock(BlockLocation);
+                    BlockState.ChangeToUsedBlock();
                     break;
                 case InputState.BumpUp:
-                    BlockState.BlockBumpUp(BlockLocation);
+                    BlockState.BlockBumpUp();
                     break;
                 case InputState.ChangeToVisable:
-                    BlockState.ChangeToBrickBlock(BlockLocation);
+                    BlockState.ChangeToBrickBlock();
                     break;
                 case InputState.BreakBrick:
-                    BlockState.BreakBrickBlock(BlockLocation);
+                    BlockState.BreakBrickBlock();
                     break;
                 default:                    
                     break;

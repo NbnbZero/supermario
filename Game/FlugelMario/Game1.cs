@@ -58,17 +58,13 @@ namespace FlugelMario
         Vector2 coinLocation;
         Vector2 superMushroomLocation;
         Vector2 upMushroomLocation;
-        public Vector2 starLocation;
-        public Vector2 stairBlockLocation;
-        public static List<Vector2> usedBlockLocations = new List<Vector2>();
-        public static List<Vector2> questionBlockLocations = new List<Vector2>();
-        public static List<Vector2> brickBlockLocations = new List<Vector2>();
-        public static List<Vector2> hiddenBlockLocations = new List<Vector2>();
-        public Vector2 usedBlockLocation1;
-        public Vector2 questionBlockLocation1;
-        public Vector2 hiddenBlock1;
-        public static Vector2 brickBlockLocation1;
-        public Vector2 rockBlockLocation;
+        Vector2 starLocation;
+        Vector2 stairBlockLocation;
+        Vector2 usedBlockLocation1;
+        Vector2 questionBlockLocation1;
+        Vector2 hiddenBlock1;
+        Vector2 brickBlockLocation1;
+        Vector2 rockBlockLocation;
         private ArrayList controllerList;
 
         public Game1()
@@ -113,11 +109,6 @@ namespace FlugelMario
 
             state = InputState.Nothing;
             MarioShape = Shape.Small;
-
-            usedBlockLocations.Add(usedBlockLocation1);
-            questionBlockLocations.Add(questionBlockLocation1);
-            hiddenBlockLocations.Add(hiddenBlock1);
-            brickBlockLocations.Add(brickBlockLocation1);
 
             base.Initialize();
         }
@@ -201,36 +192,13 @@ namespace FlugelMario
                     if (newState != state)
                     {
                         marioAction.Execute(newState, marioState);
-
-                        if (newState == InputState.ChangeToUsed)
-                        {
-                            QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
-                        }
-                        else if (newState == InputState.ChangeToVisable)
-                        {
-                            BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
-                        }
-                        else if (newState == InputState.BumpUp)
-                        {
-                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
-                        }
-                        else if (newState == InputState.BreakBrick)
-                        {
-                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
-                        }
-
+                       
                         state = newState;
                     }
-                    else if (state == InputState.BumpUp)
-                    {
-                        BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
-                    }
-                    else if (state == InputState.BreakBrick)
-                    {
-                        BrickBlock.Update();
-                    }
+
                     marioState.StateSprite.Update();
                     QuestionBlockState.StateSprite.Update();
+                    BrickBlockState.StateSprite.Update();
                 }
 
 
@@ -265,25 +233,11 @@ namespace FlugelMario
             SuperMushroom.Draw(spriteBatch, superMushroomLocation);
             UpMushroom.Draw(spriteBatch, upMushroomLocation);
             Star.Draw(spriteBatch, starLocation);
-            StairBlock.Draw(spriteBatch, stairBlockLocation);
-            foreach (Vector2 location in usedBlockLocations)
-            {
-                UsedBlock.Draw(spriteBatch, location);
-            }
-            foreach (Vector2 location in questionBlockLocations)
-            {
-                QuestionBlock.Draw(spriteBatch, location);
-            }
-            if (state == InputState.ChangeToVisable)
-            {
-                foreach (Vector2 location in hiddenBlockLocations)
-                {
-                    BrickBlock.Draw(spriteBatch, location);
-                }
-            }
-            BrickBlock.Draw(spriteBatch, brickBlockLocation1);
-
+            StairBlock.Draw(spriteBatch, stairBlockLocation);           
             RockBlock.Draw(spriteBatch, rockBlockLocation);
+
+            QuestionBlockState.StateSprite.Draw(spriteBatch, questionBlockLocation1);
+            BrickBlockState.StateSprite.Draw(spriteBatch, brickBlockLocation1);
 
             base.Draw(gameTime);
         }
