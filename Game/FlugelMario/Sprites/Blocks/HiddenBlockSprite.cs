@@ -47,16 +47,7 @@ namespace SuperMario.Sprites.Blocks
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) * UsedBlockWtidth, TextureY * UsedBlockHeight, UsedBlockWtidth, UsedBlockHeight);
-            Destination = MakeDestinationRectangle(location);
 
-            if (spriteBatch != null)
-            {
-                spriteBatch.Begin();
-                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-                spriteBatch.End();
-            }
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
