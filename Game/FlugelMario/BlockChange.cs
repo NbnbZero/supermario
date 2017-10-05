@@ -18,16 +18,16 @@ namespace SuperMario
                 switch (state)
                 {
                     case InputState.ChangeToUsed:
-                        BlockState.ChangeToUsedBlock(BlockLocation);
+                        BlockState.ChangeToUsedBlock();
                         break;
                     case InputState.BumpUp:
                         BlockState.BlockBumpUp(BlockLocation);
                         break;
                     case InputState.ChangeToVisible:
-                        BlockState.ChangeToBrickBlock(BlockLocation);
+                        BlockState.ChangeToBrickBlock();
                         break;
                     case InputState.BreakBrick:
-                        BlockState.BreakBrickBlock(BlockLocation);
+                        BlockState.BreakBrickBlock();
                         break;
                     default:
                         break;

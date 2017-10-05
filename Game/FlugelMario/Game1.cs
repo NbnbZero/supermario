@@ -24,7 +24,7 @@ namespace SuperMario
         Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
         Texture2D background;
 
-        public bool isPause=true;
+        public bool isPause=false;
         
         public ISprite Goomba { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Koopa")]
@@ -36,9 +36,11 @@ namespace SuperMario
         IMarioState marioState;
         IBlockState QuestionBlockState;
         IBlockState BrickBlockState;
+        IBlockState HiddenBlockState;
         public static InputState state;
         BlockChange QuestionBlockChange;
         BlockChange BrickBlockChange;
+        BlockChange HiddenBlockChange;
         Action marioAction;
 
 
@@ -52,6 +54,7 @@ namespace SuperMario
         public ISprite QuestionBlock { get; set; }
         public ISprite BrickBlock { get; set; }
         public ISprite RockBlock { get; set; }
+        public ISprite HiddenBlock { get; set; }
 
         Vector2 marioLocation;
         Vector2 goombaLocation;
@@ -62,13 +65,9 @@ namespace SuperMario
         Vector2 upMushroomLocation;
         public Vector2 starLocation;
         public Vector2 stairBlockLocation;
-        public static List<Vector2> usedBlockLocations = new List<Vector2>();
-        public static List<Vector2> questionBlockLocations = new List<Vector2>();
-        public static List<Vector2> brickBlockLocations = new List<Vector2>();
-        public static List<Vector2> hiddenBlockLocations = new List<Vector2>();
         public Vector2 usedBlockLocation1;
         public Vector2 questionBlockLocation1;
-        public Vector2 hiddenBlock1;
+        public Vector2 hiddenBlockLocation1;
         public static Vector2 brickBlockLocation1;
         public Vector2 rockBlockLocation;
         private ArrayList controllerList;
@@ -106,20 +105,18 @@ namespace SuperMario
             questionBlockLocation1 = new Vector2(8f * (viewport.Width / 10f), viewport.Height / 5f);
             brickBlockLocation1 = new Vector2(9f * (viewport.Width / 10f), viewport.Height / 5f);
             rockBlockLocation = new Vector2(10f * (viewport.Width / 10f), viewport.Height / 5f);
-            hiddenBlock1 = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 2f);
+            hiddenBlockLocation1 = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 2f);
 
             marioAction = new Action();
 
             QuestionBlockChange = new BlockChange();
             BrickBlockChange = new BlockChange();
+            HiddenBlockChange = new BlockChange();
 
             state = InputState.Nothing;
             MarioShape = Shape.Small;
 
-            usedBlockLocations.Add(usedBlockLocation1);
-            questionBlockLocations.Add(questionBlockLocation1);
-            hiddenBlockLocations.Add(hiddenBlock1);
-            brickBlockLocations.Add(brickBlockLocation1);
+           
 
             base.Initialize();
         }
@@ -166,6 +163,7 @@ namespace SuperMario
 
             QuestionBlockState = new BlockState(BlockType.Question);
             BrickBlockState = new BlockState(BlockType.Brick);
+            HiddenBlockState = new BlockState(BlockType.Hidden);
 
             background = Content.Load<Texture2D>("Background");
         }
@@ -193,7 +191,7 @@ namespace SuperMario
             {
                 controller.Update();
             }
-            if (isPause)
+            if (!isPause)
             {
                 foreach (Controller controller in controllersWithStates.Keys)
                 {
@@ -210,31 +208,18 @@ namespace SuperMario
                         }
                         else if (newState == InputState.ChangeToVisible)
                         {
-                            BrickBlockChange.Execute(newState, BrickBlockState, hiddenBlock1);
-                        }
-                        else if (newState == InputState.BumpUp)
-                        {
-                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
-                        }
-                        else if (newState == InputState.BreakBrick)
-                        {
-                            BrickBlockChange.Execute(newState, BrickBlockState, brickBlockLocation1);
+                            HiddenBlockChange.Execute(newState, HiddenBlockState, hiddenBlockLocation1);
                         }
 
                         state = newState;
-                    }
-                    else if (state == InputState.BumpUp)
-                    {
-                        BrickBlockChange.Execute(state, BrickBlockState, brickBlockLocation1);
-                    }
-                    else if (state == InputState.BreakBrick)
-                    {
-                        BrickBlock.Update();
                     }
                     marioState.StateSprite.Update();
                     QuestionBlockState.StateSprite.Update();
                 }
 
+                //BrickBlockState.BreakBrickBlock();
+
+                //brickBlockLocation1 = BrickBlockState.BlockBumpUp(brickBlockLocation1);
 
 
                 Goomba.Update();
@@ -269,24 +254,12 @@ namespace SuperMario
             UpMushroom.Draw(spriteBatch, upMushroomLocation);
             Star.Draw(spriteBatch, starLocation);
             StairBlock.Draw(spriteBatch, stairBlockLocation);
-            foreach (Vector2 location in usedBlockLocations)
-            {
-                UsedBlock.Draw(spriteBatch, location);
-            }
-            foreach (Vector2 location in questionBlockLocations)
-            {
-                QuestionBlock.Draw(spriteBatch, location);
-            }
-            if (state == InputState.ChangeToVisible)
-            {
-                foreach (Vector2 location in hiddenBlockLocations)
-                {
-                    BrickBlock.Draw(spriteBatch, location);
-                }
-            }
-            BrickBlock.Draw(spriteBatch, brickBlockLocation1);
-
+            UsedBlock.Draw(spriteBatch,usedBlockLocation1);
             RockBlock.Draw(spriteBatch, rockBlockLocation);
+
+            QuestionBlockState.StateSprite.Draw(spriteBatch, questionBlockLocation1);
+            HiddenBlockState.StateSprite.Draw(spriteBatch, hiddenBlockLocation1);
+            BrickBlockState.StateSprite.Draw(spriteBatch, brickBlockLocation1);
 
             base.Draw(gameTime);
         }
