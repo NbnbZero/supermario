@@ -218,6 +218,7 @@ namespace FlugelMario
 
                 //brickBlockLocation1 = BrickBlockState.BlockBumpUp(brickBlockLocation1);
 
+
                 Goomba.Update();
                 Koopa.Update();
                 Flower.Update();
