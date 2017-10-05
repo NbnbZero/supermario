@@ -11,7 +11,7 @@ namespace FlugelMario
 {
     class BlockChange : IBlockStateChange
     {
-        public void Execute(InputState state, IBlockState BlockState)
+        public void Execute(InputState state, IBlockState BlockState, Vector2 location)
         {
             switch (state)
             {
@@ -19,7 +19,7 @@ namespace FlugelMario
                     BlockState.ChangeToUsedBlock();
                     break;
                 case InputState.BumpUp:
-                    BlockState.BlockBumpUp();
+                    BlockState.BlockBumpUp(location);
                     break;
                 case InputState.ChangeToVisable:
                     BlockState.ChangeToBrickBlock();

@@ -60,21 +60,23 @@ namespace FlugelMario
             }
             else if (currentKeyboardState.IsKeyDown(Keys.B) && !previousKeyboardState.IsKeyDown(Keys.B))
             {
-                if (Game1.MarioShape == Shape.Big)
+                if (Game1.MarioShape == Shape.Big || Game1.MarioShape == Shape.Fire)
                 {
                     state = InputState.BreakBrick;                    
                 }
-                else
+                else if (Game1.MarioShape == Shape.Small) 
                 {
                     state = InputState.BumpUp;
                 }
                 
             }
-            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
+            else if (currentKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
             {
                 state = InputState.ChangeToVisable;
             }
+
             previousKeyboardState = currentKeyboardState;
+
             return state;
         }
     }

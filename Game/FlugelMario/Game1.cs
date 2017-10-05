@@ -23,7 +23,7 @@ namespace FlugelMario
         Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
         Texture2D background;
 
-        public bool isPause=true;
+        public bool isPause = false;
         
         public ISprite Goomba { get; set; }
         public ISprite Koopa { get; set; }
@@ -34,9 +34,11 @@ namespace FlugelMario
         IMarioState marioState;
         IBlockState QuestionBlockState;
         IBlockState BrickBlockState;
+        IBlockState HiddenBlockState;
         public static InputState state;
         BlockChange QuestionBlockChange;
         BlockChange BrickBlockChange;
+        BlockChange HiddenBlockChange;
         Action marioAction;
 
 
@@ -50,6 +52,7 @@ namespace FlugelMario
         public ISprite QuestionBlock { get; set; }
         public ISprite BrickBlock { get; set; }
         public ISprite RockBlock { get; set; }
+        public ISprite HiddenBlock { get; set; }
 
         Vector2 marioLocation;
         Vector2 goombaLocation;
@@ -106,6 +109,7 @@ namespace FlugelMario
 
             QuestionBlockChange = new BlockChange();
             BrickBlockChange = new BlockChange();
+            HiddenBlockChange = new BlockChange();
 
             state = InputState.Nothing;
             MarioShape = Shape.Small;
@@ -152,9 +156,12 @@ namespace FlugelMario
             QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
             BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
             RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
+            HiddenBlock = BlockSpriteFactory.Instance.CreateHiddenBlock();
+
 
             QuestionBlockState = new BlockState(BlockType.Question);
             BrickBlockState = new BlockState(BlockType.Brick);
+            HiddenBlockState = new BlockState(BlockType.Hidden);
 
             background = Content.Load<Texture2D>("Background");
         }
@@ -182,7 +189,7 @@ namespace FlugelMario
             {
                 controller.Update();
             }
-            if (isPause)
+            if (!isPause)
             {
                 foreach (Controller controller in controllersWithStates.Keys)
                 {
@@ -192,15 +199,24 @@ namespace FlugelMario
                     if (newState != state)
                     {
                         marioAction.Execute(newState, marioState);
-                       
+
+                        if (newState == InputState.ChangeToUsed)
+                        {
+                            QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
+                        }
+                        else if (newState == InputState.ChangeToVisable){
+                            HiddenBlockChange.Execute(newState, HiddenBlockState, hiddenBlock1);
+                        }
+
                         state = newState;
                     }
-
                     marioState.StateSprite.Update();
                     QuestionBlockState.StateSprite.Update();
-                    BrickBlockState.StateSprite.Update();
                 }
 
+                //BrickBlockState.BreakBrickBlock();
+
+                //brickBlockLocation1 = BrickBlockState.BlockBumpUp(brickBlockLocation1);
 
                 Goomba.Update();
                 Koopa.Update();
@@ -235,9 +251,11 @@ namespace FlugelMario
             Star.Draw(spriteBatch, starLocation);
             StairBlock.Draw(spriteBatch, stairBlockLocation);           
             RockBlock.Draw(spriteBatch, rockBlockLocation);
+            UsedBlock.Draw(spriteBatch, usedBlockLocation1);
 
             QuestionBlockState.StateSprite.Draw(spriteBatch, questionBlockLocation1);
             BrickBlockState.StateSprite.Draw(spriteBatch, brickBlockLocation1);
+            HiddenBlockState.StateSprite.Draw(spriteBatch, hiddenBlock1);
 
             base.Draw(gameTime);
         }

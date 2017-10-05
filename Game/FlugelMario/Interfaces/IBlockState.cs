@@ -16,7 +16,7 @@ namespace FlugelMario.Interfaces
         BlockType type { get; set; }      
         void ChangeToUsedBlock();
         void ChangeToBrickBlock();
-        void BlockBumpUp();
+        Vector2 BlockBumpUp(Vector2 location);
         void BreakBrickBlock();
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 location);

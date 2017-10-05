@@ -17,6 +17,8 @@ namespace FlugelMario.AbstractClasses
         public ISprite StateSprite { get; set; }
         public BlockType type { get; set; }
 
+        int count = 0;
+
         public BlockState(BlockType Type)
         {
             type = Type;
@@ -50,13 +52,24 @@ namespace FlugelMario.AbstractClasses
             StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock();
         }
 
-        public void BlockBumpUp()
+        public Vector2 BlockBumpUp(Vector2 location)
         {
-   
+            if (count >= 0 && count < 30)
+            {
+                location.Y--;
+                count++;
+            }
+            else if (count >= 30 && count < 60)
+            {
+                location.Y++;
+                count++;
+            }
+
+            return location;
         }
         public void BreakBrickBlock()
         {
-
+            StateSprite.Update();
         }
 
         public void Update()

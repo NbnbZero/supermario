@@ -42,7 +42,6 @@ namespace FlugelMario.Sprites.Blocks
 
         public void Update()
         {
-
             Destination = MakeDestinationRectangle(location);
             if (counter % 20 == 0)
             {
