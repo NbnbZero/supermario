@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace SuperMario.Interfaces
 {
-    public interface ISprite
+    public interface IEnemyState
     {
-        Texture2D Texture { get; set; }       
-        Rectangle MakeDestinationRectangle(Vector2 location);
+        Sprite StateSprite { get; set; }
         void Update();
+        void Terminate();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
 }

@@ -13,7 +13,7 @@ namespace SuperMario.Interfaces
     {
         void Explode();
         void Update();
-        void shoot(Vector2 Location, Vector2 direction);
-        void draw(SpriteBatch batch);        
+        void Shoot(Vector2 location, Vector2 direction);
+        void Draw(SpriteBatch batch);        
     }
 }

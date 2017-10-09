@@ -39,6 +39,7 @@ namespace SuperMario.SpriteFactories
         private Texture2D ItemSuperMushroomSpriteSheet;
         private Texture2D ItemUpMushroomSpriteSheet;
         private Texture2D ItemStarSpriteSheet;
+        private Texture2D ItemSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
         public static ItemSpriteFactory Instance
@@ -60,7 +61,7 @@ namespace SuperMario.SpriteFactories
             ItemSuperMushroomSpriteSheet = content.Load<Texture2D>("SuperMushroomSheet");
             ItemUpMushroomSpriteSheet = content.Load<Texture2D>("UpMushroomSheet");
             ItemStarSpriteSheet = content.Load<Texture2D>("StarSheet");
-
+            ItemSpriteSheet = content.Load<Texture2D>("ItemSheet");
 
 
         }
@@ -138,30 +139,32 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public ISprite CreateFlowerSprite()
+        public Sprite CreateFlowerSprite(Vector2 location)
         {
-            return new FlowerSprite(ItemFlowerSpriteSheet);
+            return new FlowerSprite(ItemFlowerSpriteSheet, location) { Color = Color.LightGreen };
         }
 
-        public ISprite CreateCoinSprite()
+        public Sprite CreateCoinSprite(Vector2 location)
         {
-            return new CoinSprite(ItemCoinSpriteSheet);
+            return new CoinSprite(ItemCoinSpriteSheet, location) { Color = Color.LightGreen };
         }
-        public ISprite CreateSuperMushroomSprite()
+        public Sprite CreateSuperMushroomSprite(Vector2 location)
         {
-            return new SuperMushroomSprite(ItemSuperMushroomSpriteSheet);
+            return new SuperMushroomSprite(ItemSuperMushroomSpriteSheet, location) { Color = Color.LightGreen };
         }
-        public ISprite CreateUpMushroomSprite()
+        public Sprite CreateUpMushroomSprite(Vector2 location)
         {
-            return new UpMushroomSprite(ItemUpMushroomSpriteSheet);
-        }
-
-        public ISprite CreateStarSprite()
-        {
-            return new StarSprite(ItemStarSpriteSheet);
+            return new UpMushroomSprite(ItemUpMushroomSpriteSheet, location) { Color = Color.LightGreen };
         }
 
+        public Sprite CreateStarSprite(Vector2 location)
+        {
+            return new StarSprite(ItemStarSpriteSheet, location) { Color = Color.LightGreen };
+        }
 
+        public Sprite CreateDisappearedSprite() {
+            return new DisappearedSprite(ItemSpriteSheet);
+        }
 
         public Vector2 FlowerAnimation1 { get; } = new Vector2(0, 0);
         //public Vector2 FlowerAnimation2 = new Vector2(1, 0);

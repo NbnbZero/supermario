@@ -1,0 +1,18 @@
+Author: Haobin Xu
+Date: 10/14/2017
+Sprint: 2
+File Being Reviewed:	MarioState.cs
+Author of File:	multi
+Comments on Quality:
+	-MarioState is having way to much methods for a single class as itself.
+	-Actually the Descend() method is not necessary, since the descend could be implemented along with the crouch movement.
+	 Using a descend method would be creating special case for the program to handle.
+	-Also, Terminate() is also a special case.
+
+Minutes Taken:10 min
+
+Hypothetical Change:
+	-Refactoring is recommended, which would make the mariostate much more easier to read and further understand.
+	-Implement the vertical movement along with the crouch movement so that no special case would be created.
+	-Ideally, dead mario could also have directions etc, but it just simply does not react to any future changes. This can 
+	 unify the structure of each state of Mario and make it more friendly to read.

@@ -11,6 +11,6 @@ namespace SuperMario
 {
     public interface IBlockStateChange
     {
-        void Execute(InputState state, IBlockState BlockState, Vector2 location);
+        void Execute(InputState state, IBlockState blockState, Vector2 blockLocation);
     }
 }

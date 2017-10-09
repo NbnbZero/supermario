@@ -1,0 +1,28 @@
+Author: Yanbo Du
+
+
+Date: 9/26/2017
+
+
+Sprint: 1
+
+
+File Being Reviewed: MarioState.cs
+
+
+Author of File: Chris Hutchinson
+
+
+Comments on Quality:
+	- State Machine for all types of mario
+	- There have two BeIdle method, which could merge to one
+    - Inconsistant of if conditions (for instance somewhere it determine right/left, somewhere it dertermin both posture and shape e.g. Crouch())
+	- Unused method JumpOrStand()
+
+
+Minutes Taken: 15 min
+
+
+Hypothetical Change:
+	- Delete one of the BeIdle() method
+    - Consistant of structures

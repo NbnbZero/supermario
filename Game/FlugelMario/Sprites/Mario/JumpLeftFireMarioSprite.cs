@@ -7,17 +7,18 @@ namespace SuperMario.Sprites.Mario
 {
     class JumpLeftFireMarioSprite : MarioSprite
     {
-        private int TextureX = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.X;
-        private int TextureY = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.Y;
-
-        public JumpLeftFireMarioSprite(Texture2D texture) : base(texture)
+        public JumpLeftFireMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {
+            Width = MarioSpriteFactory.Instance.BigMarioWidth;
+            Height = MarioSpriteFactory.Instance.BigMarioHeight;
+            TextureX = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.X;
+            TextureY = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.Y;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
         {
-            int x = TextureX * MarioWidth;
-            int y = TextureY * MarioHeight;
+            int x = TextureX * BigMarioWidth;
+            int y = TextureY * BigMarioHeight;
             int width = SourceRectangle.Width;
             int height = SourceRectangle.Height;
             SourceRectangle = new Rectangle(x, y, width, height);

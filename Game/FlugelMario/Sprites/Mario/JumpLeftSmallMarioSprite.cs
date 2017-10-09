@@ -7,11 +7,10 @@ namespace SuperMario.Sprites.Mario
 {
     class JumpLeftSmallMarioSprite : MarioSprite
     {
-        private int TextureX = (int)MarioSpriteFactory.Instance.JumpLeftSmallMarioCord.X;
-        private int TextureY = (int)MarioSpriteFactory.Instance.JumpLeftSmallMarioCord.Y;
-
-        public JumpLeftSmallMarioSprite(Texture2D texture) : base(texture)
+        public JumpLeftSmallMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {
+            TextureX = (int)MarioSpriteFactory.Instance.JumpLeftSmallMarioCord.X;
+            TextureY = (int)MarioSpriteFactory.Instance.JumpLeftSmallMarioCord.Y;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)

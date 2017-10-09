@@ -17,7 +17,6 @@ namespace SuperMario.SpriteFactories
     {
         public int StairSpriteSheetColum { get; } = 1;
         public int StairSpriteSheetRows { get; } = 1;
-        public int StairBlockAnimeTotalFrame { get; } = 1;
 
         public int UsedSpriteSheetColum { get; } = 1;
         public int UsedSpriteSheetRows { get; } = 1;
@@ -139,43 +138,38 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public ISprite CreateStairBlock()
+        public Sprite CreateStairBlock(Vector2 location)
         {
-            return new StairBlockSprite(StairSpriteSheet);
+            return new StairBlockSprite(StairSpriteSheet, location) { Color = Color.Blue };
         }
 
-        public ISprite CreateUsedBlock()
+        public Sprite CreateUsedBlock(Vector2 location)
         {
-            return new UsedBlockSprite(UsedSpriteSheet);
+            return new UsedBlockSprite(UsedSpriteSheet, location) { Color = Color.Blue };
         }
 
-        public ISprite CreateQuestionBlock()
+        public Sprite CreateQuestionBlock(Vector2 location)
         {
-            return new QuestionBlockSprite(QuestionSpriteSheet);
+            return new QuestionBlockSprite(QuestionSpriteSheet, location) { Color = Color.Blue };
         }
 
-        public ISprite CreateBrickBlock()
+        public Sprite CreateBrickBlock(Vector2 location)
         {
-            return new BrickBlockSprite(BrickSpriteSheet);
+            return new BrickBlockSprite(BrickSpriteSheet, location) { Color = Color.Blue };
         }
 
-        public ISprite CreateRockBlock()
+        public Sprite CreateRockBlock(Vector2 location)
         {
-            return new RockBlockSprite(RockSpriteSheet);
+            return new RockBlockSprite(RockSpriteSheet, location) { Color = Color.Blue };
         }
-        public ISprite CreateHiddenBlock()
+        public Sprite CreateHiddenBlock()
         {
-            return new HiddenBlockSprite(UsedSpriteSheet);
+            return new HiddenBlockSprite(UsedSpriteSheet) { Color = Color.Blue };
         }
 
-
-        public Vector2 StairBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 UsedBlockAnimation1 { get; } = new Vector2(0, 0);
-
         public Vector2 QuestionBlockAnimation1 { get; } = new Vector2(0, 0);
-
         public Vector2 BrickBlockAnimation1 { get; } = new Vector2(0, 0);
-
         public Vector2 RockBlockAnimation1 { get; } = new Vector2(0, 0);
 
 

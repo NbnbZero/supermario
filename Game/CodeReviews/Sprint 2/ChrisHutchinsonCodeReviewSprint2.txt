@@ -1,0 +1,31 @@
+Author: 	Chris Hutchinson
+Date of Review: 10/17/2017
+Sprint: 	2
+Name of File: 	LevelLoader.cs
+Author of File:	Haifang Yang
+Comments:
+	- This isn't very DRY code (so... its wet code I guess??).
+		- Really should just make all of the loading logic in 1 private method. I'm fairly certain you could read everything in one foul swoop.
+		- Pretty much the top 4 lines of each method is the same, which is not DRY.
+	- This is totally a matter of opinion, but I'm not a huge fan of using XML for serialized data. I think its way to easy to mess up, as opposed to JSON. I know .NET doesn't support it out of the box, but finding a third party parser is very easy.
+	- I'm not a fan of passing in sprite as a param for every single method.
+	- myObjects could be named better.
+	- I think making this a static thing makes more sense than using a normal class since its just some logic we want run once, so that's cool.
+	- I feel like there's a way to do this without enums and switch statements, but I'm not sure.
+
+Number of minutes: ~30 mins
+
+Hypothetical changes:
+	- Let's say the game designer is like me and wants to use that sweet sweet JSON instead of XML, or wants the ability to do both.
+		- Adding JSON support would be fairly easy to add.
+		- Probably just find a 3rd party JSON parser and mirror the code to us that instead of XML
+	- How about if we add a different element to the game like a boss and the enemy class isn't robust enough (maybe we want the boss to be able to take multiple hits?)
+		- We would basically need to either change the enemy class and have Goombas have health that equal the damange of 1 hit
+			- Too messy for my taste
+		- We could make a new Boss class that contains the health data
+			- But we would need to...
+				- Copypasta one of the methods
+				- Change it to be match all of the enemy stuff
+				- Call it in LoadLevel
+			- That's really not DRY, since we're copy/pasting code.
+			- What would make this better is if we used delegates to constructors of each class, so we can add/remove elements to the game in the XML without having to change this file specifically. Or something like that.

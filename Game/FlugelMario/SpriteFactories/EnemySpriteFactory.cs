@@ -74,16 +74,31 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public ISprite CreateGoombaSprite()
+        // TODO: Make this go bye bye
+        public Sprite CreateGoombaSprite()
         {
-            return new GoombaSprite(enemyGoombaSpriteSheet);
+            return new GoombaSprite(enemyGoombaSpriteSheet) { Color = Color.Red };
         }
 
-        public ISprite CreateKoopaSprite()
+        public Sprite CreateGoombaSprite(Vector2 location)
         {
-            return new KoopaSprite(enemyKoopaSpriteSheet);
+            return new GoombaSprite(enemyGoombaSpriteSheet, location) { Color = Color.Red };
         }
 
+        public Sprite CreateKoopaSprite(Vector2 location)
+        {
+            return new KoopaSprite(enemyKoopaSpriteSheet, location) { Color = Color.Red };
+        }
+
+        public Sprite CreateDeadGoombaSprite(Vector2 location)
+        {
+            return new DeadGoombaSprite(enemyGoombaSpriteSheet, location) { Color = Color.Red };
+        }
+
+        public Sprite CreateDeadKoopaSprite(Vector2 location)
+        {
+            return new DeadKoopaSprite(enemyKoopaSpriteSheet, location) { Color = Color.Red };
+        }
         public Vector2 GoombaWalkCord { get; } = new Vector2(0, 0);
         public Vector2 GoombaDeadCord { get; } = new Vector2(2, 0);
         public Vector2 KoopaWalkCord { get; } = new Vector2(0, 0);

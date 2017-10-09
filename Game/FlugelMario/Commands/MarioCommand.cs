@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperMario.AbstractClasses;
 using SuperMario.Interfaces;
+using SuperMario.States.MarioStates;
 
 namespace SuperMario
 {
@@ -17,7 +18,7 @@ namespace SuperMario
                 case InputState.Crouch:
                     marioState.Crouch();
                     break;
-                case InputState.Jump:
+                case InputState.Ascend:
                     marioState.Jump();
                     break;
                 case InputState.RunLeft:

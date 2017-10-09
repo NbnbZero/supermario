@@ -5,43 +5,57 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario.AbstractClasses
 {
-    public abstract class MarioSprite : ISprite
+    public abstract class MarioSprite : Sprite
     {
-        public Texture2D Texture { get; set; }
-        public Rectangle SourceRectangle { get; set; }
-
         public int MarioWidth { get; set; } = MarioSpriteFactory.Instance.NormalMarioWidth;
         public int MarioHeight { get; set; } = MarioSpriteFactory.Instance.NormalMarioHeight;
 
-        protected MarioSprite(Texture2D texture)
+        public int BigMarioWidth { get; set; } = MarioSpriteFactory.Instance.BigMarioWidth;
+        public int BigMarioHeight { get; set; } = MarioSpriteFactory.Instance.BigMarioHeight;
+
+        // TODO: make it only 1 constructor
+        #region Overloads
+
+        protected MarioSprite(Texture2D texture) : base(texture)
         {
-            Texture = texture;
-            SourceRectangle = new Rectangle(0, 0, MarioWidth, MarioHeight);
+            // TODO: Maybe figure something better out.
+            Height = MarioSpriteFactory.Instance.NormalMarioHeight;
+            Width = MarioSpriteFactory.Instance.NormalMarioWidth;
+
+            SourceRectangle = new Rectangle(0, 0, Width, Height);
+
+            Color = Color.Yellow;
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
+        protected MarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {
+            // TODO: Maybe figure something better out.
+            Height = MarioSpriteFactory.Instance.NormalMarioHeight;
+            Width = MarioSpriteFactory.Instance.NormalMarioWidth;
+
+            SourceRectangle = new Rectangle(0, 0, Width, Height);
+
+            Location = location;
+
+            Color = Color.Yellow;
+        }
+
+        #endregion
+        
+        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            SourceRectangle = new Rectangle(SourceRectangle.X, SourceRectangle.Y + 1, Width, Height);
             Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
-            SourceRectangle = new Rectangle(SourceRectangle.X, SourceRectangle.Y + 1, MarioWidth, MarioHeight);
-
+            UpdateCollisionBoundary(destinationRectangle);
+            
             if (spriteBatch != null)
             {
-                spriteBatch.Begin();
-                spriteBatch.Draw(Texture, destinationRectangle, SourceRectangle, Color.White);
-                spriteBatch.End();
+#pragma warning disable CS0618 // Type or member is obsolete
+                spriteBatch.Draw(CollisionBoundary, destinationRectangle: CollisionRectangle, layerDepth: 0.01f);
+                spriteBatch.Draw(Texture, position: location, sourceRectangle: SourceRectangle, layerDepth: 0.1f, color: Color);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
-
-        }
-
-        public virtual void Update()
-        {
-
-        }
-
-        public Rectangle MakeDestinationRectangle(Vector2 location)
-        {
-            return new Rectangle((int)location.X, (int)location.Y, MarioWidth * 1, MarioHeight * 1);
         }
     }
 }

@@ -1,0 +1,15 @@
+Author: Chen Ling
+Date: 10/15/2017
+Sprint number: 2
+File being reviewed: SizeTransition.cs
+Author of the .cs file being reviewed: Chris
+Number of minutes taken to complete the review: 10
+
+Code Quality:
+This class has good readability. You just create a single class for mario transition. 
+Your if block, especially the use of switch block is very smart because it can clearly show the state changes under different complex conditions. 
+However, I suggest you desparating mario and block changes in this class in order to improve the code quality. 
+
+Flexitiblity and hypothetical change:
+You can actually add another class for block state change in a specific folder to indicate the transition of blocks. 
+Also, the enemy state change, the item state change (appear/disappear) can also be implemented in the same folder.

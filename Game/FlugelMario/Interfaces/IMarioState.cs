@@ -2,12 +2,13 @@
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using Microsoft.Xna.Framework.Input;
+using SuperMario.AbstractClasses;
 
 namespace SuperMario.Interfaces
 {
     public interface IMarioState
     {   
-        ISprite StateSprite { get; set; }
+        Sprite StateSprite { get; set; }
         Posture MarioPosture { get; set; }
         Direction MarioDirection { get; set; }
         Shape MarioShape { get; set; }

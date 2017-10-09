@@ -52,7 +52,7 @@ namespace SuperMario.SpriteFactories
                 return FireballSpritesheet.Height / FireballSpriteRow;
             }
         }
-        public ISprite CreateFireball()
+        public Sprite CreateFireball()
         {
             return new FireballSprite(FireballSpritesheet);
         }

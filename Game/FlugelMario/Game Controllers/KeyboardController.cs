@@ -1,82 +1,64 @@
-﻿using SuperMario.Enums;
-using SuperMario.Interfaces;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using SuperMario.States.MarioStates;
 
-namespace SuperMario
+namespace SuperMario.Game_Controllers
 {
-    public class KeyboardController : Controller
+    class KeyboardControls : Controller
     {
-        private KeyboardState previousKeyboardState;
-        Dictionary<Keys, ICommand> gameControl;
-        Game1 mygame;
-
-        public KeyboardController (KeyboardState keyboard, IMarioState marioState)
-            : base (marioState)
+        private Dictionary<Keys, Action<InputState>> controllerMappings;
+        private Keys[] previousKeys;
+        
+        public KeyboardControls(MarioState state, Game1 game) : base (state, game)
         {
-            gameControl = new Dictionary<Keys, ICommand>();
-            gameControl.Add(Keys.Q, new QuitGameCommand(mygame));
-            previousKeyboardState = keyboard;
-            state = InputState.Nothing;
+            Game = game;
+            controllerMappings = new Dictionary<Keys, Action<InputState>>();
+            RegisterCommand();
+            previousKeys = new Keys[0];
         }
 
-        public override InputState Update(KeyboardState keyboard)
+        public void RegisterCommand()
         {
-            if (keyboard.IsKeyDown(Keys.Up) && !previousKeyboardState.IsKeyDown(Keys.Up))
-            {
-                HandleUp();
-            }
-            else if (keyboard.IsKeyDown(Keys.Down) && !previousKeyboardState.IsKeyDown(Keys.Down))
-            {
-                HandleDown();
-            }
-            else if (keyboard.IsKeyDown(Keys.Left) && !previousKeyboardState.IsKeyDown(Keys.Left))
-            {
-                HandleLeft();
-            }
-            else if (keyboard.IsKeyDown(Keys.Right) && !previousKeyboardState.IsKeyDown(Keys.Right))
-            {
-                HandleRight();
-            }
-            else if (keyboard.IsKeyDown(Keys.Y) && !previousKeyboardState.IsKeyDown(Keys.Y))
-            {
-                state = InputState.MakeSmall;
-            }
-            else if (keyboard.IsKeyDown(Keys.I) && !previousKeyboardState.IsKeyDown(Keys.I))
-            {
-                state = InputState.MakeFire;
-            }
-            else if (keyboard.IsKeyDown(Keys.U) && !previousKeyboardState.IsKeyDown(Keys.U))
-            {
-                state = InputState.MakeBig;
-            }
-            else if (keyboard.IsKeyDown(Keys.O) && !previousKeyboardState.IsKeyDown(Keys.O))
-            {
-                state = InputState.MakeDead;
-            }
-            else if (keyboard.IsKeyDown(Keys.X) && !previousKeyboardState.IsKeyDown(Keys.X))
-            {
-                state = InputState.ChangeToUsed;
-            }
-            else if (keyboard.IsKeyDown(Keys.B) && !previousKeyboardState.IsKeyDown(Keys.B))
-            {
-                if (Game1.MarioShape == Shape.Big)
-                {
-                    state = InputState.BreakBrick;                    
-                }
-                else
-                {
-                    state = InputState.BumpUp;
-                }
-                
-            } else if (keyboard.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H) && !previousKeyboardState.IsKeyDown(Keys.H))
-            {
-                state = InputState.ChangeToVisible;
-            }
+            controllerMappings.Add(Keys.Q, HandleQuit);
+            controllerMappings.Add(Keys.P , HandlePauseOrResume);
+            controllerMappings.Add(Keys.R, HandlePauseOrResume);
+            controllerMappings.Add(Keys.Left, HandleLeft);
+            controllerMappings.Add(Keys.Right, HandleRight);
+            controllerMappings.Add(Keys.Up, HandleJump);
+            controllerMappings.Add(Keys.Down,HandleDown);
+            controllerMappings.Add(Keys.Y, MakeSmall);
+            controllerMappings.Add(Keys.U, MakeBig);
+            controllerMappings.Add(Keys.I, MakeFire);
+            controllerMappings.Add(Keys.O, MakeDead);
+            controllerMappings.Add(Keys.B, BumpUp);
+            controllerMappings.Add(Keys.X, ChangeToUsed);
+        }
 
-            previousKeyboardState = keyboard;
+        public void Update()
+        {
+            if (!Game.Paused)
+            {
+                Keys[] keysPressed = Keyboard.GetState().GetPressedKeys();
 
-            return state;
+                foreach (Keys key in keysPressed.Except(previousKeys))
+                {
+                    if (controllerMappings.ContainsKey(key))
+                    {
+                        controllerMappings[key](State);
+                    }
+                }
+
+                previousKeys = keysPressed;
+
+            } else
+            {
+                if (Keyboard.GetState().GetPressedKeys().Contains(Keys.R))
+                {
+                    HandlePauseOrResume(State);
+                }
+            }
         }
     }
 }

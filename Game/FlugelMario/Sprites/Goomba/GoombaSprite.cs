@@ -2,62 +2,36 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Enums;
+using SuperMario;
 
 namespace SuperMario.Sprites.Goomba
 {
-    class GoombaSprite : ISprite
+    class GoombaSprite : Sprite
     {
-        public Texture2D Texture { get; set; }
-
-        public Vector2 Location { get; set; }
-
-        public Rectangle Destination { get; set; }
-
-        private Rectangle sourceRectangle;
-        private int GoombaWidth = EnemySpriteFactory.Instance.GoombaWidth;
-        private int GoombaHeight = EnemySpriteFactory.Instance.GoombaHeight;
-        private int TextureX = (int)EnemySpriteFactory.Instance.GoombaWalkCord.X;
-        private int TextureY = (int)EnemySpriteFactory.Instance.GoombaWalkCord.Y;
-        private int currentFrame;
-        private int TotalFrames = EnemySpriteFactory.Instance.GoombaWalkTotalFrame;
-        private int counter = 0;
-
-        public GoombaSprite(Texture2D texture)
+        public GoombaSprite(Texture2D texture, Vector2 location = default(Vector2)) : base(texture, location)
         {
-            currentFrame = 0;
-            this.Texture = texture;
+            Width = EnemySpriteFactory.Instance.GoombaWidth;
+            Height = EnemySpriteFactory.Instance.GoombaHeight;
+
+            TextureX = (int)EnemySpriteFactory.Instance.GoombaWalkCord.X;
+            TextureY = (int)EnemySpriteFactory.Instance.GoombaWalkCord.Y;
+
+            TotalFrames = EnemySpriteFactory.Instance.GoombaWalkTotalFrame;
+
+            Alive = true;
         }
 
-        public void Update()
+        public override void Update()
         {
             Destination = MakeDestinationRectangle(Location);
-            if (counter % 10 == 0)
+            if (Counter % 10 == 0)
             {
-                currentFrame++;
-                currentFrame = currentFrame % TotalFrames;
-                counter = 0;
+                CurrentFrame++;
+                CurrentFrame = CurrentFrame % TotalFrames;
+                Counter = 0;
             }
-            counter++;
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) * GoombaWidth, TextureY * GoombaHeight, GoombaWidth, GoombaHeight);
-            Destination = MakeDestinationRectangle(location);
-
-            if (spriteBatch != null)
-            {
-                spriteBatch.Begin();
-                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-                spriteBatch.End();
-            }
-        }
-
-        public Rectangle MakeDestinationRectangle(Vector2 location)
-        {
-            return new Rectangle((int)location.X, (int)location.Y, GoombaWidth, GoombaHeight);
+            Counter++;
         }
     }
-    
 }

@@ -15,6 +15,7 @@ namespace SuperMario
         {
             if (BlockState != null)
             {
+                /*
                 switch (state)
                 {
                     case InputState.ChangeToUsed:
@@ -32,6 +33,7 @@ namespace SuperMario
                     default:
                         break;
                 }
+                */
             }
         }
     }

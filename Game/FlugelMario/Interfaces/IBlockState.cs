@@ -12,11 +12,12 @@ namespace SuperMario.Interfaces
 {
     public interface IBlockState
     {
-        ISprite StateSprite { get; set; }
-        BlockType type { get; set; }      
+        Sprite StateSprite { get; set; }
+        BlockType BlockType { get; set; }      
+        Shape MarioShape { get; set; }
         void ChangeToUsedBlock();
         void ChangeToBrickBlock();
-        Vector2 BlockBumpUp(Vector2 location);
+        Vector2 BlockBumpUp(Vector2 blockLocation);
         void BreakBrickBlock();
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 location);

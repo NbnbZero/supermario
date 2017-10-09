@@ -14,27 +14,28 @@ namespace SuperMario.AbstractClasses
 {
     public class BlockState : IBlockState
     {
-        public ISprite StateSprite { get; set; }
-        public BlockType type { get; set; }
+        private int counter = 0;
 
-        int count = 0;
+        public Sprite StateSprite { get; set; }
+        public BlockType BlockType { get; set; }
+        public Shape MarioShape { get; set; }
+        public int Counter { get => counter; set => counter = value; }
 
         public BlockState(BlockType Type)
         {
-            type = Type;
-            if (type == BlockType.Question)
+            if (Type == BlockType.Question)
             {
-                StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock();
+                StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock(StateSprite.Location);
             }
-            else if (type == BlockType.Used)
+            else if (Type == BlockType.Used)
             {
-                StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock();
+                StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock(StateSprite.Location);
             }
-            else if (type == BlockType.Brick)
+            else if (Type == BlockType.Brick)
             {
-                StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock();
+                StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock(StateSprite.Location);
             }
-            else if (type == BlockType.Hidden)
+            else if (Type == BlockType.Hidden)
             {
                 StateSprite = BlockSpriteFactory.Instance.CreateHiddenBlock();
             }
@@ -42,31 +43,31 @@ namespace SuperMario.AbstractClasses
 
         public void ChangeToUsedBlock()
         {
-            type = BlockType.Used;
-            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock();
+            BlockType = BlockType.Used;
+            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock(StateSprite.Location);
         }
 
         public void ChangeToBrickBlock()
         {
-            type = BlockType.Brick;
-            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock();
+            BlockType = BlockType.Brick;
+            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock(StateSprite.Location);
         }
-
-        public Vector2 BlockBumpUp(Vector2 location)
+        public Vector2 BlockBumpUp(Vector2 blockLocation)
         {
-            if (count >= 0 && count < 30)
+            if (Counter >=0 && Counter < 30)
             {
-                location.Y--;
-                count++;
+                blockLocation.Y--;
+                Counter++;
             }
-            else if (count >= 30 && count < 60)
+            else if (Counter >= 30 && Counter < 60)
             {
-                location.Y++;
-                count++;
+                blockLocation.Y++;
+                Counter++;
             }
 
-            return location;
+            return blockLocation;
         }
+
         public void BreakBrickBlock()
         {
             StateSprite.Update();

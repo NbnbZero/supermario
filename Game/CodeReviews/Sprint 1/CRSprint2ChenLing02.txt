@@ -1,0 +1,12 @@
+Author: Chen Ling
+Date: 10/15/2017
+Sprint number: 2
+File being reviewed: MarioStarCollision.cs
+Author of the .cs file being reviewed: Haobin Xu
+Number of minutes taken to complete the review: 10
+
+Code Quality:
+This class has good readability. You just create a single class for the case of Mario colliding with star. Your if-else block, especially the use of switch block is very smart because it can clearly show the state changes under different complex conditions. However, I suggest you also adding the star state changes in this class. As Mario collides with star, the first thing to consider is what that will happen to Mario, where you did a good job. The second thing to consider is what that will happen to star. So you created a variable called IItem star but it is never used. Also, it will be better if you change the namespace to SuperMario.CollisionCommands in order to coordinate with other classes.
+
+Flexitiblity and hypothetical change:
+You can actually add another class for star in GameObject folder to indicate whether the star is collected or not. If it is, what will happen to star state? And then you can call this function in MarioStarCollision to show the change of star state after collision.

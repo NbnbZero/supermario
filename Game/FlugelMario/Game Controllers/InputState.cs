@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SuperMario
+﻿namespace SuperMario
 {
     public enum InputState
     {
@@ -13,7 +7,8 @@ namespace SuperMario
         IdleLeft,
         IdleRight,
         RunRight,
-        Jump,
+        Ascend,
+        Descend,
         MakeSmall,
         MakeBig,
         MakeFire,

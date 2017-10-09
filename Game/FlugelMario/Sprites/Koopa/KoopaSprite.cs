@@ -5,57 +5,32 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario.Sprites.Koopa
 {
-    class KoopaSprite : ISprite
+    class KoopaSprite : Sprite
     {
-        public Texture2D Texture { get; set; }
-        public Vector2 Location { get; set; }
-        public Rectangle Destination { get; set; }
-
-        Rectangle sourceRectangle;
-        private int KoopaWidth = EnemySpriteFactory.Instance.KoopaWidth;
-        private int KoopaHeight = EnemySpriteFactory.Instance.KoopaHeight;
-        private int TextureX = (int)EnemySpriteFactory.Instance.KoopaWalkCord.X;
-        private int TextureY = (int)EnemySpriteFactory.Instance.KoopaWalkCord.Y;
-        private int currentFrame;
-        private int TotalFrames = EnemySpriteFactory.Instance.GoombaWalkTotalFrame;
-        private int counter = 0;
-
-        public KoopaSprite(Texture2D texture)
+        public KoopaSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {
-            currentFrame = 0;
-            Texture = texture;
+            Width = EnemySpriteFactory.Instance.KoopaWidth;
+            Height = EnemySpriteFactory.Instance.KoopaHeight;
+
+            TextureX = (int)EnemySpriteFactory.Instance.KoopaWalkCord.X;
+            TextureY = (int)EnemySpriteFactory.Instance.KoopaWalkCord.Y;
+
+            TotalFrames = EnemySpriteFactory.Instance.KoopaWalkTotalFrame;
+
+            Alive = true;
         }
 
-        public void Update()
+        public override void Update()
         {
             Destination = MakeDestinationRectangle(Location);
 
-            if (counter % 10 == 0)
+            if (Counter % 10 == 0)
             {
-                currentFrame++;
-                currentFrame = currentFrame % TotalFrames;
-                counter = 0;
+                CurrentFrame++;
+                CurrentFrame = CurrentFrame % TotalFrames;
+                Counter = 0;
             }
-            counter++;
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            Location = location;
-            sourceRectangle = new Rectangle((TextureX + currentFrame) * KoopaWidth, TextureY * KoopaHeight, KoopaWidth, KoopaHeight);
-            Destination = MakeDestinationRectangle(location);
-
-            if (spriteBatch != null)
-            {
-                spriteBatch.Begin();
-                spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
-                spriteBatch.End();
-            }
-        }
-
-        public Rectangle MakeDestinationRectangle(Vector2 location)
-        {
-            return new Rectangle((int)location.X, (int)location.Y, KoopaWidth, KoopaHeight);
+            Counter++;
         }
     }
 }

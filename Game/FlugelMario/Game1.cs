@@ -1,16 +1,13 @@
-using SuperMario.AbstractClasses;
 using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
-using SuperMario.Sprites.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using System.Linq;
 using SuperMario.States.MarioStates;
 using SuperMario.Enums;
-using System.Collections;
 using SuperMario.Game_Controllers;
+using Microsoft.Xna.Framework.Input;
+using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
@@ -19,58 +16,18 @@ namespace SuperMario
     /// </summary>
     public class Game1 : Game
     {
+        private bool paused;
+
+        List<GamepadControls> gamePads;
+        KeyboardControls keyboard;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Dictionary<Controller, InputState> controllersWithStates; // Scalability ftw.
-        Texture2D background;
+        MarioState marioState;
+        private List<Sprite> sprites;
 
-        public bool isPause=false;
-        
-        public ISprite Goomba { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Koopa")]
-        public ISprite Koopa { get; set; }
-        public static Shape MarioShape { get; set; }
-        public BlockType BlockType { get; set; }
-        
-        Viewport viewport;
-        IMarioState marioState;
-        IBlockState QuestionBlockState;
-        IBlockState BrickBlockState;
-        IBlockState HiddenBlockState;
-        public static InputState state;
-        BlockChange QuestionBlockChange;
-        BlockChange BrickBlockChange;
-        BlockChange HiddenBlockChange;
-        Action marioAction;
-
-
-        public ISprite Flower { get; set; }
-        public ISprite Coin { get; set; }
-        public ISprite SuperMushroom { get; set; }
-        public ISprite UpMushroom { get; set; }
-        public ISprite Star { get; set; }
-        public ISprite StairBlock { get; set; }
-        public ISprite UsedBlock { get; set; }
-        public ISprite QuestionBlock { get; set; }
-        public ISprite BrickBlock { get; set; }
-        public ISprite RockBlock { get; set; }
-        public ISprite HiddenBlock { get; set; }
-
-        Vector2 marioLocation;
-        Vector2 goombaLocation;
-        Vector2 koopaLocation;
-        Vector2 flowerLocation;
-        Vector2 coinLocation;
-        Vector2 superMushroomLocation;
-        Vector2 upMushroomLocation;
-        public Vector2 starLocation;
-        public Vector2 stairBlockLocation;
-        public Vector2 usedBlockLocation1;
-        public Vector2 questionBlockLocation1;
-        public Vector2 hiddenBlockLocation1;
-        public static Vector2 brickBlockLocation1;
-        public Vector2 rockBlockLocation;
-        private ArrayList controllerList;
+        public bool Paused { get => paused; set => paused = value; }
+        public List<Sprite> Sprites { get => sprites; set => sprites = value; }
 
         public Game1()
         {
@@ -86,37 +43,11 @@ namespace SuperMario
         /// </summary>
         protected override void Initialize()
         {
-            controllersWithStates = new Dictionary<Controller, InputState>();
-            controllerList = new ArrayList();
-            controllerList.Add(new KeyboardController_GameControl(this));
+            gamePads = new List<GamepadControls>();
 
-            viewport = graphics.GraphicsDevice.Viewport;
+            Sprites = new List<Sprite>();
 
-            marioLocation = new Vector2(viewport.Width / 2f, viewport.Height / 2f);
-            goombaLocation = new Vector2(viewport.Width / 4f, viewport.Height / 4f);
-            koopaLocation = new Vector2(3f*(viewport.Width / 4f), viewport.Height / 4f);
-            flowerLocation = new Vector2(1f * (viewport.Width / 10f), viewport.Height / 5f);
-            coinLocation = new Vector2(2f * (viewport.Width / 10f), viewport.Height / 5f);
-            superMushroomLocation = new Vector2(3f * (viewport.Width / 10f), viewport.Height / 5f);
-            upMushroomLocation = new Vector2(4f * (viewport.Width / 10f), viewport.Height / 5f);
-            starLocation = new Vector2(5f * (viewport.Width / 10f), viewport.Height / 5f);
-            stairBlockLocation = new Vector2(6f * (viewport.Width / 10f), viewport.Height / 5f);
-            usedBlockLocation1 = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 5f);
-            questionBlockLocation1 = new Vector2(8f * (viewport.Width / 10f), viewport.Height / 5f);
-            brickBlockLocation1 = new Vector2(9f * (viewport.Width / 10f), viewport.Height / 5f);
-            rockBlockLocation = new Vector2(10f * (viewport.Width / 10f), viewport.Height / 5f);
-            hiddenBlockLocation1 = new Vector2(7f * (viewport.Width / 10f), viewport.Height / 2f);
-
-            marioAction = new Action();
-
-            QuestionBlockChange = new BlockChange();
-            BrickBlockChange = new BlockChange();
-            HiddenBlockChange = new BlockChange();
-
-            state = InputState.Nothing;
-            MarioShape = Shape.Small;
-
-           
+            Paused = false;
 
             base.Initialize();
         }
@@ -129,43 +60,43 @@ namespace SuperMario
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
-            // TODO: use this.Content to load your game content here
+
+            #region Load Textures
+
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
-
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
-            Goomba = EnemySpriteFactory.Instance.CreateGoombaSprite();
-            Koopa = EnemySpriteFactory.Instance.CreateKoopaSprite();
+            ItemSpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            FireballSpriteFactory.Instance.LoadAllTextures(Content);
 
-            marioState = new MarioState();
+            #endregion
 
-            controllersWithStates.Add(new KeyboardController(Keyboard.GetState(), marioState), InputState.Nothing);
+            #region Instatntiation of Sprites
+
+            marioState = LevelLoader.LoadLevel(Sprites);
+
+            spriteBatch.Begin(SpriteSortMode.FrontToBack);
+
+            foreach (Sprite sprite in Sprites)
+            {
+                sprite.Draw(spriteBatch, sprite.Location);
+            }
+
+            marioState.StateSprite.Draw(spriteBatch, marioState.Location);
+
+            spriteBatch.End();
+
+            #endregion
+
+            keyboard = new KeyboardControls(marioState, this);
 
             for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
             {
                 if (GamePad.GetState(i).IsConnected)
-                    controllersWithStates.Add(new GamepadController(GamePad.GetState(i), marioState), InputState.Nothing);
+                {
+                    gamePads.Add(new GamepadControls(marioState, this, i));
+                }
             }
-
-            ItemSpriteFactory.Instance.LoadAllTextures(Content);
-            Flower = ItemSpriteFactory.Instance.CreateFlowerSprite();
-            Coin = ItemSpriteFactory.Instance.CreateCoinSprite();
-            SuperMushroom = ItemSpriteFactory.Instance.CreateSuperMushroomSprite();
-            UpMushroom = ItemSpriteFactory.Instance.CreateUpMushroomSprite();
-            Star = ItemSpriteFactory.Instance.CreateStarSprite();
-
-            BlockSpriteFactory.Instance.LoadAllTextures(Content);
-            StairBlock = BlockSpriteFactory.Instance.CreateStairBlock();
-            UsedBlock = BlockSpriteFactory.Instance.CreateUsedBlock();            
-            QuestionBlock = BlockSpriteFactory.Instance.CreateQuestionBlock();
-            BrickBlock = BlockSpriteFactory.Instance.CreateBrickBlock();
-            RockBlock = BlockSpriteFactory.Instance.CreateRockBlock();
-
-            QuestionBlockState = new BlockState(BlockType.Question);
-            BrickBlockState = new BlockState(BlockType.Brick);
-            HiddenBlockState = new BlockState(BlockType.Hidden);
-
-            background = Content.Load<Texture2D>("Background");
         }
 
         /// <summary>
@@ -184,51 +115,25 @@ namespace SuperMario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            keyboard.Update();
 
-            foreach (ICommandHandler controller in controllerList)
+            foreach (GamepadControls controller in gamePads)
             {
                 controller.Update();
             }
-            if (!isPause)
+
+            if (!Paused)
             {
-                foreach (Controller controller in controllersWithStates.Keys)
+                CheckCollision();
+
+                marioState.Update();
+
+                foreach (Sprite sprite in Sprites)
                 {
-
-                    InputState newState = controller.Update(Keyboard.GetState());
-
-                    if (newState != state)
-                    {
-                        marioAction.Execute(newState, marioState);
-
-                        if (newState == InputState.ChangeToUsed)
-                        {
-                            QuestionBlockChange.Execute(newState, QuestionBlockState, questionBlockLocation1);
-                        }
-                        else if (newState == InputState.ChangeToVisible)
-                        {
-                            HiddenBlockChange.Execute(newState, HiddenBlockState, hiddenBlockLocation1);
-                        }
-
-                        state = newState;
-                    }
-                    marioState.StateSprite.Update();
-                    QuestionBlockState.StateSprite.Update();
+                    sprite.Update();
                 }
-
-                //BrickBlockState.BreakBrickBlock();
-
-                //brickBlockLocation1 = BrickBlockState.BlockBumpUp(brickBlockLocation1);
-
-
-                Goomba.Update();
-                Koopa.Update();
-                Flower.Update();
-                Coin.Update();
-                Star.Update();
-                QuestionBlock.Update();
             }
+
             base.Update(gameTime);
         }
 
@@ -240,28 +145,88 @@ namespace SuperMario
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            #region SpriteBatch Drawing
+
+            spriteBatch.Begin(SpriteSortMode.FrontToBack);
+
+            foreach (Sprite sprite in Sprites)
+            {
+                sprite.Draw(spriteBatch, sprite.Location);
+            }
+
+            marioState.StateSprite.Draw(spriteBatch, marioState.Location);
+
             spriteBatch.End();
 
-            marioState.StateSprite.Draw(spriteBatch, marioLocation);
-
-            Goomba.Draw(spriteBatch, goombaLocation);
-            Koopa.Draw(spriteBatch, koopaLocation);
-            Flower.Draw(spriteBatch, flowerLocation);
-            Coin.Draw(spriteBatch, coinLocation);
-            SuperMushroom.Draw(spriteBatch, superMushroomLocation);
-            UpMushroom.Draw(spriteBatch, upMushroomLocation);
-            Star.Draw(spriteBatch, starLocation);
-            StairBlock.Draw(spriteBatch, stairBlockLocation);
-            UsedBlock.Draw(spriteBatch,usedBlockLocation1);
-            RockBlock.Draw(spriteBatch, rockBlockLocation);
-
-            QuestionBlockState.StateSprite.Draw(spriteBatch, questionBlockLocation1);
-            HiddenBlockState.StateSprite.Draw(spriteBatch, hiddenBlockLocation1);
-            BrickBlockState.StateSprite.Draw(spriteBatch, brickBlockLocation1);
+            #endregion
 
             base.Draw(gameTime);
         }
+
+        #region Private
+
+        private void CheckCollision()
+        {
+            for (int i = 0; i < Sprites.Count; i++)
+            {
+                if (HitsLeftSide(marioState.StateSprite, Sprites[i]))
+                {
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Left);
+                } else if (HitsRightSide(marioState.StateSprite, Sprites[i]))
+                {
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Right);
+                }
+                else if (HitsTopSide(marioState.StateSprite, Sprites[i]))
+                {
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Top);
+                }
+                else if (HitsBottomSide(marioState.StateSprite, Sprites[i]))
+                {
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Right);
+                }
+            }
+        }
+
+        private static bool HitsLeftSide(Sprite sprite1, Sprite sprite2)
+        {
+            var collidesLeftSide = (sprite1.CollisionRectangle.Right >= sprite2.CollisionRectangle.Left) && sprite1.CollisionRectangle.Right <= sprite2.CollisionRectangle.Left + sprite2.Width;
+            return OnSameLevel(sprite1, sprite2) && !HitsTopSide(sprite1, sprite2) && !HitsBottomSide(sprite1, sprite2) && collidesLeftSide;
+        }
+
+        private static bool HitsRightSide(Sprite sprite1, Sprite sprite2)
+        {
+            var collidesRightSide = (sprite1.CollisionRectangle.Left <= sprite2.CollisionRectangle.Right) && sprite1.CollisionRectangle.Left >= sprite2.CollisionRectangle.Right - sprite2.Width;
+            return OnSameLevel(sprite1, sprite2) && !HitsTopSide(sprite1, sprite2) && !HitsBottomSide(sprite1, sprite2) && collidesRightSide;
+        }
+
+        private static bool OnSameLevel(Sprite sprite1, Sprite sprite2)
+        {
+            var topWithinBounds = (sprite1.Location.Y >= sprite2.Location.Y && sprite1.Location.Y <= sprite2.Location.Y + sprite2.Height);
+            var bottomWithinBounds = (sprite1.Location.Y + sprite1.Height >= sprite2.Location.Y && sprite1.Location.Y + sprite1.Height <= sprite2.Location.Y + sprite2.Height);
+            var withinTopAndBottom = (sprite2.CollisionRectangle.Top >= sprite1.CollisionRectangle.Top) && (sprite2.CollisionRectangle.Top <= sprite1.CollisionRectangle.Bottom);
+            return topWithinBounds || bottomWithinBounds || withinTopAndBottom;
+        }
+
+        private static bool HitsTopSide(Sprite sprite1, Sprite sprite2)
+        {
+            var collidesTopSide = ((sprite1.CollisionRectangle.Bottom >= sprite2.CollisionRectangle.Top) && (sprite1.CollisionRectangle.Bottom <= sprite2.CollisionRectangle.Bottom));
+            return InSameColumn(sprite1, sprite2) && collidesTopSide;
+        }
+
+        private static bool HitsBottomSide(Sprite sprite1, Sprite sprite2)
+        {
+            var collidesBottomSide = ((sprite1.CollisionRectangle.Top >= sprite2.CollisionRectangle.Bottom) && (sprite1.CollisionRectangle.Top <= sprite2.CollisionRectangle.Bottom));
+            return InSameColumn(sprite1, sprite2) && collidesBottomSide;
+        }
+
+        private static bool InSameColumn(Sprite sprite1, Sprite sprite2)
+        {
+            var leftSideInBounds = (sprite1.CollisionRectangle.Left >= sprite2.CollisionRectangle.Right && sprite1.CollisionRectangle.Left <= sprite2.CollisionRectangle.Right);
+            var rightSideInBounds = (sprite1.CollisionRectangle.Right <= sprite2.CollisionRectangle.Right && sprite1.CollisionRectangle.Right >= sprite2.CollisionRectangle.Left);
+            var withinLeftandRight = (sprite1.CollisionRectangle.Left <= sprite2.CollisionRectangle.Left) && (sprite1.CollisionRectangle.Right >= sprite2.CollisionRectangle.Right);
+            return leftSideInBounds || rightSideInBounds || withinLeftandRight;
+        }
+
+        #endregion
     }
 }
