@@ -1,0 +1,20 @@
+Author: Haobin Xu
+Date: 10/14/2017
+Sprint: 2
+File Being Reviewed:	MarioMushroomCollisionTop.cs
+Author of File:	Chen Ling
+Comments on Quality:
+	-Definitely clear blocks of code, extremely easy to read, understand and modify.
+	-The switch block at the very end seems to be unnecessary from my perspective. 
+	-Also, at the begining of the Execute() block, I would prefer to declear IItem mush along with IMario to be 
+	 the two gameObjects instead of declearing the mush afterward, since it is not a special case during the 
+	 block. Declearing it beforehand would not cause further problem meanwhile make the code a little bit more 
+	 friendly to read.
+
+Minutes Taken:10 min
+
+Hypothetical Change:
+	-Change the switch case block at very end to a if block(for now), since a switch case with only one case in
+	 it would be a huge overkill. Even in future sprints, if the calculation of points accumulated is needed to 
+	 be implemented, only an else case is necessary since there is no need to change Mario's shape other than 
+	 small Mario.
