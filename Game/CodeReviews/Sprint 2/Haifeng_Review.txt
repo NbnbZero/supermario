@@ -1,0 +1,17 @@
+Author: Haifeng Yang
+Date: 10/16/2017
+Sprint: 2
+File Being Reviewed: MarioState.cs
+Author of File:	Chris Hutchinson
+Comments on Quality:
+	-Well origanized statemachine for mario. Easy to read, the block, enemy, item states are 
+	separated in different methods.	Along with all methods names, the cases for different states 
+	are easy to read and change.
+	
+
+Minutes Taken:10 min
+
+Hypothetical Change:
+	-Of course it's sprint2 and this work only satisfied the current requirement. 
+	We need to put the state change of block enemy to other	class since they are
+	not the respond of Mario.
