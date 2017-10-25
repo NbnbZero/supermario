@@ -1,6 +1,7 @@
 ﻿using SuperMario.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Sprites.Items;
 
 namespace SuperMario
 {

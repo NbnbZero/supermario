@@ -1,6 +1,7 @@
 ﻿using SuperMario.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Sprites.Items;
 
 namespace SuperMario.Interfaces
 {
@@ -48,6 +49,8 @@ namespace SuperMario.Interfaces
         protected int Counter { get => _counter; set => _counter = value; }
         public bool Alive { get => alive; set => alive = value; }
         public bool CanCollide { get => canCollide; set => canCollide = value; }
+
+        public ItemSprite Item;
 
         #endregion
 

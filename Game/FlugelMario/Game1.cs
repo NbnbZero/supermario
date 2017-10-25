@@ -25,7 +25,7 @@ namespace SuperMario
         private List<Sprite> sprites;
         Texture2D background;
         Rectangle mainFrame;
-        Camera2D camera;
+        Camera camera;
         Vector2 parallax = new Vector2(1f);
 
         public bool Paused { get => paused; set => paused = value; }
@@ -51,7 +51,7 @@ namespace SuperMario
 
             Paused = false;
 
-            camera = new Camera2D(GraphicsDevice.Viewport);
+            camera = new Camera(GraphicsDevice.Viewport);
             camera.Limits= new Rectangle(0,0,1300,400);
 
             base.Initialize();
@@ -140,12 +140,6 @@ namespace SuperMario
                 {
                     sprite.Update();
                 }
-            }
-
-            if ((MarioAttributes.MarioLife[0] != 0)&&(marioState.MarioShape==Shape.Dead))
-            {
-                BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
-                LoadContent();
             }
             camera.Update(camera, marioState.Location);
 

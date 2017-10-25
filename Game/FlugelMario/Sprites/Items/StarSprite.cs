@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario.Sprites.Items
 {
-    class StarSprite : Sprite
+    class StarSprite : ItemSprite
     {
         public StarSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {

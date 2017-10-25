@@ -183,7 +183,7 @@ namespace SuperMario
             for(int i = 0; i < Game.Sprites.Count; i++)
             {
                 if (Game.Sprites[i].GetType() == typeof(QuestionBlockSprite))
-                    Game.Sprites[i] = BlockSpriteFactory.Instance.CreateUsedBlock(Game.Sprites[i].Location);
+                    Game.Sprites[i] = BlockSpriteFactory.Instance.CreateUsedBlock(Game.Sprites[i].Location, null);
             }
         }
 

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMario.Enums;
 
 namespace SuperMario.SpriteFactories
 {
@@ -139,31 +140,43 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public Sprite CreateFlowerSprite(Vector2 location)
+        public ItemSprite CreateFlowerSprite(Vector2 location)
         {
             return new FlowerSprite(ItemFlowerSpriteSheet, location) { Color = Color.LightGreen };
         }
 
-        public Sprite CreateCoinSprite(Vector2 location)
+        public ItemSprite CreateCoinSprite(Vector2 location)
         {
             return new CoinSprite(ItemCoinSpriteSheet, location) { Color = Color.LightGreen };
         }
-        public Sprite CreateSuperMushroomSprite(Vector2 location)
+        public ItemSprite CreateSuperMushroomSprite(Vector2 location)
         {
             return new SuperMushroomSprite(ItemSuperMushroomSpriteSheet, location) { Color = Color.LightGreen };
         }
-        public Sprite CreateUpMushroomSprite(Vector2 location)
+        public ItemSprite CreateUpMushroomSprite(Vector2 location)
         {
             return new UpMushroomSprite(ItemUpMushroomSpriteSheet, location) { Color = Color.LightGreen };
         }
 
-        public Sprite CreateStarSprite(Vector2 location)
+        public ItemSprite CreateStarSprite(Vector2 location)
         {
             return new StarSprite(ItemStarSpriteSheet, location) { Color = Color.LightGreen };
         }
 
         public Sprite CreateDisappearedSprite() {
             return new DisappearedSprite(ItemSpriteSheet);
+        }
+
+        public ItemSprite MakeSprite(ItemType sprite, Vector2 location)
+        {
+            ItemSprite item = null;
+
+            if (sprite == ItemType.UpMushroom)
+            {
+                item = CreateUpMushroomSprite(location);
+            }
+
+            return item;
         }
 
         public Vector2 FlowerAnimation1 { get; } = new Vector2(0, 0);

@@ -16,7 +16,7 @@
     
   <BlockData>
     <State>Question</State>
-    <itemType>Null</itemType>
+    <itemType>UpMushroom</itemType>
     <xLocation>300</xLocation>
     <yLocation>100</yLocation>
   </BlockData>

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario.Sprites.Items
 {
-    class UpMushroomSprite : Sprite
+    class UpMushroomSprite : ItemSprite
     {
         public UpMushroomSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {

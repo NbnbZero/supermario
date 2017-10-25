@@ -112,10 +112,8 @@ namespace SuperMario.States.MarioStates
                     enemy = EnemySpriteFactory.Instance.CreateDeadKoopaSprite(enemy.Location);
                 }
             }
+
             return enemy;
-
-
-
         }
 
         private Sprite BlockCollision(Sprite block, CollisionDirection direction)
@@ -138,7 +136,7 @@ namespace SuperMario.States.MarioStates
                 Descend();
                 if (block.GetType() == typeof(QuestionBlockSprite))
                 {
-                    block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location);
+                    block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location, (ItemSprite) block.Item);
                 }
                 if (!(MarioShape == Shape.Small) &&
                     (block.GetType() == typeof(BrickBlockSprite)))

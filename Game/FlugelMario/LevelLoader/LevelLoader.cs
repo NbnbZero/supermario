@@ -54,10 +54,10 @@ namespace SuperMario
                             sprites.Add(BlockSpriteFactory.Instance.CreateStairBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
                         case BlockType.Used:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateUsedBlock(new Vector2(block.xLocation, block.yLocation)));
+                            sprites.Add(BlockSpriteFactory.Instance.CreateUsedBlock(new Vector2(block.xLocation, block.yLocation), null));
                             break;
                         case BlockType.Question:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateQuestionBlock(new Vector2(block.xLocation, block.yLocation)));
+                            sprites.Add(BlockSpriteFactory.Instance.CreateQuestionBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));
                             break;
                         case BlockType.Floor:
                             sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(block.xLocation, block.yLocation)));

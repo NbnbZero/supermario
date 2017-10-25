@@ -94,20 +94,13 @@ namespace FlugelMario
 
             Position += displacement;
         }
-
-        public static void ResetCamera()
-        {
-            
-        }
-
-        public void Update(Camera2D camera, Vector2 location)
+        public void Update(Camera camera, Vector2 location)
         {
             if (location.X > _viewport.X/2 )
             {
                 camera.LookAt(location);
             }
         }
-
 
         private readonly Viewport _viewport;
         private Vector2 _position;

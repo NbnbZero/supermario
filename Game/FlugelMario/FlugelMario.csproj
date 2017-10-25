@@ -79,6 +79,7 @@
     <Compile Include="Sprites\Blocks\SmallBrickSprite.cs" />
     <Compile Include="Sprites\DisappearedSprite.cs" />
     <Compile Include="Sprites\Fireball\FireballSprite.cs" />
+    <Compile Include="Sprites\Items\ItemSprite.cs" />
     <Compile Include="States\BlockState.cs" />
     <Compile Include="AbstractClasses\MarioSprite.cs" />
     <Compile Include="Enums\MarioDirection.cs" />

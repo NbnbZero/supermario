@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario.Sprites.Items
 {
-    class CoinSprite :Sprite
+    class CoinSprite : ItemSprite
     {
         public CoinSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {

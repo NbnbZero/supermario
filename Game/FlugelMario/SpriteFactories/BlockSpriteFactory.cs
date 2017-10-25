@@ -146,19 +146,13 @@ namespace SuperMario.SpriteFactories
             return new StairBlockSprite(StairSpriteSheet, location) { Color = Color.Blue };
         }
 
-        public Sprite CreateUsedBlock(Vector2 location)
+        public Sprite CreateUsedBlock(Vector2 location, ItemSprite item)
         {
-            return new UsedBlockSprite(UsedSpriteSheet, location) { Color = Color.Blue };
+            return new UsedBlockSprite(UsedSpriteSheet, location, item) { Color = Color.Blue };
         }
-
-        public Sprite CreateSmallBrickBlockSprite(Vector2 location)
+        public Sprite CreateQuestionBlock(Vector2 location, ItemSprite item)
         {
-            return new SmallBrickSprite(smallBrickSheet, location) { Color = Color.Blue };
-        }
-
-        public Sprite CreateQuestionBlock(Vector2 location)
-        {
-            return new QuestionBlockSprite(QuestionSpriteSheet, location) { Color = Color.Blue };
+            return new QuestionBlockSprite(QuestionSpriteSheet, location, item) { Color = Color.Blue };
         }
 
         public Sprite CreateBrickBlock(Vector2 location)

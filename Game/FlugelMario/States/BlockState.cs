@@ -25,11 +25,11 @@ namespace SuperMario.AbstractClasses
         {
             if (Type == BlockType.Question)
             {
-                StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock(StateSprite.Location);
+                //StateSprite = BlockSpriteFactory.Instance.CreateQuestionBlock(StateSprite.Location);
             }
             else if (Type == BlockType.Used)
             {
-                StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock(StateSprite.Location);
+                StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock(StateSprite.Location, null);
             }
             else if (Type == BlockType.Brick)
             {
@@ -44,7 +44,7 @@ namespace SuperMario.AbstractClasses
         public void ChangeToUsedBlock()
         {
             BlockType = BlockType.Used;
-            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock(StateSprite.Location);
+            StateSprite = BlockSpriteFactory.Instance.CreateUsedBlock(StateSprite.Location, null);
         }
 
         public void ChangeToBrickBlock()

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario.Sprites.Items
 {
-    class FlowerSprite : Sprite
+    class FlowerSprite : ItemSprite
     {
         public FlowerSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {
