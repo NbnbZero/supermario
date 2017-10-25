@@ -110,7 +110,7 @@ namespace SuperMario.Interfaces
             _bumped = true;
         }
 
-        public virtual void RespondToCollision(Sprite sprite, CollisionDirection direction) { }
+        public virtual void RespondToCollision(CollisionDirection direction) { }
 
         #endregion
 

@@ -112,17 +112,16 @@ namespace SuperMario.States.MarioStates
                 {
                     enemy = EnemySpriteFactory.Instance.CreateDeadKoopaSprite(enemy.Location);
                 }
-            } 
+            }
             return enemy;
 
 
-           
+
         }
 
         private void BlockCollision(CollisionDirection direction)
         {
             BeIdle();
-
             if (direction == CollisionDirection.Left)
             {
                 Location = new Vector2(Location.X - 1, Location.Y);
@@ -137,7 +136,7 @@ namespace SuperMario.States.MarioStates
             }
             else if (direction == CollisionDirection.Bottom)
             {
-                Location = new Vector2(Location.X, Location.Y + 1);
+                Descend();
             }
         }
 
@@ -490,7 +489,7 @@ namespace SuperMario.States.MarioStates
             }
             else if (marioState == InputState.Descend)
             {
-                if (Location.Y <_screenHeight)
+                if (Location.Y < _screenHeight)
                     Location = new Vector2(Location.X, Location.Y + 2);
             }
 

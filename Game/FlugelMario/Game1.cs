@@ -172,59 +172,67 @@ namespace SuperMario
                 if (HitsLeftSide(marioState.StateSprite, Sprites[i]))
                 {
                     Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Left);
+                    Sprites[i].RespondToCollision(CollisionDirection.Left);
                 } else if (HitsRightSide(marioState.StateSprite, Sprites[i]))
                 {
                     Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Right);
+                    Sprites[i].RespondToCollision(CollisionDirection.Right);
                 }
                 else if (HitsTopSide(marioState.StateSprite, Sprites[i]))
                 {
                     Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Top);
+                    Sprites[i].RespondToCollision(CollisionDirection.Top);
                 }
                 else if (HitsBottomSide(marioState.StateSprite, Sprites[i]))
                 {
-                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Right);
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Bottom);
+                    Sprites[i].RespondToCollision(CollisionDirection.Bottom);
                 }
             }
         }
 
         private static bool HitsLeftSide(Sprite sprite1, Sprite sprite2)
         {
-            var collidesLeftSide = (sprite1.CollisionRectangle.Right >= sprite2.CollisionRectangle.Left) && sprite1.CollisionRectangle.Right <= sprite2.CollisionRectangle.Left + sprite2.Width;
-            return OnSameLevel(sprite1, sprite2) && !HitsTopSide(sprite1, sprite2) && !HitsBottomSide(sprite1, sprite2) && collidesLeftSide;
+            bool collidesLeftSide = false;
+            if (sprite1.CollisionRectangle.Intersects(sprite2.CollisionRectangle))
+            {
+                Rectangle collisionRectangle = Rectangle.Intersect(sprite1.CollisionRectangle, sprite2.CollisionRectangle);
+                collidesLeftSide = collisionRectangle.Height > collisionRectangle.Width && collisionRectangle.Left == sprite2.CollisionRectangle.Left;
+            }
+            return collidesLeftSide;
         }
 
         private static bool HitsRightSide(Sprite sprite1, Sprite sprite2)
         {
-            var collidesRightSide = (sprite1.CollisionRectangle.Left <= sprite2.CollisionRectangle.Right) && sprite1.CollisionRectangle.Left >= sprite2.CollisionRectangle.Right - sprite2.Width;
-            return OnSameLevel(sprite1, sprite2) && !HitsTopSide(sprite1, sprite2) && !HitsBottomSide(sprite1, sprite2) && collidesRightSide;
-        }
-
-        private static bool OnSameLevel(Sprite sprite1, Sprite sprite2)
-        {
-            var topWithinBounds = (sprite1.Location.Y >= sprite2.Location.Y && sprite1.Location.Y <= sprite2.Location.Y + sprite2.Height);
-            var bottomWithinBounds = (sprite1.Location.Y + sprite1.Height >= sprite2.Location.Y && sprite1.Location.Y + sprite1.Height <= sprite2.Location.Y + sprite2.Height);
-            var withinTopAndBottom = (sprite2.CollisionRectangle.Top >= sprite1.CollisionRectangle.Top) && (sprite2.CollisionRectangle.Top <= sprite1.CollisionRectangle.Bottom);
-            return topWithinBounds || bottomWithinBounds || withinTopAndBottom;
+            bool collidesRightSide = false;
+            if (sprite1.CollisionRectangle.Intersects(sprite2.CollisionRectangle))
+            {
+                Rectangle collisionRectangle = Rectangle.Intersect(sprite1.CollisionRectangle, sprite2.CollisionRectangle);
+                collidesRightSide = collisionRectangle.Height > collisionRectangle.Width && collisionRectangle.Right == sprite2.CollisionRectangle.Right;
+            }
+            return collidesRightSide;
         }
 
         private static bool HitsTopSide(Sprite sprite1, Sprite sprite2)
         {
-            var collidesTopSide = ((sprite1.CollisionRectangle.Bottom >= sprite2.CollisionRectangle.Top) && (sprite1.CollisionRectangle.Bottom <= sprite2.CollisionRectangle.Bottom));
-            return InSameColumn(sprite1, sprite2) && collidesTopSide;
+            bool collidesTopSide = false;
+            if (sprite1.CollisionRectangle.Intersects(sprite2.CollisionRectangle))
+            {
+                Rectangle collisionRectangle = Rectangle.Intersect(sprite1.CollisionRectangle, sprite2.CollisionRectangle);
+                collidesTopSide = collisionRectangle.Width > collisionRectangle.Height && collisionRectangle.Top == sprite2.CollisionRectangle.Top;
+            }
+            return collidesTopSide;
         }
 
         private static bool HitsBottomSide(Sprite sprite1, Sprite sprite2)
         {
-            var collidesBottomSide = ((sprite1.CollisionRectangle.Top >= sprite2.CollisionRectangle.Bottom) && (sprite1.CollisionRectangle.Top <= sprite2.CollisionRectangle.Bottom));
-            return InSameColumn(sprite1, sprite2) && collidesBottomSide;
-        }
-
-        private static bool InSameColumn(Sprite sprite1, Sprite sprite2)
-        {
-            var leftSideInBounds = (sprite1.CollisionRectangle.Left >= sprite2.CollisionRectangle.Right && sprite1.CollisionRectangle.Left <= sprite2.CollisionRectangle.Right);
-            var rightSideInBounds = (sprite1.CollisionRectangle.Right <= sprite2.CollisionRectangle.Right && sprite1.CollisionRectangle.Right >= sprite2.CollisionRectangle.Left);
-            var withinLeftandRight = (sprite1.CollisionRectangle.Left <= sprite2.CollisionRectangle.Left) && (sprite1.CollisionRectangle.Right >= sprite2.CollisionRectangle.Right);
-            return leftSideInBounds || rightSideInBounds || withinLeftandRight;
+            bool collidesBottomSide = false;
+            if (sprite1.CollisionRectangle.Intersects(sprite2.CollisionRectangle))
+            {
+                Rectangle collisionRectangle = Rectangle.Intersect(sprite1.CollisionRectangle, sprite2.CollisionRectangle);
+                collidesBottomSide = collisionRectangle.Width > collisionRectangle.Height && collisionRectangle.Bottom == sprite2.CollisionRectangle.Bottom;
+            }
+            return collidesBottomSide;
         }
 
         #endregion

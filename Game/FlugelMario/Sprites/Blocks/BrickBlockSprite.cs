@@ -1,6 +1,8 @@
 ﻿using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Enums;
+using SuperMario.Interfaces;
 
 namespace SuperMario.Sprites.Blocks
 {
@@ -17,9 +19,13 @@ namespace SuperMario.Sprites.Blocks
             TotalFrames = BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame;
         }
 
-        public override void Update()
+        public override void RespondToCollision(CollisionDirection direction)
         {
-            Animate();
+            if (direction == CollisionDirection.Bottom)
+            {
+                BumpUp();
+                Animate();
+            }
         }
     }
 }
