@@ -8,6 +8,7 @@ using SuperMario.Enums;
 using SuperMario.Game_Controllers;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.ObjectModel;
+using FlugelMario;
 
 namespace SuperMario
 {
@@ -25,6 +26,12 @@ namespace SuperMario
         SpriteBatch spriteBatch;
         MarioState marioState;
         private List<Sprite> sprites;
+
+        Texture2D background;
+        Rectangle mainFrame;
+
+        Camera camera;
+        Vector2 parallax = new Vector2(0.5f);
 
         public bool Paused { get => paused; set => paused = value; }
         public List<Sprite> Sprites { get => sprites; set => sprites = value; }
@@ -49,6 +56,8 @@ namespace SuperMario
 
             Paused = false;
 
+            camera = new Camera(GraphicsDevice.Viewport);
+
             base.Initialize();
         }
 
@@ -70,6 +79,9 @@ namespace SuperMario
             FireballSpriteFactory.Instance.LoadAllTextures(Content);
 
             #endregion
+
+            background = Content.Load<Texture2D>("background");
+            mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
             #region Instatntiation of Sprites
 
@@ -134,6 +146,8 @@ namespace SuperMario
                 }
             }
 
+            camera.LookAt(marioState.Location);
+
             base.Update(gameTime);
         }
 
@@ -147,7 +161,9 @@ namespace SuperMario
 
             #region SpriteBatch Drawing
 
-            spriteBatch.Begin(SpriteSortMode.FrontToBack);
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetViewMatrix(parallax));
+
+            spriteBatch.Draw(background, mainFrame, Color.White);
 
             foreach (Sprite sprite in Sprites)
             {
