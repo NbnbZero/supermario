@@ -31,7 +31,7 @@ namespace SuperMario
         Rectangle mainFrame;
 
         Camera camera;
-        Vector2 parallax = new Vector2(0.5f);
+        Vector2 parallax = new Vector2(1f);
 
         public bool Paused { get => paused; set => paused = value; }
         public List<Sprite> Sprites { get => sprites; set => sprites = value; }
@@ -57,6 +57,7 @@ namespace SuperMario
             Paused = false;
 
             camera = new Camera(GraphicsDevice.Viewport);
+            camera.Limits= new Rectangle(0,0,1300,400);
 
             base.Initialize();
         }
@@ -81,7 +82,7 @@ namespace SuperMario
             #endregion
 
             background = Content.Load<Texture2D>("background");
-            mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            mainFrame = new Rectangle(0, 0, 1800, GraphicsDevice.Viewport.Height);
 
             #region Instatntiation of Sprites
 
@@ -146,7 +147,7 @@ namespace SuperMario
                 }
             }
 
-            camera.LookAt(marioState.Location);
+            camera.Update(camera, marioState.Location);
 
             base.Update(gameTime);
         }
@@ -161,7 +162,7 @@ namespace SuperMario
 
             #region SpriteBatch Drawing
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetViewMatrix(parallax));
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null, null, camera.GetViewMatrix(parallax));
 
             spriteBatch.Draw(background, mainFrame, Color.White);
 

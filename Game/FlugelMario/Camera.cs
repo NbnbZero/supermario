@@ -96,6 +96,14 @@ namespace FlugelMario
             Position += displacement;
         }
 
+        public void Update(Camera camera, Vector2 location)
+        {
+            if (location.X > _viewport.X/2 )
+            {
+                camera.LookAt(location);
+            }
+        }
+
         private readonly Viewport _viewport;
         private Vector2 _position;
         private Rectangle? _limits;
