@@ -2,6 +2,7 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Enums;
 
 namespace SuperMario.Sprites.Blocks
 {
@@ -21,6 +22,14 @@ namespace SuperMario.Sprites.Blocks
         public override void Update()
         {
             Animate();
+        }
+
+        public override void RespondToCollision(CollisionDirection direction)
+        {
+            if (direction == CollisionDirection.Bottom)
+            {
+                BumpUp();
+            }
         }
     }
 }

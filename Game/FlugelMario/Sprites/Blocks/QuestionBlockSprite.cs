@@ -2,10 +2,11 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Enums;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class QuestionBlockSprite : Sprite
+    class QuestionBlockSprite : BlockSprite
     {
         public QuestionBlockSprite(Texture2D texture, Vector2 location) : base(texture, location)
         {

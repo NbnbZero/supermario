@@ -51,7 +51,7 @@ namespace SuperMario.States.MarioStates
                   || (sprite.GetType() == typeof(UsedBlockSprite))
                   || (sprite.GetType() == typeof(HiddenBlockSprite)))
                 {
-                    BlockCollision(direction);
+                    sprite = BlockCollision(sprite, direction);
                 }
                 else if (sprite.GetType() == typeof(SuperMushroomSprite)
                   || sprite.GetType() == typeof(FlowerSprite))
@@ -119,7 +119,7 @@ namespace SuperMario.States.MarioStates
 
         }
 
-        private void BlockCollision(CollisionDirection direction)
+        private Sprite BlockCollision(Sprite block, CollisionDirection direction)
         {
             BeIdle();
             if (direction == CollisionDirection.Left)
@@ -137,7 +137,13 @@ namespace SuperMario.States.MarioStates
             else if (direction == CollisionDirection.Bottom)
             {
                 Descend();
+                if (block.GetType() == typeof(QuestionBlockSprite))
+                {
+                    block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location);
+                }
             }
+
+            return block;
         }
 
         private void ItemCollision(Sprite item, CollisionDirection direction)
