@@ -7,7 +7,6 @@ using SuperMario.States.MarioStates;
 using SuperMario.Enums;
 using SuperMario.Game_Controllers;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.ObjectModel;
 using FlugelMario;
 
 namespace SuperMario
@@ -15,21 +14,17 @@ namespace SuperMario
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class Game1 : AbstractGame
     {
         private bool paused;
 
         List<GamepadControls> gamePads;
         KeyboardControls keyboard;
-
-        GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         MarioState marioState;
         private List<Sprite> sprites;
-        private ISprite blackbackground;
         Texture2D background;
         Rectangle mainFrame;
-
         Camera2D camera;
         Vector2 parallax = new Vector2(1f);
 
@@ -38,7 +33,7 @@ namespace SuperMario
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            this.GraphicsManager = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
@@ -123,6 +118,9 @@ namespace SuperMario
 
          public void Reset()
         {
+            BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
+            LoadContent();
+            Camera2D.ResetCamera();
         }
 
         /// <summary>

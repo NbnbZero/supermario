@@ -19,7 +19,7 @@ namespace SuperMario.States.MarioStates
         public Shape MarioShape { get; set; }
         private int _screenWidth;
         private int _screenHeight;
-
+        
         private InputState marioState { get; set; }
 
         public Vector2 Location { get; set; }
@@ -67,24 +67,21 @@ namespace SuperMario.States.MarioStates
         {
             if (direction == CollisionDirection.Left || direction == CollisionDirection.Right)
             {
-                if (enemy.Alive)
-                {
-                    switch (MarioShape)
-                    {
-                        case Shape.Small:
-                            Terminated();
-                            break;
-                        case Shape.Big:
-                            ChangeSizeToSmall();
-                            enemy.Alive = false;
-                            break;
-                        case Shape.Fire:
-                            ChangeSizeToSmall();
-                            enemy.Alive = false;
-                            break;
-                    }
-                }
 
+                if (MarioShape == Shape.Small)
+                {
+                    Terminated();
+                }
+                else if(MarioShape == Shape.Big)
+                {
+                    ChangeSizeToSmall();
+                }
+                else if(MarioShape==Shape.Fire)
+                {
+                    ChangeSizeToSmall();
+                }
+                
+            
                 if (direction == CollisionDirection.Left)
                 {
                     Location = new Vector2(Location.X - 1, Location.Y);
@@ -103,14 +100,14 @@ namespace SuperMario.States.MarioStates
                 }
 
             }
-            else
+            else if (direction == CollisionDirection.Top || direction == CollisionDirection.Bottom)
             {
                 BeIdle();
                 if (enemy.GetType() == typeof(GoombaSprite))
                 {
                     enemy = EnemySpriteFactory.Instance.CreateDeadGoombaSprite(enemy.Location);
                 }
-                else if (enemy.GetType() == typeof(KoopaSprite))
+                if (enemy.GetType() == typeof(KoopaSprite))
                 {
                     enemy = EnemySpriteFactory.Instance.CreateDeadKoopaSprite(enemy.Location);
                 }
@@ -465,7 +462,13 @@ namespace SuperMario.States.MarioStates
         {
             marioState = InputState.MakeDead;
             MarioShape = Shape.Dead;
-            StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location); 
+            StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
+            MarioAttributes.MarioLife[0]--;
+            if(MarioAttributes.MarioLife[0]!=0)
+            {
+                Game1 game = (Game1)GameUtilities.Game;
+                //game.Reset();
+            }
         }
 
         public void ChangeSizeToSmall()

@@ -6,6 +6,7 @@ namespace SuperMario.Interfaces
 {
     public abstract class Sprite
     {
+
         #region Variables
 
         private Rectangle _collisionRectangle;
@@ -74,6 +75,7 @@ namespace SuperMario.Interfaces
 
         #region Public Methods
 
+       
         public virtual void Update() { }
 
         // TODO: Remove location as param
