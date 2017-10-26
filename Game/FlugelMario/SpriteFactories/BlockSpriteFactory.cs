@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMario.Sprites.Block;
 
 namespace SuperMario.SpriteFactories
 {
@@ -41,6 +42,7 @@ namespace SuperMario.SpriteFactories
         private Texture2D QuestionSpriteSheet;
         private Texture2D BrickSpriteSheet;
         private Texture2D RockSpriteSheet;
+        private Texture2D smallBrickSheet;
 
         private static BlockSpriteFactory instance = new BlockSpriteFactory();
         public static BlockSpriteFactory Instance
@@ -62,6 +64,7 @@ namespace SuperMario.SpriteFactories
             QuestionSpriteSheet = content.Load<Texture2D>("QuestionBlockSheet");
             BrickSpriteSheet = content.Load<Texture2D>("BrickBlockSheet");
             RockSpriteSheet = content.Load<Texture2D>("RockBlockSheet");
+            smallBrickSheet = content.Load<Texture2D>("smallbrick");
         }
         public int StairBlockWidth
         {
@@ -146,6 +149,11 @@ namespace SuperMario.SpriteFactories
         public Sprite CreateUsedBlock(Vector2 location)
         {
             return new UsedBlockSprite(UsedSpriteSheet, location) { Color = Color.Blue };
+        }
+
+        public Sprite CreateSmallBrickBlockSprite(Vector2 location)
+        {
+            return new SmallBrickSprite(smallBrickSheet, location) { Color = Color.Blue };
         }
 
         public Sprite CreateQuestionBlock(Vector2 location)

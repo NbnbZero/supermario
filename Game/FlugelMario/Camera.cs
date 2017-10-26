@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace FlugelMario
 {
-    public class Camera
+    public class Camera2D
     {
-        public Camera(Viewport viewport)
+        public Camera2D(Viewport viewport)
         {
             _viewport = viewport;
             Origin = new Vector2(_viewport.Width / 2.0f, _viewport.Height / 2.0f);
@@ -41,7 +40,6 @@ namespace FlugelMario
         public float Zoom { get; set; }
 
         public float Rotation { get; set; }
-
 
         public Rectangle? Limits
         {
@@ -96,13 +94,19 @@ namespace FlugelMario
             Position += displacement;
         }
 
-        public void Update(Camera camera, Vector2 location)
+        public static void ResetCamera()
+        {
+            
+        }
+
+        public void Update(Camera2D camera, Vector2 location)
         {
             if (location.X > _viewport.X/2 )
             {
                 camera.LookAt(location);
             }
         }
+
 
         private readonly Viewport _viewport;
         private Vector2 _position;

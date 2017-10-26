@@ -76,9 +76,11 @@ namespace SuperMario.States.MarioStates
                             break;
                         case Shape.Big:
                             ChangeSizeToSmall();
+                            enemy.Alive = false;
                             break;
                         case Shape.Fire:
                             ChangeSizeToSmall();
+                            enemy.Alive = false;
                             break;
                     }
                 }
@@ -141,6 +143,12 @@ namespace SuperMario.States.MarioStates
                 {
                     block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location);
                 }
+                if (!(MarioShape == Shape.Small) &&
+                    (block.GetType() == typeof(BrickBlockSprite)))
+                {
+                    block = BlockSpriteFactory.Instance.CreateSmallBrickBlockSprite(block.Location);
+                }
+            
             }
 
             return block;
@@ -457,7 +465,7 @@ namespace SuperMario.States.MarioStates
         {
             marioState = InputState.MakeDead;
             MarioShape = Shape.Dead;
-            StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
+            StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location); 
         }
 
         public void ChangeSizeToSmall()

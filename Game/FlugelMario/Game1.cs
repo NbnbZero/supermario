@@ -26,11 +26,11 @@ namespace SuperMario
         SpriteBatch spriteBatch;
         MarioState marioState;
         private List<Sprite> sprites;
-
+        private ISprite blackbackground;
         Texture2D background;
         Rectangle mainFrame;
 
-        Camera camera;
+        Camera2D camera;
         Vector2 parallax = new Vector2(1f);
 
         public bool Paused { get => paused; set => paused = value; }
@@ -56,7 +56,7 @@ namespace SuperMario
 
             Paused = false;
 
-            camera = new Camera(GraphicsDevice.Viewport);
+            camera = new Camera2D(GraphicsDevice.Viewport);
             camera.Limits= new Rectangle(0,0,1300,400);
 
             base.Initialize();
@@ -121,6 +121,10 @@ namespace SuperMario
             // TODO: Unload any non ContentManager content here
         }
 
+         public void Reset()
+        {
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -180,6 +184,7 @@ namespace SuperMario
             base.Draw(gameTime);
         }
 
+       
         #region Private
 
         private void CheckCollision()

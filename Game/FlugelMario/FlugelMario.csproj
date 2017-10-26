@@ -57,7 +57,7 @@
     <Compile Include="GameObjects\ItemGameObjects\RedMushroom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
-    <Compile Include="Interfaces\IBlockStateChange.cs" />
+    <Compile Include="Interfaces\IBlockStateMachine.cs" />
     <Compile Include="Interfaces\ICollisionCommand.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
@@ -65,12 +65,17 @@
     <Compile Include="Interfaces\IFireballState.cs" />
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="LevelLoader\LevelLoader.cs" />
     <Compile Include="LevelLoader\TileDefinition.cs" />
+    <Compile Include="MarioAttributes.cs" />
     <Compile Include="SizeTransition.cs" />
+    <Compile Include="SpriteFactories\BackgroundSpriteFactory.cs" />
     <Compile Include="SpriteFactories\FireballSpriteFactory.cs" />
     <Compile Include="SpriteFactories\ItemSpriteFactory.cs" />
+    <Compile Include="Sprites\Background\BlackBackgroundSprite.cs" />
     <Compile Include="Sprites\Blocks\HiddenBlockSprite.cs" />
+    <Compile Include="Sprites\Blocks\SmallBrickSprite.cs" />
     <Compile Include="Sprites\DisappearedSprite.cs" />
     <Compile Include="Sprites\Fireball\FireballSprite.cs" />
     <Compile Include="States\BlockState.cs" />
@@ -151,7 +156,9 @@
     <None Include="app.manifest" />
     <None Include="tsconfig1.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GameObjects\BlockGameObjects\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

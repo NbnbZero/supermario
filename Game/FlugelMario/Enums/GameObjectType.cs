@@ -9,7 +9,7 @@ namespace SuperMario.GameObjects
     public static class GameObjectType
     {
         public enum ObjectType {
-            Mario, Goomba, RedMushroom, FireFlower
+            Mario, Goomba, RedMushroom, FireFlower, Block
         }
     }
 }

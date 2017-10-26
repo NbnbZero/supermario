@@ -25,6 +25,7 @@ namespace SuperMario.Sprites.Blocks
             {
                 BumpUp();
                 Animate();
+
             }
         }
     }
