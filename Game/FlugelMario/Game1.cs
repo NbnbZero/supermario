@@ -116,13 +116,6 @@ namespace SuperMario
             // TODO: Unload any non ContentManager content here
         }
 
-         public void Reset()
-        {
-            BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
-            LoadContent();
-            Camera2D.ResetCamera();
-        }
-
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -149,6 +142,11 @@ namespace SuperMario
                 }
             }
 
+            if ((MarioAttributes.MarioLife[0] != 0)&&(marioState.MarioShape==Shape.Dead))
+            {
+                BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
+                LoadContent();
+            }
             camera.Update(camera, marioState.Location);
 
             base.Update(gameTime);

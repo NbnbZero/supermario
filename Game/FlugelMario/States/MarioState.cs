@@ -464,11 +464,6 @@ namespace SuperMario.States.MarioStates
             MarioShape = Shape.Dead;
             StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
             MarioAttributes.MarioLife[0]--;
-            if(MarioAttributes.MarioLife[0]!=0)
-            {
-                Game1 game = (Game1)GameUtilities.Game;
-                //game.Reset();
-            }
         }
 
         public void ChangeSizeToSmall()
