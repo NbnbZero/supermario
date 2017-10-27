@@ -56,7 +56,6 @@
     <Compile Include="Game Controllers\GamepadController.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FireFlower.cs" />
     <Compile Include="GameObjects\ItemGameObjects\RedMushroom.cs" />
-    <Compile Include="GameUtilities.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
     <Compile Include="Interfaces\IBlockStateMachine.cs" />
