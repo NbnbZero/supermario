@@ -8,6 +8,7 @@ using SuperMario.Sprites.Koopa;
 using SuperMario.Sprites.Blocks;
 using SuperMario.Sprites.StairBlocks;
 using SuperMario.Sprites.Items;
+using TileDefinition;
 
 namespace SuperMario.States.MarioStates
 {
@@ -19,7 +20,15 @@ namespace SuperMario.States.MarioStates
         public Shape MarioShape { get; set; }
         private int _screenWidth;
         private int _screenHeight;
-        
+
+        public Vector2 velocity;
+        public Vector2 Velocity { get { return velocity; } }
+        private float gravity = (float)0.01;
+        private float jumpVelocity = (float)1.5;
+        private Vector2 acceleration;
+        private Vector2 maxVelocity = new Vector2(2, 2);
+        private int _screenTop = 20;
+
         private InputState marioState { get; set; }
 
         public Vector2 Location { get; set; }
@@ -30,10 +39,14 @@ namespace SuperMario.States.MarioStates
             MarioPosture = Posture.Stand;
             MarioDirection = Direction.Right;
             marioState = InputState.Nothing;
-
+            
             Location = location;
             _screenWidth = screenWidth;
             _screenHeight = screenHeight;
+
+            velocity = new Vector2();
+            acceleration = new Vector2();
+            acceleration.Y = gravity;
         }
 
         public Sprite RespondToCollision(Sprite sprite, CollisionDirection direction)
@@ -268,6 +281,7 @@ namespace SuperMario.States.MarioStates
                 StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
                 marioState = InputState.Nothing;
             }
+            velocity.Y = 0;
         }
 
         public void BeIdle(InputState state)
@@ -313,6 +327,7 @@ namespace SuperMario.States.MarioStates
                 MarioDirection = Direction.Right;
             }
 
+            velocity.Y = 0;
         }
 
         public void Crouch()
@@ -335,7 +350,7 @@ namespace SuperMario.States.MarioStates
             }
         }
 
-        public void Jump()
+        public void Ascend()
         {
             if (MarioDirection == Direction.Right)
             {
@@ -381,6 +396,55 @@ namespace SuperMario.States.MarioStates
                 MarioDirection = Direction.Left;
                 marioState = InputState.Ascend;
             }
+        }
+
+        public void Jump()
+        {
+            if (MarioDirection == Direction.Right)
+            {
+                if (MarioShape == Shape.Small)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateJumpRightSmallMarioSprite(Location);
+                }
+                else if (MarioShape == Shape.Big)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateJumpRightBigMarioSprite(Location);
+                }
+                else if (MarioShape == Shape.Fire)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateJumpRightFireMarioSprite(Location);
+                }
+                else if (MarioShape == Shape.Dead)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
+                }
+
+                MarioDirection = Direction.Right;
+                marioState = InputState.Jump;
+            }
+            else
+            {
+                if (MarioShape == Shape.Small)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateJumpLeftSmallMarioSprite(Location);
+                }
+                else if (MarioShape == Shape.Big)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateJumpLeftBigMarioSprite(Location);
+                }
+                else if (MarioShape == Shape.Fire)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateJumpLeftFireMarioSprite(Location);
+                }
+                else if (MarioShape == Shape.Dead)
+                {
+                    StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
+                }
+
+                MarioDirection = Direction.Left;
+                marioState = InputState.Jump;
+            }
+            velocity.Y = jumpVelocity;
         }
 
         public void Descend()
@@ -502,6 +566,20 @@ namespace SuperMario.States.MarioStates
             {
                 if (Location.Y < _screenHeight)
                     Location = new Vector2(Location.X, Location.Y + 2);
+            }
+
+            if (marioState == InputState.Jump)
+            {
+                if (velocity.Y < maxVelocity.Y && velocity.Y > -maxVelocity.Y)
+                {
+                    velocity.Y = velocity.Y - acceleration.Y;
+                }
+                if (Location.Y < _screenTop)
+                {
+                    marioState = InputState.Descend;
+                }
+                Location = new Vector2(Location.X, Location.Y - velocity.Y);
+                
             }
 
         }

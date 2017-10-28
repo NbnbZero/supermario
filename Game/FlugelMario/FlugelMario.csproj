@@ -47,6 +47,7 @@
     <Compile Include="AbstractGame.cs" />
     <Compile Include="BlockSprite.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Commands\MarioCommand.cs" />
     <Compile Include="Commands\QuitGameCommand.cs" />
     <Compile Include="Enums\BlockTypes.cs" />
     <Compile Include="Enums\CollisionDirection.cs" />

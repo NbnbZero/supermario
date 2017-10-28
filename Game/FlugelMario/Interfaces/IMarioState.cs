@@ -13,6 +13,7 @@ namespace SuperMario.Interfaces
         Direction MarioDirection { get; set; }
         Shape MarioShape { get; set; }
         void Jump();
+        void Ascend();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();
         void Crouch();

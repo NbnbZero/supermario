@@ -17,6 +17,7 @@
         ChangeToUsed,
         BumpUp,
         ChangeToVisible,
-        BreakBrick
+        BreakBrick,
+        Jump
     }
 }

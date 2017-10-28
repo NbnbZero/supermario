@@ -115,10 +115,34 @@ namespace SuperMario
             }
             else
             {
+                if (state != InputState.Jump)
+                {
+                    this.State = InputState.Jump;
+                    MarioState.Jump();
+                }
+            }
+        }
+        protected void HandleAscend(InputState state)
+        {
+            if (state == InputState.Descend)
+            {
+                if (MarioState.MarioDirection == Direction.Left)
+                {
+                    this.State = InputState.IdleLeft;
+                    MarioState.BeIdle();
+                }
+                else
+                {
+                    this.State = InputState.IdleRight;
+                    MarioState.BeIdle();
+                }
+            }
+            else
+            {
                 if (state != InputState.Ascend)
                 {
                     this.State = InputState.Ascend;
-                    MarioState.Jump();
+                    MarioState.Ascend();
                 }
             }
         }
