@@ -28,8 +28,9 @@ namespace SuperMario.Game_Controllers
             controllerMappings.Add(Buttons.Start, HandlePauseOrResume);
             controllerMappings.Add(Buttons.DPadLeft, HandleLeft);
             controllerMappings.Add(Buttons.DPadRight, HandleRight);
-            controllerMappings.Add(Buttons.DPadUp, HandleJump);
+            controllerMappings.Add(Buttons.DPadUp, HandleAscend);
             controllerMappings.Add(Buttons.DPadDown, HandleDown);
+            controllerMappings.Add(Buttons.Y, HandleJump);
         }
 
         public void Update()

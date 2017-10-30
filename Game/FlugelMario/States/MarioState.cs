@@ -27,7 +27,8 @@ namespace SuperMario.States.MarioStates
         private float jumpVelocity = (float)1.5;
         private Vector2 acceleration;
         private Vector2 maxVelocity = new Vector2(2, 2);
-        private int _screenTop = 20;
+        private InputState previousState {get; set;}
+
 
         private InputState marioState { get; set; }
 
@@ -39,7 +40,7 @@ namespace SuperMario.States.MarioStates
             MarioPosture = Posture.Stand;
             MarioDirection = Direction.Right;
             marioState = InputState.Nothing;
-            
+            previousState = InputState.Nothing;
             Location = location;
             _screenWidth = screenWidth;
             _screenHeight = screenHeight;
@@ -142,6 +143,7 @@ namespace SuperMario.States.MarioStates
             }
             else if (direction == CollisionDirection.Top)
             {
+                marioState = previousState;
                 Location = new Vector2(Location.X, Location.Y - 1);
             }
             else if (direction == CollisionDirection.Bottom)
@@ -400,6 +402,7 @@ namespace SuperMario.States.MarioStates
 
         public void Jump()
         {
+            previousState = marioState;
             if (MarioDirection == Direction.Right)
             {
                 if (MarioShape == Shape.Small)
@@ -574,7 +577,7 @@ namespace SuperMario.States.MarioStates
                 {
                     velocity.Y = velocity.Y - acceleration.Y;
                 }
-                if (Location.Y < _screenTop)
+                if (velocity.Y <= 0 )
                 {
                     marioState = InputState.Descend;
                 }
