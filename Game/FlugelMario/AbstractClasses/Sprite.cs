@@ -50,7 +50,17 @@ namespace SuperMario.Interfaces
         public bool Alive { get => alive; set => alive = value; }
         public bool CanCollide { get => canCollide; set => canCollide = value; }
 
-        public ItemSprite Item;
+        private ItemSprite item;
+
+        public ItemSprite GetItem()
+        {
+            return item;
+        }
+
+        public void SetItem(ItemSprite value)
+        {
+            item = value;
+        }
 
         #endregion
 

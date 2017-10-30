@@ -7,7 +7,7 @@ using SuperMario.Sprites.Items;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class UsedBlockSprite : Sprite
+    class UsedBlockSprite : BlockSprite
     {
         public UsedBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
         {
@@ -19,7 +19,7 @@ namespace SuperMario.Sprites.Blocks
 
             TotalFrames = BlockSpriteFactory.Instance.UsedBlockAnimeTotalFrame;
 
-            Item = item;
+            SetItem(item);
         }
 
         public override void Update()
@@ -27,12 +27,21 @@ namespace SuperMario.Sprites.Blocks
             Animate();
         }
 
+        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            if (GetItem() != null)
+            {
+                GetItem().Draw(spriteBatch, GetItem().Location);
+                base.Draw(spriteBatch, location);
+            }
+        }
+
         public override void RespondToCollision(CollisionDirection direction)
         {
             if (direction == CollisionDirection.Bottom)
             {
                 BumpUp();
-                Item.Reveal();
+                GetItem().Reveal();
             }
         }
     }

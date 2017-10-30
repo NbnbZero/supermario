@@ -33,7 +33,7 @@ namespace SuperMario.AbstractClasses
             }
             else if (Type == BlockType.Brick)
             {
-                StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock(StateSprite.Location);
+                StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock(StateSprite.Location, null);
             }
             else if (Type == BlockType.Hidden)
             {
@@ -50,7 +50,7 @@ namespace SuperMario.AbstractClasses
         public void ChangeToBrickBlock()
         {
             BlockType = BlockType.Brick;
-            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock(StateSprite.Location);
+            StateSprite = BlockSpriteFactory.Instance.CreateBrickBlock(StateSprite.Location, null);
         }
         public Vector2 BlockBumpUp(Vector2 blockLocation)
         {

@@ -140,40 +140,55 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public ItemSprite CreateFlowerSprite(Vector2 location)
+        public ItemSprite CreateFlowerSprite(Vector2 location, bool hidden)
         {
-            return new FlowerSprite(ItemFlowerSpriteSheet, location) { Color = Color.LightGreen };
+            return new FlowerSprite(ItemFlowerSpriteSheet, location, hidden) { Color = Color.LightGreen };
         }
 
-        public ItemSprite CreateCoinSprite(Vector2 location)
+        public ItemSprite CreateCoinSprite(Vector2 location, bool hidden)
         {
-            return new CoinSprite(ItemCoinSpriteSheet, location) { Color = Color.LightGreen };
+            return new CoinSprite(ItemCoinSpriteSheet, location, hidden) { Color = Color.LightGreen };
         }
-        public ItemSprite CreateSuperMushroomSprite(Vector2 location)
+        public ItemSprite CreateSuperMushroomSprite(Vector2 location, bool hidden)
         {
-            return new SuperMushroomSprite(ItemSuperMushroomSpriteSheet, location) { Color = Color.LightGreen };
+            return new SuperMushroomSprite(ItemSuperMushroomSpriteSheet, location, hidden) { Color = Color.LightGreen };
         }
-        public ItemSprite CreateUpMushroomSprite(Vector2 location)
+        public ItemSprite CreateUpMushroomSprite(Vector2 location, bool hidden)
         {
-            return new UpMushroomSprite(ItemUpMushroomSpriteSheet, location) { Color = Color.LightGreen };
+            return new UpMushroomSprite(ItemUpMushroomSpriteSheet, location, hidden) { Color = Color.LightGreen };
         }
 
-        public ItemSprite CreateStarSprite(Vector2 location)
+        public ItemSprite CreateStarSprite(Vector2 location, bool hidden)
         {
-            return new StarSprite(ItemStarSpriteSheet, location) { Color = Color.LightGreen };
+            return new StarSprite(ItemStarSpriteSheet, location, hidden) { Color = Color.LightGreen };
         }
 
         public Sprite CreateDisappearedSprite() {
             return new DisappearedSprite(ItemSpriteSheet);
         }
 
-        public ItemSprite MakeSprite(ItemType sprite, Vector2 location)
+        public ItemSprite MakeHiddenSprite(ItemType sprite, Vector2 location)
         {
             ItemSprite item = null;
 
             if (sprite == ItemType.UpMushroom)
             {
-                item = CreateUpMushroomSprite(location);
+                item = CreateUpMushroomSprite(location, true);
+            } else if (sprite == ItemType.Coin)
+            {
+                item = CreateCoinSprite(location, true);
+            }
+            else if (sprite == ItemType.Flower)
+            {
+                item = CreateFlowerSprite(location, true);
+            }
+            else if (sprite == ItemType.Star)
+            {
+                item = CreateStarSprite(location, true);
+            }
+            else if (sprite == ItemType.SuperMushroom)
+            {
+                item = CreateSuperMushroomSprite(location, true);
             }
 
             return item;

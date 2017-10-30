@@ -136,7 +136,8 @@ namespace SuperMario.States.MarioStates
                 Descend();
                 if (block.GetType() == typeof(QuestionBlockSprite))
                 {
-                    block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location, (ItemSprite) block.Item);
+                    ItemSprite item = block.GetItem();
+                    block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location, item);
                 }
                 if (!(MarioShape == Shape.Small) &&
                     (block.GetType() == typeof(BrickBlockSprite)))

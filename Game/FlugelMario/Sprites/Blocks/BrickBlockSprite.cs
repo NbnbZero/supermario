@@ -3,12 +3,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
+using SuperMario.Sprites.Items;
 
 namespace SuperMario.Sprites.Blocks
 {
     class BrickBlockSprite : BlockSprite
     {
-        public BrickBlockSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        public BrickBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
         {
             Width = BlockSpriteFactory.Instance.BrickBlockWidth;
             Height = BlockSpriteFactory.Instance.BrickBlockHeight;
@@ -17,6 +18,17 @@ namespace SuperMario.Sprites.Blocks
             TextureY = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.Y;
 
             TotalFrames = BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame;
+
+            SetItem(item);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            if (GetItem() != null)
+            {
+                GetItem().Draw(spriteBatch, GetItem().Location);
+                base.Draw(spriteBatch, location);
+            }
         }
 
         public override void RespondToCollision(CollisionDirection direction)
@@ -25,7 +37,7 @@ namespace SuperMario.Sprites.Blocks
             {
                 BumpUp();
                 Animate();
-
+                GetItem().Reveal();
             }
         }
     }

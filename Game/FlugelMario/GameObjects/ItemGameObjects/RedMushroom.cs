@@ -19,7 +19,7 @@ namespace SuperMario
 
         public RedMushroom(Vector2 location)
         {
-            sprite = ItemSpriteFactory.Instance.CreateSuperMushroomSprite(location);
+            sprite = ItemSpriteFactory.Instance.CreateSuperMushroomSprite(location, false);
         }
 
         public void Draw(SpriteBatch spriteBatch)

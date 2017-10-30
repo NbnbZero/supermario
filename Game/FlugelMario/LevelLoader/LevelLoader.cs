@@ -48,7 +48,7 @@ namespace SuperMario
                     switch (block.State)
                     {
                         case BlockType.Brick:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateBrickBlock(new Vector2(block.xLocation, block.yLocation)));
+                            sprites.Add(BlockSpriteFactory.Instance.CreateBrickBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeHiddenSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));
                             break;
                         case BlockType.Stair:
                             sprites.Add(BlockSpriteFactory.Instance.CreateStairBlock(new Vector2(block.xLocation, block.yLocation)));
@@ -57,7 +57,7 @@ namespace SuperMario
                             sprites.Add(BlockSpriteFactory.Instance.CreateUsedBlock(new Vector2(block.xLocation, block.yLocation), null));
                             break;
                         case BlockType.Question:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateQuestionBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));
+                            sprites.Add(BlockSpriteFactory.Instance.CreateQuestionBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeHiddenSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));
                             break;
                         case BlockType.Floor:
                             sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(block.xLocation, block.yLocation)));
@@ -83,19 +83,19 @@ namespace SuperMario
                     switch (item.itemType)
                     {
                         case ItemType.Coin:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateCoinSprite(new Vector2(item.xLocation, item.yLocation)));
+                            sprites.Add(ItemSpriteFactory.Instance.CreateCoinSprite(new Vector2(item.xLocation, item.yLocation), false));
                             break;
                         case ItemType.Flower:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateFlowerSprite(new Vector2(item.xLocation, item.yLocation)));
+                            sprites.Add(ItemSpriteFactory.Instance.CreateFlowerSprite(new Vector2(item.xLocation, item.yLocation), false));
                             break;
                         case ItemType.SuperMushroom:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateSuperMushroomSprite(new Vector2(item.xLocation, item.yLocation)));
+                            sprites.Add(ItemSpriteFactory.Instance.CreateSuperMushroomSprite(new Vector2(item.xLocation, item.yLocation), false));
                             break;
                         case ItemType.UpMushroom:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateUpMushroomSprite(new Vector2(item.xLocation, item.yLocation)));
+                            sprites.Add(ItemSpriteFactory.Instance.CreateUpMushroomSprite(new Vector2(item.xLocation, item.yLocation), false));
                             break;
                         case ItemType.Star:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateStarSprite(new Vector2(item.xLocation, item.yLocation)));
+                            sprites.Add(ItemSpriteFactory.Instance.CreateStarSprite(new Vector2(item.xLocation, item.yLocation), false));
                             break;
                     }
 

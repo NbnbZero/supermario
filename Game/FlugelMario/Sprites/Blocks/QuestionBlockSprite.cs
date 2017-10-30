@@ -9,7 +9,6 @@ namespace SuperMario.Sprites.Blocks
 {
     class QuestionBlockSprite : BlockSprite
     {
-        public ItemSprite Item;
 
         public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
         {
@@ -21,7 +20,7 @@ namespace SuperMario.Sprites.Blocks
 
             TotalFrames = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
 
-            Item = item;
+            SetItem(item);
         }
 
         public override void Update()
@@ -31,7 +30,7 @@ namespace SuperMario.Sprites.Blocks
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Item.Draw(spriteBatch, Item.Location);
+            GetItem().Draw(spriteBatch, GetItem().Location);
             base.Draw(spriteBatch, location);
         }
     }

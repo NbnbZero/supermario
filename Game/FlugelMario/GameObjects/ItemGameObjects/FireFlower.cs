@@ -19,7 +19,7 @@ namespace SuperMario
 
         public FireFlower(Vector2 location)
         {
-            sprite = ItemSpriteFactory.Instance.CreateFlowerSprite(location);
+            sprite = ItemSpriteFactory.Instance.CreateFlowerSprite(location, false);
         }
 
         public void Draw(SpriteBatch spriteBatch)

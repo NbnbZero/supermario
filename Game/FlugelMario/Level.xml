@@ -30,7 +30,7 @@
   
   <BlockData>
     <State>Brick</State>
-    <itemType>Null</itemType>
+    <itemType>Flower</itemType>
     <xLocation>500</xLocation>
     <yLocation>100</yLocation>
   </BlockData>

@@ -7,7 +7,7 @@ namespace SuperMario.Sprites.Items
 {
     class FlowerSprite : ItemSprite
     {
-        public FlowerSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        public FlowerSprite(Texture2D texture, Vector2 location, bool hidden) : base(texture, location, hidden)
         {
             Width = ItemSpriteFactory.Instance.FlowerWith; // TODO: Correct spelling
             Height = ItemSpriteFactory.Instance.FlowerHeight;

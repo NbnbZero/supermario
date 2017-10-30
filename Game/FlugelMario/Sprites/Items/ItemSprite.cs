@@ -11,15 +11,21 @@ namespace SuperMario.Sprites.Items
 {
     public abstract class ItemSprite : Sprite
     {
-        bool revealed = false;
+        bool revealed;
+        public bool Hidden;
         int counter = 0;
-        public ItemSprite(Texture2D texture, Vector2 location) : base(texture, location) { }
+        public ItemSprite(Texture2D texture, Vector2 location, bool hidden) : base(texture, location)
+        {
+            Hidden = hidden;
+            revealed = false;
+        }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             if (revealed && counter < Height)
             {
-                Location = new Vector2(Location.X, Location.Y + 1);
+                Location = new Vector2(Location.X, Location.Y - 1);
+                counter++;
             }
             base.Draw(spriteBatch, location);
         }
