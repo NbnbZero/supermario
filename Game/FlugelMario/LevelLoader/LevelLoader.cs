@@ -42,8 +42,8 @@ namespace SuperMario
             }
             for (int i = 0; i < 1094; i = i + 16)
             {
-                sprites.Add(BlockSpriteFactory.Instance.CreateBrickBlock(new Vector2(i,400)));
-                sprites.Add(BlockSpriteFactory.Instance.CreateBrickBlock(new Vector2(i, 416)));
+                sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(i,400)));
+                sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(i, 416)));
             }
            
             if (sprites != null)
