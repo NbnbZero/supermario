@@ -8,9 +8,9 @@ using SuperMario;
 
 namespace FlugelMario
 {
-    public class Camera2D
+    public class Camera
     {
-        public Camera2D(Viewport viewport)
+        public Camera(Viewport viewport)
         {
             _viewport = viewport;
             Origin = new Vector2(_viewport.Width / 2.0f, _viewport.Height / 2.0f);
