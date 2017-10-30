@@ -150,6 +150,12 @@ namespace SuperMario.SpriteFactories
         {
             return new UsedBlockSprite(UsedSpriteSheet, location, item) { Color = Color.Blue };
         }
+
+        public Sprite CreateSmallBrickBlockSprite(Vector2 location)
+        {
+            return new SmallBrickSprite(smallBrickSheet, location) { Color = Color.Blue };
+        }
+
         public Sprite CreateQuestionBlock(Vector2 location, ItemSprite item)
         {
             return new QuestionBlockSprite(QuestionSpriteSheet, location, item) { Color = Color.Blue };
