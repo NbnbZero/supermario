@@ -13,6 +13,7 @@ namespace SuperMario.Enums
         Floor,
         Stair,
         Hidden,
-        None
+        None,
+        Broken
     }
 }
