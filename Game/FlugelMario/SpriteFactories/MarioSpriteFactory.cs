@@ -93,7 +93,7 @@ namespace SuperMario.SpriteFactories
         public Vector2 RunningLeftFireMarioCord { get; } = new Vector2(3, 1);
         public Vector2 RunningLeftSmallMarioCord { get; } = new Vector2(3, 0);
         public Vector2 RunningRightBigMarioCord { get; } = new Vector2(10, 0);
-        public Vector2 RunningRightFireMarioCord { get; } = new Vector2(10, 1);
+        public Vector2 RunningRightFireMarioCord { get; } = new Vector2(12, 1);
         public Vector2 RunningRightSmallMarioCord { get; } = new Vector2(10, 0);
 
         public Sprite CreateCrouchLeftBigMarioSprite(Vector2 location)

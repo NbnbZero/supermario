@@ -1,0 +1,20 @@
+Author: Yanbo Du
+
+Date: 10/30/2017
+
+Sprint: 3
+
+File Being Reviewed: LevelLoader.cs
+
+Author of File:	Haifeng Yang
+
+Comments on Quality:
+	- Good readability.
+	- Relatively long class. It's possible to separate LoadMario, LoadBlock and LoadItem in a different class.
+	- LoadMarioStart probably is redundant because it is only need once when the game start.
+
+Minutes Taken:15 min
+
+Hypothetical Change:
+	- Create concrete class for function implementation.
+	- Initialize the mario position at Game1.cs
