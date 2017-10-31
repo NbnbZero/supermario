@@ -2,6 +2,7 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using FlugelMario;
 
 namespace SuperMario.Sprites.Goomba
 {
@@ -16,7 +17,7 @@ namespace SuperMario.Sprites.Goomba
             TextureY = (int)EnemySpriteFactory.Instance.GoombaDeadCord.Y;
         }
 
-        public override void Update()
+        public override void Update(Viewport viewport, Vector2 marioLocation)
         {
             Destination = MakeDestinationRectangle(Location);
         }

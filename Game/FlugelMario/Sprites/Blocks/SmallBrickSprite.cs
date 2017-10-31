@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Interfaces;
+using FlugelMario;
 
 namespace SuperMario.Sprites.Block
 {
@@ -69,7 +70,7 @@ namespace SuperMario.Sprites.Block
 
         }
 
-        public override void Update()
+        public override void Update(Viewport viewport, Vector2 marioLocation)
         {
             
             if (isInitial)

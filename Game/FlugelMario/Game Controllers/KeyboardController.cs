@@ -26,14 +26,16 @@ namespace SuperMario.Game_Controllers
             controllerMappings.Add(Keys.R, HandlePauseOrResume);
             controllerMappings.Add(Keys.Left, HandleLeft);
             controllerMappings.Add(Keys.Right, HandleRight);
-            controllerMappings.Add(Keys.Up, HandleJump);
+            controllerMappings.Add(Keys.Up, HandleAscend);
             controllerMappings.Add(Keys.Down,HandleDown);
             controllerMappings.Add(Keys.Y, MakeSmall);
             controllerMappings.Add(Keys.U, MakeBig);
             controllerMappings.Add(Keys.I, MakeFire);
             controllerMappings.Add(Keys.O, MakeDead);
             controllerMappings.Add(Keys.B, BumpUp);
-            controllerMappings.Add(Keys.X, ChangeToUsed);
+            controllerMappings.Add(Keys.X, ChangeToUsed);            
+            controllerMappings.Add(Keys.Z, HandleJump);
+            //controllerMappings.Add(Keys )
         }
 
         public void Update()

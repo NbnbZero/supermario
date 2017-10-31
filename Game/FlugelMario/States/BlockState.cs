@@ -70,7 +70,7 @@ namespace SuperMario.AbstractClasses
 
         public void BreakBrickBlock()
         {
-            StateSprite.Update();
+            //StateSprite.Update();
         }
 
         public void Update()

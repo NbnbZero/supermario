@@ -8,6 +8,7 @@ using SuperMario.Enums;
 using SuperMario.Game_Controllers;
 using Microsoft.Xna.Framework.Input;
 using FlugelMario;
+using SuperMario.Sprites.Goomba;
 
 namespace SuperMario
 {
@@ -134,11 +135,11 @@ namespace SuperMario
             {
                 CheckCollision();
 
-                marioState.Update();
+                marioState.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
 
                 foreach (Sprite sprite in Sprites)
                 {
-                    sprite.Update();
+                    sprite.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
                 }
             }
 

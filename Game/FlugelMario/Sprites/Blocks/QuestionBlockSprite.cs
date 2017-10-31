@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using SuperMario.Sprites.Items;
+using FlugelMario;
 
 namespace SuperMario.Sprites.Blocks
 {
@@ -23,7 +24,7 @@ namespace SuperMario.Sprites.Blocks
             SetItem(item);
         }
 
-        public override void Update()
+        public override void Update(Viewport viewport, Vector2 marioLocation)
         {
             Animate();
         }

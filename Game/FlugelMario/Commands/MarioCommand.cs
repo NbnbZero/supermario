@@ -19,7 +19,7 @@ namespace SuperMario
                     marioState.Crouch();
                     break;
                 case InputState.Ascend:
-                    marioState.Jump();
+                    marioState.Ascend();
                     break;
                 case InputState.RunLeft:
                     marioState.RunLeft();
@@ -44,6 +44,9 @@ namespace SuperMario
                     break;
                 case InputState.MakeDead:
                     marioState.Terminated();
+                    break;
+                case InputState.Jump:
+                    marioState.Jump();
                     break;
                 default:
                     marioState.BeIdle();

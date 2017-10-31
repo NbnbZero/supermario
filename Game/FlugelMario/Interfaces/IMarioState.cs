@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using Microsoft.Xna.Framework.Input;
 using SuperMario.AbstractClasses;
+using FlugelMario;
 
 namespace SuperMario.Interfaces
 {
@@ -13,12 +14,13 @@ namespace SuperMario.Interfaces
         Direction MarioDirection { get; set; }
         Shape MarioShape { get; set; }
         void Jump();
+        void Ascend();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();
         void Crouch();
         void ChangeFireMode();
         void Terminated();
-        void Update(); 
+        void Update(Viewport viewport, Vector2 marioLocation); 
         void Draw(SpriteBatch spriteBatch, Vector2 location);
         void RunLeft();
         void RunRight();
