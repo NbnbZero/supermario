@@ -1,0 +1,18 @@
+Author: Chen Ling
+Date: 10/30/2017
+Sprint number: 3
+File being reviewed: Camera.cs
+Author of the .cs file being reviewed: Yanbo Du
+Number of minutes taken to complete the review: 10
+
+Comments: 
+It is easy to read this class. All of the code have a good code quality. 
+The camera class contains a position vector, an origin vector, a limit rectangle to define the view. 
+However, the float variable Zoom does not make sense to me. I do not understand what its function is. 
+Also, the method name "LookAt" and "Move" are kinds of confusing. 
+
+Hypothetical changes:
+From the perspective of future work, I think it is relatively easy if the position variable in camera.cs can be changed to static. 
+By doing so, in this class, we can create a static cameraReset function, which can be called in game1.
+For example, if team wants to do level restart in the future, and it is needed to reset camera, creating a reset function and then calling the cameraReset function is a good try.
+Otherwise, the revise work will be increased.
