@@ -36,7 +36,7 @@ namespace SuperMario.Sprites.Blocks
             if (direction == CollisionDirection.Bottom)
             {
                 BumpUp();
-                Animate();
+                //Animate();
                 GetItem().Reveal();
             }
         }
