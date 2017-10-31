@@ -4,13 +4,17 @@ Date: 10/31/2017
 
 Sprint: 3
 
-File Being Reviewed: 
+Author of File: Haobin Xu
 
-Author of File:	Haifeng Yang
+File Being Reviewed: SmallBrickSprite.cs
 
-Comments on Quality:
+Comments on Quality: 
+The class is easy to maintain and to be used.
+Small block physics is correct. 
 	
 Minutes Taken:10 min
 
 Hypothetical Change:
+Better Put the whole name when initial the variables since its kind of diffcult to
+understand the meaning of variables.
 	
