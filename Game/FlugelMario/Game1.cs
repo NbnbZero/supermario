@@ -141,6 +141,12 @@ namespace SuperMario
                     sprite.Update();
                 }
             }
+
+            if ((MarioAttributes.MarioLife[0] != 0) && (marioState.MarioShape == Shape.Dead))
+            {
+                BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
+                LoadContent();
+            }
             camera.Update(camera, marioState.Location);
 
             base.Update(gameTime);
