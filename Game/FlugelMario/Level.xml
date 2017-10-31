@@ -73,7 +73,7 @@
   <ItemData>
     <itemType>SuperMushroom</itemType>
     <xLocation>500</xLocation>
-    <yLocation>200</yLocation>
+    <yLocation>300</yLocation>
   </ItemData>
   <ItemData>
     <itemType>Star</itemType>
@@ -83,7 +83,7 @@
   <ItemData>
     <itemType>UpMushroom</itemType>
     <xLocation>700</xLocation>
-    <yLocation>200</yLocation>
+    <yLocation>300</yLocation>
   </ItemData>
 </Map>
 

@@ -1810,7 +1810,7 @@
   <EnemyData>
     <enemyType>Koopa</enemyType>
     <xLocation>150</xLocation>
-    <yLocation>180</yLocation>
+    <yLocation>377</yLocation>
   </EnemyData>
   <EnemyData>
     <enemyType>Koopa</enemyType>
@@ -1843,12 +1843,12 @@
   <ItemData>
     <itemType>UpMushroom</itemType>
     <xLocation>200</xLocation>
-    <yLocation>90</yLocation>
+    <yLocation>385</yLocation>
   </ItemData>
   <ItemData>
     <itemType>SuperMushroom</itemType>
     <xLocation>240</xLocation>
-    <yLocation>90</yLocation>
+    <yLocation>385</yLocation>
   </ItemData>
   <ItemData>
     <itemType>Coin</itemType>
