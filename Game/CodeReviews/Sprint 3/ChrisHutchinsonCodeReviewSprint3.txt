@@ -1,0 +1,16 @@
+Author of Review:	Chris Hutchinson
+Date:			10/21/2017
+Sprint:			3
+File:			UpMushroomSprite.cs
+Author of File:		Haobin Xu
+Comments on Quality:
+	- Maybe figure out a way to not make a new vector every time (as we have a memory problem now)
+	- Since Items move, maybe put the goLeft and goRight variables in a super class
+	- Good naming convention with the lowercase privtae variables
+	- Draw could also be put in a super class probably
+
+Minutes Taken: 		10ish
+Hypothetical change:
+	- What would happen if we wanted to change what the up mushroom did? (like make it a fire mushroom)
+		- You would need to update the class name
+		- Not much else would change about the class since there's not much in there to begin with.
