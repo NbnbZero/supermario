@@ -26,7 +26,7 @@ namespace SuperMario
         private List<Sprite> sprites;
         Texture2D background;
         Rectangle mainFrame;
-        Camera camera;
+        public Camera camera;
         Vector2 parallax = new Vector2(1f);
 
         public bool Paused { get => paused; set => paused = value; }

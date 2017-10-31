@@ -49,6 +49,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="Commands\MarioCommand.cs" />
     <Compile Include="Commands\QuitGameCommand.cs" />
+    <Compile Include="CurrerntViewport.cs" />
     <Compile Include="Enums\BlockTypes.cs" />
     <Compile Include="Enums\CollisionDirection.cs" />
     <Compile Include="Enums\EnemyTypes.cs" />
