@@ -1,0 +1,15 @@
+Author: Haobin Xu
+Date: 10/30/2017
+Sprint: 3
+File Being Reviewed:	SmallBrickSprite.cs
+Author of File:	Chen Ling
+Comments on Quality:
+	-Overall friendly for others to read and further understand.
+	-Every element and variable are sorted so that quite not possible to mix up.
+
+Minutes Taken:10 min
+
+Hypothetical Change:
+	-Might be an unnecessary change: could pass in gametime as variable so that this class does not require an 
+	 extra "counter" variable to update itself.
+	-Also, the class is a bit long but meanwhile necessary. Small refactoration could be applied. 
