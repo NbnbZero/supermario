@@ -683,7 +683,7 @@
 
   <BlockData>
     <State>Question</State>
-    <itemType>Coin</itemType>
+    <itemType>UpMushroom</itemType>
     <xLocation>336</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
@@ -691,7 +691,7 @@
 
   <BlockData>
     <State>Question</State>
-    <itemType>Coin</itemType>
+    <itemType>SuperMushroom</itemType>
     <xLocation>368</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>

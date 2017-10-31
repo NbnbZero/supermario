@@ -30,6 +30,7 @@ namespace SuperMario.Sprites.Items
             goLeft = Location.X < (marioLocation.X + viewport.Width / 2) && Location.X > marioLocation.X;
             goRight = Location.X < marioLocation.X;
         }
+
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             if (goLeft)
@@ -42,7 +43,5 @@ namespace SuperMario.Sprites.Items
             }
             base.Draw(spriteBatch, location);
         }
-
-
     }
 }
