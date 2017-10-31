@@ -53,10 +53,7 @@ namespace SuperMario.Interfaces
 
         private ItemSprite item;
 
-        public ItemSprite GetItem()
-        {
-            return item;
-        }
+        public ItemSprite Item => item;
 
         public void SetItem(ItemSprite value)
         {

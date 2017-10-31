@@ -31,7 +31,7 @@ namespace SuperMario.Sprites.Blocks
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            GetItem().Draw(spriteBatch, GetItem().Location);
+            Item.Draw(spriteBatch, Item.Location);
             base.Draw(spriteBatch, location);
         }
     }

@@ -96,7 +96,7 @@ namespace FlugelMario
         }
         public void Update(Camera camera, Vector2 location)
         {
-            if (location.X > _viewport.X/2 )
+            if (location.X > _viewport.X/2 && camera != null)
             {
                 camera.LookAt(location);
             }

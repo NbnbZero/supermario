@@ -30,9 +30,9 @@ namespace SuperMario.Sprites.Blocks
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            if (GetItem() != null)
+            if (Item!= null)
             {
-                GetItem().Draw(spriteBatch, GetItem().Location);
+                Item.Draw(spriteBatch, Item.Location);
                 base.Draw(spriteBatch, location);
             }
         }
@@ -42,7 +42,7 @@ namespace SuperMario.Sprites.Blocks
             if (direction == CollisionDirection.Bottom)
             {
                 BumpUp();
-                GetItem().Reveal();
+                Item.Reveal();
             }
         }
     }
