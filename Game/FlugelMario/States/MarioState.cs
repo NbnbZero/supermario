@@ -145,6 +145,14 @@ namespace SuperMario.States.MarioStates
             else if (direction == CollisionDirection.Top)
             {
                 marioState = previousState;
+                if (marioState == InputState.RunLeft)
+                {
+                    RunLeft();
+                }
+                else if (marioState == InputState.RunRight)
+                {
+                    RunRight();
+                }
                 Location = new Vector2(Location.X, Location.Y - 1);
             }
             else if (direction == CollisionDirection.Bottom)
@@ -552,11 +560,13 @@ namespace SuperMario.States.MarioStates
 
             if (marioState == InputState.RunLeft)
             {
+                
                 if (Location.X > 0)
                     Location = new Vector2(Location.X - 2, Location.Y);
             }
             else if (marioState == InputState.RunRight)
             {
+                
                 if (Location.X < _screenWidth)
                     Location = new Vector2(Location.X + 2, Location.Y);
             }
