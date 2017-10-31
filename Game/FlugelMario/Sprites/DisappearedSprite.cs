@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Sprites.Items;
+using FlugelMario;
 
 namespace SuperMario
 {
@@ -24,6 +25,6 @@ namespace SuperMario
             return new Rectangle((int)location.X, (int)location.Y, 0, 0);
         }
 
-        public override void Update() { }       
+        public override void Update(Viewport viewport, Vector2 marioLocation) { }       
     }
 }

@@ -1802,11 +1802,11 @@
 
 
 
-  <EnemyData>
+  <!--<EnemyData>
     <enemyType>Goomba</enemyType>
     <xLocation>200</xLocation>
     <yLocation>180</yLocation>
-  </EnemyData>
+  </EnemyData>-->
   <EnemyData>
     <enemyType>Koopa</enemyType>
     <xLocation>150</xLocation>
@@ -1814,18 +1814,13 @@
   </EnemyData>
   <EnemyData>
     <enemyType>Koopa</enemyType>
-    <xLocation>2100</xLocation>
-    <yLocation>180</yLocation>
+    <xLocation>450</xLocation>
+    <yLocation>377</yLocation>
   </EnemyData>
   <EnemyData>
     <enemyType>Goomba</enemyType>
-    <xLocation>1550</xLocation>
-    <yLocation>180</yLocation>
-  </EnemyData>
-  <EnemyData>
-    <enemyType>Goomba</enemyType>
-    <xLocation>2350</xLocation>
-    <yLocation>180</yLocation>
+    <xLocation>500</xLocation>
+    <yLocation>385</yLocation>
   </EnemyData>
 
 

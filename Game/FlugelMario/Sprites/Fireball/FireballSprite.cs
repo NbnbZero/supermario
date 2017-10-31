@@ -1,6 +1,8 @@
 ﻿using SuperMario.Interfaces;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.SpriteFactories;
+using FlugelMario;
+using Microsoft.Xna.Framework;
 
 namespace SuperMario.Sprites.Fireball
 {
@@ -17,7 +19,7 @@ namespace SuperMario.Sprites.Fireball
             TotalFrames = FireballSpriteFactory.Instance.FireballTotalFrame;
         }
 
-        public override void Update()
+        public override void Update(Viewport viewport, Vector2 marioLocation)
         {
             Animate();
         }

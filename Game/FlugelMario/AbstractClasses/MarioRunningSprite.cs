@@ -2,6 +2,7 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using FlugelMario;
 
 namespace SuperMario.Sprites.Mario
 {
@@ -36,7 +37,7 @@ namespace SuperMario.Sprites.Mario
             CurrentRunningDrawingFrame = _baseFrame;
         }
 
-        public override void Update()
+        public override void Update(Viewport viewport, Vector2 marioLocation)
         {
             CurrentRunningDrawingFrame++;
             if (CurrentRunningDrawingFrame == _runningDrawingFrameDelay)

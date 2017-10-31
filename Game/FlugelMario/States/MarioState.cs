@@ -9,6 +9,7 @@ using SuperMario.Sprites.Blocks;
 using SuperMario.Sprites.StairBlocks;
 using SuperMario.Sprites.Items;
 using TileDefinition;
+using FlugelMario;
 
 namespace SuperMario.States.MarioStates
 {
@@ -545,9 +546,9 @@ namespace SuperMario.States.MarioStates
             }
         }
 
-        public void Update()
+        public void Update(Viewport viewport, Vector2 marioLocation)
         {
-            StateSprite.Update();
+            StateSprite.Update(viewport, marioLocation);
 
             if (marioState == InputState.RunLeft)
             {

@@ -2,6 +2,7 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using FlugelMario;
 
 namespace SuperMario.Sprites.Items
 {
@@ -18,7 +19,7 @@ namespace SuperMario.Sprites.Items
             TotalFrames = ItemSpriteFactory.Instance.StarAnimeTotalFrame;
         }
 
-        public override void Update()
+        public override void Update(Viewport viewport, Vector2 marioLocation)
         {
             Animate();
         }

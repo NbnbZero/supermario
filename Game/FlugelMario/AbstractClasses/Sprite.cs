@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Sprites.Items;
+using FlugelMario;
 
 namespace SuperMario.Interfaces
 {
@@ -89,7 +90,7 @@ namespace SuperMario.Interfaces
         #region Public Methods
 
        
-        public virtual void Update() { }
+        public virtual void Update(Viewport viewport, Vector2 marioLocation) { }
 
         // TODO: Remove location as param
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
