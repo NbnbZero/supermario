@@ -10,6 +10,7 @@ namespace SuperMario.Sprites.Items
     {
         private bool goLeft;
         private bool goRight;
+
         public SuperMushroomSprite(Texture2D texture, Vector2 location, bool hidden) : base(texture, location, hidden)
         {
             Width = ItemSpriteFactory.Instance.SuperMushroomWith;

@@ -14,6 +14,7 @@ namespace SuperMario.Sprites.Items
         bool revealed;
         public bool Hidden;
         int counter = 0;
+
         public ItemSprite(Texture2D texture, Vector2 location, bool hidden) : base(texture, location)
         {
             Hidden = hidden;
@@ -29,6 +30,12 @@ namespace SuperMario.Sprites.Items
             }
             base.Draw(spriteBatch, location);
         }
+
+        public override void Update(Viewport viewport, Vector2 marioLocation)
+        {
+            base.Update(viewport, marioLocation);
+        }
+
         public void Reveal()
         {
             revealed = true;

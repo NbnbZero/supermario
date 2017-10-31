@@ -13,16 +13,18 @@ namespace SuperMario
     {
         public List<Sprite> VisibleSprites = new List<Sprite>();
         public Game1 game;
-        public Camera camera;
+        private Camera camera;
         public CurrentViewport(Game1 game1)
         {
             game = game1;
-            this.camera = game1.camera;
+            this.Camera = game1.camera;
         }
+
+        public Camera Camera { get => camera; set => camera = value; }
 
         public void Update()
         {
-            Rectangle tmpR = new Rectangle((int)camera.Position.X, (int)camera.Position.Y, camera.Limits.Value.Width, camera.Limits.Value.Height);
+            Rectangle tmpR = new Rectangle((int)Camera.Position.X, (int)Camera.Position.Y, Camera.Limits.Value.Width, Camera.Limits.Value.Height);
             foreach (Sprite sprites in game.Sprites)
             {
                 if (sprites.CollisionRectangle.Intersects(tmpR))
