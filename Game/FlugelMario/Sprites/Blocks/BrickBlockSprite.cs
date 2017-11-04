@@ -7,31 +7,52 @@ using SuperMario.Sprites.Items;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class BrickBlockSprite : BlockSprite
+    class BrickBlockSprite : ISprite
     {
-        public BrickBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        public Texture2D Texture { get; set; }
+        private int height;
+        private int width;
+        private int row;
+        private int column;
+
+        public BrickBlockSprite(Texture2D texture)
         {
-            Width = BlockSpriteFactory.Instance.BrickBlockWidth;
-            Height = BlockSpriteFactory.Instance.BrickBlockHeight;
+            Texture = texture;
+            width = BlockSpriteFactory.Instance.BrickBlockWidth;
+            height = BlockSpriteFactory.Instance.BrickBlockHeight;
+            int row = BlockSpriteFactory.Instance.BrickSpriteSheetRows;
+            int column = BlockSpriteFactory.Instance.BrickSpriteSheetColum;
+        }
+
+        /*public BrickBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        {
 
             TextureX = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.X;
             TextureY = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.Y;
-
+            
             TotalFrames = BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame;
 
-            SetItem(item);
+            //SetItem(item);
+        }*/
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {            
+            Rectangle sourceRectangle = new Rectangle(width*column,height*row,width,height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);            
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Update()
         {
-            if (GetItem() != null)
-            {
-                GetItem().Draw(spriteBatch, GetItem().Location);
-                base.Draw(spriteBatch, location);
-            }
         }
 
-        public override void RespondToCollision(CollisionDirection direction)
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width, height);
+        }
+
+        /*public override void RespondToCollision(CollisionDirection direction)
         {
             if (direction == CollisionDirection.Bottom)
             {
@@ -39,6 +60,6 @@ namespace SuperMario.Sprites.Blocks
                 //Animate();
                 GetItem().Reveal();
             }
-        }
+        }*/
     }
 }

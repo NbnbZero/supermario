@@ -141,38 +141,38 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public Sprite CreateStairBlock(Vector2 location)
+        public ISprite CreateStairBlock(Vector2 location)
         {
-            return new StairBlockSprite(StairSpriteSheet, location) { Color = Color.Blue };
+            return new StairBlockSprite(StairSpriteSheet) ;
         }
 
-        public Sprite CreateUsedBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateUsedBlock(Vector2 location)
         {
-            return new UsedBlockSprite(UsedSpriteSheet, location, item) { Color = Color.Blue };
+            return new UsedBlockSprite(UsedSpriteSheet) ;
         }
 
-        public Sprite CreateSmallBrickBlockSprite(Vector2 location)
+        public ISprite CreateSmallBrickBlockSprite(Vector2 location)
         {
-            return new SmallBrickSprite(smallBrickSheet, location) { Color = Color.Blue };
+            return new SmallBrickSprite(smallBrickSheet) ;
         }
 
-        public Sprite CreateQuestionBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateQuestionBlock(Vector2 location, ItemSprite item)
         {
-            return new QuestionBlockSprite(QuestionSpriteSheet, location, item) { Color = Color.Blue };
+            return new QuestionBlockSprite(QuestionSpriteSheet) ;
         }
 
-        public Sprite CreateBrickBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateBrickBlock(Vector2 location, ItemSprite item)
         {
-            return new BrickBlockSprite(BrickSpriteSheet, location, item) { Color = Color.Blue };
+            return new BrickBlockSprite(BrickSpriteSheet);
         }
 
-        public Sprite CreateRockBlock(Vector2 location)
+        public ISprite CreateRockBlock(Vector2 location)
         {
-            return new RockBlockSprite(RockSpriteSheet, location) { Color = Color.Blue };
+            return new RockBlockSprite(RockSpriteSheet) ;
         }
-        public Sprite CreateHiddenBlock()
+        public ISprite CreateHiddenBlock()
         {
-            return new HiddenBlockSprite(UsedSpriteSheet) { Color = Color.Blue };
+            return new HiddenBlockSprite(UsedSpriteSheet);
         }
 
         public Vector2 UsedBlockAnimation1 { get; } = new Vector2(0, 0);

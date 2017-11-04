@@ -44,6 +44,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractClasses\SpriteSecondary.cs" />
     <Compile Include="AbstractGame.cs" />
     <Compile Include="BlockSprite.cs" />
     <Compile Include="Camera.cs" />
