@@ -141,32 +141,32 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public ISprite CreateStairBlock(Vector2 location)
+        public ISprite CreateStairBlock()
         {
             return new StairBlockSprite(StairSpriteSheet) ;
         }
 
-        public ISprite CreateUsedBlock(Vector2 location)
+        public ISprite CreateUsedBlock()
         {
             return new UsedBlockSprite(UsedSpriteSheet) ;
         }
 
-        public ISprite CreateSmallBrickBlockSprite(Vector2 location)
+        public ISprite CreateSmallBrickBlockSprite()
         {
             return new SmallBrickSprite(smallBrickSheet) ;
         }
 
-        public ISprite CreateQuestionBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateQuestionBlock()
         {
             return new QuestionBlockSprite(QuestionSpriteSheet) ;
         }
 
-        public ISprite CreateBrickBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateBrickBlock()
         {
             return new BrickBlockSprite(BrickSpriteSheet);
         }
 
-        public ISprite CreateRockBlock(Vector2 location)
+        public ISprite CreateRockBlock()
         {
             return new RockBlockSprite(RockSpriteSheet) ;
         }
