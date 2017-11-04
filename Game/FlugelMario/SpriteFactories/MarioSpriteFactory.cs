@@ -11,10 +11,8 @@ namespace SuperMario.SpriteFactories
     public class MarioSpriteFactory
     {
         public int NormalMarioSpriteSheetColumn { get; } = 14;
-        public int NormalMarioSpriteSheetRow { get; } = 2;
+        public int NormalMarioSpriteSheetRow { get; } = 4;
         public int NormalMarioSpriteRunningSheetColumn { get; } = 3;
-        public int BigMarioSpriteSheetColumn { get; } = 14;
-        public int BigMarioSpriteSheetRow { get; } = 2;
 
         private Texture2D normalMarioSpriteSheet;
         private Texture2D bigMarioSpriteSheet;
@@ -35,8 +33,7 @@ namespace SuperMario.SpriteFactories
         {
             if (content != null)
             {
-                normalMarioSpriteSheet = content.Load<Texture2D>("SmallMario");
-                bigMarioSpriteSheet = content.Load<Texture2D>("BigMario");
+                normalMarioSpriteSheet = content.Load<Texture2D>("Mariosheet");
             }
         }
 
@@ -56,158 +53,142 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        public int BigMarioWidth
-        {
-            get
-            {
-                return bigMarioSpriteSheet.Width / BigMarioSpriteSheetColumn;
-            }
-        }
-
-        public int BigMarioHeight
-        {
-            get
-            {
-                return bigMarioSpriteSheet.Height / BigMarioSpriteSheetRow;
-            }
-        }
-
-        public Vector2 CrouchLeftBigMarioCord { get; } = new Vector2(6, 0);
-        public Vector2 CrouchLeftFireMarioCord { get; } = new Vector2(6, 1);
-        public Vector2 CrouchRightBigMarioCord { get; } = new Vector2(7, 0);
-        public Vector2 CrouchRightFireMarioCord { get; } = new Vector2(7, 1);
+        public Vector2 CrouchLeftBigMarioCord { get; } = new Vector2(6, 1);
+        public Vector2 CrouchLeftFireMarioCord { get; } = new Vector2(6, 2);
+        public Vector2 CrouchRightBigMarioCord { get; } = new Vector2(7, 1);
+        public Vector2 CrouchRightFireMarioCord { get; } = new Vector2(7, 2);
         public Vector2 DeadMarioCord { get; } = new Vector2(7, 0);
-        public Vector2 IdleLeftBigMarioCord { get; } = new Vector2(5, 0);
-        public Vector2 IdleLeftFireMarioCord { get; } = new Vector2(5, 1);
+        public Vector2 IdleLeftBigMarioCord { get; } = new Vector2(5, 1);
+        public Vector2 IdleLeftFireMarioCord { get; } = new Vector2(5, 2);
         public Vector2 IdleLeftSmallMarioCord { get; } = new Vector2(5, 0);
-        public Vector2 IdleRightBigMarioCord { get; } = new Vector2(8, 0);
-        public Vector2 IdleRightFireMarioCord { get; } = new Vector2(8, 1);
+        public Vector2 IdleRightBigMarioCord { get; } = new Vector2(8, 1);
+        public Vector2 IdleRightFireMarioCord { get; } = new Vector2(8, 2);
         public Vector2 IdleRightSmallMarioCord { get; } = new Vector2(8, 0);
-        public Vector2 JumpLeftBigMarioCord { get; } = new Vector2(0, 0);
-        public Vector2 JumpLeftFireMarioCord { get; } = new Vector2(0, 1);
+        public Vector2 JumpLeftBigMarioCord { get; } = new Vector2(0, 1);
+        public Vector2 JumpLeftFireMarioCord { get; } = new Vector2(0, 2);
         public Vector2 JumpLeftSmallMarioCord { get; } = new Vector2(0, 0);
-        public Vector2 JumpRightBigMarioCord { get; } = new Vector2(13, 0);
-        public Vector2 JumpRightFireMarioCord { get; } = new Vector2(13, 1);
+        public Vector2 JumpRightBigMarioCord { get; } = new Vector2(13, 1);
+        public Vector2 JumpRightFireMarioCord { get; } = new Vector2(13, 2);
         public Vector2 JumpRightSmallMarioCord { get; } = new Vector2(13, 0);
-        public Vector2 RunningLeftBigMarioCord { get; } = new Vector2(3, 0);
-        public Vector2 RunningLeftFireMarioCord { get; } = new Vector2(3, 1);
+        public Vector2 RunningLeftBigMarioCord { get; } = new Vector2(3, 1);
+        public Vector2 RunningLeftFireMarioCord { get; } = new Vector2(3, 2);
         public Vector2 RunningLeftSmallMarioCord { get; } = new Vector2(3, 0);
-        public Vector2 RunningRightBigMarioCord { get; } = new Vector2(10, 0);
-        public Vector2 RunningRightFireMarioCord { get; } = new Vector2(12, 1);
+        public Vector2 RunningRightBigMarioCord { get; } = new Vector2(10, 1);
+        public Vector2 RunningRightFireMarioCord { get; } = new Vector2(10, 2);
         public Vector2 RunningRightSmallMarioCord { get; } = new Vector2(10, 0);
 
-        public Sprite CreateCrouchLeftBigMarioSprite(Vector2 location)
+        public ISprite CreateCrouchLeftBigMarioSprite()
         {
-            return new CrouchLeftBigMarioSprite(bigMarioSpriteSheet, location);
+            return new CrouchLeftBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateCrouchLeftFireMarioSprite(Vector2 location)
+        public ISprite CreateCrouchLeftFireMarioSprite()
         {
-            return new CrouchLeftFireMarioSprite(bigMarioSpriteSheet, location);
+            return new CrouchLeftFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateCrouchRightBigMarioSprite(Vector2 location)
+        public ISprite CreateCrouchRightBigMarioSprite()
         {
-            return new CrouchRightBigMarioSprite(bigMarioSpriteSheet, location);
+            return new CrouchRightBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateCrouchRightFireMarioSprite(Vector2 location)
+        public ISprite CreateCrouchRightFireMarioSprite()
         {
-            return new CrouchRightFireMarioSprite(bigMarioSpriteSheet, location);
+            return new CrouchRightFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateDeadMarioSprite(Vector2 location)
+        public ISprite CreateDeadMarioSprite()
         {
-            return new DeadMarioSprite(normalMarioSpriteSheet, location);
+            return new DeadMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateIdleLeftBigMarioSprite(Vector2 location)
+        public ISprite CreateIdleLeftBigMarioSprite()
         {
-            return new IdleLeftBigMarioSprite(bigMarioSpriteSheet, location);
+            return new IdleLeftBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateIdleLeftFireMarioSprite(Vector2 location)
+        public ISprite CreateIdleLeftFireMarioSprite()
         {
-            return new IdleLeftFireMarioSprite(bigMarioSpriteSheet, location);
+            return new IdleLeftFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateIdleLeftSmallMarioSprite(Vector2 location)
+        public ISprite CreateIdleLeftSmallMarioSprite()
         {
-            return new IdleLeftSmallMarioSprite(normalMarioSpriteSheet, location);
+            return new IdleLeftSmallMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateIdleRightBigMarioSprite(Vector2 location)
+        public ISprite CreateIdleRightBigMarioSprite()
         {
-            return new IdleRightBigMarioSprite(bigMarioSpriteSheet, location);
+            return new IdleRightBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateIdleRightFireMarioSprite(Vector2 location)
+        public ISprite CreateIdleRightFireMarioSprite()
         {
-            return new IdleRightFireMarioSprite(bigMarioSpriteSheet, location);
+            return new IdleRightFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateIdleRightSmallMarioSprite(Vector2 location)
+        public ISprite CreateIdleRightSmallMarioSprite()
         {
-            return new IdleRightSmallMarioSprite(normalMarioSpriteSheet, location);
+            return new IdleRightSmallMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateJumpLeftBigMarioSprite(Vector2 location)
+        public ISprite CreateJumpLeftBigMarioSprite()
         {
-            return new JumpLeftBigMarioSprite(bigMarioSpriteSheet, location);
+            return new JumpLeftBigMarioSprite(this.normalMarioSpriteSheet);
         }
-        public Sprite CreateJumpLeftFireMarioSprite(Vector2 location)
+        public ISprite CreateJumpLeftFireMarioSprite()
         {
-            return new JumpLeftFireMarioSprite(bigMarioSpriteSheet, location);
-        }
-
-        public Sprite CreateJumpLeftSmallMarioSprite(Vector2 location)
-        {
-            return new JumpLeftSmallMarioSprite(normalMarioSpriteSheet, location);
+            return new JumpLeftFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateJumpRightBigMarioSprite(Vector2 location)
+        public ISprite CreateJumpLeftSmallMarioSprite()
         {
-            return new JumpRightBigMarioSprite(bigMarioSpriteSheet, location);
+            return new JumpLeftSmallMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateJumpRightFireMarioSprite(Vector2 location)
+        public ISprite CreateJumpRightBigMarioSprite()
         {
-            return new JumpRightFireMarioSprite(bigMarioSpriteSheet, location);
+            return new JumpRightBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateJumpRightSmallMarioSprite(Vector2 location)
+        public ISprite CreateJumpRightFireMarioSprite()
         {
-            return new JumpRightSmallMarioSprite(normalMarioSpriteSheet, location);
+            return new JumpRightFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateRunningLeftBigMarioSprite(Vector2 location)
+        public ISprite CreateJumpRightSmallMarioSprite()
         {
-            return new RunningLeftBigMarioSprite(bigMarioSpriteSheet, location);
+            return new JumpRightSmallMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateRunningLeftFireMarioSprite(Vector2 location)
+        public ISprite CreateRunningLeftBigMarioSprite(Vector2 location)
         {
-            return new RunningLeftFireMarioSprite(bigMarioSpriteSheet, location);
+            return new RunningLeftBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateRunningLeftSmallMarioSprite(Vector2 location)
+        public ISprite CreateRunningLeftFireMarioSprite()
         {
-            return new RunningLeftSmallMarioSprite(normalMarioSpriteSheet, location);
+            return new RunningLeftFireMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateRunningRightBigMarioSprite(Vector2 location)
+        public ISprite CreateRunningLeftSmallMarioSprite()
         {
-            return new RunningRightBigMarioSprite(bigMarioSpriteSheet, location);
+            return new RunningLeftSmallMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateRunningRightFireMarioSprite(Vector2 location)
+        public ISprite CreateRunningRightBigMarioSprite()
         {
-            return new RunningRightFireMarioSprite(bigMarioSpriteSheet, location);
+            return new RunningRightBigMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public Sprite CreateRunningRightSmallMarioSprite(Vector2 location)
+        public ISprite CreateRunningRightFireMarioSprite()
         {
-            return new RunningRightSmallMarioSprite(normalMarioSpriteSheet, location);
+            return new RunningRightFireMarioSprite(this.normalMarioSpriteSheet);
+        }
+
+        public ISprite CreateRunningRightSmallMarioSprite()
+        {
+            return new RunningRightSmallMarioSprite(this.normalMarioSpriteSheet);
         }
     }
 }

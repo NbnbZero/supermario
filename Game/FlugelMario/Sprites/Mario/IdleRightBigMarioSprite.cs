@@ -8,19 +8,17 @@ namespace SuperMario.Sprites
 {
     class IdleRightBigMarioSprite : MarioSprite
     {
-        public IdleRightBigMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
-        {
-            Width = MarioSpriteFactory.Instance.BigMarioWidth;
-            Height = MarioSpriteFactory.Instance.BigMarioHeight;
+        private int TextureX = (int)MarioSpriteFactory.Instance.IdleRightBigMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.IdleRightBigMarioCord.Y;
 
-            TextureX = (int)MarioSpriteFactory.Instance.IdleRightBigMarioCord.X;
-            TextureY = (int)MarioSpriteFactory.Instance.IdleRightBigMarioCord.Y;
+        public IdleRightBigMarioSprite(Texture2D texture) : base(texture)
+        {
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
         {
-            int x = TextureX * BigMarioWidth;
-            int y = TextureY * BigMarioHeight;
+            int x = TextureX * MarioWidth;
+            int y = TextureY * MarioHeight;
             int width = SourceRectangle.Width;
             int height = SourceRectangle.Height;
             SourceRectangle = new Rectangle(x, y, width, height);

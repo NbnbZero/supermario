@@ -21,23 +21,12 @@ namespace SuperMario.Sprites.Mario
         protected int CurrentRunningDrawingFrame { get => _currentRunningDrawingFrame; set => _currentRunningDrawingFrame = value; }
 
 
-        // TODO: make it only 1 constructor
         protected MarioRunningSprite(Texture2D texture) : base(texture)
         {
             CurrentRunningDrawingFrame = _baseFrame;
-            CurrentRunningFrame = TotalRunningFrame - 1;
-            RunningFrameIncrement = 1;
         }
 
-        protected MarioRunningSprite(Texture2D texture, Vector2 location) : base(texture, location)
-        {
-            CurrentRunningDrawingFrame = _baseFrame;
-            CurrentRunningFrame = TotalRunningFrame - 1;
-            RunningFrameIncrement = 1;
-            CurrentRunningDrawingFrame = _baseFrame;
-        }
-
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public override void Update()
         {
             CurrentRunningDrawingFrame++;
             if (CurrentRunningDrawingFrame == _runningDrawingFrameDelay)
