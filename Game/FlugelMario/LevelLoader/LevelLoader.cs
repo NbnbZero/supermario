@@ -16,7 +16,7 @@ namespace SuperMario
         public static MarioState LoadLevel(List<Sprite> sprites)
         {
             var marioState = LoadMarioStart();
-            LoadBlocks(sprites);
+            //LoadBlocks(sprites);
             LoadItems(sprites);
             LoadEnemies(sprites);
 
@@ -32,7 +32,7 @@ namespace SuperMario
             }
             return new MarioState(new Vector2(myObjects[0].xLocation, myObjects[0].yLocation), myObjects[0].xMax, myObjects[0].yMax);
         }
-        public static void LoadBlocks(List<Sprite> sprites)
+        public static void LoadBlocks(List<ISprite> sprites)
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
@@ -59,7 +59,7 @@ namespace SuperMario
                             sprites.Add(BlockSpriteFactory.Instance.CreateStairBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
                         case BlockType.Used:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateUsedBlock(new Vector2(block.xLocation, block.yLocation), null));
+                            sprites.Add(BlockSpriteFactory.Instance.CreateUsedBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
                         case BlockType.Question:
                             sprites.Add(BlockSpriteFactory.Instance.CreateQuestionBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeHiddenSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));

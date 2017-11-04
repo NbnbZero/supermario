@@ -6,22 +6,37 @@ using FlugelMario;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class RockBlockSprite:Sprite
+    class RockBlockSprite: ISprite
     {
-        public RockBlockSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        public Texture2D Texture { get; set; }
+        private int height;
+        private int width;
+        private int row;
+        private int column;
+        private int totalFrame;
+        public RockBlockSprite(Texture2D texture) 
         {
-            Width = BlockSpriteFactory.Instance.RockBlockWidth;
-            Height = BlockSpriteFactory.Instance.RockBlockHeight;
+            width = BlockSpriteFactory.Instance.RockBlockWidth;
+            height = BlockSpriteFactory.Instance.RockBlockHeight;
+            row = BlockSpriteFactory.Instance.RockSpriteSheetRows;
+            height = BlockSpriteFactory.Instance.RockSpriteSheetColum;
+            totalFrame = BlockSpriteFactory.Instance.RockBlockAnimeTotalFrame;
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle= MakeDestinationRectangle(location);
 
-            TextureX = (int)BlockSpriteFactory.Instance.RockBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.RockBlockAnimation1.Y;
-
-            TotalFrames = BlockSpriteFactory.Instance.RockBlockAnimeTotalFrame;
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public  void Update()
+        {            
+        }
+
+        public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            Animate();
+            return new Rectangle((int)location.X, (int)location.Y, width , height);
         }
     }
 }
