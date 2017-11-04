@@ -8,10 +8,11 @@ namespace SuperMario
 {
     class DeadMarioSprite : MarioSprite
     {
-        public DeadMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        private int TextureX = (int)MarioSpriteFactory.Instance.DeadMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.DeadMarioCord.Y;
+
+        public DeadMarioSprite(Texture2D texture) : base(texture)
         {
-            TextureX = (int)MarioSpriteFactory.Instance.DeadMarioCord.X;
-            TextureY = (int)MarioSpriteFactory.Instance.DeadMarioCord.Y;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)

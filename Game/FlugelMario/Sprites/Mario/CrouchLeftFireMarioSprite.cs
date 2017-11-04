@@ -8,18 +8,17 @@ namespace SuperMario.Sprites
 {
     class CrouchLeftFireMarioSprite : MarioSprite
     {
-        public CrouchLeftFireMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
-        {
-            Width = MarioSpriteFactory.Instance.BigMarioWidth;
-            Height = MarioSpriteFactory.Instance.BigMarioHeight;
-            TextureX = (int)MarioSpriteFactory.Instance.CrouchLeftFireMarioCord.X;
-            TextureY = (int)MarioSpriteFactory.Instance.CrouchLeftFireMarioCord.Y;
+        private int TextureX = (int)MarioSpriteFactory.Instance.CrouchLeftFireMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.CrouchLeftFireMarioCord.Y;
+
+        public CrouchLeftFireMarioSprite(Texture2D texture): base(texture)
+        { 
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
         {
-            int x = TextureX * BigMarioWidth;
-            int y = TextureY * BigMarioHeight;
+            int x = TextureX * MarioWidth;
+            int y = TextureY * MarioHeight;
             int width = SourceRectangle.Width;
             int height = SourceRectangle.Height;
             SourceRectangle = new Rectangle(x, y, width, height);
