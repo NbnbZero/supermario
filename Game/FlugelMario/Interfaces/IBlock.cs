@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.Interfaces
+namespace FlugelMario.Interfaces
 {
-    interface ICommandHandler
+    public interface IBlock : IGameObject
     {
-        void Update();
+        void Trigger();
     }
 }
