@@ -8,8 +8,6 @@ namespace SuperMario.Interfaces
 {
     interface ICommand
     {
-        void Execute(InputState state, IMarioState marioState);
-
         void Execute();
     }
 }

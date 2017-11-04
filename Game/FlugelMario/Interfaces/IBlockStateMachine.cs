@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using SuperMario.Interfaces;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace SuperMario
+namespace SuperMario.Interfaces
 {
     public interface IBlockStateMachine
     {

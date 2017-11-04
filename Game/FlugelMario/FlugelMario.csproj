@@ -59,9 +59,9 @@
     <Compile Include="GameObjects\ItemGameObjects\RedMushroom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
+    <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Interfaces\IBlockStateMachine.cs" />
     <Compile Include="Interfaces\ICollisionCommand.cs" />
-    <Compile Include="Interfaces\ICommandHandler.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IEnemyState.cs" />
     <Compile Include="Interfaces\IFireballState.cs" />
@@ -87,7 +87,6 @@
     <Compile Include="Enums\MarioPosture.cs" />
     <Compile Include="Enums\MarioShape.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Interfaces\IBlockState.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
