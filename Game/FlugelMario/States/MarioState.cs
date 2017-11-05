@@ -152,7 +152,7 @@ namespace SuperMario.States.MarioStates
                 Descend();
                 if (block.GetType() == typeof(QuestionBlockSprite))
                 {
-                    ItemSprite item = block.GetItem();
+                    Sprites.Items.ISprite item = block.GetItem();
                     block = BlockSpriteFactory.Instance.CreateUsedBlock(block.Location, item);
                 }
                 if (!(MarioShape == Shape.Small) &&

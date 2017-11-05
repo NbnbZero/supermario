@@ -10,7 +10,7 @@ namespace SuperMario.Sprites.Blocks
 {
     class UsedBlockSprite : BlockSprite
     {
-        public UsedBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        public UsedBlockSprite(Texture2D texture, Vector2 location, Items.ISprite item) : base(texture, location)
         {
             Width = BlockSpriteFactory.Instance.UsedBlockWidth;
             Height = BlockSpriteFactory.Instance.UsedBlockHeight;

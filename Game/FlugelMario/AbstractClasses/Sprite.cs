@@ -51,14 +51,14 @@ namespace SuperMario.Interfaces
         public bool Alive { get => alive; set => alive = value; }
         public bool CanCollide { get => canCollide; set => canCollide = value; }
 
-        private ItemSprite item;
+        private Sprites.Items.ISprite item;
 
-        public ItemSprite GetItem()
+        public ISprite GetItem()
         {
             return item;
         }
 
-        public void SetItem(ItemSprite value)
+        public void SetItem(Sprites.Items.ISprite value)
         {
             item = value;
         }

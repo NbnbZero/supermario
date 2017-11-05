@@ -11,7 +11,7 @@ namespace SuperMario.Sprites.Blocks
     class QuestionBlockSprite : BlockSprite
     {
 
-        public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        public QuestionBlockSprite(Texture2D texture, Vector2 location, Items.ISprite item) : base(texture, location)
         {
             Width = BlockSpriteFactory.Instance.QuestionBlockWidth;
             Height = BlockSpriteFactory.Instance.QuestionBlockHeight;

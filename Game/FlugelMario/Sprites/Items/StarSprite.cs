@@ -6,22 +6,35 @@ using FlugelMario;
 
 namespace SuperMario.Sprites.Items
 {
-    class StarSprite : ItemSprite
+    class StarSprite : ISprite
     {
-        public StarSprite(Texture2D texture, Vector2 location, bool hidden) : base(texture, location, hidden)
+        public Texture2D Texture { get; set; }
+        private int width;
+        private int height;
+        public StarSprite(Texture2D texture)
         {
-            Width = ItemSpriteFactory.Instance.StarWith;
-            Height = ItemSpriteFactory.Instance.StarHeight;
+            this.Texture = texture;
+            width = this.Texture.Width / ItemSpriteFactory.ItemSpriteSheetColumns;
+            height = this.Texture.Height / ItemSpriteFactory.ItemSpritesSheetRows;
 
-            TextureX = (int)ItemSpriteFactory.Instance.StarAnimation1.X;
-            TextureY = (int)ItemSpriteFactory.Instance.StarAnimation1.Y;
-
-            TotalFrames = ItemSpriteFactory.Instance.StarAnimeTotalFrame;
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Update()
         {
-            Animate();
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            int row = ItemSpriteFactory.StarSpriteRow;
+            int column = ItemSpriteFactory.StarSpriteColumn;
+
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
+        }
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width, height);
         }
     }
 }
