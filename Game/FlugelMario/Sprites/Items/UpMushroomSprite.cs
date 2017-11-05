@@ -6,43 +6,40 @@ using FlugelMario;
 
 namespace SuperMario.Sprites.Items
 {
-    class UpMushroomSprite : ItemSprite
+    class UpMushroomSprite : ISprite
     {
-        private bool goLeft;
-        private bool goRight;
+        public Texture2D Texture { get; set; }
+        private int height;
+        private int width;
 
-        public UpMushroomSprite(Texture2D texture, Vector2 location, bool hidden) : base(texture, location, hidden)
+        
+
+        public UpMushroomSprite(Texture2D texture)
         {
-            Width = ItemSpriteFactory.Instance.UpMushroomWith;
-            Height = ItemSpriteFactory.Instance.UpMushroomHeight;
+            this.Texture = texture;
+            width = this.Texture.Width / ItemSpriteFactory.ItemSpriteSheetColumns;
+            height = this.Texture.Height / ItemSpriteFactory.ItemSpritesSheetRows;
 
-            TextureX = (int)ItemSpriteFactory.Instance.UpMushroomAnimation1.X;
-            TextureY = (int)ItemSpriteFactory.Instance.UpMushroomAnimation1.Y;
-
-            TotalFrames = ItemSpriteFactory.Instance.UpMushroomAnimeTotalFrame;
-            goLeft = false;
-            goRight = false;
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Update()
         {
-            Animate();
-            goLeft = Location.X < (marioLocation.X + viewport.Width / 2) && Location.X > marioLocation.X;
-            goRight = Location.X < marioLocation.X;
         }
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            if (goLeft)
-            {
-                Location = new Vector2(Location.X - 1, Location.Y);
-            }
-            else if (goRight)
-            {
-                Location = new Vector2(Location.X + 1, Location.Y);
-            }
-            base.Draw(spriteBatch, location);
+            int row = ItemSpriteFactory.GreenMushroomSpriteRow;
+            int column = ItemSpriteFactory.GreenMushromSpriteColumn;
+
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width, height);
+        }
 
     }
 }

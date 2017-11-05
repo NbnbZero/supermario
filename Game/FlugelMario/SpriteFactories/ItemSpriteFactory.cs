@@ -14,33 +14,21 @@ namespace SuperMario.SpriteFactories
 {
     class ItemSpriteFactory
     {
-        public int FlowerSpriteSheetColumn { get; } = 4;
-        public int FlowerSpriteSheetRows { get; } = 1;
-        public int FlowerAnimeTotalFrame { get; } = 4;
+        public static int ItemSpritesSheetRows { get; } = 5;
+        public static int ItemSpriteSheetColumns { get; } = 4;
+        
+        public static int FlowerSpriteRow { get; } = 1;
+        public static int FlowerSpriteColumn { get; } = 0;
+        public static int CoinSpriteRow { get; } = 4;
+        public static int CoinSpriteColumn { get; } = 0;
+        public static int SuperMushroomSpriteRow { get; } = 0;
+        public static int SuperMushroomSpriteColumn { get; } = 1;
+        public static int GreenMushroomSpriteRow { get; } = 0;
+        public static int GreenMushromSpriteColumn { get; } = 0;
+        public static int StarSpriteRow { get; } = 3;
+        public static int StarSpriteColumn { get; } = 0;
 
-        public int CoinSpriteSheetColumn { get; } = 4;
-        public int CoinSpriteSheetRows { get; } = 1;
-        public int CoinAnimeTotalFrame { get; } = 4;
-
-        public int SuperMushroomSpriteSheetColumn { get; } = 1;
-        public int SuperMushroomSpriteSheetRows { get; } = 1;
-        public int SuperMushroomAnimeTotalFrame { get; } = 1;
-
-        public int UpMushroomSpriteSheetColumn { get; } = 1;
-        public int UpMushroomSpriteSheetRows { get; } = 1;
-        public int UpMushroomAnimeTotalFrame { get; } = 1;
-
-        public int StarSpriteSheetColumn { get; } = 4;
-        public int StarSpriteSheetRows { get; } = 1;
-        public int StarAnimeTotalFrame { get; } = 4;
-
-
-        private Texture2D ItemFlowerSpriteSheet;
-        private Texture2D ItemCoinSpriteSheet;
-        private Texture2D ItemSuperMushroomSpriteSheet;
-        private Texture2D ItemUpMushroomSpriteSheet;
-        private Texture2D ItemStarSpriteSheet;
-        private Texture2D ItemSpriteSheet;
+        public Texture2D itemSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
         public static ItemSpriteFactory Instance
@@ -57,159 +45,39 @@ namespace SuperMario.SpriteFactories
         }
         public void LoadAllTextures(ContentManager content)
         {
-            ItemFlowerSpriteSheet = content.Load<Texture2D>("FlowerSheet");
-            ItemCoinSpriteSheet = content.Load<Texture2D>("CoinSheet");
-            ItemSuperMushroomSpriteSheet = content.Load<Texture2D>("SuperMushroomSheet");
-            ItemUpMushroomSpriteSheet = content.Load<Texture2D>("UpMushroomSheet");
-            ItemStarSpriteSheet = content.Load<Texture2D>("StarSheet");
-            ItemSpriteSheet = content.Load<Texture2D>("ItemSheet");
+            itemSpriteSheet = content.Load<Texture2D>("item_sheet");
 
 
         }
 
-        public int FlowerWith
+     
+
+        public ISprite CreateFlowerSprite()
         {
-            get
-            {
-                return ItemFlowerSpriteSheet.Width / FlowerSpriteSheetColumn;
-            }
-        }
-        public int FlowerHeight
-        {
-            get
-            {
-                return ItemFlowerSpriteSheet.Height / FlowerSpriteSheetRows;
-            }
-        }
-        public int CoinWith
-        {
-            get
-            {
-                return ItemCoinSpriteSheet.Width / CoinSpriteSheetColumn;
-            }
-        }
-        public int CoinHeight
-        {
-            get
-            {
-                return ItemCoinSpriteSheet.Height / CoinSpriteSheetRows;
-            }
-        }
-        public int SuperMushroomWith
-        {
-            get
-            {
-                return ItemSuperMushroomSpriteSheet.Width / SuperMushroomSpriteSheetColumn;
-            }
-        }
-        public int SuperMushroomHeight
-        {
-            get
-            {
-                return ItemSuperMushroomSpriteSheet.Height / SuperMushroomSpriteSheetRows;
-            }
+            return new FlowerSprite(itemSpriteSheet);
         }
 
-        public int UpMushroomWith
+        public ISprite CreateCoinSprite()
         {
-            get
-            {
-                return ItemUpMushroomSpriteSheet.Width / UpMushroomSpriteSheetColumn;
-            }
+            return new CoinSprite(itemSpriteSheet);
         }
-        public int UpMushroomHeight
+        public ISprite CreateSuperMushroomSprite()
         {
-            get
-            {
-                return ItemUpMushroomSpriteSheet.Height / UpMushroomSpriteSheetRows;
-            }
+            return new SuperMushroomSprite(itemSpriteSheet);
+        }
+        public ISprite CreateUpMushroomSprite()
+        {
+            return new UpMushroomSprite(itemSpriteSheet);
         }
 
-        public int StarWith
+        public ISprite CreateStarSprite(Vector2 location, bool hidden)
         {
-            get
-            {
-                return ItemStarSpriteSheet.Width / StarSpriteSheetColumn;
-            }
-        }
-        public int StarHeight
-        {
-            get
-            {
-                return ItemStarSpriteSheet.Height / StarSpriteSheetRows;
-            }
-        }
-
-        public ItemSprite CreateFlowerSprite(Vector2 location, bool hidden)
-        {
-            return new FlowerSprite(ItemFlowerSpriteSheet, location, hidden) { Color = Color.LightGreen };
-        }
-
-        public ItemSprite CreateCoinSprite(Vector2 location, bool hidden)
-        {
-            return new CoinSprite(ItemCoinSpriteSheet, location, hidden) { Color = Color.LightGreen };
-        }
-        public ItemSprite CreateSuperMushroomSprite(Vector2 location, bool hidden)
-        {
-            return new SuperMushroomSprite(ItemSuperMushroomSpriteSheet, location, hidden) { Color = Color.LightGreen };
-        }
-        public ItemSprite CreateUpMushroomSprite(Vector2 location, bool hidden)
-        {
-            return new UpMushroomSprite(ItemUpMushroomSpriteSheet, location, hidden) { Color = Color.LightGreen };
-        }
-
-        public ItemSprite CreateStarSprite(Vector2 location, bool hidden)
-        {
-            return new StarSprite(ItemStarSpriteSheet, location, hidden) { Color = Color.LightGreen };
+            return new StarSprite(itemSpriteSheet);
         }
 
         public Sprite CreateDisappearedSprite() {
-            return new DisappearedSprite(ItemSpriteSheet);
+            return new DisappearedSprite(itemSpriteSheet);
         }
 
-        public ItemSprite MakeHiddenSprite(ItemType sprite, Vector2 location)
-        {
-            ItemSprite item = null;
-
-            if (sprite == ItemType.UpMushroom)
-            {
-                item = CreateUpMushroomSprite(location, true);
-            } else if (sprite == ItemType.Coin)
-            {
-                item = CreateCoinSprite(location, true);
-            }
-            else if (sprite == ItemType.Flower)
-            {
-                item = CreateFlowerSprite(location, true);
-            }
-            else if (sprite == ItemType.Star)
-            {
-                item = CreateStarSprite(location, true);
-            }
-            else if (sprite == ItemType.SuperMushroom)
-            {
-                item = CreateSuperMushroomSprite(location, true);
-            }
-
-            return item;
-        }
-
-        public Vector2 FlowerAnimation1 { get; } = new Vector2(0, 0);
-        //public Vector2 FlowerAnimation2 = new Vector2(1, 0);
-        //public Vector2 FlowerAnimation3 { get; } = new Vector2(2, 0);
-        //public Vector2 FlowerAnimation4 { get; } = new Vector2(3, 0);
-
-        public Vector2 CoinAnimation1 { get; } = new Vector2(0, 0);
-        //public Vector2 CoinAnimation2 { get; } = new Vector2(1, 0);
-        //public Vector2 CoinAnimation3 { get; } = new Vector2(2, 0);
-        //public Vector2 CoinAnimation4 { get; } = new Vector2(3, 0);
-
-        public Vector2 SuperMushroomAnimation1 { get; } = new Vector2(0, 0);
-        public Vector2 UpMushroomAnimation1 { get; } = new Vector2(0, 0);
-
-        public Vector2 StarAnimation1 { get; } = new Vector2(0, 0);
-        //public Vector2 StarAnimation2 { get; } = new Vector2(1, 0);
-        //public Vector2 StarAnimation3 { get; } = new Vector2(2, 0);
-        //public Vector2 StarAnimation4 { get; } = new Vector2(3, 0);
     }
 }
