@@ -49,6 +49,7 @@
     <Compile Include="AbstractGame.cs" />
     <Compile Include="BlockSprite.cs" />
     <Compile Include="Camera\Camera.cs" />
+    <Compile Include="Commands\ControllerCommand\RightMarioCommand.cs" />
     <Compile Include="Commands\ControllerCommand\LeftMarioCommand.cs" />
     <Compile Include="Commands\ControllerCommand\MarioAccelerateCommand.cs" />
     <Compile Include="Commands\ControllerCommand\ReleasedJumpMarioCommand.cs" />
