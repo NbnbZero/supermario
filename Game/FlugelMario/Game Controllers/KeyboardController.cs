@@ -130,7 +130,10 @@ namespace SuperMario.Game_Controllers
                 {
                     foreach (Keys key in pressedKeys)
                     {
-                        releasedCommandDict[key].Execute();
+                        if (preKeys.Contains(key) && Keyboard.GetState().IsKeyUp(key))
+                        {
+                            releasedCommandDict[key].Execute();
+                        }                        
                     }
                 }
 
