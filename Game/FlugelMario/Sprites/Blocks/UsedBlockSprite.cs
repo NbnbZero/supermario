@@ -2,15 +2,13 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMario.Enums;
-using SuperMario.Sprites.Items;
-using FlugelMario;
+using SuperMario.SpriteFactories;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class UsedBlockSprite : BlockSprite
+    class UsedBlockSprite : ISprite
     {
-        public UsedBlockSprite(Texture2D texture, Vector2 location, Items.ISprite item) : base(texture, location)
+        /*public UsedBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
         {
             Width = BlockSpriteFactory.Instance.UsedBlockWidth;
             Height = BlockSpriteFactory.Instance.UsedBlockHeight;
@@ -22,25 +20,34 @@ namespace SuperMario.Sprites.Blocks
 
             SetItem(item);
         }
+        */
+        public Texture2D Texture { get; set; }
+        protected int width;
+        protected int height;
+        protected int row;
+        protected int column;
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public UsedBlockSprite(Texture2D texture)
         {
-            Animate();
+            Texture = texture;
+            width = BlockSpriteFactory.Instance.UsedBlockWidth;
+            height = BlockSpriteFactory.Instance.UsedBlockHeight;
+
+        }
+        public void Update()
+        {
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-
-            base.Draw(spriteBatch, location);
-
+            width = BlockSpriteFactory.Instance.UsedBlockWidth;
+            height = BlockSpriteFactory.Instance.UsedBlockHeight;
+            row = BlockSpriteFactory.Instance.UsedSpriteSheetRows;
+            column = BlockSpriteFactory.Instance.UsedSpriteSheetColum;
         }
-
-        public override void RespondToCollision(CollisionDirection direction)
+        public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            if (direction == CollisionDirection.Bottom)
-            {
-                BumpUp();
-            }
+            return new Rectangle((int)location.X, (int)location.Y, width , height);
         }
     }
 }

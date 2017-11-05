@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.Interfaces
+namespace FlugelMario.AbstractClasses
 {
-    public interface IBlock : IGameObject
+    class SpriteSecondary
     {
-        void Trigger();
     }
 }

@@ -6,18 +6,18 @@ namespace SuperMario.Sprites.Mario
 {
     class RunningRightFireMarioSprite : MarioRunningSprite
     {
-        public RunningRightFireMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        private int TextureX = (int)MarioSpriteFactory.Instance.RunningRightFireMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.RunningRightFireMarioCord.Y;
+        public RunningRightFireMarioSprite(Texture2D texture) : base(texture)
         {
-            Width = MarioSpriteFactory.Instance.BigMarioWidth;
-            Height = MarioSpriteFactory.Instance.BigMarioHeight;
-            TextureX = (int)MarioSpriteFactory.Instance.RunningRightFireMarioCord.X;
-            TextureY = (int)MarioSpriteFactory.Instance.RunningRightFireMarioCord.Y;
+            CurrentRunningFrame = 0;
+            RunningFrameIncrement = -1;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
         {
-            int x = (TextureX - CurrentRunningFrame) * BigMarioWidth;
-            int y = TextureY * BigMarioHeight;
+            int x = (TextureX - CurrentRunningFrame) * MarioWidth;
+            int y = TextureY * MarioHeight;
             int width = SourceRectangle.Width;
             int height = SourceRectangle.Height;
             SourceRectangle = new Rectangle(x, y, width, height);
