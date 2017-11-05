@@ -17,8 +17,8 @@ namespace SuperMario.Interfaces
         void Crouch();
         void ChangeFireMode();
         void Terminated();     
-        void RunLeft();
-        void RunRight();
+        void ChangeToLeft();
+        void ChangeToRight();        
         void MarioShapeChange(Shape newShape);
         void Update(); 
         void Draw(SpriteBatch spriteBatch, Vector2 location);

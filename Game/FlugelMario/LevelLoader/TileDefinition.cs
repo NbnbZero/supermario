@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using System.Xml.Serialization;
 
 namespace TileDefinition
-{
+{   
     public class StartData
     {
         public int xLocation;
@@ -32,12 +32,5 @@ namespace TileDefinition
         public EnemyType enemyType;
         public int xLocation;
         public int yLocation;
-    }
-
-    public class MarioData
-    {
-        public float graviy = (float)0.1;
-        public float JumpVelocity = -(float)2.5;
-        public Vector2 maxVelocity = new Vector2(2,3);
     }
 }
