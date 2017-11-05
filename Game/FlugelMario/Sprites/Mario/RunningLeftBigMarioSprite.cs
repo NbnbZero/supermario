@@ -9,7 +9,7 @@ namespace SuperMario.Sprites.Mario
     {
         private int TextureX = (int)MarioSpriteFactory.Instance.RunningLeftBigMarioCord.X;
         private int TextureY = (int)MarioSpriteFactory.Instance.RunningLeftBigMarioCord.Y;
-        public RunningLeftBigMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        public RunningLeftBigMarioSprite(Texture2D texture) : base(texture)
         {
             CurrentRunningFrame = TotalRunningFrame - 1;
             RunningFrameIncrement = 1;

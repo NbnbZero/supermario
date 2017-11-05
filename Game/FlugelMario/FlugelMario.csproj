@@ -44,6 +44,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractClasses\SpriteSecondary.cs" />
     <Compile Include="AbstractGame.cs" />
     <Compile Include="BlockSprite.cs" />
@@ -138,7 +139,29 @@
     <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
     <Compile Include="States\EnemyStates\GoombaDeadState.cs" />
-    <Compile Include="States\MarioState.cs" />
+    <Compile Include="States\MarioState\CrouchLeftBigMarioState.cs" />
+    <Compile Include="States\MarioState\CrouchLeftFireMarioState.cs" />
+    <Compile Include="States\MarioState\CrouchRightBigMarioState.cs" />
+    <Compile Include="States\MarioState\CrouchRightFireMarioState.cs" />
+    <Compile Include="States\MarioState\DeadMarioState.cs" />
+    <Compile Include="States\MarioState\IdleLeftBigMarioState.cs" />
+    <Compile Include="States\MarioState\IdleLeftFireMarioState.cs" />
+    <Compile Include="States\MarioState\IdleLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioState\IdleRightBigMarioState.cs" />
+    <Compile Include="States\MarioState\IdleRightFireMarioState.cs" />
+    <Compile Include="States\MarioState\IdleRightSmallMarioState.cs" />
+    <Compile Include="States\MarioState\JumpLeftBigMarioState.cs" />
+    <Compile Include="States\MarioState\JumpLeftFireMarioState.cs" />
+    <Compile Include="States\MarioState\JumpLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioState\JumpRightBigMarioState.cs" />
+    <Compile Include="States\MarioState\JumpRightFireMarioState.cs" />
+    <Compile Include="States\MarioState\JumpRightSmallMarioState.cs" />
+    <Compile Include="States\MarioState\RunningLeftBigMarioState.cs" />
+    <Compile Include="States\MarioState\RunningLeftFireMarioState.cs" />
+    <Compile Include="States\MarioState\RunningLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioState\RunningRightBigMarioState.cs" />
+    <Compile Include="States\MarioState\RunningRightFireMarioState.cs" />
+    <Compile Include="States\MarioState\RunningRightSmallMarioState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

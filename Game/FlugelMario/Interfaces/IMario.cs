@@ -8,6 +8,8 @@ namespace SuperMario.Interfaces
     {
         IMarioState State { get; set; }
         bool IsProtected { get; set; }
+        bool IsInAir { get; set; }
         Vector2 Velocity { get; set; }
+        Vector2 Acceleration { get; set; }
     }
 }

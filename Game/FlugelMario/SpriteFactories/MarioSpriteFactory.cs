@@ -161,7 +161,7 @@ namespace SuperMario.SpriteFactories
             return new JumpRightSmallMarioSprite(this.normalMarioSpriteSheet);
         }
 
-        public ISprite CreateRunningLeftBigMarioSprite(Vector2 location)
+        public ISprite CreateRunningLeftBigMarioSprite()
         {
             return new RunningLeftBigMarioSprite(this.normalMarioSpriteSheet);
         }

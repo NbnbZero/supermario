@@ -1,30 +1,26 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
-using Microsoft.Xna.Framework.Input;
-using SuperMario.AbstractClasses;
-using FlugelMario;
 
 namespace SuperMario.Interfaces
 {
     public interface IMarioState
     {   
-        Sprite StateSprite { get; set; }
+        ISprite StateSprite { get; set; }
         Posture MarioPosture { get; set; }
         Direction MarioDirection { get; set; }
         Shape MarioShape { get; set; }
-        void Jump();
-        void Ascend();
+
+        void JumpOrStand();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();
         void Crouch();
         void ChangeFireMode();
-        void Terminated();
-        void Update(Viewport viewport, Vector2 marioLocation); 
-        void Draw(SpriteBatch spriteBatch, Vector2 location);
+        void Terminated();     
         void RunLeft();
         void RunRight();
-        void BeIdle();
-        void BeIdle(InputState state);
+        void MarioShapeChange(Shape newShape);
+        void Update(); 
+        void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
 }
