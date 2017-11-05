@@ -50,6 +50,7 @@ namespace SuperMario.States.MarioStates
         {
             Mario.State = new DeadMarioState(Mario);
         }
+
         public override void Update()
         {
             if (!Mario.IsInAir)

@@ -8,8 +8,6 @@ namespace SuperMario.States.MarioStates
 {
     public class CrouchLeftBigMarioState : MarioState
     {
-        private const bool isBig = true;
-        private const bool isCrouching = true;
         public CrouchLeftBigMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftBigMarioSprite();
@@ -55,10 +53,11 @@ namespace SuperMario.States.MarioStates
         {
             if (Mario.IsInAir)
             {
-                Mario.State = new IdleLeftBigMarioState(Mario);
+                Mario.State = new IdleLeftBigMarioState(Mario); //switch to idle state and return
             }
             else
             {
+                //making the critical speed to 0.75f
                 if (Mario.Velocity.X >= 0.75f)
                 {
                     Mario.Acceleration = new Vector2(-0.75f, Mario.Acceleration.Y);

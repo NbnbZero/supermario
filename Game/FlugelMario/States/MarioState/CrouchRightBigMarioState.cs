@@ -60,6 +60,7 @@ namespace SuperMario.States.MarioStates
             }
             else
             {
+                //making the critical speed to 0.75f
                 if (Mario.Velocity.X >= 0.75f)
                 {
                     Mario.Acceleration = new Vector2(-0.75f, Mario.Acceleration.Y);

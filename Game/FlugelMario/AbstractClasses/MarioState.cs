@@ -44,14 +44,6 @@ namespace SuperMario
 
         public virtual void Update()
         {
-            if (this.Mario.Destination.Y > 15 /*heightOutOfBlocks*/ * 16 /*BlockSize*/ - Mario.Destination.Height)
-            {
-                this.Mario.Location = new Vector2(this.Mario.Location.X, 15 /*heightOutOfBlocks*/ * 16 /*BlockSize*/ - Mario.Destination.Height);
-                this.Mario.State.Terminated();
-            }
-
-           //need further implementation
-
 
             if (this.Mario.IsInAir)
             {

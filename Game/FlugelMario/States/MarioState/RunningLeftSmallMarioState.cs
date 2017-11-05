@@ -57,11 +57,11 @@ namespace SuperMario.States.MarioStates
 
         public override void Update()
         {
-            if (Mario.IsInAir && Mario.State.MarioPosture != Posture.Jump)
+            if (Mario.IsInAir && Mario.State.MarioPosture != Posture.Jump) //falling down
             {
                 Mario.State = new IdleLeftSmallMarioState(Mario);
             }
-           //
+
             base.Update();
         }
     }

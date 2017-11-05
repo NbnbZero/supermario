@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 using SuperMario.SpriteFactories;
 using SuperMario.Interfaces;
 
-namespace FlugelMario
+namespace SuperMario
 {
     public class Camera
     {

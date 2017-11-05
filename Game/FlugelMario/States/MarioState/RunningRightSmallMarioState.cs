@@ -61,7 +61,6 @@ namespace SuperMario.States.MarioStates
             {
                 Mario.State = new IdleRightSmallMarioState(Mario);
             }
-           //
             base.Update();
         }
     }
