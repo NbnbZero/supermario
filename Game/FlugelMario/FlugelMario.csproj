@@ -46,6 +46,17 @@
   <ItemGroup>
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
     <Compile Include="Animation\CoinCollectedFromBlockAnimation.cs" />
+    <Compile Include="CollisionCommandsItems\StarBlockCollisionBottom.cs" />
+    <Compile Include="CollisionCommandsItems\StarBlockCollisionLeft.cs" />
+    <Compile Include="CollisionCommandsItems\StarBlockCollisionRight.cs" />
+    <Compile Include="CollisionCommandsItems\StarBlockCollisionTop.cs" />
+    <Compile Include="CollisionCommandsItems\SuperMushroomBlockCollisionLeft.cs" />
+    <Compile Include="CollisionCommandsItems\SuperMushroomBlockCollisionRight.cs" />
+    <Compile Include="CollisionCommandsItems\SuperMushroomBlockCollisionTop.cs" />
+    <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionBottom.cs" />
+    <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionLeft.cs" />
+    <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionRight.cs" />
+    <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionTop.cs" />
     <Compile Include="Commands\MarioBlockCollisionBottom.cs" />
     <Compile Include="Enums\AnimationState.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
