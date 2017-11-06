@@ -8,8 +8,7 @@ namespace SuperMario.States.MarioStates
 {
     public class RunningRightSmallMarioState : MarioState
     {
-        private const bool isBig = false;
-        private const bool isCrouching = false;
+        public override bool IsStar { get; } = false;
         public RunningRightSmallMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateRunningRightSmallMarioSprite();
@@ -17,6 +16,11 @@ namespace SuperMario.States.MarioStates
             this.MarioDirection = Direction.Right;
             this.MarioShape = Shape.Small;
             Mario.Acceleration = new Vector2(0.25f, Mario.Acceleration.Y);
+        }
+
+        public override void ChangeStarMode()
+        {
+            Mario.State = new RunningRightStarSmallMarioState(Mario);
         }
 
         public override void RunLeft()

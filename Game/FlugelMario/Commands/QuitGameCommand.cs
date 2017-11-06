@@ -21,10 +21,6 @@ namespace SuperMario
         {
             mygame.Exit();
         }
-        public  void Execute(InputState state, IMarioState marioState)
-        {
-
-        }
     }
 }
 

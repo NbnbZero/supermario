@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario.GameObjects;
 using FlugelMario.States.EnemyStates;
 
-namespace FlugelMario.GameObjects.EnemyGameObjects
+namespace SuperMario
 {
     public class Koopa : IEnemy
     {
@@ -36,7 +36,6 @@ namespace FlugelMario.GameObjects.EnemyGameObjects
         private bool hasBeenInView;
         public bool CanUpdate { get { return hasBeenInView; } }
 
-        SuperMario.GameObjects.GameObjectType.ObjectType IGameObject.Type => throw new NotImplementedException();
 
         public Koopa(Vector2 location)
         {

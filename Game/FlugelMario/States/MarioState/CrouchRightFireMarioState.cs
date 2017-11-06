@@ -8,8 +8,7 @@ namespace SuperMario.States.MarioStates
 {
     public class CrouchRightFireMarioState : MarioState
     {
-        private const bool isBig = true;
-        private const bool isCrouching = true;
+        public override bool IsStar { get; } = false;
         public CrouchRightFireMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateCrouchRightFireMarioSprite();
@@ -22,6 +21,12 @@ namespace SuperMario.States.MarioStates
         {
             Mario.State = new CrouchRightBigMarioState(Mario);
         }
+
+        public override void ChangeStarMode()
+        {
+            Mario.State = new CrouchRightStarMarioState(Mario);
+        }
+
         public override void RunLeft()
         {
             Mario.State = new CrouchLeftFireMarioState(Mario);

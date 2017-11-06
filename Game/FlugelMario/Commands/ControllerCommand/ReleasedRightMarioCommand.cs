@@ -8,7 +8,7 @@ using SuperMario.Enums;
 
 namespace SuperMario.Commands.ControllerCommand
 {
-    class ReleasedRightMarioCommand:ICommand
+    class ReleasedRightMarioCommand : ICommand
     {
         IMario mario;
         public ReleasedRightMarioCommand(IMario Mario)

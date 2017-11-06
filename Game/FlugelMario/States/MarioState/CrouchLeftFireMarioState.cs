@@ -5,11 +5,10 @@ using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
-{
+{ 
     public class CrouchLeftFireMarioState : MarioState
     {
-        private const bool isBig = true;
-        private const bool isCrouching = true;
+        public override bool IsStar { get; } = false;
         public CrouchLeftFireMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateCrouchLeftFireMarioSprite();
@@ -21,6 +20,10 @@ namespace SuperMario.States.MarioStates
         public override void ChangeSizeToBig()
         {
             Mario.State = new CrouchLeftBigMarioState(Mario);
+        }
+        public override void ChangeStarMode()
+        {
+            Mario.State = new CrouchLeftStarMarioState(Mario);
         }
 
         public override void RunLeft()

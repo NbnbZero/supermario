@@ -7,7 +7,7 @@ using SuperMario.Interfaces;
 using SuperMario.Enums;
 namespace SuperMario.Commands.ControllerCommand
 {
-    class ReleasedJumpMarioCommand:ICommand
+    class ReleasedJumpMarioCommand : ICommand
     {
         private IMario mario;
         public ReleasedJumpMarioCommand(IMario Mario)
