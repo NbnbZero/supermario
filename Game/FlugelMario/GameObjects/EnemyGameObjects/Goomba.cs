@@ -10,7 +10,7 @@ using SuperMario.GameObjects;
 using FlugelMario.States.EnemyStates;
 using SuperMario;
 
-namespace FlugelMario.GameObjects.EnemyGameObjects
+namespace SuperMario
 {
     public class Goomba : IEnemy
     {
@@ -37,7 +37,7 @@ namespace FlugelMario.GameObjects.EnemyGameObjects
         private bool hasBeenInView;
         public bool CanUpdate { get { return hasBeenInView; } }
 
-        SuperMario.GameObjects.GameObjectType.ObjectType IGameObject.Type => throw new NotImplementedException();
+
 
         public Goomba(Vector2 location)
         {

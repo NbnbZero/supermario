@@ -68,7 +68,6 @@
     <Compile Include="Game Controllers\GamepadController.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\Goomba.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\Koopa.cs" />
-    <Compile Include="GameObjects\GameObjectType.cs" />
     <Compile Include="GameObjects\ItemGameObjects\Coin.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FireFlower.cs" />
     <Compile Include="GameObjects\ItemGameObjects\Star.cs" />

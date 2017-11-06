@@ -12,7 +12,8 @@ namespace SuperMario.GameObjects
             Mario, Goomba, SuperMushroom, FireFlower, Block,
             Coin,
             UpMushroom,
-            Star
-        }
+            Star,
+            Koopa
+        };
     }
 }
