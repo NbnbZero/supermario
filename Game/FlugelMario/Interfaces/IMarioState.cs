@@ -11,6 +11,7 @@ namespace SuperMario.Interfaces
         Direction MarioDirection { get; set; }
         Shape MarioShape { get; set; }
 
+        bool IsStar { get; }
         void JumpOrStand();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();
@@ -18,7 +19,8 @@ namespace SuperMario.Interfaces
         void ChangeFireMode();
         void Terminated();     
         void ChangeToLeft();
-        void ChangeToRight();        
+        void ChangeToRight();
+        void ChangeStarMode();
         void MarioShapeChange(Shape newShape);
         void Update(); 
         void Draw(SpriteBatch spriteBatch, Vector2 location);

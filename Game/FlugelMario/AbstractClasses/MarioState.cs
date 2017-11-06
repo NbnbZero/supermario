@@ -18,7 +18,7 @@ namespace SuperMario
         public Posture MarioPosture { get; set; } = Posture.Stand;
         public Direction MarioDirection { get; set; } = Direction.Right;
         public Shape MarioShape { get; set; } = Shape.Small;
-
+        public virtual bool IsStar { get; }
         public IMario Mario { get; set; }
 
         protected MarioState(IMario mario)
@@ -40,6 +40,7 @@ namespace SuperMario
         public virtual void Crouch(){}
 
         public virtual void JumpOrStand(){}
+        public virtual void ChangeStarMode(){}
 
         public virtual void Terminated(){}
 
@@ -71,6 +72,12 @@ namespace SuperMario
                     break;
                 case Shape.Fire:
                     ChangeFireMode();
+                    break;
+                case Shape.StarBig:
+                    ChangeStarMode();
+                    break;
+                case Shape.StarSmall:
+                    ChangeStarMode();
                     break;
             }
         }

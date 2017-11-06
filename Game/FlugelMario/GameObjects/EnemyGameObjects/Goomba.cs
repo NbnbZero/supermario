@@ -44,8 +44,8 @@ namespace FlugelMario.GameObjects.EnemyGameObjects
             Location = location;
             State = new GoombaAliveState(this);
             Destination = State.StateSprite.MakeDestinationRectangle(Location);
-            velocity = new Vector2(-GameUtility.GoombaSpeed, 0);
-            acceleration = new Vector2(0, GameUtility.Gravity);
+            velocity = new Vector2(-GameData.GoombaSpeed, 0);
+            acceleration = new Vector2(0, GameData.Gravity);
         }
 
         public void ChangeDirection()
@@ -70,8 +70,8 @@ namespace FlugelMario.GameObjects.EnemyGameObjects
             }
             else if (direction.ToUpper().Equals("RIGHT") || direction.ToUpper().Equals("LEFT"))
             {
-                Velocity = new Vector2(0, -GameUtility.GoombaBounceVelocity);
-                acceleration = new Vector2(0, GameUtility.Gravity);
+                Velocity = new Vector2(0, -GameData.GoombaBounceVelocity);
+                acceleration = new Vector2(0, GameData.Gravity);
             }
         }
 

@@ -8,8 +8,7 @@ namespace SuperMario.States.MarioStates
 {
     public class RunningLeftFireMarioState : MarioState
     {
-        private const bool isBig = true;
-        private const bool isCrouching = false;
+        public override bool IsStar { get; } = false;
         public RunningLeftFireMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateRunningLeftFireMarioSprite();
@@ -31,6 +30,11 @@ namespace SuperMario.States.MarioStates
         public override void RunRight()
         {
             Mario.State = new IdleLeftFireMarioState(Mario);
+        }
+
+        public override void ChangeStarMode()
+        {
+            Mario.State = new RunningLeftStarBigMarioState(Mario);
         }
 
         public override void JumpOrStand()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SuperMario.Interfaces;
 namespace SuperMario.Commands.ControllerCommand
 {
-    class RightMarioCommand:ICommand
+    class RightMarioCommand : ICommand
     {
         private IMario Mario;
 

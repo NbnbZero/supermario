@@ -8,8 +8,7 @@ namespace SuperMario.States.MarioStates
 {
     public class DeadMarioState : MarioState
     {
-        private const bool isBig = false;
-        private const bool isCrouching = false;
+        public override bool IsStar { get; } = false;
         public DeadMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
@@ -51,6 +50,12 @@ namespace SuperMario.States.MarioStates
         {
             Mario.State = new IdleRightSmallMarioState(Mario);
         }
+
+        public override void ChangeStarMode()
+        {
+            Mario.State = new IdleRightStarSmallMarioState(Mario);
+        }
+
         public override void Update()
         {
             if (MarioAttributes.MarioLife[0] == 0)

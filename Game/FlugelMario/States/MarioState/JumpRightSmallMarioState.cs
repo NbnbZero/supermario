@@ -8,8 +8,7 @@ namespace SuperMario.States.MarioStates
 {
     public class JumpRightSmallMarioState : MarioState
     {
-        private const bool isBig = false;
-        private const bool isCrouching = false;
+        public override bool IsStar { get; } = false;
         public JumpRightSmallMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateJumpRightSmallMarioSprite();
@@ -20,6 +19,10 @@ namespace SuperMario.States.MarioStates
             mario.IsInAir = true;
         }
 
+        public override void ChangeStarMode()
+        {
+            Mario.State = new JumpRightStarSmallMarioState(Mario);
+        }
         public override void RunLeft()
         {
             Mario.State = new JumpLeftSmallMarioState(Mario);

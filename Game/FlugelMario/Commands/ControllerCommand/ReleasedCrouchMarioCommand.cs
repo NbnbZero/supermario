@@ -21,6 +21,7 @@ namespace SuperMario.Commands.ControllerCommand
                 mario.State.MarioPosture == Posture.Crouch)
             {
                 mario.State.MarioPosture = Posture.Stand;
+                return;
             }
 
             if (mario.State.MarioPosture == Posture.Crouch)
