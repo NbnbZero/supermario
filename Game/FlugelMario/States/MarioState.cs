@@ -76,7 +76,9 @@ namespace SuperMario.States.MarioStates
                 }
                 else if (sprite.GetType() == typeof(SuperMushroomSprite)
                   || sprite.GetType() == typeof(FlowerSprite)
-                  || sprite.GetType() == typeof(CoinSprite))
+                  || sprite.GetType() == typeof(CoinSprite)
+                  || sprite.GetType() == typeof(StarSprite)
+                  || sprite.GetType() == typeof(UpMushroomSprite))
                 {
                     ItemCollision(sprite, direction);
                 }
@@ -124,6 +126,7 @@ namespace SuperMario.States.MarioStates
             }
             else if (direction == CollisionDirection.Top || direction == CollisionDirection.Bottom)
             {
+                Points += 100;
                 BeIdle();
                 if (enemy.GetType() == typeof(GoombaSprite))
                 {
@@ -188,16 +191,33 @@ namespace SuperMario.States.MarioStates
                 if (item.GetType() == typeof(SuperMushroomSprite))
                 {
                     ChangeSizeToBig();
+                    Points += 1000;
                     item.CanCollide = false;
                 }
                 else if (item.GetType() == typeof(FlowerSprite))
                 {
                     ChangeFireMode();
+                    Points += 1000;
                     item.CanCollide = false;
                 }
                 else if (item.GetType() == typeof(CoinSprite))
                 {
                     Coins++;
+                    if (Coins > 100)
+                    {
+                        Lives++;
+                    }
+                    Points += 200;
+                    item.CanCollide = false;
+                }
+                else if (item.GetType() == typeof(StarSprite))
+                {
+                    Points += 1000;
+                    item.CanCollide = false;
+                }
+                else if (item.GetType() == typeof(UpMushroomSprite))
+                {
+                    Lives++;
                     item.CanCollide = false;
                 }
 
