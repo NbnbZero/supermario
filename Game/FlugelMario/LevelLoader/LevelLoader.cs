@@ -30,7 +30,7 @@ namespace SuperMario
             {
                 myObjects = (List<StartData>)serializer.Deserialize(reader);
             }
-            return new MarioState(new Vector2(myObjects[0].xLocation, myObjects[0].yLocation), myObjects[0].xMax, myObjects[0].yMax);
+            return new MarioState(new Vector2(myObjects[0].xLocation, myObjects[0].yLocation), myObjects[0].xMax, myObjects[0].yMax, 3);
         }
         public static void LoadBlocks(List<Sprite> sprites)
         {

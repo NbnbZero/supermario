@@ -32,7 +32,10 @@ namespace SuperMario
         Vector2 parallax = new Vector2(1f);
         HUD hud;
         Stopwatch timer;
-        int max;
+        int maxTime;
+        public int Points;
+        public int Coins;
+        public int Lives;
 
         public bool Paused { get => paused; set => paused = value; }
         public List<Sprite> Sprites { get => sprites; set => sprites = value; }
@@ -64,7 +67,11 @@ namespace SuperMario
 
             timer = new Stopwatch();
             timer.Start();
-            max = 400;
+
+            maxTime = 400;
+            Points = 0;
+            Coins = 0;
+            Lives = 3;
 
             base.Initialize();
         }
@@ -155,7 +162,7 @@ namespace SuperMario
                     sprite.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
                 }
             }
-            if ((MarioAttributes.MarioLife[0] != 0) && (marioState.MarioShape == Shape.Dead))
+            if ((marioState.MarioShape == Shape.Dead) && (hud.Lives > 0))
             {
                 BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
                 sprites.Clear();
@@ -187,7 +194,7 @@ namespace SuperMario
 
             marioState.StateSprite.Draw(spriteBatch, marioState.Location);
 
-            hud.Draw(spriteBatch, marioState, camera, max - (int) timer.ElapsedMilliseconds / 1000);
+            hud.Draw(spriteBatch, camera, (int) timer.ElapsedMilliseconds / 1000);
 
             spriteBatch.End();
 
@@ -204,21 +211,21 @@ namespace SuperMario
             {
                 if (HitsLeftSide(marioState.StateSprite, Sprites[i]))
                 {
-                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Left);
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Left, hud);
                     Sprites[i].RespondToCollision(CollisionDirection.Left);
                 } else if (HitsRightSide(marioState.StateSprite, Sprites[i]))
                 {
-                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Right);
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Right, hud);
                     Sprites[i].RespondToCollision(CollisionDirection.Right);
                 }
                 else if (HitsTopSide(marioState.StateSprite, Sprites[i]))
                 {
-                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Top);
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Top, hud);
                     Sprites[i].RespondToCollision(CollisionDirection.Top);
                 }
                 else if (HitsBottomSide(marioState.StateSprite, Sprites[i]))
                 {
-                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Bottom);
+                    Sprites[i] = marioState.RespondToCollision(Sprites[i], CollisionDirection.Bottom, hud);
                     Sprites[i].RespondToCollision(CollisionDirection.Bottom);
                 }
             }

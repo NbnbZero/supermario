@@ -29,16 +29,13 @@ namespace SuperMario.States.MarioStates
         private Vector2 acceleration;
         private Vector2 maxVelocity = new Vector2(2, 2);
         private InputState previousState {get; set;}
-        public int Points;
-        public int Coins;
-        public int Lives;
 
 
         private InputState marioState { get; set; }
 
         public Vector2 Location { get; set; }
 
-        public MarioState(Vector2 location, int screenWidth, int screenHeight)
+        public MarioState(Vector2 location, int screenWidth, int screenHeight, int lives)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite(location);
             MarioPosture = Posture.Stand;
@@ -52,18 +49,15 @@ namespace SuperMario.States.MarioStates
             velocity = new Vector2();
             acceleration = new Vector2();
             acceleration.Y = gravity;
-            Points = 0;
-            Coins = 0;
-            Lives = 3;
         }
 
-        public Sprite RespondToCollision(Sprite sprite, CollisionDirection direction)
+        public Sprite RespondToCollision(Sprite sprite, CollisionDirection direction, HUD hud)
         {
             if (sprite != null)
             {
                 if (sprite.GetType() == typeof(GoombaSprite) || (sprite.GetType() == typeof(KoopaSprite)))
                 {
-                    sprite = EnemyCollision(sprite, direction);
+                    sprite = EnemyCollision(sprite, direction, hud);
                 }
                 else if ((sprite.GetType() == typeof(BrickBlockSprite))
                   || (sprite.GetType() == typeof(StairBlockSprite))
@@ -72,7 +66,7 @@ namespace SuperMario.States.MarioStates
                   || (sprite.GetType() == typeof(UsedBlockSprite))
                   || (sprite.GetType() == typeof(HiddenBlockSprite)))
                 {
-                    sprite = BlockCollision(sprite, direction);
+                    sprite = BlockCollision(sprite, direction, hud);
                 }
                 else if (sprite.GetType() == typeof(SuperMushroomSprite)
                   || sprite.GetType() == typeof(FlowerSprite)
@@ -80,14 +74,14 @@ namespace SuperMario.States.MarioStates
                   || sprite.GetType() == typeof(StarSprite)
                   || sprite.GetType() == typeof(UpMushroomSprite))
                 {
-                    ItemCollision(sprite, direction);
+                    ItemCollision(sprite, direction, hud);
                 }
             }
 
             return sprite;
         }
 
-        private Sprite EnemyCollision(Sprite enemy, CollisionDirection direction)
+        private Sprite EnemyCollision(Sprite enemy, CollisionDirection direction, HUD hud)
         {
             if (direction == CollisionDirection.Left || direction == CollisionDirection.Right)
             {
@@ -95,6 +89,7 @@ namespace SuperMario.States.MarioStates
                 if (MarioShape == Shape.Small)
                 {
                     Terminated();
+                    hud.Lives--;
                 }
                 else if(MarioShape == Shape.Big)
                 {
@@ -126,7 +121,7 @@ namespace SuperMario.States.MarioStates
             }
             else if (direction == CollisionDirection.Top || direction == CollisionDirection.Bottom)
             {
-                Points += 100;
+                hud.Points += 100;
                 BeIdle();
                 if (enemy.GetType() == typeof(GoombaSprite))
                 {
@@ -141,7 +136,7 @@ namespace SuperMario.States.MarioStates
             return enemy;
         }
 
-        private Sprite BlockCollision(Sprite block, CollisionDirection direction)
+        private Sprite BlockCollision(Sprite block, CollisionDirection direction, HUD hud)
         {
             BeIdle();
             if (direction == CollisionDirection.Left)
@@ -184,40 +179,40 @@ namespace SuperMario.States.MarioStates
             return block;
         }
 
-        private void ItemCollision(Sprite item, CollisionDirection direction)
+        private void ItemCollision(Sprite item, CollisionDirection direction, HUD hud)
         {
             if (item.CanCollide)
             {
                 if (item.GetType() == typeof(SuperMushroomSprite))
                 {
                     ChangeSizeToBig();
-                    Points += 1000;
+                    hud.Points += 1000;
                     item.CanCollide = false;
                 }
                 else if (item.GetType() == typeof(FlowerSprite))
                 {
                     ChangeFireMode();
-                    Points += 1000;
+                    hud.Points += 1000;
                     item.CanCollide = false;
                 }
                 else if (item.GetType() == typeof(CoinSprite))
                 {
-                    Coins++;
-                    if (Coins > 100)
+                    hud.Coins++;
+                    if (hud.Coins > 100)
                     {
-                        Lives++;
+                        hud.Lives++;
                     }
-                    Points += 200;
+                    hud.Points += 200;
                     item.CanCollide = false;
                 }
                 else if (item.GetType() == typeof(StarSprite))
                 {
-                    Points += 1000;
+                    hud.Points += 1000;
                     item.CanCollide = false;
                 }
                 else if (item.GetType() == typeof(UpMushroomSprite))
                 {
-                    Lives++;
+                    hud.Lives++;
                     item.CanCollide = false;
                 }
 
@@ -570,7 +565,6 @@ namespace SuperMario.States.MarioStates
             marioState = InputState.MakeDead;
             MarioShape = Shape.Dead;
             StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite(Location);
-            MarioAttributes.MarioLife[0]--;
         }
 
         public void ChangeSizeToSmall()

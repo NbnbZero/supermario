@@ -43,7 +43,7 @@ namespace SuperMario
                     marioState.ChangeFireMode();
                     break;
                 case InputState.MakeDead:
-                    marioState.Terminated();
+                    //marioState.Terminated();
                     break;
                 case InputState.Jump:
                     marioState.Jump();
