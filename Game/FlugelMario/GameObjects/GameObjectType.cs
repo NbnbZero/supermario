@@ -11,7 +11,7 @@ namespace FlugelMario.GameObjects
         public enum ObjectType
         {
             Mario, Goomba, Koopa, BrickBlock, Coin, FloorBlock,
-            Flower, GreenMushroom, QuestionkBlock, RedMushroom,
+            Flower, UpMushroom, QuestionkBlock, SuperMushroom,
             Star, UsedBlock, RockBlock, HiddenBlock
         };
     }

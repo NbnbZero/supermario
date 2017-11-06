@@ -53,6 +53,14 @@ namespace SuperMario.SpriteFactories
             }
         }
 
+        public int HalfNormalMarioHeight
+        {
+            get
+            {
+                return normalMarioSpriteSheet.Height / NormalMarioSpriteSheetRow / 2;
+            }
+        }
+
         public Vector2 CrouchLeftBigMarioCord { get; } = new Vector2(6, 1);
         public Vector2 CrouchLeftFireMarioCord { get; } = new Vector2(6, 2);
         public Vector2 CrouchRightBigMarioCord { get; } = new Vector2(7, 1);
