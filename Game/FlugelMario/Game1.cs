@@ -9,6 +9,8 @@ using SuperMario.Game_Controllers;
 using Microsoft.Xna.Framework.Input;
 using FlugelMario;
 using SuperMario.Sprites.Goomba;
+using System.Threading;
+using System.Diagnostics;
 
 namespace SuperMario
 {
@@ -29,6 +31,8 @@ namespace SuperMario
         public Camera camera;
         Vector2 parallax = new Vector2(1f);
         HUD hud;
+        Stopwatch timer;
+        int max;
 
         public bool Paused { get => paused; set => paused = value; }
         public List<Sprite> Sprites { get => sprites; set => sprites = value; }
@@ -57,6 +61,10 @@ namespace SuperMario
             camera.Limits= new Rectangle(0,0,1300,400);
 
             hud = new HUD();
+
+            timer = new Stopwatch();
+            timer.Start();
+            max = 400;
 
             base.Initialize();
         }
@@ -179,7 +187,7 @@ namespace SuperMario
 
             marioState.StateSprite.Draw(spriteBatch, marioState.Location);
 
-            hud.Draw(spriteBatch, marioState, camera, 1000);
+            hud.Draw(spriteBatch, marioState, camera, max - (int) timer.ElapsedMilliseconds / 1000);
 
             spriteBatch.End();
 
