@@ -75,7 +75,7 @@ namespace SuperMario.SpriteFactories
             return new StarSprite(itemSpriteSheet);
         }
 
-        public Sprite CreateDisappearedSprite() {
+        public ISprite CreateDisappearedSprite() {
             return new DisappearedSprite(itemSpriteSheet);
         }
 

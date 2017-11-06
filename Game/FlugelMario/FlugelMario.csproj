@@ -66,6 +66,9 @@
     <Compile Include="Enums\GameObjectType.cs" />
     <Compile Include="Enums\ItemTypes.cs" />
     <Compile Include="Game Controllers\GamepadController.cs" />
+    <Compile Include="GameObjects\EnemyGameObjects\Goomba.cs" />
+    <Compile Include="GameObjects\EnemyGameObjects\Koopa.cs" />
+    <Compile Include="GameObjects\GameObjectType.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FireFlower.cs" />
     <Compile Include="GameObjects\ItemGameObjects\RedMushroom.cs" />
     <Compile Include="GameUtility\GameUtility.cs" />
@@ -147,7 +150,11 @@
     <Compile Include="Sprites\Mario\RunningRightBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
+    <Compile Include="States\EnemyStates\GoombaAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaDeadState.cs" />
+    <Compile Include="States\EnemyStates\KoopaAliveRightState.cs" />
+    <Compile Include="States\EnemyStates\KoopaAliveState.cs" />
+    <Compile Include="States\EnemyStates\KoopaDeadState.cs" />
     <Compile Include="States\MarioState\CrouchLeftBigMarioState.cs" />
     <Compile Include="States\MarioState\CrouchLeftFireMarioState.cs" />
     <Compile Include="States\MarioState\CrouchRightBigMarioState.cs" />

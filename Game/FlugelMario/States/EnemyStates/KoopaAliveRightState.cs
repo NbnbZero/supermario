@@ -9,25 +9,25 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario;
 using FlugelMario.GameObjects.EnemyGameObjects;
 using SuperMario.SpriteFactories;
-using SuperMario.States.EnemyStates;
 
 namespace FlugelMario.States.EnemyStates
 {
-    public class GoombaAliveState : IEnemyState
+    public class KoopaAliveRightState : IEnemyState
     {
         public ISprite StateSprite { get; set; }
 
-        private Goomba goomba;
+        private Koopa koopa;
 
-        public GoombaAliveState(Goomba goomba)
+        public KoopaAliveRightState(Koopa _koopa)
         {
-            StateSprite = EnemySpriteFactory.Instance.CreateGoombaSprite();
-            this.goomba = goomba;
+            StateSprite = EnemySpriteFactory.Instance.CreateKoopaRightSprite();
+            this.koopa = _koopa;
         }
+
 
         public void ChangeDirection()
         {
-            throw new NotImplementedException();
+            koopa.State = new KoopaAliveState(koopa);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
@@ -37,8 +37,8 @@ namespace FlugelMario.States.EnemyStates
 
         public void Terminate(string direction)
         {
-            if (direction.ToUpper().Equals("TOP"))
-                goomba.State = new GoombaDeadState();
+            if (direction.ToUpper().Equals("UP"))
+                koopa.State = new KoopaDeadState(koopa);
         }
 
         public void Update()

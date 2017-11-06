@@ -6,39 +6,37 @@ using FlugelMario;
 
 namespace SuperMario.Sprites.Koopa
 {
-    class KoopaSprite : Sprite
+    class KoopaSprite : ISprite
     {
-        private bool goLeft;
-        private bool goRight;
-        public KoopaSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        public Texture2D Texture { get; set; }
+        public Vector2 Location { get; set; }
+        public Rectangle Destination { get; set; }
+
+        private Rectangle sourceRectangle;
+        private int KoopaWidth = EnemySpriteFactory.Instance.KoopaWidth;
+        private int KoopaHeight = EnemySpriteFactory.Instance.KoopaHeight;
+        private int TextureX = (int)EnemySpriteFactory.Instance.KoopaWalkCord.X;
+        private int TextureY = (int)EnemySpriteFactory.Instance.KoopaWalkCord.Y;
+        private int currentFrame;
+        private int TotalFrames = EnemySpriteFactory.Instance.GoombaWalkTotalFrame;
+        private int Counter = 0;
+
+        public KoopaSprite(Texture2D texture)
         {
-            Width = EnemySpriteFactory.Instance.KoopaWidth;
-            Height = EnemySpriteFactory.Instance.KoopaHeight;
-
-            TextureX = (int)EnemySpriteFactory.Instance.KoopaWalkCord.X;
-            TextureY = (int)EnemySpriteFactory.Instance.KoopaWalkCord.Y;
-
-            TotalFrames = EnemySpriteFactory.Instance.KoopaWalkTotalFrame;
-
-            Alive = true;
-            goLeft = false;
-            goRight = false;
+            currentFrame = 0;
+            Texture = texture;
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            if (goLeft)
-            {
-                Location = new Vector2(Location.X - 1, Location.Y);
-            }
-            else if (goRight)
-            {
-                Location = new Vector2(Location.X + 1, Location.Y);
-            }
-            base.Draw(spriteBatch, location);
+            Location = location;
+            sourceRectangle = new Rectangle((TextureX + currentFrame) * KoopaWidth, TextureY * KoopaHeight, KoopaWidth, KoopaHeight);
+            Destination = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Update()
         {
             Destination = MakeDestinationRectangle(Location);
 
@@ -49,9 +47,11 @@ namespace SuperMario.Sprites.Koopa
                 Counter = 0;
             }
             Counter++;
+        }
 
-            goLeft = Location.X < (marioLocation.X + viewport.Width / 2) && Location.X > marioLocation.X;
-            goRight = Location.X < marioLocation.X;
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, KoopaWidth, KoopaHeight);
         }
     }
 }
