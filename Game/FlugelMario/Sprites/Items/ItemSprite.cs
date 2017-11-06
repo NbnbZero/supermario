@@ -23,12 +23,15 @@ namespace SuperMario.Sprites.Items
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            if (revealed && counter < Height)
+            if (CanCollide)
             {
-                Location = new Vector2(Location.X, Location.Y - 1);
-                counter++;
+                if (revealed && counter < Height)
+                {
+                    Location = new Vector2(Location.X, Location.Y - 1);
+                    counter++;
+                }
+                base.Draw(spriteBatch, location);
             }
-            base.Draw(spriteBatch, location);
         }
 
         public override void Update(Viewport viewport, Vector2 marioLocation)

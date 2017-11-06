@@ -60,6 +60,7 @@
     <Compile Include="GameObjects\ItemGameObjects\RedMushroom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
+    <Compile Include="HUD.cs" />
     <Compile Include="Interfaces\IBlockStateMachine.cs" />
     <Compile Include="Interfaces\ICollisionCommand.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />

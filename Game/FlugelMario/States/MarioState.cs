@@ -29,6 +29,9 @@ namespace SuperMario.States.MarioStates
         private Vector2 acceleration;
         private Vector2 maxVelocity = new Vector2(2, 2);
         private InputState previousState {get; set;}
+        public int Points;
+        public int Coins;
+        public int Lives;
 
 
         private InputState marioState { get; set; }
@@ -49,6 +52,9 @@ namespace SuperMario.States.MarioStates
             velocity = new Vector2();
             acceleration = new Vector2();
             acceleration.Y = gravity;
+            Points = 0;
+            Coins = 0;
+            Lives = 3;
         }
 
         public Sprite RespondToCollision(Sprite sprite, CollisionDirection direction)
@@ -69,7 +75,8 @@ namespace SuperMario.States.MarioStates
                     sprite = BlockCollision(sprite, direction);
                 }
                 else if (sprite.GetType() == typeof(SuperMushroomSprite)
-                  || sprite.GetType() == typeof(FlowerSprite))
+                  || sprite.GetType() == typeof(FlowerSprite)
+                  || sprite.GetType() == typeof(CoinSprite))
                 {
                     ItemCollision(sprite, direction);
                 }
@@ -186,6 +193,11 @@ namespace SuperMario.States.MarioStates
                 else if (item.GetType() == typeof(FlowerSprite))
                 {
                     ChangeFireMode();
+                    item.CanCollide = false;
+                }
+                else if (item.GetType() == typeof(CoinSprite))
+                {
+                    Coins++;
                     item.CanCollide = false;
                 }
 

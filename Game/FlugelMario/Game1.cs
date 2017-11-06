@@ -28,6 +28,7 @@ namespace SuperMario
         Rectangle mainFrame;
         public Camera camera;
         Vector2 parallax = new Vector2(1f);
+        HUD hud;
 
         public bool Paused { get => paused; set => paused = value; }
         public List<Sprite> Sprites { get => sprites; set => sprites = value; }
@@ -54,6 +55,8 @@ namespace SuperMario
 
             camera = new Camera(GraphicsDevice.Viewport);
             camera.Limits= new Rectangle(0,0,1300,400);
+
+            hud = new HUD();
 
             base.Initialize();
         }
@@ -106,6 +109,8 @@ namespace SuperMario
                     gamePads.Add(new GamepadControls(marioState, this, i));
                 }
             }
+
+            hud.LoadContent(Content);
         }
 
         /// <summary>
@@ -174,10 +179,11 @@ namespace SuperMario
 
             marioState.StateSprite.Draw(spriteBatch, marioState.Location);
 
+            hud.Draw(spriteBatch, marioState, camera, 1000);
+
             spriteBatch.End();
 
             #endregion
-
             base.Draw(gameTime);
         }
 
