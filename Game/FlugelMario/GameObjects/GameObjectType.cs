@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario.GameObjects
+namespace SuperMario.GameObjects
 {
-    public class GameObjectType
+    public static class GameObjectType
     {
-        public enum ObjectType
-        {
-            Mario, Goomba, Koopa, BrickBlock, Coin, FloorBlock,
-            Flower, GreenMushroom, QuestionkBlock, RedMushroom,
-            Star, UsedBlock, RockBlock, HiddenBlock
-        };
+        public enum ObjectType {
+            Mario, Goomba,Koopa, SuperMushroom, FireFlower, Block,
+            Coin,
+            UpMushroom,
+            Star
+        }
     }
 }

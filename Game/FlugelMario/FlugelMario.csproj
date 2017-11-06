@@ -45,7 +45,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
+    <Compile Include="Animation\CoinCollectedFromBlockAnimation.cs" />
+    <Compile Include="Commands\MarioBlockCollisionBottom.cs" />
+    <Compile Include="Enums\AnimationState.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\BrickBlock.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\CoinBrickBlock.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\HiddenBlock.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
+    <Compile Include="Interfaces\IAnimation.cs" />
+    <Compile Include="Interfaces\IAnimationInGame.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractClasses\SpriteSecondary.cs" />
@@ -63,12 +72,11 @@
     <Compile Include="Enums\BlockTypes.cs" />
     <Compile Include="Enums\CollisionDirection.cs" />
     <Compile Include="Enums\EnemyTypes.cs" />
-    <Compile Include="Enums\GameObjectType.cs" />
+    <Compile Include="GameObjects\GameObjectType.cs" />
     <Compile Include="Enums\ItemTypes.cs" />
     <Compile Include="Game Controllers\GamepadController.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\Goomba.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\Koopa.cs" />
-    <Compile Include="GameObjects\GameObjectType.cs" />
     <Compile Include="GameObjects\ItemGameObjects\Coin.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FireFlower.cs" />
     <Compile Include="GameObjects\ItemGameObjects\Star.cs" />
@@ -164,6 +172,10 @@
     <Compile Include="Sprites\Mario\RunningRightBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
+    <Compile Include="StateMachine\BrickBlockStateMachine.cs" />
+    <Compile Include="StateMachine\CoinBrickBlockStateMachine.cs" />
+    <Compile Include="StateMachine\HiddenBlockStateMachine.cs" />
+    <Compile Include="StateMachine\QuestionBlockStateMachine.cs" />
     <Compile Include="States\EnemyStates\GoombaAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaDeadState.cs" />
     <Compile Include="States\EnemyStates\KoopaAliveRightState.cs" />
@@ -229,7 +241,8 @@
     <None Include="tsconfig1.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GameObjects\BlockGameObjects\" />
+    <Folder Include="CollisionHandler\" />
+    <Folder Include="Commands\MarioCollisionCommand\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

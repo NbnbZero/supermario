@@ -8,9 +8,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.GameObjects;
 using FlugelMario.States.EnemyStates;
-using SuperMario;
 
-namespace FlugelMario.GameObjects.EnemyGameObjects
+namespace SuperMario
 {
     public class Goomba : IEnemy
     {

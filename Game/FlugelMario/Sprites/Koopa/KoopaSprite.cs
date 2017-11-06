@@ -42,8 +42,8 @@ namespace SuperMario.Sprites.Koopa
 
             if (Counter % 10 == 0)
             {
-                CurrentFrame++;
-                CurrentFrame = CurrentFrame % TotalFrames;
+                currentFrame++;
+                currentFrame = currentFrame % TotalFrames;
                 Counter = 0;
             }
             Counter++;

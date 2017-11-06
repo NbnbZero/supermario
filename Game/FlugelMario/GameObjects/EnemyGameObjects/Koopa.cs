@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario.GameObjects;
 using FlugelMario.States.EnemyStates;
 
-namespace FlugelMario.GameObjects.EnemyGameObjects
+namespace SuperMario
 {
     public class Koopa : IEnemy
     {
