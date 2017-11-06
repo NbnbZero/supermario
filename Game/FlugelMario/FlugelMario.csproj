@@ -53,6 +53,7 @@
     <Compile Include="GameObjects\BlockGameObjects\CoinBrickBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\HiddenBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
+    <Compile Include="GameObjects\MarioObject.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />
     <Compile Include="Interfaces\IAnimationInGame.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
