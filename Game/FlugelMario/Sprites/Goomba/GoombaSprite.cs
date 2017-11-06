@@ -8,51 +8,54 @@ using FlugelMario;
 
 namespace SuperMario.Sprites.Goomba
 {
-    class GoombaSprite : Sprite
+    class GoombaSprite : ISprite
     {
-        private bool goLeft;
-        private bool goRight;
+        public Texture2D Texture { get; set; }
 
-        public GoombaSprite(Texture2D texture, Vector2 location = default(Vector2)) : base(texture, location)
+        public Vector2 Location { get; set; }
+
+        public Rectangle Destination { get; set; }
+
+        private Rectangle sourceRectangle;
+        private int GoombaWidth = EnemySpriteFactory.Instance.GoombaWidth;
+        private int GoombaHeight = EnemySpriteFactory.Instance.GoombaHeight;
+        private int TextureX = (int)EnemySpriteFactory.Instance.GoombaWalkCord.X;
+        private int TextureY = (int)EnemySpriteFactory.Instance.GoombaWalkCord.Y;
+        private int currentFrame;
+        private int TotalFrames = EnemySpriteFactory.Instance.GoombaWalkTotalFrame;
+        private int counter = 0;
+
+        public GoombaSprite(Texture2D texture)
         {
-            Width = EnemySpriteFactory.Instance.GoombaWidth;
-            Height = EnemySpriteFactory.Instance.GoombaHeight;
-
-            TextureX = (int)EnemySpriteFactory.Instance.GoombaWalkCord.X;
-            TextureY = (int)EnemySpriteFactory.Instance.GoombaWalkCord.Y;
-
-            TotalFrames = EnemySpriteFactory.Instance.GoombaWalkTotalFrame;
-
-            Alive = true;
-            goLeft = false;
-            goRight = false;
+            currentFrame = 0;
+            this.Texture = texture;
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            if (goLeft)
-            {
-                Location = new Vector2(Location.X - 1, Location.Y);
-            } else if (goRight)
-            {
-                Location = new Vector2(Location.X + 1, Location.Y);
-            }
-            base.Draw(spriteBatch, location);
+            Location = location;
+            sourceRectangle = new Rectangle((TextureX + currentFrame) * GoombaWidth, TextureY * GoombaHeight, GoombaWidth, GoombaHeight);
+            Destination = MakeDestinationRectangle(location);
+
+
+            spriteBatch.Draw(Texture, Destination, sourceRectangle, Color.White);
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Update()
         {
             Destination = MakeDestinationRectangle(Location);
-            if (Counter % 10 == 0)
+            if (counter % 10 == 0)
             {
-                CurrentFrame++;
-                CurrentFrame = CurrentFrame % TotalFrames;
-                Counter = 0;
+                currentFrame++;
+                currentFrame = currentFrame % TotalFrames;
+                counter = 0;
             }
-            Counter++;
+            counter++;
+        }
 
-            goLeft = Location.X < (marioLocation.X + viewport.Width / 2) && Location.X > marioLocation.X;
-            goRight = Location.X < marioLocation.X;
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, GoombaWidth, GoombaHeight);
         }
     }
 }

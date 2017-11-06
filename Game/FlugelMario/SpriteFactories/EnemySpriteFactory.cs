@@ -12,12 +12,13 @@ namespace SuperMario.SpriteFactories
         public int GoombaSpriteSheetColumn { get; } = 3;
         public int GoombaSpriteSheetRows { get; } = 1;
         public int GoombaWalkTotalFrame { get; } = 2;
-        public int KoopaSpriteSheetColumn { get; } = 5;
+        public int KoopaSpriteSheetColumn { get; } = 4;
         public int KoopaSpriteSheetRows { get; } = 1;
         public int KoopaWalkTotalFrame { get; } = 2;
 
         private Texture2D enemyGoombaSpriteSheet;
         private Texture2D enemyKoopaSpriteSheet;
+        private Texture2D enemyKoopaRightSpriteSheet;
 
         private static EnemySpriteFactory instance = new EnemySpriteFactory();
 
@@ -38,7 +39,8 @@ namespace SuperMario.SpriteFactories
             if (content != null)
             {
                 enemyGoombaSpriteSheet = content.Load<Texture2D>("GoombaSheet");
-                enemyKoopaSpriteSheet = content.Load<Texture2D>("TurtleSheet1");
+                enemyKoopaSpriteSheet = content.Load<Texture2D>("turtle_sheet_3");
+                enemyKoopaRightSpriteSheet = content.Load<Texture2D>("turtle_sheet2");
             }
         }
 
@@ -74,30 +76,28 @@ namespace SuperMario.SpriteFactories
             }
         }
 
-        // TODO: Make this go bye bye
-        public Sprite CreateGoombaSprite()
+        public ISprite CreateGoombaSprite()
         {
-            return new GoombaSprite(enemyGoombaSpriteSheet) { Color = Color.Red };
+            return new GoombaSprite(enemyGoombaSpriteSheet);
         }
 
-        public Sprite CreateGoombaSprite(Vector2 location)
+        public ISprite CreateKoopaSprite()
         {
-            return new GoombaSprite(enemyGoombaSpriteSheet, location) { Color = Color.Red };
+            return new KoopaSprite(enemyKoopaSpriteSheet);
+        }
+        public ISprite CreateKoopaRightSprite()
+        {
+            return new KoopaSprite(enemyKoopaRightSpriteSheet);
         }
 
-        public Sprite CreateKoopaSprite(Vector2 location)
+        public ISprite CreateDeadGoombaSprite()
         {
-            return new KoopaSprite(enemyKoopaSpriteSheet, location) { Color = Color.Red };
+            return new DeadGoombaSprite(enemyGoombaSpriteSheet);
         }
 
-        public Sprite CreateDeadGoombaSprite(Vector2 location)
+        public ISprite CreateDeadKoopaSprite()
         {
-            return new DeadGoombaSprite(enemyGoombaSpriteSheet, location) { Color = Color.Red };
-        }
-
-        public Sprite CreateDeadKoopaSprite(Vector2 location)
-        {
-            return new DeadKoopaSprite(enemyKoopaSpriteSheet, location) { Color = Color.Red };
+            return new DeadKoopaSprite(enemyKoopaSpriteSheet);
         }
         public Vector2 GoombaWalkCord { get; } = new Vector2(0, 0);
         public Vector2 GoombaDeadCord { get; } = new Vector2(2, 0);

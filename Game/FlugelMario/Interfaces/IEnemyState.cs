@@ -6,9 +6,10 @@ namespace SuperMario.Interfaces
 {
     public interface IEnemyState
     {
-        Sprite StateSprite { get; set; }
+        ISprite StateSprite { get; set; }
         void Update();
-        void Terminate();
+        void Terminate(String direction);
+        void ChangeDirection();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
 }

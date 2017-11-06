@@ -8,22 +8,29 @@ namespace SuperMario.States.EnemyStates
 {
     public class GoombaDeadState : IEnemyState
     {
-        public Sprite StateSprite { get; set; }
+        public ISprite StateSprite { get; set; }
+        private int count = 0;
 
         public GoombaDeadState()
         {
-            StateSprite = EnemySpriteFactory.Instance.CreateDeadGoombaSprite(StateSprite.Location);
+            StateSprite = EnemySpriteFactory.Instance.CreateDeadGoombaSprite();
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             StateSprite.Draw(spriteBatch, location);
         }
 
-        public void Terminate()
+        public void Terminate(String direction)
         {       
         }
 
         public void Update()
+        {
+            count++;
+            if (count > 60)
+                StateSprite = ItemSpriteFactory.Instance.CreateDisappearedSprite() ;
+        }
+        public void ChangeDirection()
         {
         }
     }
