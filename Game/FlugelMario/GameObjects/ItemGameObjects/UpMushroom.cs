@@ -7,31 +7,29 @@ using static SuperMario.GameObjects.GameObjectType;
 
 namespace SuperMario
 {
-    public class FireFlower : IItem
+    public class UpMushroom : IItem
     {
-        public ISprite sprite;
+        private ISprite sprite;
         public Vector2 Location { get; set; }
         private Vector2 initialLocation;
+        public ObjectType Type { get; } = ObjectType.UpMushroom;
 
         public Rectangle Destination { get; set; }
-
-        public ObjectType Type { get; } = ObjectType.FireFlower;
 
         public bool IsCollected { get; set; } = false;
         public bool IsPreparing { get; set; } = true;
         public Vector2 Velocity { get; set; }
-        public FireFlower(Vector2 location)
+        public Vector2 Acceleration { get; set; }
+
+        public UpMushroom(Vector2 location)
         {
-            sprite = ItemSpriteFactory.Instance.CreateFlowerSprite();
-            Location = location;
+            sprite = ItemSpriteFactory.Instance.CreateUpMushroomSprite();
+
+            this.Location = location;
             initialLocation = location;
             Destination = sprite.MakeDestinationRectangle(Location);
             Velocity = new Vector2(0, -0.5f);
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch, Location);
+            Acceleration = new Vector2(0, 0);
         }
 
         public void Collect()
@@ -40,24 +38,38 @@ namespace SuperMario
             IsCollected = true;
         }
 
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void Update()
         {
             if (IsPreparing)
             {
                 Location = new Vector2(Location.X, Location.Y + Velocity.Y);
                 Destination = sprite.MakeDestinationRectangle(Location);
-                if (Location.Y <= initialLocation.Y - Destination.Height + 2 * 1)
+                if (Location.Y <= initialLocation.Y - this.Destination.Height)
                 {
-                    Velocity = new Vector2(0, 0);
+                    Velocity = new Vector2(2, 0);
+                    Acceleration = new Vector2(0, 0.5f);
                     IsPreparing = false;
                 }
                 return;
             }
 
+            if (Velocity.Y < 3)
+            {
+                this.Velocity = new Vector2(this.Velocity.X, this.Velocity.Y + this.Acceleration.Y);
+            }
+            this.Location = new Vector2(this.Location.X + this.Velocity.X, this.Location.Y + this.Velocity.Y);
             Destination = sprite.MakeDestinationRectangle(Location);
             sprite.Update();
+        }
 
+        public void ChangeDirection()
+        {
+            Velocity = new Vector2(-Velocity.X, Velocity.Y);
         }
     }
 }
-

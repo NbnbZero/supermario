@@ -70,12 +70,13 @@ namespace SuperMario.SpriteFactories
             return new UpMushroomSprite(itemSpriteSheet);
         }
 
-        public ISprite CreateStarSprite(Vector2 location, bool hidden)
+        public ISprite CreateStarSprite()
         {
             return new StarSprite(itemSpriteSheet);
         }
 
-        public Sprite CreateDisappearedSprite() {
+        public Sprite CreateDisappearedSprite()
+        {
             return new DisappearedSprite(itemSpriteSheet);
         }
 

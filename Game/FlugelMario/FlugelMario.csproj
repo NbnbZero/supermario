@@ -66,8 +66,11 @@
     <Compile Include="Enums\GameObjectType.cs" />
     <Compile Include="Enums\ItemTypes.cs" />
     <Compile Include="Game Controllers\GamepadController.cs" />
+    <Compile Include="GameObjects\ItemGameObjects\Coin.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FireFlower.cs" />
-    <Compile Include="GameObjects\ItemGameObjects\RedMushroom.cs" />
+    <Compile Include="GameObjects\ItemGameObjects\Star.cs" />
+    <Compile Include="GameObjects\ItemGameObjects\SuperMushroom.cs" />
+    <Compile Include="GameObjects\ItemGameObjects\UpMushroom.cs" />
     <Compile Include="GameUtility\GameUtility.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Game Controllers\KeyboardController.cs" />
