@@ -1,13 +1,7 @@
 ﻿using SuperMario.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario;
-using FlugelMario.GameObjects.EnemyGameObjects;
 using SuperMario.SpriteFactories;
 
 namespace FlugelMario.States.EnemyStates

@@ -36,7 +36,7 @@ namespace SuperMario
         private bool hasBeenInView;
         public bool CanUpdate { get { return hasBeenInView; } }
 
-        SuperMario.GameObjects.GameObjectType.ObjectType IGameObject.Type => throw new NotImplementedException();
+
 
         public Goomba(Vector2 location)
         {
