@@ -133,6 +133,8 @@ namespace SuperMario.Interfaces
         {
             var center = new Point(destinationRectangle.X, destinationRectangle.Y);
             CollisionRectangle = new Rectangle(center, new Point(Width, Height));
+            if (CollisionBoundary != null)
+                CollisionBoundary.Dispose();
             CollisionBoundary = new Texture2D(Texture.GraphicsDevice, CollisionRectangle.Width, CollisionRectangle.Height);
 
             Color[] data = new Color[CollisionRectangle.Width * CollisionRectangle.Height];
