@@ -81,6 +81,7 @@
     <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionLeft.cs" />
     <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionRight.cs" />
     <Compile Include="CollisionCommandsItems\UpMushroomBlockCollisionTop.cs" />
+    <Compile Include="CollisionHandler\CollisionDetector.cs" />
     <Compile Include="Commands\MarioBlockCollisionBottom.cs" />
     <Compile Include="Enums\AnimationState.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
@@ -279,7 +280,6 @@
     <None Include="tsconfig1.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CollisionHandler\" />
     <Folder Include="Commands\MarioCollisionCommand\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
