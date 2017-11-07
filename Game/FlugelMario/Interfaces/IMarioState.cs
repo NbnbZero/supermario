@@ -11,6 +11,8 @@ namespace SuperMario.Interfaces
         Direction MarioDirection { get; set; }
         Shape MarioShape { get; set; }
 
+
+
         bool IsStar { get; }
         void JumpOrStand();
         void ChangeSizeToBig();

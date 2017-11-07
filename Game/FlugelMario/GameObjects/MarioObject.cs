@@ -60,8 +60,8 @@ namespace SuperMario.GameObjects
         
         public MarioObject(Vector2 location)
         {
-            Location = location;
             State = new IdleRightSmallMarioState(this);
+            Location = location;
             State.MarioPosture = Posture.Stand;
             State.MarioShape = Shape.Small;
             State.MarioDirection = Direction.Right;
