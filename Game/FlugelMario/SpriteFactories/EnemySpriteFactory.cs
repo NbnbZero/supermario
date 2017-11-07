@@ -12,7 +12,7 @@ namespace SuperMario.SpriteFactories
         public int GoombaSpriteSheetColumn { get; } = 3;
         public int GoombaSpriteSheetRows { get; } = 1;
         public int GoombaWalkTotalFrame { get; } = 2;
-        public int KoopaSpriteSheetColumn { get; } = 4;
+        public int KoopaSpriteSheetColumn { get; } = 5;
         public int KoopaSpriteSheetRows { get; } = 1;
         public int KoopaWalkTotalFrame { get; } = 2;
 

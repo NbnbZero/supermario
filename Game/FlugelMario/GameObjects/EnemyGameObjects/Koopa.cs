@@ -43,7 +43,7 @@ namespace SuperMario
             State = new KoopaAliveState(this);
             Destination = State.StateSprite.MakeDestinationRectangle(Location);
             velocity = new Vector2(-1, 0);
-            acceleration = new Vector2(0, 0.5f);
+            acceleration = new Vector2(0, GameData.Gravity);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
