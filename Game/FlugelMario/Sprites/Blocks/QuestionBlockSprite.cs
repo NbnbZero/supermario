@@ -33,7 +33,7 @@ namespace SuperMario.Sprites.Blocks
         */
         public QuestionBlockSprite(Texture2D texture)
         {
-            texture = Texture;
+            Texture = texture;
             height = BlockSpriteFactory.Instance.QuestionBlockHeight;
             width = BlockSpriteFactory.Instance.QuestionBlockWidth;
             row = BlockSpriteFactory.Instance.QuestionSpriteSheetRows;
