@@ -7,7 +7,7 @@ using SuperMario.States.MarioStates;
 using SuperMario.Enums;
 using SuperMario.Game_Controllers;
 using Microsoft.Xna.Framework.Input;
-using FlugelMario;
+using SuperMario.GameObjects;
 using SuperMario.Sprites.Goomba;
 
 namespace SuperMario
@@ -19,7 +19,7 @@ namespace SuperMario
     {
         private bool paused;
 
-        List<GamepadControls> gamePads;
+        //List<GamepadControls> gamePads;
         KeyboardControls keyboard;
         SpriteBatch spriteBatch;
         MarioState marioState;
@@ -28,6 +28,7 @@ namespace SuperMario
         Rectangle mainFrame;
         Camera camera;
         Vector2 parallax = new Vector2(1f);
+        GameObjectManager objectManager;
 
         public bool Paused { get => paused; set => paused = value; }
         public List<Sprite> Sprites { get => sprites; set => sprites = value; }
@@ -46,14 +47,14 @@ namespace SuperMario
         /// </summary>
         protected override void Initialize()
         {
-            gamePads = new List<GamepadControls>();
+          //  gamePads = new List<GamepadControls>();
 
-            Sprites = new List<Sprite>();
+            //Sprites = new List<Sprite>();
 
-            Paused = false;
+            //Paused = false;
 
-            camera = new Camera(GraphicsDevice.Viewport);
-            camera.Limits= new Rectangle(0,0,1300,400);
+            //camera = new Camera(GraphicsDevice.Viewport);
+            //camera.Limits= new Rectangle(0,0,1300,400);
 
             base.Initialize();
         }
@@ -66,7 +67,8 @@ namespace SuperMario
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            objectManager = new GameObjectManager();
+            
             #region Load Textures
 
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
@@ -75,21 +77,21 @@ namespace SuperMario
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             FireballSpriteFactory.Instance.LoadAllTextures(Content);
 
+
+
             #endregion
+            LevelLoader loader = new LevelLoader(objectManager);
+            loader.Load();
 
             background = Content.Load<Texture2D>("background");
             mainFrame = new Rectangle(0, 0, 1800, GraphicsDevice.Viewport.Height);
 
-            #region Instatntiation of Sprites
+            keyboard = new KeyboardControls();
 
-            marioState = LevelLoader.LoadLevel(Sprites);
+         /*  #region Instatntiation of Sprites
+            
 
             spriteBatch.Begin(SpriteSortMode.FrontToBack);
-
-            foreach (Sprite sprite in Sprites)
-            {
-                sprite.Draw(spriteBatch, sprite.Location);
-            }
 
             marioState.StateSprite.Draw(spriteBatch, marioState.Location);
 
@@ -97,15 +99,7 @@ namespace SuperMario
 
             #endregion
 
-            keyboard = new KeyboardControls(marioState, this);
-
-            for (int i = 0; i < GamePad.MaximumGamePadCount; i++)
-            {
-                if (GamePad.GetState(i).IsConnected)
-                {
-                    gamePads.Add(new GamepadControls(marioState, this, i));
-                }
-            }
+           */
         }
 
         /// <summary>
@@ -124,13 +118,8 @@ namespace SuperMario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            keyboard.Update();
-
-            foreach (GamepadControls controller in gamePads)
-            {
-                controller.Update();
-            }
-
+            keyboard.Update();          
+         
             if (!Paused)
             {
                 CheckCollision();
@@ -160,6 +149,7 @@ namespace SuperMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            objectManager.Draw(spriteBatch);
 
             #region SpriteBatch Drawing
 

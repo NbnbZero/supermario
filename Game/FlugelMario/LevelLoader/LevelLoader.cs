@@ -5,34 +5,37 @@ using System.Xml.Serialization;
 using SuperMario.Enums;
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using TileDefinition;
-using SuperMario.States.MarioStates;
+using SuperMario.GameObjects;
 
 namespace SuperMario
 {
-    public static class LevelLoader
+    public class LevelLoader
     {
-        public static MarioState LoadLevel(List<Sprite> sprites)
+        private GameObjectManager objectMagager;
+        public LevelLoader(GameObjectManager gameManager)
         {
-            var marioState = LoadMarioStart();
-            //LoadBlocks(sprites);
-            LoadItems(sprites);
-            LoadEnemies(sprites);
-
-            return marioState;
+            objectMagager = gameManager;            
         }
-        public static MarioState LoadMarioStart()
+
+        public void Load()
+        {
+            LoadBlocks();
+            LoadEnemies();
+            LoadItems();
+            
+        }
+        public void LoadMarioStart()
         {
             List<StartData> myObjects = new List<StartData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<StartData>), new XmlRootAttribute("Map"));
             using (XmlReader reader = XmlReader.Create("Level.xml"))
             {
                 myObjects = (List<StartData>)serializer.Deserialize(reader);
-            }
-            return new MarioState(new Vector2(myObjects[0].xLocation, myObjects[0].yLocation), myObjects[0].xMax, myObjects[0].yMax);
+            }         
+            
         }
-        public static void LoadBlocks(List<ISprite> sprites)
+        public void LoadBlocks()
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
@@ -42,37 +45,51 @@ namespace SuperMario
             }
             for (int i = 0; i < 1094; i = i + 16)
             {
-                sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(i,400)));
-                sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(i, 416)));
+                objectMagager.Add(new StairBlock(new Vector2(i, 200)));
             }
            
-            if (sprites != null)
-            {
+            
                 foreach (BlockData block in myObjects)
                 {
                     switch (block.State)
                     {
                         case BlockType.Brick:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateBrickBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeHiddenSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));
+                            objectMagager.Add(new BrickBlock(new Vector2(block.x,block.y)));
                             break;
                         case BlockType.Stair:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateStairBlock(new Vector2(block.xLocation, block.yLocation)));
-                            break;
-                        case BlockType.Used:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateUsedBlock(new Vector2(block.xLocation, block.yLocation)));
+                            objectMagager.Add(new StairBlock(new Vector2(block.x, block.y)));
                             break;
                         case BlockType.Question:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateQuestionBlock(new Vector2(block.xLocation, block.yLocation), ItemSpriteFactory.Instance.MakeHiddenSprite(block.itemType, new Vector2(block.xLocation, block.yLocation))));
+                            if (block.itemType == ItemType.Flower)
+                            {
+                                QuestionBlock FlowerBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                objectMagager.Add(FlowerBlock);
+                            }
+                            else if (block.itemType == ItemType.Star)
+                            {
+                                QuestionBlock StarBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                objectMagager.Add(StarBlock);
+                            }
+                            else if (block.itemType == ItemType.UpMushroom)
+                            {
+                                QuestionBlock UpMushroomBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                objectMagager.Add(UpMushroomBlock);
+                            }
+                            else if (block.itemType == ItemType.SuperMushroom)
+                            {
+                                QuestionBlock SuperMushroomBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                objectMagager.Add(SuperMushroomBlock);
+                            }
                             break;
                         case BlockType.Floor:
-                            sprites.Add(BlockSpriteFactory.Instance.CreateRockBlock(new Vector2(block.xLocation, block.yLocation)));
+                            objectMagager.Add(new BrickBlock(new Vector2(block.x, block.y)));
                             break;
                     }
                 }
-            }
+            
         }
 
-        public static void LoadItems(List<Sprite> sprites)
+        public void LoadItems()
         {
             List<ItemData> myObjects = new List<ItemData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<ItemData>), new XmlRootAttribute("Map"));
@@ -81,34 +98,32 @@ namespace SuperMario
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
 
-            if (sprites != null)
-            {
                 foreach (ItemData item in myObjects)
                 {
                     switch (item.itemType)
                     {
                         case ItemType.Coin:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateCoinSprite(new Vector2(item.xLocation, item.yLocation), false));
+                            objectMagager.Add(new Coin(new Vector2(item.x, item.y)));
                             break;
                         case ItemType.Flower:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateFlowerSprite(new Vector2(item.xLocation, item.yLocation), false));
+                            objectMagager.Add(new FireFlower(new Vector2(item.x, item.y)));
                             break;
                         case ItemType.SuperMushroom:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateSuperMushroomSprite(new Vector2(item.xLocation, item.yLocation), false));
+                            objectMagager.Add(new SuperMushroom(new Vector2(item.x, item.y)));
                             break;
                         case ItemType.UpMushroom:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateUpMushroomSprite(new Vector2(item.xLocation, item.yLocation), false));
+                            objectMagager.Add(new UpMushroom(new Vector2(item.x, item.y)));
                             break;
                         case ItemType.Star:
-                            sprites.Add(ItemSpriteFactory.Instance.CreateStarSprite(new Vector2(item.xLocation, item.yLocation), false));
+                            objectMagager.Add(new Star(new Vector2(item.x, item.y)));
                             break;
                     }
 
                 }
-            }
+            
         }
 
-        public static void LoadEnemies(List<Sprite> sprites)
+        public void LoadEnemies()
         {
             List<EnemyData> myObjects = new List<EnemyData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<EnemyData>), new XmlRootAttribute("Map"));
@@ -117,21 +132,20 @@ namespace SuperMario
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
 
-            if (sprites != null)
-            {
+            
                 foreach (EnemyData enemy in myObjects)
                 {
                     switch (enemy.enemyType)
                     {
                         case EnemyType.Goomba:
-                            sprites.Add(EnemySpriteFactory.Instance.CreateGoombaSprite(new Vector2(enemy.xLocation, enemy.yLocation)));
+                            objectMagager.Add(new Goomba(new Vector2(enemy.x, enemy.y)));
                             break;
                         case EnemyType.Koopa:
-                            sprites.Add(EnemySpriteFactory.Instance.CreateKoopaSprite(new Vector2(enemy.xLocation, enemy.yLocation)));
+                            objectMagager.Add(new Koopa(new Vector2(enemy.x, enemy.y)));
                             break;
                     }
                 }
-            }
+            
         }
     }
 }
