@@ -172,7 +172,7 @@ namespace SuperMario
         }
 
        
-        #region Private
+     /*   #region Private
 
         private void CheckCollision()
         {
@@ -244,6 +244,6 @@ namespace SuperMario
             return collidesBottomSide;
         }
 
-        #endregion
+        #endregion*/
     }
 }
