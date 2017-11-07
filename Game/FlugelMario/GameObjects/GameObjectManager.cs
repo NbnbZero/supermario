@@ -24,7 +24,10 @@ namespace SuperMario.GameObjects
         
         public void Update()
         {
-
+            foreach(IGameObject obj in objectList)
+            {
+                obj.Update();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -52,7 +55,9 @@ namespace SuperMario.GameObjects
             objectList.Add(obj);
         }
 
+        
 
+        
 
         
 

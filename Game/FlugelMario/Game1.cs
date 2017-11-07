@@ -118,11 +118,11 @@ namespace SuperMario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            keyboard.Update();          
-         
+            keyboard.Update();
+            objectManager.Update();
             if (!Paused)
             {
-                CheckCollision();
+               // CheckCollision();
 
                 marioState.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
 
