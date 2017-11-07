@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario;
 using SuperMario.SpriteFactories;
 
-namespace FlugelMario.States.EnemyStates
+namespace SuperMario.States.EnemyStates
 {
     public class KoopaAliveState : IEnemyState
     {

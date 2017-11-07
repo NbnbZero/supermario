@@ -6,7 +6,7 @@ using SuperMario;
 using SuperMario.SpriteFactories;
 using SuperMario.States.EnemyStates;
 
-namespace FlugelMario.States.EnemyStates
+namespace SuperMario.States.EnemyStates
 {
     public class GoombaAliveState : IEnemyState
     {

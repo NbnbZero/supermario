@@ -1,5 +1,5 @@
 ﻿using SuperMario.Enums;
-namespace FlugelMario.Interfaces
+namespace SuperMario.Interfaces
 {
       public interface IAnimation
       {

@@ -16,8 +16,8 @@ namespace SuperMario.Commands.ControllerCommand
         }
         public void Execute()
         {
-            if(mario.State.MarioShape==Shape.Small|| 
-                mario.State.MarioShape ==Shape.StarSmall&&
+            if((mario.State.MarioShape==Shape.Small|| 
+                mario.State.MarioShape ==Shape.StarSmall)&&
                 mario.State.MarioPosture == Posture.Crouch)
             {
                 mario.State.MarioPosture = Posture.Stand;
