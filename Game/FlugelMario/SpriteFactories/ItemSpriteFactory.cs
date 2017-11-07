@@ -45,7 +45,7 @@ namespace SuperMario.SpriteFactories
         }
         public void LoadAllTextures(ContentManager content)
         {
-            itemSpriteSheet = content.Load<Texture2D>("item_sheet");
+            itemSpriteSheet = content.Load<Texture2D>("Itemsheet");
 
 
         }

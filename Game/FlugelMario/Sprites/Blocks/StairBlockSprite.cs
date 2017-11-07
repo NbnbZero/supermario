@@ -15,6 +15,7 @@ namespace SuperMario.Sprites.StairBlocks
         private int column;
         public StairBlockSprite(Texture2D texture)
         {
+            Texture = texture;
             width = BlockSpriteFactory.Instance.StairBlockWidth;
             height = BlockSpriteFactory.Instance.StairBlockHeight;
             row = BlockSpriteFactory.Instance.StairSpriteSheetRows;
@@ -26,7 +27,7 @@ namespace SuperMario.Sprites.StairBlocks
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
         public void Update()
         {

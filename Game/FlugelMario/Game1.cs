@@ -68,7 +68,7 @@ namespace SuperMario
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             objectManager = new GameObjectManager();
-            
+            camera = new Camera();
             #region Load Textures
 
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
@@ -124,20 +124,20 @@ namespace SuperMario
             {
                // CheckCollision();
 
-                marioState.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
+                //marioState.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
 
-                foreach (Sprite sprite in Sprites)
-                {
-                    sprite.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
-                }
+             //   foreach (Sprite sprite in Sprites)
+              //  {
+              //      sprite.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
+               // }
             }
-            if ((MarioAttributes.MarioLife[0] != 0) && (marioState.MarioShape == Shape.Dead))
+            /*if ((MarioAttributes.MarioLife[0] != 0) && (marioState.MarioShape == Shape.Dead))
             {
                 BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
                 sprites.Clear();
                 LoadContent();
-            }
-            camera.Update(camera, marioState.Location);
+            }*/
+           // camera.Update(camera, marioState.Location);
 
             base.Update(gameTime);
         }
@@ -149,25 +149,24 @@ namespace SuperMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            
+
+          //  #region SpriteBatch Drawing
+
+             spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null, null, camera.GetViewMatrix(parallax));
+
+            //  spriteBatch.Draw(background, mainFrame, Color.White);
+
+            /*   foreach (Sprite sprite in Sprites)
+               {
+                   sprite.Draw(spriteBatch, sprite.Location);
+               }*/
             objectManager.Draw(spriteBatch);
-
-            #region SpriteBatch Drawing
-
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null, null, camera.GetViewMatrix(parallax));
-
-            spriteBatch.Draw(background, mainFrame, Color.White);
-
-            foreach (Sprite sprite in Sprites)
-            {
-                sprite.Draw(spriteBatch, sprite.Location);
-            }
-
-            marioState.StateSprite.Draw(spriteBatch, marioState.Location);
+            //  marioState.StateSprite.Draw(spriteBatch, marioState.Location);
 
             spriteBatch.End();
-
-            #endregion
-
+         //   #endregion
+            
             base.Draw(gameTime);
         }
 
@@ -247,3 +246,4 @@ namespace SuperMario
         #endregion*/
     }
 }
+

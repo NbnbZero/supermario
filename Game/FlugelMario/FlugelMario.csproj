@@ -168,7 +168,6 @@
     <Compile Include="LevelLoader\LevelLoader.cs" />
     <Compile Include="LevelLoader\TileDefinition.cs" />
     <Compile Include="MarioAttributes.cs" />
-    <Compile Include="SizeTransition.cs" />
     <Compile Include="SpriteFactories\BackgroundSpriteFactory.cs" />
     <Compile Include="SpriteFactories\FireballSpriteFactory.cs" />
     <Compile Include="SpriteFactories\ItemSpriteFactory.cs" />

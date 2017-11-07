@@ -1,4 +1,4 @@
-﻿using FlugelMario.States.EnemyStates;
+﻿using SuperMario.States.EnemyStates;
 using Microsoft.Xna.Framework;
 using SuperMario.GameObjects;
 using SuperMario.Interfaces;

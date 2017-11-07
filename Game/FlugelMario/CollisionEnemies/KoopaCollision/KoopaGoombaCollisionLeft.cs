@@ -1,7 +1,6 @@
-﻿using FlugelMario.States.EnemyStates;
+﻿using SuperMario.States.EnemyStates;
 using Microsoft.Xna.Framework;
 using SuperMario.GameObjects;
-using SuperMario.HeadsUp;
 using SuperMario.Interfaces;
 using SuperMario.States.EnemyStates;
 using System;

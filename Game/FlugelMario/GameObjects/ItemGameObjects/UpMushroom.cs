@@ -40,7 +40,7 @@ namespace SuperMario
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            throw new System.NotImplementedException();
+            sprite.Draw(spriteBatch, this.Location);
         }
 
         public void Update()

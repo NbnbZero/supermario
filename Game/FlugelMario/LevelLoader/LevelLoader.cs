@@ -39,7 +39,7 @@ namespace SuperMario
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level1.xml"))
+            using (XmlReader reader = XmlReader.Create("Level.xml"))
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
@@ -93,7 +93,7 @@ namespace SuperMario
         {
             List<ItemData> myObjects = new List<ItemData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<ItemData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level1.xml"))
+            using (XmlReader reader = XmlReader.Create("Level.xml"))
             {
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
@@ -127,7 +127,7 @@ namespace SuperMario
         {
             List<EnemyData> myObjects = new List<EnemyData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<EnemyData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level1.xml"))
+            using (XmlReader reader = XmlReader.Create("Level.xml"))
             {
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
