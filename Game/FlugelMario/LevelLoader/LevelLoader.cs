@@ -45,7 +45,7 @@ namespace SuperMario
             }
             for (int i = 0; i < 1094; i = i + 16)
             {
-                objectMagager.Add(new StairBlock(new Vector2(i, 200)));
+                objectMagager.Add(new BrickBlock(new Vector2(i, 200)));
             }
            
             
@@ -54,35 +54,35 @@ namespace SuperMario
                     switch (block.State)
                     {
                         case BlockType.Brick:
-                            objectMagager.Add(new BrickBlock(new Vector2(block.x,block.y)));
+                            objectMagager.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
                         case BlockType.Stair:
-                            objectMagager.Add(new StairBlock(new Vector2(block.x, block.y)));
+                            objectMagager.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
                         case BlockType.Question:
                             if (block.itemType == ItemType.Flower)
                             {
-                                QuestionBlock FlowerBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                QuestionBlock FlowerBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
                                 objectMagager.Add(FlowerBlock);
                             }
                             else if (block.itemType == ItemType.Star)
                             {
-                                QuestionBlock StarBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                QuestionBlock StarBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
                                 objectMagager.Add(StarBlock);
                             }
                             else if (block.itemType == ItemType.UpMushroom)
                             {
-                                QuestionBlock UpMushroomBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                QuestionBlock UpMushroomBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
                                 objectMagager.Add(UpMushroomBlock);
                             }
                             else if (block.itemType == ItemType.SuperMushroom)
                             {
-                                QuestionBlock SuperMushroomBlock = new QuestionBlock(new Vector2(block.x, block.y));
+                                QuestionBlock SuperMushroomBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
                                 objectMagager.Add(SuperMushroomBlock);
                             }
                             break;
                         case BlockType.Floor:
-                            objectMagager.Add(new BrickBlock(new Vector2(block.x, block.y)));
+                            objectMagager.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
                     }
                 }
@@ -103,19 +103,19 @@ namespace SuperMario
                     switch (item.itemType)
                     {
                         case ItemType.Coin:
-                            objectMagager.Add(new Coin(new Vector2(item.x, item.y)));
+                            objectMagager.Add(new Coin(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.Flower:
-                            objectMagager.Add(new FireFlower(new Vector2(item.x, item.y)));
+                            objectMagager.Add(new FireFlower(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.SuperMushroom:
-                            objectMagager.Add(new SuperMushroom(new Vector2(item.x, item.y)));
+                            objectMagager.Add(new SuperMushroom(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.UpMushroom:
-                            objectMagager.Add(new UpMushroom(new Vector2(item.x, item.y)));
+                            objectMagager.Add(new UpMushroom(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.Star:
-                            objectMagager.Add(new Star(new Vector2(item.x, item.y)));
+                            objectMagager.Add(new Star(new Vector2(item.xLocation, item.yLocation)));
                             break;
                     }
 
@@ -138,10 +138,10 @@ namespace SuperMario
                     switch (enemy.enemyType)
                     {
                         case EnemyType.Goomba:
-                            objectMagager.Add(new Goomba(new Vector2(enemy.x, enemy.y)));
+                            objectMagager.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
                             break;
                         case EnemyType.Koopa:
-                            objectMagager.Add(new Koopa(new Vector2(enemy.x, enemy.y)));
+                            objectMagager.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
                             break;
                     }
                 }

@@ -17,20 +17,20 @@ namespace TileDefinition
     {  
         public BlockType State;
         public ItemType itemType;
-        public int x;
-        public int y;
+        public int xLocation;
+        public int yLocation;
     }
     public class ItemData
     {
         public ItemType itemType;
-        public int x;
-        public int y;
+        public int xLocation;
+        public int yLocation;
     }
 
     public class EnemyData
     {
         public EnemyType enemyType;
-        public int x;
-        public int y;
+        public int xLocation;
+        public int yLocation;
     }
 }
