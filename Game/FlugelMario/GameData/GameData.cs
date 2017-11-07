@@ -8,6 +8,8 @@ namespace SuperMario
 {
     public static class GameData
     {
+        // just in case we forget these data
+
         public static int MarioJumpingSpeed = -8;
         public static float Gravity { get; } = .48f;
         public static float GoombaSpeed { get; } = .75f;

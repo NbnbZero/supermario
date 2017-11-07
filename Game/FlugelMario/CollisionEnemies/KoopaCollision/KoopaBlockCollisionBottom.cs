@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using SuperMario.Interfaces;
 
-namespace SuperMario.CollisionCommandsEnemies
+namespace SuperMario
 {
     class KoopaBlockCollisionBottom: ICollisionCommand
     {
