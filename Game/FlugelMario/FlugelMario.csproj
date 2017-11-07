@@ -53,11 +53,13 @@
     <Compile Include="GameObjects\BlockGameObjects\CoinBrickBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\HiddenBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\StairBlock.cs" />
+    <Compile Include="GameObjects\GameObjectManager.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />
     <Compile Include="Interfaces\IAnimationInGame.cs" />
+    <Compile Include="LevelLoader\LoadLevel.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
-    <Compile Include="AbstractClasses\SpriteSecondary.cs" />
     <Compile Include="AbstractGame.cs" />
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Commands\ControllerCommand\RightMarioCommand.cs" />

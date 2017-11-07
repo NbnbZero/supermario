@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario.AbstractClasses
+namespace FlugelMario.LevelLoader
 {
-    class SpriteSecondary
+    class LoadLevel
     {
     }
 }
