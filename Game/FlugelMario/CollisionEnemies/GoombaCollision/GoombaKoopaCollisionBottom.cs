@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.CollisionCommandsEnemies
+namespace SuperMario
 {
     class GoombaKoopaCollisionBottom : ICollisionCommand
     {
@@ -20,7 +20,7 @@ namespace SuperMario.CollisionCommandsEnemies
             IEnemy goomba1 = (IEnemy)gameObject1;
             if (!goomba1.Alive)
                 return;
-            gameObject2.Location = new Vector2(gameObject2.Location.X, goomba1.Location.Y - gameObject2.Destination.Height - GameData.SinglePixel);
+            gameObject2.Location = new Vector2(gameObject2.Location.X, goomba1.Location.Y - gameObject2.Destination.Height - 1);
         }
     }
 }

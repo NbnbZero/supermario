@@ -69,7 +69,7 @@ namespace SuperMario
             }
             else if (direction.ToUpper().Equals("RIGHT") || direction.ToUpper().Equals("LEFT"))
             {
-                Velocity = new Vector2(0, -GameData.GoombaBounceVelocity);
+                Velocity = new Vector2(0, -3);
                 acceleration = new Vector2(0, GameData.Gravity);
             }
         }

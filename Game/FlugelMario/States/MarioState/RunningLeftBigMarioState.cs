@@ -40,7 +40,7 @@ namespace SuperMario.States.MarioStates
         public override void JumpOrStand()
         {
             Mario.State = new JumpLeftBigMarioState(Mario);
-            Mario.Velocity = new Vector2(Mario.Velocity.X, -8);
+            Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
             Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
         }
 

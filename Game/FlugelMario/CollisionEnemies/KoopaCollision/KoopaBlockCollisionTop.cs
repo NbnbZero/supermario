@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.CollisionCommandsEnemies
+namespace SuperMario
 {
     class KoopaBlockCollisionTop : ICollisionCommand
     {
@@ -33,7 +33,7 @@ namespace SuperMario.CollisionCommandsEnemies
             }
             koopa.Location = new Vector2(koopa.Location.X, gameObject2.Location.Y - koopa.Destination.Height);
         
-            koopa.Velocity = new Vector2(koopa.Velocity.X, GameData.StationaryVelocity);
+            koopa.Velocity = new Vector2(koopa.Velocity.X, 0);
         }
     }
 }

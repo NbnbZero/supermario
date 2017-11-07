@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.CollisionCommandsEnemies
+namespace SuperMario
 {
     class GoombaBlockCollisionBottom: ICollisionCommand
     {
@@ -24,9 +24,9 @@ namespace SuperMario.CollisionCommandsEnemies
                 return;
             }
             g.Location = new Vector2(g.Location.X, gameObject2.Location.Y + gameObject2.Destination.Height);
-            if (g.Velocity.Y > GameData.StationaryVelocity)
+            if (g.Velocity.Y > 0)
             {
-                g.Velocity = new Vector2(g.Velocity.X, GameData.StationaryVelocity);                   
+                g.Velocity = new Vector2(g.Velocity.X, 0);                   
             }
         }
     }

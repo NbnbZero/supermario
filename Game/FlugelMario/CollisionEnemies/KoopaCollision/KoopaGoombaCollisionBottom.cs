@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.CollisionCommandsEnemies
+namespace SuperMario
 {
     class KoopaGoombaCollisionBottom : ICollisionCommand
     {
@@ -27,7 +27,7 @@ namespace SuperMario.CollisionCommandsEnemies
             Goomba goomba = (Goomba)gameObject2;
             if (!goomba.Alive)
                 return;
-            goomba.Location = new Vector2(goomba.Location.X, koopa.Location.Y - gameObject2.Destination.Height - GameData.SinglePixel);
+            goomba.Location = new Vector2(goomba.Location.X, koopa.Location.Y - gameObject2.Destination.Height - 1);
         }
     }
 }

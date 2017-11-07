@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.CollisionCommandsEnemies
+namespace SuperMario
 {
     class GoombaGoombaCollisionLeft : ICollisionCommand
     {
@@ -19,7 +19,7 @@ namespace SuperMario.CollisionCommandsEnemies
         {
             Goomba goomba1 = (Goomba)gameObject1;
             Goomba goomba2 = (Goomba)gameObject2;
-            goomba1.Location = new Vector2(goomba1.Location.X - GameData.SinglePixel, goomba1.Location.Y);
+            goomba1.Location = new Vector2(goomba1.Location.X - 1, goomba1.Location.Y);
             goomba1.ChangeDirection();
             goomba2.ChangeDirection();
         }
