@@ -48,7 +48,7 @@ namespace SuperMario.States.MarioStates
             if (!Mario.IsInAir)
             {
                 Mario.State = new JumpRightBigMarioState(Mario);
-                Mario.Velocity = new Vector2(Mario.Velocity.X, -8);
+                Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
             }
         }
         public override void Terminated()
