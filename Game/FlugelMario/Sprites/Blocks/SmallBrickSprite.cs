@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Interfaces;
-using FlugelMario;
 
 namespace SuperMario.Sprites.Block
 {

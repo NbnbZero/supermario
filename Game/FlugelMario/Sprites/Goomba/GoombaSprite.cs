@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using SuperMario;
-using FlugelMario;
 
 namespace SuperMario.Sprites.Goomba
 {

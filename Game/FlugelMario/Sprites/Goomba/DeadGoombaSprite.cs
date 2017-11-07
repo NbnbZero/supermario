@@ -2,7 +2,6 @@
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using FlugelMario;
 
 namespace SuperMario.Sprites.Goomba
 {

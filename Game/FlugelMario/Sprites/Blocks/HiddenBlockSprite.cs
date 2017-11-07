@@ -1,7 +1,6 @@
 ﻿using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework.Graphics;
-using FlugelMario;
 using Microsoft.Xna.Framework;
 
 namespace SuperMario.Sprites.Blocks

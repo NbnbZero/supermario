@@ -86,7 +86,7 @@ namespace SuperMario
             background = Content.Load<Texture2D>("background");
             mainFrame = new Rectangle(0, 0, 1800, GraphicsDevice.Viewport.Height);
 
-            keyboard = new KeyboardControls();
+            keyboard = new KeyboardControls(this);
 
          /*  #region Instatntiation of Sprites
             

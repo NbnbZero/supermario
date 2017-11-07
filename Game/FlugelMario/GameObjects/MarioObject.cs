@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SuperMario.GameObjects.GameObjectType;
-
+using SuperMario.States.MarioStates;
 namespace SuperMario.GameObjects
 {
-    class MarioObject : IMario
+    public class MarioObject : IMario
     {
         public ObjectType Type { get; } = ObjectType.Mario;
         public IMarioState State { get; set; }
@@ -57,6 +57,19 @@ namespace SuperMario.GameObjects
         private const int bigMarioVertDis = 5;
         private const int bigMarioHeriDis = 2;
         private const int maxYSpeed = 10;
+        
+        public MarioObject(Vector2 location)
+        {
+            Location = location;
+            State = new IdleRightSmallMarioState(this);
+            State.MarioPosture = Posture.Stand;
+            State.MarioShape = Shape.Small;
+            State.MarioDirection = Direction.Right;
+            Velocity = new Vector2(0, 0);
+            Acceleration = new Vector2(0, 0);
+            IsProtected = false;
+            maxSpeed = 4;
+        }
 
         public Rectangle Destination
         {
@@ -65,9 +78,9 @@ namespace SuperMario.GameObjects
             {
                 int verticalDisplacement;
                 int horizontalDisplacement;
-                if (this.State.MarioPosture == Posture.Crouch ||
-                    this.State.MarioShape == Shape.Small ||
-                    this.State.MarioShape == Shape.StarSmall)
+                if (State.MarioPosture == Posture.Crouch ||
+                    State.MarioShape == Shape.Small ||
+                    State.MarioShape == Shape.StarSmall)
                 {
                     verticalDisplacement = MarioSpriteFactory.Instance.HalfNormalMarioHeight + smallMarioVertDis;
                     horizontalDisplacement = smallMarioHeriDis;
@@ -80,6 +93,7 @@ namespace SuperMario.GameObjects
                 return new Rectangle((int)this.location.X + horizontalDisplacement, (int)this.location.Y + verticalDisplacement, MarioSpriteFactory.Instance.NormalMarioWidth - 2 * horizontalDisplacement, MarioSpriteFactory.Instance.NormalMarioHeight - verticalDisplacement);
             }
         }
+        
 
         public void Update()
         {
@@ -103,6 +117,8 @@ namespace SuperMario.GameObjects
             float newLocationY = this.Destination.Y + this.Velocity.Y;
             this.Location = new Vector2(newLocationX, newLocationY);
             State.Update();
+
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -1,7 +1,6 @@
 ﻿using SuperMario.Interfaces;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.SpriteFactories;
-using FlugelMario;
 using Microsoft.Xna.Framework;
 
 namespace SuperMario.Sprites.Fireball

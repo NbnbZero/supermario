@@ -7,7 +7,7 @@ using SuperMario.Interfaces;
 using SuperMario.Commands.ControllerCommand;
 namespace SuperMario.Game_Controllers
 {
-    class KeyboardControls
+    public class KeyboardControls
     {
         private IMario mario;
         private Game1 mygame;
@@ -15,8 +15,10 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
 
-        public KeyboardControls()
+        public KeyboardControls(Game1 game)
         {
+            mygame = game;
+            RegisterCommand();
         }
 
         public void RegisterCommand()
@@ -54,12 +56,22 @@ namespace SuperMario.Game_Controllers
 
         public void Update()
         {
-            if (mario == null || commandDict.LongCount() == 0)
+            /*if (mario == null || commandDict.LongCount() == 0)
             {
                 return;
-            }
+            }*/
 
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+
+            foreach (Keys key in pressedKeys)
+            {
+                switch (key)
+                {
+                    case Keys.Q:
+                        commandDict[key].Execute();
+                        break;
+                }
+            }
 
             if (Left(pressedKeys))
             {
@@ -112,7 +124,7 @@ namespace SuperMario.Game_Controllers
             {
                 commandDict[Keys.Up].Execute();
             }
-
+            
 
             if (preKeys != null)
             {

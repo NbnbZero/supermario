@@ -125,7 +125,6 @@
     <Compile Include="GameObjects\MarioObject.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />
     <Compile Include="Interfaces\IAnimationInGame.cs" />
-    <Compile Include="LevelLoader\LoadLevel.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractGame.cs" />

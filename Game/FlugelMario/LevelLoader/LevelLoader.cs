@@ -7,11 +7,11 @@ using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using TileDefinition;
 using SuperMario.GameObjects;
-
 namespace SuperMario
 {
     public class LevelLoader
     {
+        private IMario mario;
         private GameObjectManager objectMagager;
         public LevelLoader(GameObjectManager gameManager)
         {
@@ -20,22 +20,28 @@ namespace SuperMario
 
         public void Load()
         {
+            LoadMarioStart();
             LoadBlocks();
             LoadEnemies();
-            LoadItems();
-            
+            LoadItems();            
         }
+
         public void LoadMarioStart()
-        {
+        {   
             List<StartData> myObjects = new List<StartData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<StartData>), new XmlRootAttribute("Map"));
             using (XmlReader reader = XmlReader.Create("Level.xml"))
             {
                 myObjects = (List<StartData>)serializer.Deserialize(reader);
-            }         
-            
+            }
+            foreach (StartData marioStart in myObjects)
+            {
+                objectMagager.Add(new MarioObject(new Vector2(marioStart.xLocation, marioStart.yLocation)));
+            }
         }
-        public void LoadBlocks()
+    
+
+    public void LoadBlocks()
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
