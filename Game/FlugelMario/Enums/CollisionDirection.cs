@@ -5,7 +5,6 @@
         Top,
         Bottom,
         Left,
-        Right,
-        NoCollision
+        Right
     }
 }
