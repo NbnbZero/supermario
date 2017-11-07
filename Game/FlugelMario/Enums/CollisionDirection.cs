@@ -6,6 +6,6 @@
         Bottom,
         Left,
         Right,
-        Null
+        NoCollision
     }
 }

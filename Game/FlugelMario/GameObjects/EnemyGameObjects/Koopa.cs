@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.GameObjects;
-using FlugelMario.States.EnemyStates;
+using SuperMario.States.EnemyStates;
 
 namespace SuperMario
 {
