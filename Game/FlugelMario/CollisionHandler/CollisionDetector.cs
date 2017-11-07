@@ -28,7 +28,7 @@ namespace SuperMario.CollisionHandler
                     return CollisionDirection.Bottom;
                 }
             }
-            return CollisionDirection.Null;
+            return CollisionDirection.NoCollision;
         }
 
 
