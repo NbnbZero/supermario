@@ -17,21 +17,13 @@ namespace SuperMario
     /// </summary>
     public class Game1 : AbstractGame
     {
-        private bool paused;
-
-        //List<GamepadControls> gamePads;
-        KeyboardControls keyboard;
         SpriteBatch spriteBatch;
-        MarioState marioState;
-        private List<Sprite> sprites;
+        KeyboardControls keyboard;
         Texture2D background;
         Rectangle mainFrame;
         Camera camera;
         Vector2 parallax = new Vector2(1f);
         GameObjectManager objectManager;
-
-        public bool Paused { get => paused; set => paused = value; }
-        public List<Sprite> Sprites { get => sprites; set => sprites = value; }
 
         public Game1()
         {
@@ -120,8 +112,8 @@ namespace SuperMario
         {
             keyboard.Update();
             objectManager.Update();
-            if (!Paused)
-            {
+            //if (!Paused)
+           // {
                // CheckCollision();
 
                 //marioState.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
@@ -130,7 +122,7 @@ namespace SuperMario
               //  {
               //      sprite.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
                // }
-            }
+           // }
             /*if ((MarioAttributes.MarioLife[0] != 0) && (marioState.MarioShape == Shape.Dead))
             {
                 BackgroundSpriteFactory.Instance.LoadAllTextures(Content);

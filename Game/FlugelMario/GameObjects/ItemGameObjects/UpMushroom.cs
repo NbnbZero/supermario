@@ -52,7 +52,7 @@ namespace SuperMario
                 if (Location.Y <= initialLocation.Y - this.Destination.Height)
                 {
                     Velocity = new Vector2(2, 0);
-                    Acceleration = new Vector2(0, 0.5f);
+                    Acceleration = new Vector2(0, GameData.Gravity);
                     IsPreparing = false;
                 }
                 return;
