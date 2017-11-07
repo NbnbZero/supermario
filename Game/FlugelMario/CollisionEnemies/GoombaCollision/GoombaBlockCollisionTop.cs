@@ -31,7 +31,7 @@ namespace SuperMario.CollisionCommandsEnemies
                   return;
             }
             goomba.Location = new Vector2(goomba.Location.X, gameObject2.Location.Y - goomba.Destination.Height);
-            goomba.Velocity = new Vector2(goomba.Velocity.X, GameData.StationaryVelocity);
+            goomba.Velocity = new Vector2(goomba.Velocity.X, 0);
         }
     }
 }

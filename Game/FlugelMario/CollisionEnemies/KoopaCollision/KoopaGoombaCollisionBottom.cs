@@ -27,7 +27,7 @@ namespace SuperMario.CollisionCommandsEnemies
             Goomba goomba = (Goomba)gameObject2;
             if (!goomba.Alive)
                 return;
-            goomba.Location = new Vector2(goomba.Location.X, koopa.Location.Y - gameObject2.Destination.Height - GameData.SinglePixel);
+            goomba.Location = new Vector2(goomba.Location.X, koopa.Location.Y - gameObject2.Destination.Height - 1);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace SuperMario.Animation
 
         public AnimationState State { get; set; }
 
-        public Vector2 Velocity { get { return new Vector2(GameData.StationaryVelocity, velocityY); } set { } }
+        public Vector2 Velocity { get { return new Vector2(0, velocityY); } set { } }
 
         private Vector2 location;
         private float velocityY;
@@ -52,8 +52,8 @@ namespace SuperMario.Animation
         {
             State = AnimationState.IsPlaying;
             //
-            accelerationY = GameData.CoinGravity;
-            velocityY = GameData.CoinInitialVelocity;
+            accelerationY = 0.1f;
+            velocityY = -1.5f;
         }
     }
 }

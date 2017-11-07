@@ -18,9 +18,9 @@ namespace SuperMario.CollisionCommandsEnemies
                 return;
             }
             k.Location = new Vector2(k.Location.X, gameObject2.Location.Y - gameObject2.Destination.Height);
-            if (k.Velocity.Y < GameData.StationaryVelocity)
+            if (k.Velocity.Y < 0)
             {
-                k.Velocity = new Vector2(k.Velocity.X, GameData.StationaryVelocity);
+                k.Velocity = new Vector2(k.Velocity.X, 0);
             }
         }
     }

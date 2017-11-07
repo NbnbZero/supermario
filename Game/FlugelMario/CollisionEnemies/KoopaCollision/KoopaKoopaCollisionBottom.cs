@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using SuperMario.GameObjects;
 using SuperMario.Interfaces;
-using SuperMario.States.EnemyStates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +28,7 @@ namespace SuperMario.CollisionCommandsEnemies
             {
                 return;
             }
-            koopa2.Location = new Vector2(koopa2.Location.X, gameObject1.Location.Y - gameObject2.Destination.Height - GameData.SinglePixel);
+            koopa2.Location = new Vector2(koopa2.Location.X, gameObject1.Location.Y - gameObject2.Destination.Height - 1);
         }
     }
 }

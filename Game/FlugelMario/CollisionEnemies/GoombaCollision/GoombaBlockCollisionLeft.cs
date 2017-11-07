@@ -18,7 +18,7 @@ namespace SuperMario.CollisionCommandsEnemies
         public void Execute(IGameObject gameObject1, IGameObject gameObject2)
         {
             Goomba goomba = (Goomba)gameObject1;
-            int goombaPreY = (int)(goomba.Location.Y - (goomba.Velocity.Y - GameData.SinglePixel));
+            int goombaPreY = (int)(goomba.Location.Y - (goomba.Velocity.Y - 1));
             if (goombaPreY + goomba.Destination.Height <= gameObject2.Location.Y)
             {
                 return;
@@ -28,7 +28,7 @@ namespace SuperMario.CollisionCommandsEnemies
             {
                 return;
             }
-            if (goomba.Velocity.X > GameData.StationaryVelocity)
+            if (goomba.Velocity.X > 0)
             {
                 goomba.ChangeDirection();
             }

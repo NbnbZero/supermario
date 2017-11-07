@@ -34,8 +34,8 @@ namespace SuperMario.GameObjects
             state = new CoinBrickBlockStateMachine();
             Location = location;
             initialLocation = location;
-            fallingSpeed = new Vector2(GameData.StationaryVelocity, GameData.StationaryVelocity);
-            fallingAcce = new Vector2(GameData.StationaryVelocity, GameData.BrickBlockFallingSpeed);
+            fallingSpeed = new Vector2(0, 0);
+            fallingAcce = new Vector2(0, 0.5f);
             destinationRect = state.MakeDestinationRectangle(Location);            
         }
 
@@ -62,12 +62,12 @@ namespace SuperMario.GameObjects
             if (Location.Y >= initialLocation.Y)
             {
                 Location = initialLocation;
-                fallingSpeed = new Vector2(GameData.StationaryVelocity, GameData.StationaryVelocity);
+                fallingSpeed = new Vector2(0, 0);
             }
             else
             {
                 Location = new Vector2(Location.X, Location.Y + fallingSpeed.Y);
-                fallingSpeed = new Vector2(GameData.StationaryVelocity, fallingSpeed.Y + fallingAcce.Y);
+                fallingSpeed = new Vector2(0, fallingSpeed.Y + fallingAcce.Y);
             }
 
             state.Update();

@@ -24,7 +24,7 @@ namespace SuperMario.CollisionCommandsEnemies
             {
                 return;
             }
-            int koopaPreY = (int)(koopa.Location.Y - (koopa.Velocity.Y - GameData.SinglePixel));
+            int koopaPreY = (int)(koopa.Location.Y - (koopa.Velocity.Y - 1));
             if (koopaPreY + koopa.Destination.Height <= gameObject2.Location.Y)
             {
                 return;
@@ -34,7 +34,7 @@ namespace SuperMario.CollisionCommandsEnemies
             {
                 return;
             }
-            if (koopa.Velocity.X < GameData.StationaryVelocity)
+            if (koopa.Velocity.X < 0)
             {
                 koopa.ChangeDirection();
             }

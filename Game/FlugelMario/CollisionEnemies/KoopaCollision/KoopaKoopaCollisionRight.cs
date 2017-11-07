@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using SuperMario.GameObjects;
 using SuperMario.Interfaces;
-using SuperMario.States.EnemyStates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,19 +30,19 @@ namespace SuperMario.CollisionCommandsEnemies
             }
 
             if (koopa1.State.GetType() == typeof(KoopaDeadState) &&
-                koopa1.Velocity.X != GameData.StationaryVelocity)
+                koopa1.Velocity.X != 0)
             {
                 koopa2.Terminate("DOWN");
                 return;
             }
             if (koopa2.State.GetType() == typeof(KoopaDeadState) &&
-                koopa2.Velocity.X != GameData.StationaryVelocity)
+                koopa2.Velocity.X != 0)
             {
                 koopa1.Terminate("DOWN");
                 return;
             }
 
-            koopa1.Location = new Vector2(koopa1.Location.X + GameData.SinglePixel, koopa1.Location.Y);
+            koopa1.Location = new Vector2(koopa1.Location.X + 1, koopa1.Location.Y);
             koopa1.ChangeDirection();
             koopa2.ChangeDirection();
         }
