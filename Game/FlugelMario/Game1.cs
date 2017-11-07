@@ -149,6 +149,7 @@ namespace SuperMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            objectManager.Draw(spriteBatch);
 
             #region SpriteBatch Drawing
 
