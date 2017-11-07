@@ -31,11 +31,11 @@ namespace SuperMario.States.MarioStates
             Mario.State = new CrouchLeftFireMarioState(Mario);
         }
 
-        public override void ChangeToLeft()
+        public override void RunLeft()
         {
         }
 
-        public override void ChangeToRight()
+        public override void RunRight()
         {
             Mario.State = new CrouchRightStarMarioState(Mario);
         }

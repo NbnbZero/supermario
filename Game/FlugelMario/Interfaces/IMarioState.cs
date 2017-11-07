@@ -14,14 +14,14 @@ namespace SuperMario.Interfaces
 
 
         bool IsStar { get; }
+        void RunLeft();
+        void RunRight();
         void JumpOrStand();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();
         void Crouch();
         void ChangeFireMode();
         void Terminated();     
-        void ChangeToLeft();
-        void ChangeToRight();
         void ChangeStarMode();
         void MarioShapeChange(Shape newShape);
         void Update(); 

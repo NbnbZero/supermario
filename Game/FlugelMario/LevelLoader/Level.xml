@@ -25,28 +25,28 @@
     <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>400</xLocation>
-    <yLocation>700</yLocation>
+    <yLocation>100</yLocation>
   </BlockData>
   
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
     <xLocation>500</xLocation>
-    <yLocation>400</yLocation>
+    <yLocation>100</yLocation>
   </BlockData>
 
   <BlockData>
     <State>Used</State>
     <itemType>Null</itemType>
     <xLocation>600</xLocation>
-    <yLocation>500</yLocation>
+    <yLocation>100</yLocation>
   </BlockData>
 
   <BlockData>
     <State>Floor</State>
     <itemType>Null</itemType>
     <xLocation>700</xLocation>
-    <yLocation>600</yLocation>
+    <yLocation>100</yLocation>
   </BlockData>
     
   <EnemyData>

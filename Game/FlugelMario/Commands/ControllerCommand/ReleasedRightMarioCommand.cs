@@ -19,7 +19,7 @@ namespace SuperMario.Commands.ControllerCommand
         {
             if (mario.State.MarioPosture == Posture.Running)
             {
-                mario.State.ChangeToLeft();
+                mario.State.RunLeft();
             }
         }
     }

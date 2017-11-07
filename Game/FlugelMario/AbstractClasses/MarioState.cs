@@ -27,8 +27,7 @@ namespace SuperMario
         }
 
         public virtual void ChangeFireMode(){}
-        public virtual void ChangeToLeft() { }
-        public virtual void ChangeToRight() { }
+
         public virtual void ChangeSizeToBig(){}
 
         public virtual void ChangeSizeToSmall(){}

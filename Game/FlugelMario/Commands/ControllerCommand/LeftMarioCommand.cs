@@ -17,7 +17,7 @@ namespace SuperMario.Commands.ControllerCommand
 
         public void Execute()
         {
-            Mario.State.ChangeToLeft();
+            Mario.State.RunLeft();
         }
     }
 }

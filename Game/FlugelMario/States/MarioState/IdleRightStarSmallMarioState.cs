@@ -22,12 +22,12 @@ namespace SuperMario.States.MarioStates
 
     }
 
-    public override void ChangeToLeft()
+    public override void RunLeft()
     {
         Mario.State = new IdleLeftStarSmallMarioState(Mario);
     }
 
-    public override void ChangeToRight()
+    public override void RunRight()
     {
         if (!Mario.IsInAir)
         {

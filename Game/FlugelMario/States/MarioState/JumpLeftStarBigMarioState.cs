@@ -29,12 +29,12 @@ namespace SuperMario.States.MarioStates
             Mario.State = new JumpLeftFireMarioState(Mario);
         }
 
-        public override void ChangeToLeft()
+        public override void RunLeft()
         {
             Mario.Location = new Vector2(Mario.Destination.X - 1, Mario.Destination.Y);
         }
 
-        public override void ChangeToRight()
+        public override void RunRight()
         {
             Mario.State = new JumpRightStarBigMarioState(Mario);
         }

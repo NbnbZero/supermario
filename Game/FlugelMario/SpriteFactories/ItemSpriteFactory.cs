@@ -19,8 +19,10 @@ namespace SuperMario.SpriteFactories
         
         public static int FlowerSpriteRow { get; } = 1;
         public static int FlowerSpriteColumn { get; } = 0;
+        public static int FlowerSpriteTotalFrame { get; } = 0;
         public static int CoinSpriteRow { get; } = 4;
-        public static int CoinSpriteColumn { get; } = 0;
+        public static int CoinSpriteColumn { get; } = 1;
+        public static int CoinAnimeTotalFrame { get; } = 4;
         public static int SuperMushroomSpriteRow { get; } = 0;
         public static int SuperMushroomSpriteColumn { get; } = 1;
         public static int GreenMushroomSpriteRow { get; } = 0;
@@ -29,6 +31,8 @@ namespace SuperMario.SpriteFactories
         public static int StarSpriteColumn { get; } = 0;
 
         public Texture2D itemSpriteSheet;
+        public Texture2D CoinSpriteSheet;
+        public Texture2D FlowerSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
         public static ItemSpriteFactory Instance
@@ -46,6 +50,9 @@ namespace SuperMario.SpriteFactories
         public void LoadAllTextures(ContentManager content)
         {
             itemSpriteSheet = content.Load<Texture2D>("Itemsheet");
+            CoinSpriteSheet = content.Load<Texture2D>("CoinSheet");
+            FlowerSpriteSheet = content.Load<Texture2D>("FlowerSheet");
+            
 
 
         }
@@ -54,12 +61,12 @@ namespace SuperMario.SpriteFactories
 
         public ISprite CreateFlowerSprite()
         {
-            return new FlowerSprite(itemSpriteSheet);
+            return new FlowerSprite(FlowerSpriteSheet);
         }
 
         public ISprite CreateCoinSprite()
         {
-            return new CoinSprite(itemSpriteSheet);
+            return new CoinSprite(CoinSpriteSheet);
         }
         public ISprite CreateSuperMushroomSprite()
         {

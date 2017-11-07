@@ -15,48 +15,45 @@ namespace SuperMario.Sprites.Items
         private int drawingFrameDelay;
         private int width;
         private int height;
+        private int counter;
+
 
         public FlowerSprite(Texture2D texture)
         {
             this.Texture = texture;
-            width = this.Texture.Width / ItemSpriteFactory.ItemSpriteSheetColumns;
-            height = this.Texture.Height / ItemSpriteFactory.ItemSpritesSheetRows;
-
-            totalSpriteFrame = ItemSpriteFactory.ItemSpriteSheetColumns;
+            width = this.Texture.Width / 4;
+            height = this.Texture.Height;
+            totalSpriteFrame = 4;
+            counter = 0;
             currentDrawingFrame = 0;
-            drawingFrameDelay = 10;
             currentSpriteFrame = 0;
+            drawingFrameDelay = 20;
             spriteFrameIncrement = -1;
         }
-        
+
         public void Update()
         {
-            currentDrawingFrame++;
-            if (currentDrawingFrame == drawingFrameDelay)
+            if (counter % 10 == 0)
             {
-                currentDrawingFrame = 0;
-                if (currentSpriteFrame == 0 || currentSpriteFrame == totalSpriteFrame - 1)
-                {
-                    spriteFrameIncrement *= -1;
-                }
-                currentSpriteFrame += spriteFrameIncrement;
+                currentDrawingFrame++;
+                currentDrawingFrame = currentDrawingFrame % totalSpriteFrame;
+                counter = 0;
             }
+            counter++;
+        }
+
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            Rectangle sourceRectangle = new Rectangle((currentDrawingFrame * width), 0, width, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
             return new Rectangle((int)location.X, (int)location.Y, width, height);
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            int row = ItemSpriteFactory.FlowerSpriteRow;
-            int column = ItemSpriteFactory.FlowerSpriteColumn;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = MakeDestinationRectangle(location);
-
-            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace SuperMario
         Texture2D background;
         Rectangle mainFrame;
         Camera camera;
+        MarioObject Mario;
         Vector2 parallax = new Vector2(1f);
         GameObjectManager objectManager;
 
@@ -39,7 +40,7 @@ namespace SuperMario
         /// </summary>
         protected override void Initialize()
         {
-          //  gamePads = new List<GamepadControls>();
+            //  gamePads = new List<GamepadControls>();
 
             //Sprites = new List<Sprite>();
 
@@ -59,8 +60,7 @@ namespace SuperMario
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            objectManager = new GameObjectManager();
-            camera = new Camera();
+
             #region Load Textures
 
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
@@ -69,16 +69,22 @@ namespace SuperMario
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             FireballSpriteFactory.Instance.LoadAllTextures(Content);
 
-
-
             #endregion
+
+            Vector2 location = new Vector2(200, 200);
+            Mario = new MarioObject(location);
+
+            objectManager = new GameObjectManager(Mario);
+            camera = new Camera();
+            
             LevelLoader loader = new LevelLoader(objectManager);
             loader.Load();
 
             background = Content.Load<Texture2D>("background");
             mainFrame = new Rectangle(0, 0, 1800, GraphicsDevice.Viewport.Height);
+            
 
-            keyboard = new KeyboardControls(this);
+            keyboard = new KeyboardControls(this, Mario);
 
          /*  #region Instatntiation of Sprites
             

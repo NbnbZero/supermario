@@ -28,12 +28,12 @@ namespace SuperMario.States.MarioStates
             Mario.State = new RunningRightFireMarioState(Mario);
         }
 
-        public override void ChangeToLeft()
+        public override void RunLeft()
         {
             Mario.State = new IdleRightStarBigMarioState(Mario);
         }
 
-        public override void ChangeToRight()
+        public override void RunRight()
         {
         }
 

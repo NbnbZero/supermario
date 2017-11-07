@@ -37,7 +37,7 @@ namespace SuperMario.States.MarioStates
             Mario.State = new IdleLeftFireMarioState(Mario);
         }
 
-        public override void ChangeToLeft()
+        public override void RunLeft()
         {
             if (!Mario.IsInAir)
             {
@@ -45,7 +45,7 @@ namespace SuperMario.States.MarioStates
             }
         }
 
-        public override void ChangeToRight()
+        public override void RunRight()
         {
             Mario.State = new IdleRightStarSmallMarioState(Mario);
         }

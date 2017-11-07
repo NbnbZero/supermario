@@ -11,7 +11,6 @@ namespace SuperMario
 {
     public class LevelLoader
     {
-        private IMario mario;
         private GameObjectManager objectMagager;
         public LevelLoader(GameObjectManager gameManager)
         {
@@ -20,13 +19,13 @@ namespace SuperMario
 
         public void Load()
         {
-            LoadMarioStart();
+            //LoadMarioStart();
             LoadBlocks();
             LoadEnemies();
             LoadItems();            
         }
 
-        public void LoadMarioStart()
+        /*public void LoadMarioStart()
         {   
             List<StartData> myObjects = new List<StartData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<StartData>), new XmlRootAttribute("Map"));
@@ -38,59 +37,49 @@ namespace SuperMario
             {
                 objectMagager.Add(new MarioObject(new Vector2(marioStart.xLocation, marioStart.yLocation)));
             }
-        }
+        }*/
     
 
     public void LoadBlocks()
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
-            for (int i = 0; i < 1094; i = i + 16)
-            {
-                objectMagager.Add(new BrickBlock(new Vector2(i, 200)));
-            }
-           
-            
+                    
                 foreach (BlockData block in myObjects)
-                {
-                    switch (block.State)
-                    {
-                        case BlockType.Brick:
-                            objectMagager.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
+                {                                           
+                //add Floor & Used block object
+                switch (block.State)
+                        {
+                            case BlockType.Brick:
+                                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
+                                break;
+                            case BlockType.Stair:
+                                GameObjectManager.blockList.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
-                        case BlockType.Stair:
-                            objectMagager.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
-                            break;
-                        case BlockType.Question:
-                            if (block.itemType == ItemType.Flower)
-                            {
-                                QuestionBlock FlowerBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
-                                objectMagager.Add(FlowerBlock);
-                            }
-                            else if (block.itemType == ItemType.Star)
-                            {
-                                QuestionBlock StarBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
-                                objectMagager.Add(StarBlock);
-                            }
-                            else if (block.itemType == ItemType.UpMushroom)
-                            {
-                                QuestionBlock UpMushroomBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
-                                objectMagager.Add(UpMushroomBlock);
-                            }
-                            else if (block.itemType == ItemType.SuperMushroom)
-                            {
-                                QuestionBlock SuperMushroomBlock = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
-                                objectMagager.Add(SuperMushroomBlock);
-                            }
-                            break;
-                        case BlockType.Floor:
-                            objectMagager.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
-                            break;
-                    }
+                            case BlockType.Question:
+                                        if (block.itemType == ItemType.Flower)
+                                        {
+                                            GameObjectManager.itemList.Add(new FireFlower(new Vector2(block.xLocation, block.yLocation)));
+                                        }
+                                        else if (block.itemType == ItemType.Star)
+                                        {
+                                            GameObjectManager.itemList.Add(new Star(new Vector2(block.xLocation, block.yLocation)));
+                                        }
+                                        else if (block.itemType == ItemType.UpMushroom)
+                                        {
+                                            GameObjectManager.itemList.Add(new UpMushroom(new Vector2(block.xLocation, block.yLocation)));
+                                        }
+                                        else if (block.itemType == ItemType.SuperMushroom)
+                                        {
+                                            GameObjectManager.itemList.Add(new SuperMushroom(new Vector2(block.xLocation, block.yLocation)));
+                                        }
+                                        GameObjectManager.blockList.Add(new QuestionBlock(new Vector2(block.xLocation, block.yLocation)));
+                                        break;
+                        }
                 }
             
         }
@@ -99,7 +88,7 @@ namespace SuperMario
         {
             List<ItemData> myObjects = new List<ItemData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<ItemData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
             {
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
@@ -109,19 +98,19 @@ namespace SuperMario
                     switch (item.itemType)
                     {
                         case ItemType.Coin:
-                            objectMagager.Add(new Coin(new Vector2(item.xLocation, item.yLocation)));
+                            GameObjectManager.itemList.Add(new Coin(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.Flower:
-                            objectMagager.Add(new FireFlower(new Vector2(item.xLocation, item.yLocation)));
+                            GameObjectManager.itemList.Add(new FireFlower(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.SuperMushroom:
-                            objectMagager.Add(new SuperMushroom(new Vector2(item.xLocation, item.yLocation)));
+                            GameObjectManager.itemList.Add(new SuperMushroom(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.UpMushroom:
-                            objectMagager.Add(new UpMushroom(new Vector2(item.xLocation, item.yLocation)));
+                            GameObjectManager.itemList.Add(new UpMushroom(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.Star:
-                            objectMagager.Add(new Star(new Vector2(item.xLocation, item.yLocation)));
+                            GameObjectManager.itemList.Add(new Star(new Vector2(item.xLocation, item.yLocation)));
                             break;
                     }
 
@@ -133,7 +122,7 @@ namespace SuperMario
         {
             List<EnemyData> myObjects = new List<EnemyData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<EnemyData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
             {
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
@@ -144,10 +133,10 @@ namespace SuperMario
                     switch (enemy.enemyType)
                     {
                         case EnemyType.Goomba:
-                            objectMagager.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
+                            GameObjectManager.enemyList.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
                             break;
                         case EnemyType.Koopa:
-                            objectMagager.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
+                            GameObjectManager.enemyList.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
                             break;
                     }
                 }

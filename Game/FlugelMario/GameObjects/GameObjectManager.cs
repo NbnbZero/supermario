@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;E:\AU2017\CSE3902\mario\Game\FlugelMario\GameObjects\GameObjectManager.cs
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SuperMario.Interfaces;
@@ -10,35 +10,49 @@ namespace SuperMario.GameObjects
 {
     public class GameObjectManager
     {
-        private List<IGameObject> objectList;
-        private List<IGameObject> blockList;
-        private List<IGameObject> itemList;
-        private List<IGameObject> enemyList;
-        public GameObjectManager()
+        public static List<IGameObject> objectList;
+        public static List<IGameObject> blockList;
+        public static List<IGameObject> itemList;
+        public static List<IGameObject> enemyList;
+        private MarioObject mario;
+        public GameObjectManager(MarioObject Mario)
         {
             blockList = new List<IGameObject>();
             itemList = new List<IGameObject>();
             enemyList = new List<IGameObject>();
             objectList = new List<IGameObject>();
+            mario = Mario;
         }
         
         public void Update()
         {
-            foreach(IGameObject obj in objectList)
+            foreach (IGameObject obj in itemList)
             {
+
                 obj.Update();
             }
+            foreach (IGameObject obj in blockList)
+            {
+                System.Console.WriteLine(obj.GetType().ToString());
+                obj.Update();
+            }
+            foreach (IGameObject obj in enemyList)
+            {               
+                obj.Update();
+            }
+            mario.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (IGameObject obj in itemList)
             {
+
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in blockList)
             {
-               
+                System.Console.WriteLine(obj.GetType().ToString());
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in enemyList)
@@ -49,10 +63,7 @@ namespace SuperMario.GameObjects
             {
                 obj.Draw(spriteBatch);
             }
-        }
-        public void Add(IGameObject obj)
-        {
-            objectList.Add(obj);
+            mario.Draw(spriteBatch);
         }
 
 

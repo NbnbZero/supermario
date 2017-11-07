@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using SuperMario.Sprites.Items;
-using SuperMario.SpriteFactories;
+
 
 namespace SuperMario.Sprites.Blocks
 {
@@ -17,6 +17,7 @@ namespace SuperMario.Sprites.Blocks
         private int column;
         private int currentFrame;
         private int totalFrame;
+        private int counter;
         private int spriteFrameIncrement;
         /*public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
         {
@@ -38,8 +39,9 @@ namespace SuperMario.Sprites.Blocks
             width = BlockSpriteFactory.Instance.QuestionBlockWidth;
             row = BlockSpriteFactory.Instance.QuestionSpriteSheetRows;
             column = BlockSpriteFactory.Instance.QuestionSpriteSheetColum;
-            totalFrame = BlockSpriteFactory.Instance.RockBlockAnimeTotalFrame;
+            totalFrame = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
             currentFrame = 0;
+            counter = 0;
             spriteFrameIncrement = -1;            
         }
         /*public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
@@ -57,22 +59,19 @@ namespace SuperMario.Sprites.Blocks
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == 10)
+            if (counter % 10 == 0)
             {
-                currentFrame = 0;
-                if (currentFrame == 0 || currentFrame == totalFrame - 1)
-                {
-                    spriteFrameIncrement *= -1;
-                }
-                currentFrame += spriteFrameIncrement;
-            }            
+                currentFrame++;
+                currentFrame = currentFrame % totalFrame;
+                counter = 0;
+            }
+            counter++;
         }
 
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle sourceRectangle = new Rectangle((currentFrame*width), 0, width, height);
             Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
             spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);

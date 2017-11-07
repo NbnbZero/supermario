@@ -15,9 +15,10 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
 
-        public KeyboardControls(Game1 game)
+        public KeyboardControls(Game1 game, IMario Mario)
         {
             mygame = game;
+            mario = Mario;
             RegisterCommand();
         }
 

@@ -23,12 +23,12 @@ namespace SuperMario.States.MarioStates
             mario.IsInAir = true;
         }
 
-        public override void ChangeToLeft()
+        public override void RunLeft()
         {
             Mario.State = new JumpLeftStarSmallMarioState(Mario);
         }
 
-        public override void ChangeToRight()
+        public override void RunRight()
         {
             Mario.Location = new Vector2(Mario.Destination.X + 1, Mario.Destination.Y);
         }
