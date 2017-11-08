@@ -15,7 +15,6 @@ namespace SuperMario.Commands
         public void Execute()
         {
             myhandler.mario.Velocity = new Vector2(0, myhandler.mario.Velocity.Y);
-            myhandler.mario.State = new IdleLeftBigMarioState(myhandler.mario);
         }
         
     }
