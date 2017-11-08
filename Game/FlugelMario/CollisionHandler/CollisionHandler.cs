@@ -44,6 +44,7 @@ namespace SuperMario
 
             if (commandDict[typeof(IBlock)].ContainsKey(Direction))                
                 commandDict[typeof(IBlock)][Direction].Execute();
+
         }
     }
 }

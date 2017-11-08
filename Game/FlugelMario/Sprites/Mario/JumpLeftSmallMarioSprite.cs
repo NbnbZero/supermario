@@ -7,8 +7,8 @@ namespace SuperMario.Sprites.Mario
 {
     class JumpLeftSmallMarioSprite : MarioSprite
     {
-        private int TextureX = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.X;
-        private int TextureY = (int)MarioSpriteFactory.Instance.JumpLeftFireMarioCord.Y;
+        private int TextureX = (int)MarioSpriteFactory.Instance.JumpLeftSmallMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.JumpLeftSmallMarioCord.Y;
         public JumpLeftSmallMarioSprite(Texture2D texture) : base(texture)
         {
         }

@@ -30,6 +30,7 @@ namespace SuperMario.Game_Controllers
             commandDict.Add(Keys.Up, new MarioJumpCommand(mario));
             commandDict.Add(Keys.Q, new QuitGameCommand(mygame));
 
+            releasedCommandDict.Add(Keys.Z, new ReleasedRightMarioCommand(mario));
 
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
@@ -61,8 +62,8 @@ namespace SuperMario.Game_Controllers
             {
                 return;
             }*/
-
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+           
 
             foreach (Keys key in pressedKeys)
             {
@@ -70,6 +71,9 @@ namespace SuperMario.Game_Controllers
                 {
                     case Keys.Q:
                         commandDict[key].Execute();
+                        break;
+                    case Keys.Z:
+                        releasedCommandDict[key].Execute();
                         break;
                 }
             }
@@ -125,20 +129,20 @@ namespace SuperMario.Game_Controllers
             {
                 commandDict[Keys.Up].Execute();
             }
-            
 
             if (preKeys != null)
             {
-                foreach (Keys key in pressedKeys)
+                foreach (Keys key in preKeys)
                 {
+
                     if (preKeys.Contains(key) && Keyboard.GetState().IsKeyUp(key))
                     {
                         releasedCommandDict[key].Execute();
                     }                        
                 }
             }
-
             preKeys = pressedKeys;
+
         }
 
         private bool Left(Keys[] pressedKeys)

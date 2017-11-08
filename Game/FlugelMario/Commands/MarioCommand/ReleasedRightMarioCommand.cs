@@ -17,8 +17,10 @@ namespace SuperMario.Commands.ControllerCommand
         }
         public void Execute()
         {
+
             if (mario.State.MarioPosture == Posture.Running)
             {
+                System.Console.WriteLine("paole");
                 mario.State.RunLeft();
             }
         }

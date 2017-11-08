@@ -78,7 +78,7 @@ namespace SuperMario.States.MarioStates
             {
                 Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
                 Mario.Velocity = new Vector2(0, Mario.Velocity.Y);
-            }
+           }
         }
     }
 }
