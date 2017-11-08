@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SuperMario.Interfaces;
+using SuperMario;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario.GameObjects
@@ -24,16 +25,24 @@ namespace SuperMario.GameObjects
             mario = Mario;
         }
         
+
+        public void HandleCollisions()
+        {
+            CollisionHandler myhandler = new CollisionHandler(mario);
+            foreach(IGameObject obj in blockList) {
+                myhandler.HandleBlockCollision(obj);
+            }  
+        }
+
         public void Update()
         {
+            HandleCollisions();
             foreach (IGameObject obj in itemList)
             {
-
                 obj.Update();
             }
             foreach (IGameObject obj in blockList)
             {
-                System.Console.WriteLine(obj.GetType().ToString());
                 obj.Update();
             }
             foreach (IGameObject obj in enemyList)

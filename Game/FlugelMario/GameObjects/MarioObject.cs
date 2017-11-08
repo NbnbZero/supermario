@@ -57,7 +57,6 @@ namespace SuperMario.GameObjects
         private const int bigMarioVertDis = 5;
         private const int bigMarioHeriDis = 2;
         private const int maxYSpeed = 10;
-        
         public MarioObject(Vector2 location)
         {
             State = new IdleRightSmallMarioState(this);
@@ -94,7 +93,6 @@ namespace SuperMario.GameObjects
             }
         }
         
-
         public void Update()
         {
             //horizontal velocity control
