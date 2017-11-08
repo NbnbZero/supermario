@@ -31,24 +31,6 @@ namespace SuperMario
             return CollisionDirection.NoCollision;
         }
 
-       
-        public static void AdjustObjectPosition(IGameObject firstObject, Rectangle anotherRectangle)
-        {
-            Rectangle marioDest = firstObject.Destination;
-            CollisionDirection side = DetectCollisionDirection(marioDest, anotherRectangle);
-            Vector2 adjustment = new Vector2();
-            Rectangle overlap = Rectangle.Intersect(marioDest, anotherRectangle);
-            switch (side)
-            {
-                case CollisionDirection.Left: adjustment.X = -overlap.Width; break;
-                case CollisionDirection.Right: adjustment.X = overlap.Width; break;
-                case CollisionDirection.Top: adjustment.Y = -overlap.Height; break;
-                case CollisionDirection.Bottom: adjustment.Y = overlap.Height; break;
-
-            }
-        }
-
-
     }
 
 }
