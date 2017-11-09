@@ -8,6 +8,8 @@ namespace SuperMario.Interfaces
         bool IsCollected { get; set; }
         void Collect();
         bool IsPreparing { get; set; }
+        void ChangeDirection();
         
+
     }
 }

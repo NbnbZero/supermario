@@ -42,5 +42,9 @@ namespace SuperMario
             Destination = sprite.MakeDestinationRectangle(Location);
             sprite.Update();
         }
+        public void ChangeDirection()
+        {
+
+        }
     }
 }

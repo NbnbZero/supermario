@@ -57,6 +57,8 @@
     <Compile Include="CollisionHandler\CollisionHandlerEnemy.cs" />
     <Compile Include="CollisionHandler\CollisionHandlerMario.cs" />
     <Compile Include="CollisionHandler\HandleAllCollison.cs" />
+    <Compile Include="CollisionItems\ItemBlockTop.cs" />
+    <Compile Include="CollisionItems\ItemBlockTwoSide.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockTop.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockBottom.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTop.cs" />
@@ -309,9 +311,7 @@
     <None Include="app.manifest" />
     <None Include="tsconfig1.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CollisionItems\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
