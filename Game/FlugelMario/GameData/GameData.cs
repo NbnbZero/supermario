@@ -16,5 +16,7 @@ namespace SuperMario
         public static float MarioCriticalSpeed { get; } = .75f;
         public static float MarioAccel { get; } = .25f;
 
+        public static int collisionDisplacement { get; } = 3;
+
     }
 }
