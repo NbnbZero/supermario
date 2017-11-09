@@ -28,7 +28,7 @@ namespace SuperMario
 
             commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new EnemyBlockTwoSide(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new EnemyBlockTwoSide(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new EnemyBlockTop(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new EnemyBlockTop(this));
         }
         
         public void HandleEnemyCollision(IEnemy Another)
