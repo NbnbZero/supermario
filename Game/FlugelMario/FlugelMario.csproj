@@ -53,6 +53,7 @@
     <Compile Include="CollisionEnemies\EnemyPipeLeftRight.cs" />
     <Compile Include="CollisionEnemies\EnemyPipeTop.cs" />
     <Compile Include="CollisionHandler\CollisionDetector.cs" />
+    <Compile Include="CollisionHandler\CollisionHandlerItem.cs" />
     <Compile Include="CollisionHandler\CollisionHandlerEnemy.cs" />
     <Compile Include="CollisionHandler\CollisionHandlerMario.cs" />
     <Compile Include="CollisionHandler\HandleAllCollison.cs" />
