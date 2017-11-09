@@ -16,6 +16,7 @@ namespace SuperMario
         public IBlock block { get; private set; }
         public IPipe pipe { get; private set; }
         public IEnemy enemy { get; private set; }
+        public IItem item { get; private set; }
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
         public CollisionHandlerMario(IMario Mario)
@@ -26,6 +27,7 @@ namespace SuperMario
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
             commandDict.Add(typeof(IPipe), new Dictionary<CollisionDirection, ICommand>());
             commandDict.Add(typeof(IEnemy), new Dictionary<CollisionDirection, ICommand>());
+            commandDict.Add(typeof(IItem), new Dictionary<CollisionDirection, ICommand>());
 
             commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new MarioBlockTwoSide(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new MarioBlockTwoSide(this));
@@ -41,7 +43,10 @@ namespace SuperMario
             commandDict[typeof(IPipe)].Add(CollisionDirection.Right, new MarioPipeTwoSide(this));
             commandDict[typeof(IPipe)].Add(CollisionDirection.Top, new MarioPipeTop(this));
 
-
+            commandDict[typeof(IItem)].Add(CollisionDirection.Left, new MarioItemCollision(this));
+            commandDict[typeof(IItem)].Add(CollisionDirection.Right, new MarioItemCollision(this));
+            commandDict[typeof(IItem)].Add(CollisionDirection.Top, new MarioItemCollision(this));
+            commandDict[typeof(IItem)].Add(CollisionDirection.Bottom, new MarioItemCollision(this));
         }
         
         public void HandleEnemyCollision(IEnemy Enemy)
@@ -70,7 +75,15 @@ namespace SuperMario
 
             if (commandDict[typeof(IBlock)].ContainsKey(Direction))                
                 commandDict[typeof(IBlock)][Direction].Execute();
+        }
 
+        public void HandleItemCollision(IItem Item)
+        {
+            item=Item;
+            CollisionDirection Direction = DetectCollisionDirection(mario.Destination, item.Destination);
+
+            if (commandDict[typeof(IItem)].ContainsKey(Direction))
+                commandDict[typeof(IItem)][Direction].Execute();
         }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockBottom.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTop.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTwoSideBottom.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioItemCollision.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioPipeTop.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioPipeTwoSide.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionBottom.cs" />
