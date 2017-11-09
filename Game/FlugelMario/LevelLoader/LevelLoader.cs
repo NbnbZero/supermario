@@ -74,28 +74,34 @@ namespace SuperMario
                                 break;
                             case BlockType.Question:
                                 QuestionBlock question = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
-                                                if (block.itemType == ItemType.Flower)
-                                                {
-                            question.hiddenItem = ItemType.Flower;
-                                                    GameObjectManager.blockList.Add(question);
-                                                }
-                                                else if (block.itemType == ItemType.Star)
-                                                {
-                            question.hiddenItem = ItemType.Star;
-                            GameObjectManager.blockList.Add(question);
-                                                }
-                                                else if (block.itemType == ItemType.UpMushroom)
-                                                {
-                            question.hiddenItem = ItemType.UpMushroom;
-                            GameObjectManager.blockList.Add(question);
-                                                }
-                                                else if (block.itemType == ItemType.SuperMushroom)
-                                                {
-                            question.hiddenItem = ItemType.SuperMushroom;
-                            GameObjectManager.blockList.Add(question);
-                                                }
-                                                GameObjectManager.blockList.Add(new QuestionBlock(new Vector2(block.xLocation, block.yLocation)));
-                                                break;
+                                if (block.itemType == ItemType.Flower)
+                                 {
+                                question.hiddenItem = ItemType.Flower;
+                                       GameObjectManager.blockList.Add(question);
+                                     }
+                                 else if (block.itemType == ItemType.Star)
+                                     {
+                                question.hiddenItem = ItemType.Star;
+                                GameObjectManager.blockList.Add(question);
+                                    }
+                                 else if (block.itemType == ItemType.UpMushroom)
+                                     {
+                                question.hiddenItem = ItemType.UpMushroom;
+                                GameObjectManager.blockList.Add(question);
+                                     }
+                                 else if (block.itemType == ItemType.SuperMushroom)
+                                      {
+                                question.hiddenItem = ItemType.SuperMushroom;
+                                GameObjectManager.blockList.Add(question);
+                                      }
+                                      
+                                  else if (block.itemType == ItemType.Coin)
+                                    {
+                                    question.hiddenItem = ItemType.Coin;
+                                    GameObjectManager.blockList.Add(question);
+                        } 
+                                        break;
+                        
                         }
                 }
             
