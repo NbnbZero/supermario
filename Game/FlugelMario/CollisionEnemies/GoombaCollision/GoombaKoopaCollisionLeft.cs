@@ -10,28 +10,29 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class GoombaKoopaCollisionLeft : ICollisionCommand
+    class GoombaKoopaCollisionLeft : ICommand
     {
-        public GoombaKoopaCollisionLeft()
-        {
+        CollisionHandlerGoomba myhandler;
 
+        public GoombaKoopaCollisionLeft(CollisionHandlerGoomba handler)
+        {
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            Goomba goomba = (Goomba)gameObject1;
-            Koopa koopa = (Koopa)gameObject2;
-            goomba.Location = new Vector2(goomba.Location.X - 1, goomba.Location.Y);
 
-            if (!goomba.Alive)
+            myhandler.goomba1.Location = new Vector2(myhandler.goomba1.Location.X - 1, myhandler.goomba1.Location.Y);
+
+            if (!myhandler.goomba1.Alive)
                 return;
-            if (koopa.State.GetType() == typeof(KoopaDeadState) &&
-                koopa.Velocity.X != 0)
+            if (myhandler.koopa1.State.GetType() == typeof(KoopaDeadState) &&
+                myhandler.koopa1.Velocity.X != 0)
             {
-                goomba.Terminate("LEFT");
+                myhandler.goomba1.Terminate("LEFT");
                 return;
             }
-            goomba.ChangeDirection();
-            koopa.ChangeDirection();
+            myhandler.goomba1.ChangeDirection();
+            myhandler.koopa1.ChangeDirection();
         }
     }
 }

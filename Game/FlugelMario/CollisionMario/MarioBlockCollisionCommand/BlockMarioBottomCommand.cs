@@ -5,8 +5,8 @@ namespace SuperMario.Commands
 {
     class BlockMarioBottomCommand : ICommand
     {
-        CollisionHandler myhandler;
-        public BlockMarioBottomCommand(CollisionHandler handler)
+        CollisionHandlerMario myhandler;
+        public BlockMarioBottomCommand(CollisionHandlerMario handler)
         {
             myhandler = handler;
         }

@@ -6,8 +6,8 @@ namespace SuperMario.Commands
     public class BlockStopMarioRunningCommand:ICommand
     {
         
-        CollisionHandler myhandler;
-        public BlockStopMarioRunningCommand(CollisionHandler handler)
+        CollisionHandlerMario myhandler;
+        public BlockStopMarioRunningCommand(CollisionHandlerMario handler)
         {
             myhandler = handler;
         }

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class GoombaGoombaCollisionBottom : ICollisionCommand
+    class GoombaGoombaCollisionBottom : ICommand
     {
-        public GoombaGoombaCollisionBottom()
+        CollisionHandlerGoomba myhandler;
+        public GoombaGoombaCollisionBottom(CollisionHandlerGoomba handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            Goomba goomba2 = (Goomba)gameObject2;
-            goomba2.Location = new Vector2(goomba2.Location.X, gameObject1.Location.Y - gameObject2.Destination.Height - 1);
+            myhandler.goomba2.Location = new Vector2(myhandler.goomba2.Location.X, myhandler.goomba1.Location.Y - myhandler.goomba2.Destination.Height - 1);
         }
     }
 }
