@@ -41,6 +41,7 @@ namespace SuperMario
                     int verticalDisplacement = 5;
                     block.Location = new Vector2(block.Location.X, block.Location.Y - verticalDisplacement);
                 }
+
             }
         }
     }
