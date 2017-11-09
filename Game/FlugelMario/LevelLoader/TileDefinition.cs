@@ -33,4 +33,11 @@ namespace TileDefinition
         public int xLocation;
         public int yLocation;
     }
+
+    public class PipeData
+    {
+        public PipeType PipeType;
+        public int xLocation;
+        public int yLocation;
+    }
 }

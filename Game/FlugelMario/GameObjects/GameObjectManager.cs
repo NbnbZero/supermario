@@ -16,6 +16,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         private MarioObject mario;
+
         public GameObjectManager(MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -29,8 +30,8 @@ namespace SuperMario.GameObjects
         public void HandleCollisions()
         {
             CollisionHandler myhandler = new CollisionHandler(mario);
-            foreach(IGameObject obj in blockList) {
-                myhandler.HandleBlockCollision(obj);
+            foreach(IBlock block in blockList) {
+                myhandler.HandleBlockCollision(block);
             }  
         }
 
@@ -49,6 +50,10 @@ namespace SuperMario.GameObjects
             {               
                 obj.Update();
             }
+            foreach (IGameObject obj in objectList)
+            {
+                obj.Update();
+            }
             mario.Update();
         }
 
@@ -56,7 +61,6 @@ namespace SuperMario.GameObjects
         {
             foreach (IGameObject obj in itemList)
             {
-
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in blockList)

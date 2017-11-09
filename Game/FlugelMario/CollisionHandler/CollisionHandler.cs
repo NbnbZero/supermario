@@ -22,10 +22,12 @@ namespace SuperMario
             mario = Mario;
             commandDict = new Dictionary<Type, Dictionary<CollisionDirection, ICommand>>();
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new BlockStopMarioRunningCommand(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new BlockStopMarioRunningCommand(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new BlockStopMarioRunningCommand(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new BlockStopMarioRunningCommand(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new MarioBlockTwoSide(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new MarioBlockTwoSide(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new MarioBlockTop(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new MarioBlockBottom(this));
+
+            
         }
 
         public void HandleCollision(IGameObject incomingObject)
@@ -37,10 +39,10 @@ namespace SuperMario
         }
 
 
-        public void HandleBlockCollision(IGameObject obj)
+        public void HandleBlockCollision(IBlock Block)
         {
-            Obj = obj;
-            CollisionDirection Direction = DetectCollisionDirection(mario.Destination,Obj.Destination);
+            block = Block;
+            CollisionDirection Direction = DetectCollisionDirection(mario.Destination,block.Destination);
 
             if (commandDict[typeof(IBlock)].ContainsKey(Direction))                
                 commandDict[typeof(IBlock)][Direction].Execute();

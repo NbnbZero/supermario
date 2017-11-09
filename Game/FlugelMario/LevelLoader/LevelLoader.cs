@@ -7,6 +7,9 @@ using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using TileDefinition;
 using SuperMario.GameObjects;
+using System;
+using SuperMario.GameObjects.ItemGameObjects;
+
 namespace SuperMario
 {
     public class LevelLoader
@@ -22,7 +25,8 @@ namespace SuperMario
             //LoadMarioStart();
             LoadBlocks();
             LoadEnemies();
-            LoadItems();            
+            LoadItems();
+            LoadPipe();
         }
 
         /*public void LoadMarioStart()
@@ -38,9 +42,9 @@ namespace SuperMario
                 objectMagager.Add(new MarioObject(new Vector2(marioStart.xLocation, marioStart.yLocation)));
             }
         }*/
-    
 
-    public void LoadBlocks()
+
+        public void LoadBlocks()
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
@@ -60,25 +64,28 @@ namespace SuperMario
                             case BlockType.Stair:
                                 GameObjectManager.blockList.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
+                            case BlockType.Floor:
+                                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(block.xLocation, block.yLocation)));
+                                break;
                             case BlockType.Question:
-                                        if (block.itemType == ItemType.Flower)
-                                        {
-                                            GameObjectManager.itemList.Add(new FireFlower(new Vector2(block.xLocation, block.yLocation)));
-                                        }
-                                        else if (block.itemType == ItemType.Star)
-                                        {
-                                            GameObjectManager.itemList.Add(new Star(new Vector2(block.xLocation, block.yLocation)));
-                                        }
-                                        else if (block.itemType == ItemType.UpMushroom)
-                                        {
-                                            GameObjectManager.itemList.Add(new UpMushroom(new Vector2(block.xLocation, block.yLocation)));
-                                        }
-                                        else if (block.itemType == ItemType.SuperMushroom)
-                                        {
-                                            GameObjectManager.itemList.Add(new SuperMushroom(new Vector2(block.xLocation, block.yLocation)));
-                                        }
-                                        GameObjectManager.blockList.Add(new QuestionBlock(new Vector2(block.xLocation, block.yLocation)));
-                                        break;
+                                                if (block.itemType == ItemType.Flower)
+                                                {
+                                                    GameObjectManager.itemList.Add(new FireFlower(new Vector2(block.xLocation, block.yLocation)));
+                                                }
+                                                else if (block.itemType == ItemType.Star)
+                                                {
+                                                    GameObjectManager.itemList.Add(new Star(new Vector2(block.xLocation, block.yLocation)));
+                                                }
+                                                else if (block.itemType == ItemType.UpMushroom)
+                                                {
+                                                    GameObjectManager.itemList.Add(new UpMushroom(new Vector2(block.xLocation, block.yLocation)));
+                                                }
+                                                else if (block.itemType == ItemType.SuperMushroom)
+                                                {
+                                                    GameObjectManager.itemList.Add(new SuperMushroom(new Vector2(block.xLocation, block.yLocation)));
+                                                }
+                                                GameObjectManager.blockList.Add(new QuestionBlock(new Vector2(block.xLocation, block.yLocation)));
+                                                break;
                         }
                 }
             
@@ -142,6 +149,28 @@ namespace SuperMario
                     }
                 }
             
+        }
+
+        private void LoadPipe()
+        {
+            List<PipeData> myObjects = new List<PipeData>();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<PipeData>), new XmlRootAttribute("Map"));
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
+            {
+                myObjects = (List<PipeData>)serializer.Deserialize(reader);
+            }
+
+
+            foreach (PipeData pipe in myObjects)
+            {
+                switch (pipe.PipeType)
+                {
+                    case PipeType.Pipe:
+                        System.Console.WriteLine("create pipe");
+                        GameObjectManager.objectList.Add(new Pipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        break;
+                }
+            }
         }
     }
 }
