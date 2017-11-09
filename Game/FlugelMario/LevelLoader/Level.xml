@@ -11,12 +11,12 @@
     <State>Question</State>
     <itemType>Null</itemType>
     <xLocation>200</xLocation>
-    <yLocation>100</yLocation>
+    <yLocation>400</yLocation>
   </BlockData>
   
   <BlockData>
     <State>Question</State>
-    <itemType>Null</itemType>
+    <itemType>Coin</itemType>
     <xLocation>200</xLocation>
     <yLocation>400</yLocation>
   </BlockData>
@@ -32,21 +32,21 @@
     <State>Question</State>
     <itemType>Null</itemType>
     <xLocation>300</xLocation>
-    <yLocation>100</yLocation>
+    <yLocation>400</yLocation>
   </BlockData>
   
   <BlockData>
     <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>400</xLocation>
-    <yLocation>100</yLocation>
+    <yLocation>400</yLocation>
   </BlockData>
 
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
     <xLocation>500</xLocation>
-    <yLocation>200</yLocation>
+    <yLocation>400</yLocation>
   </BlockData>
 
   <BlockData>
