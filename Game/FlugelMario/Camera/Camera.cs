@@ -25,8 +25,8 @@ namespace SuperMario
         public static List<int> LimitationList { get; } = new List<int>();
         public float Rotation { get; set; }
         public Vector2 Origin { get; set; }
-        private static int centerOfScreen = 240;
-        private static int centerOfCamera = 240;
+        private static int centerOfScreen = 330;
+        private static int centerOfCamera = 330;
         private static int CameraXPos = 0;
         private static int scale = 1;
 
