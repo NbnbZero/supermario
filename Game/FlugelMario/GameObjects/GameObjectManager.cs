@@ -29,7 +29,7 @@ namespace SuperMario.GameObjects
 
         public void HandleCollisions()
         {
-            CollisionHandler myhandler = new CollisionHandler(mario);
+            CollisionHandlerMario myhandler = new CollisionHandlerMario(mario);
             foreach(IBlock block in blockList) {
                 myhandler.HandleBlockCollision(block);
             }  

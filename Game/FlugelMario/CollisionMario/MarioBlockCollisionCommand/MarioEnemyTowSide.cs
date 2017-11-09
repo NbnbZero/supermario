@@ -5,8 +5,8 @@ namespace SuperMario.Commands
 {
     class MarioEnemyTowSide : ICommand
     {
-        CollisionHandler myhandler;
-        public MarioEnemyTowSide(CollisionHandler handler)
+        CollisionHandlerMario myhandler;
+        public MarioEnemyTowSide(CollisionHandlerMario handler)
         {
             myhandler = handler;
         }
