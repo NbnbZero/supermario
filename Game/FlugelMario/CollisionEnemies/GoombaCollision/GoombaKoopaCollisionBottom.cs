@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class GoombaKoopaCollisionBottom : ICollisionCommand
+    class GoombaKoopaCollisionBottom : ICommand
     {
-        public GoombaKoopaCollisionBottom()
+        CollisionHandlerGoomba myhandler;
+        public GoombaKoopaCollisionBottom(CollisionHandlerGoomba handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            IEnemy goomba1 = (IEnemy)gameObject1;
-            if (!goomba1.Alive)
+            if (!myhandler.goomba1.Alive)
                 return;
-            gameObject2.Location = new Vector2(gameObject2.Location.X, goomba1.Location.Y - gameObject2.Destination.Height - 1);
+           myhandler.koopa1.Location = new Vector2(myhandler.koopa1.Location.X, myhandler.goomba1.Location.Y - myhandler.koopa1.Destination.Height - 1);
         }
     }
 }

@@ -71,7 +71,8 @@
     <Compile Include="CollisionEnemies\KoopaCollision\KoopaKoopaCollisionRight.cs" />
     <Compile Include="CollisionEnemies\KoopaCollision\KoopaKoopaCollisionTop.cs" />
     <Compile Include="CollisionHandler\CollisionDetector.cs" />
-    <Compile Include="CollisionHandler\CollisionHandler.cs" />
+    <Compile Include="CollisionHandler\CollisionHandlerGoomba.cs" />
+    <Compile Include="CollisionHandler\CollisionHandlerMario.cs" />
     <Compile Include="CollisionItems\StarBlockCollisionBottom.cs" />
     <Compile Include="CollisionItems\StarBlockCollisionLeft.cs" />
     <Compile Include="CollisionItems\StarBlockCollisionRight.cs" />

@@ -9,7 +9,7 @@ using SuperMario.Commands;
 using static SuperMario.CollisionDetector;
 namespace SuperMario
 {
-    public class CollisionHandler
+    public class CollisionHandlerMario
     {
         public IMario mario { get; private set; }
         public IBlock block { get; private set; }
@@ -17,7 +17,7 @@ namespace SuperMario
        private IGameObject Obj { get; set; }
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
-        public CollisionHandler(IMario Mario)
+        public CollisionHandlerMario(IMario Mario)
         {
             mario = Mario;
             commandDict = new Dictionary<Type, Dictionary<CollisionDirection, ICommand>>();
