@@ -9,24 +9,23 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class GoombaBlockCollisionBottom: ICollisionCommand
+    class GoombaBlockCollisionBottom: ICommand
     {
-        public GoombaBlockCollisionBottom()
+        CollisionHandlerGoomba myhandler;
+        public GoombaBlockCollisionBottom(CollisionHandlerGoomba handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
-        {
-            Goomba g = (Goomba)gameObject1;
-            
-            if(!g.Alive)
+        public void Execute()
+        {      
+            if(!myhandler.goomba1.Alive)
             {
                 return;
             }
-            g.Location = new Vector2(g.Location.X, gameObject2.Location.Y + gameObject2.Destination.Height);
-            if (g.Velocity.Y > 0)
+            myhandler.goomba1.Location = new Vector2(myhandler.goomba1.Location.X, myhandler.block.Location.Y + myhandler.block.Destination.Height);
+            if (myhandler.goomba1.Velocity.Y > 0)
             {
-                g.Velocity = new Vector2(g.Velocity.X, 0);                   
+                myhandler.goomba1.Velocity = new Vector2(myhandler.goomba1.Velocity.X, 0);                   
             }
         }
     }
