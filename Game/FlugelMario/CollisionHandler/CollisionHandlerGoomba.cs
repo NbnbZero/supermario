@@ -14,7 +14,6 @@ namespace SuperMario
         public Goomba goomba1 { get; private set; }
         public Goomba goomba2 { get; private set; }
         public Koopa koopa1 { get; private set; }
-        public Koopa koopa2 { get; private set; }
 
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
