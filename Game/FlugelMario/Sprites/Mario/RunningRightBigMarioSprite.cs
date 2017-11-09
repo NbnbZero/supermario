@@ -6,8 +6,8 @@ namespace SuperMario.Sprites.Mario
 {
     class RunningRightBigMarioSprite : MarioRunningSprite
     {
-        private int TextureX = (int)MarioSpriteFactory.Instance.RunningRightFireMarioCord.X;
-        private int TextureY = (int)MarioSpriteFactory.Instance.RunningRightFireMarioCord.Y;
+        private int TextureX = (int)MarioSpriteFactory.Instance.RunningRightBigMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.RunningRightBigMarioCord.Y;
         public RunningRightBigMarioSprite(Texture2D texture) : base(texture)
         {
             CurrentRunningFrame = 0;
