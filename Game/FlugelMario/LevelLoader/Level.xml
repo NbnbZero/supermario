@@ -85,5 +85,10 @@
     <xLocation>700</xLocation>
     <yLocation>200</yLocation>
   </ItemData>
+  <PipeData>
+    <itemType>Pipe</itemType>
+    <xLocation>800</xLocation>
+    <yLocation>300</yLocation>
+  </PipeData>
 </Map>
 

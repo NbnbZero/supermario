@@ -57,6 +57,7 @@ namespace SuperMario
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             FireballSpriteFactory.Instance.LoadAllTextures(Content);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
+            PipeSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
             Vector2 location = new Vector2(200, 200);
