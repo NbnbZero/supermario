@@ -324,6 +324,7 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <Content Include="LevelLoader\Level.xml" />
+    <Content Include="LevelLoader\Level1.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

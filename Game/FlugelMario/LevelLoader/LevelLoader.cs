@@ -48,7 +48,7 @@ namespace SuperMario
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
@@ -64,7 +64,7 @@ namespace SuperMario
                             case BlockType.Stair:
                                 GameObjectManager.blockList.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
                             break;
-                            case BlockType.Floor:
+                            case BlockType.Broken:
                                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(block.xLocation, block.yLocation)));
                                 break;
                             case BlockType.Question:
@@ -96,7 +96,7 @@ namespace SuperMario
         {
             List<ItemData> myObjects = new List<ItemData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<ItemData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
             {
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
@@ -130,7 +130,7 @@ namespace SuperMario
         {
             List<EnemyData> myObjects = new List<EnemyData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<EnemyData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
             {
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
@@ -155,7 +155,7 @@ namespace SuperMario
         {
             List<PipeData> myObjects = new List<PipeData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<PipeData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level.xml"))
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
             {
                 myObjects = (List<PipeData>)serializer.Deserialize(reader);
             }
