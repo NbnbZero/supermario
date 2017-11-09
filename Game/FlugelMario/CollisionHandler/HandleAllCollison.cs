@@ -15,7 +15,7 @@ namespace SuperMario
             List<IGameObject> blocklist,List<IGameObject> enemylist, List<IGameObject> itemlist , List<IGameObject>pipelist)
         {
             HandleMarioCollison(mario,blocklist,enemylist,itemlist,pipelist);
-            HandleItemCollision();
+            HandleItemCollision(itemlist, blocklist);
             HandleEnemyCollision(enemylist,blocklist);
         }
 
@@ -39,9 +39,16 @@ namespace SuperMario
 
         }
 
-        public static void HandleItemCollision()
+        public static void HandleItemCollision(List<IGameObject> itemList, List<IGameObject> blocklist)
         {
-
+            for (int i = 0; i < itemList.Count; i++)
+            {
+                CollisionHandlerItem handler = new CollisionHandlerItem((IItem)itemList[i]);
+                foreach (IBlock obj in blocklist)
+                {
+                    handler.HandleBlockCollision(obj);
+                }
+            }
 
         }
         public static void HandleEnemyCollision(List<IGameObject> enemylist, List<IGameObject> blocklist)
