@@ -4,23 +4,23 @@ using SuperMario.Interfaces;
 
 namespace SuperMario
 {
-    class KoopaBlockCollisionBottom: ICollisionCommand
+    class KoopaBlockCollisionBottom: ICommand
     {
-        public KoopaBlockCollisionBottom()
+        CollisionHandlerKoopa myhandler;
+        public KoopaBlockCollisionBottom(CollisionHandlerKoopa handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            Koopa k = (Koopa)gameObject1;
-            if (k.State.GetType() == typeof(KoopaDeadState))
+            if (myhandler.koopa1.State.GetType() == typeof(KoopaDeadState))
             {
                 return;
             }
-            k.Location = new Vector2(k.Location.X, gameObject2.Location.Y - gameObject2.Destination.Height);
-            if (k.Velocity.Y < 0)
+            myhandler.koopa1.Location = new Vector2(myhandler.koopa1.Location.X, myhandler.block.Location.Y - myhandler.block.Destination.Height);
+            if (myhandler.koopa1.Velocity.Y < 0)
             {
-                k.Velocity = new Vector2(k.Velocity.X, 0);
+                myhandler.koopa1.Velocity = new Vector2(myhandler.koopa1.Velocity.X, 0);
             }
         }
     }

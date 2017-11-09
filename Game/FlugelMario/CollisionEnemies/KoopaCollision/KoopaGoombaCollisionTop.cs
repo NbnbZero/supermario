@@ -10,23 +10,23 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class KoopaGoombaCollisionTop : ICollisionCommand
+    class KoopaGoombaCollisionTop : ICommand
     {
-        public KoopaGoombaCollisionTop()
+        CollisionHandlerKoopa myhandler;
+        public KoopaGoombaCollisionTop(CollisionHandlerKoopa handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            Koopa koopa = (Koopa)gameObject1;
-            if (koopa.State.GetType() == typeof(KoopaDeadState))
+            if (myhandler.koopa1.State.GetType() == typeof(KoopaDeadState))
             {
                 return;
             }
-            IEnemy goomba = (IEnemy)gameObject2;
-            if (!goomba.Alive)
+
+            if (!myhandler.goomba1.Alive)
                 return;
-            koopa.Location = new Vector2(koopa.Location.X, gameObject2.Location.Y - koopa.Destination.Height);
+            myhandler.koopa1.Location = new Vector2(myhandler.koopa1.Location.X, myhandler.goomba1.Location.Y - myhandler.koopa1.Destination.Height);
         }
     }
 }

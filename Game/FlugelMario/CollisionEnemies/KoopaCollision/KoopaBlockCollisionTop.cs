@@ -11,29 +11,29 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class KoopaBlockCollisionTop : ICollisionCommand
+    class KoopaBlockCollisionTop : ICommand
     {
-        public KoopaBlockCollisionTop()
+        CollisionHandlerKoopa myhandler;
+        public KoopaBlockCollisionTop(CollisionHandlerKoopa handler)
         {
-
+            myhandler = handler;
         }
 
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            if (gameObject2.GetType() == typeof(HiddenBlock))
+            if (myhandler.block.GetType() == typeof(HiddenBlock))
             {
-                HiddenBlock hiddenBlock = (HiddenBlock)gameObject2;
+                HiddenBlock hiddenBlock = (HiddenBlock)myhandler.block;
                 if (!hiddenBlock.Used) return;
             }
 
-            Koopa koopa = (Koopa)gameObject1;
-            if (koopa.State.GetType() == typeof(KoopaDeadState))
+            if (myhandler.koopa1.State.GetType() == typeof(KoopaDeadState))
             {
                 return;
             }
-            koopa.Location = new Vector2(koopa.Location.X, gameObject2.Location.Y - koopa.Destination.Height);
-        
-            koopa.Velocity = new Vector2(koopa.Velocity.X, 0);
+            myhandler.koopa1.Location = new Vector2(myhandler.koopa1.Location.X, myhandler.block.Location.Y - myhandler.koopa1.Destination.Height);
+
+            myhandler.koopa1.Velocity = new Vector2(myhandler.koopa1.Velocity.X, 0);
         }
     }
 }

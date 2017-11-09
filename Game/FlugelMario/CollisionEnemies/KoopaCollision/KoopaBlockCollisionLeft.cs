@@ -11,32 +11,32 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class KoopaBlockCollisionLeft : ICollisionCommand
+    class KoopaBlockCollisionLeft : ICommand
     {
-        public KoopaBlockCollisionLeft()
+        CollisionHandlerKoopa myhandler;
+        public KoopaBlockCollisionLeft(CollisionHandlerKoopa handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
-            Koopa koopa = (Koopa)gameObject1;
-            if(koopa.State.GetType() == typeof(KoopaDeadState))
+            if(myhandler.koopa1.State.GetType() == typeof(KoopaDeadState))
             {
                 return;
             }
-            int koopaPreY = (int)(koopa.Location.Y - (koopa.Velocity.Y - 1));
-            if (koopaPreY + koopa.Destination.Height <= gameObject2.Location.Y)
+            int koopaPreY = (int)(myhandler.koopa1.Location.Y - (myhandler.koopa1.Velocity.Y - 1));
+            if (koopaPreY + myhandler.koopa1.Destination.Height <= myhandler.block.Location.Y)
             {
                 return;
             }
 
-            else if (koopaPreY > gameObject2.Location.Y + gameObject2.Destination.Height)
+            else if (koopaPreY > myhandler.block.Location.Y + myhandler.block.Destination.Height)
             {
                 return;
             }
-            if (koopa.Velocity.X > 0)
+            if (myhandler.koopa1.Velocity.X > 0)
             {
-                koopa.ChangeDirection();
+                myhandler.koopa1.ChangeDirection();
             }
         }
     }

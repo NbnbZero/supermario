@@ -10,31 +10,32 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class KoopaGoombaCollisionRight : ICollisionCommand
+    class KoopaGoombaCollisionRight : ICommand
     {
-        public KoopaGoombaCollisionRight()
+        CollisionHandlerKoopa myhandler;
+        public KoopaGoombaCollisionRight(CollisionHandlerKoopa handler)
+        {
+            myhandler = handler;
+        }
+        public void Execute()
         {
 
-        }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
-        {
-            Koopa koopa = (Koopa)gameObject1;
-            if (koopa.State.GetType() == typeof(KoopaDeadState))
+            if (myhandler.koopa1.State.GetType() == typeof(KoopaDeadState))
             {
                 return;
             }
-            Goomba goomba = (Goomba)gameObject2;
-            if (!goomba.Alive)
+
+            if (!myhandler.goomba1.Alive)
                 return;
-            koopa.Location = new Vector2(koopa.Location.X + 1, koopa.Location.Y);
-            if (koopa.State.GetType() == typeof(KoopaDeadState) &&
-                koopa.Velocity.X != 0)
+            myhandler.koopa1.Location = new Vector2(myhandler.koopa1.Location.X + 1, myhandler.koopa1.Location.Y);
+            if (myhandler.koopa1.State.GetType() == typeof(KoopaDeadState) &&
+                myhandler.koopa1.Velocity.X != 0)
             {
-                goomba.Terminate("RIGHT");
+                myhandler.goomba1.Terminate("RIGHT");
                 return;
             }
-            koopa.ChangeDirection();
-            goomba.ChangeDirection();
+            myhandler.koopa1.ChangeDirection();
+            myhandler.goomba1.ChangeDirection();
         }
     }
 }
