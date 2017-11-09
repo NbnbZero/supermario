@@ -166,6 +166,7 @@ namespace SuperMario
                 switch (pipe.PipeType)
                 {
                     case PipeType.Pipe:
+                        System.Console.WriteLine("create pipe");
                         GameObjectManager.objectList.Add(new Pipe(new Vector2(pipe.xLocation, pipe.yLocation)));
                         break;
                 }

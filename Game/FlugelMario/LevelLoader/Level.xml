@@ -100,7 +100,7 @@
     <yLocation>200</yLocation>
   </ItemData>
   <PipeData>
-    <itemType>Pipe</itemType>
+    <PipeType>Pipe</PipeType>
     <xLocation>800</xLocation>
     <yLocation>300</yLocation>
   </PipeData>

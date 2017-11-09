@@ -61,7 +61,6 @@ namespace SuperMario.GameObjects
         {
             foreach (IGameObject obj in itemList)
             {
-
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in blockList)
