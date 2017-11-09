@@ -12,6 +12,7 @@ namespace SuperMario.SpriteFactories
     public class BackgroundSpriteFactory
     {
         private Texture2D blackSheet;
+        private Texture2D backgroundSheet;
 
         private static BackgroundSpriteFactory instance = new BackgroundSpriteFactory();
 
@@ -31,11 +32,16 @@ namespace SuperMario.SpriteFactories
         public void LoadAllTextures(ContentManager content)
         {
             blackSheet = content.Load<Texture2D>("blackBackground");
+            backgroundSheet = content.Load<Texture2D>("Background");
         }
       
         public ISprite CreateBlackBackgroundSprite()
         {
             return new BlackBackgroundSprite(blackSheet);
+        }
+        public ISprite CreateBackgroundSprite()
+        {
+            return new BlackBackgroundSprite(backgroundSheet);
         }
     }
 }

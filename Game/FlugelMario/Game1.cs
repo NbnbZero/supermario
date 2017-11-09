@@ -19,11 +19,9 @@ namespace SuperMario
     {
         SpriteBatch spriteBatch;
         KeyboardControls keyboard;
-        Texture2D background;
-        Rectangle mainFrame;
         Camera camera;
         MarioObject Mario;
-        Vector2 parallax = new Vector2(1f);
+        Vector2 mario_parallax = new Vector2(1f);
         GameObjectManager objectManager;
 
         public Game1()
@@ -40,15 +38,6 @@ namespace SuperMario
         /// </summary>
         protected override void Initialize()
         {
-            //  gamePads = new List<GamepadControls>();
-
-            //Sprites = new List<Sprite>();
-
-            //Paused = false;
-
-            //camera = new Camera(GraphicsDevice.Viewport);
-            //camera.Limits= new Rectangle(0,0,1300,400);
-
             base.Initialize();
         }
 
@@ -62,42 +51,27 @@ namespace SuperMario
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             #region Load Textures
-
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             BlockSpriteFactory.Instance.LoadAllTextures(Content);
             FireballSpriteFactory.Instance.LoadAllTextures(Content);
-
+            BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
             Vector2 location = new Vector2(200, 200);
             Mario = new MarioObject(location);
 
             objectManager = new GameObjectManager(Mario);
-            camera = new Camera();
             
             LevelLoader loader = new LevelLoader(objectManager);
             loader.Load();
 
-            background = Content.Load<Texture2D>("background");
-            mainFrame = new Rectangle(0, 0, 1800, GraphicsDevice.Viewport.Height);
-            
+            camera = new Camera(GraphicsDevice.Viewport);
+            camera.Limits = new Rectangle(0, 0, 1300, 400);
 
             keyboard = new KeyboardControls(this, Mario);
 
-         /*  #region Instatntiation of Sprites
-            
-
-            spriteBatch.Begin(SpriteSortMode.FrontToBack);
-
-            marioState.StateSprite.Draw(spriteBatch, marioState.Location);
-
-            spriteBatch.End();
-
-            #endregion
-
-           */
         }
 
         /// <summary>
@@ -117,25 +91,10 @@ namespace SuperMario
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
+
             objectManager.Update();
-            //if (!Paused)
-           // {
-               // CheckCollision();
 
-                //marioState.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
-
-             //   foreach (Sprite sprite in Sprites)
-              //  {
-              //      sprite.Update(GraphicsDevice.Viewport, marioState.StateSprite.Location);
-               // }
-           // }
-            /*if ((MarioAttributes.MarioLife[0] != 0) && (marioState.MarioShape == Shape.Dead))
-            {
-                BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
-                sprites.Clear();
-                LoadContent();
-            }*/
-           // camera.Update(camera, marioState.Location);
+            camera.Update(Mario);
 
             base.Update(gameTime);
         }
@@ -147,24 +106,11 @@ namespace SuperMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
 
-          //  #region SpriteBatch Drawing
-
-             spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null, null, camera.GetViewMatrix(parallax));
-
-            //  spriteBatch.Draw(background, mainFrame, Color.White);
-
-            /*   foreach (Sprite sprite in Sprites)
-               {
-                   sprite.Draw(spriteBatch, sprite.Location);
-               }*/
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetViewMatrix(mario_parallax));
             objectManager.Draw(spriteBatch);
-            //  marioState.StateSprite.Draw(spriteBatch, marioState.Location);
-
             spriteBatch.End();
-         //   #endregion
-            
+
             base.Draw(gameTime);
         }
 
