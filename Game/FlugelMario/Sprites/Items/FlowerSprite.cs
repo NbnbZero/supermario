@@ -8,11 +8,8 @@ namespace SuperMario.Sprites.Items
     class FlowerSprite : ISprite
     {
         public Texture2D Texture { get; set; }
-        private int currentSpriteFrame;
         private int totalSpriteFrame;
-        private int spriteFrameIncrement;
         private int currentDrawingFrame;
-        private int drawingFrameDelay;
         private int width;
         private int height;
         private int counter;
@@ -26,9 +23,6 @@ namespace SuperMario.Sprites.Items
             totalSpriteFrame = 4;
             counter = 0;
             currentDrawingFrame = 0;
-            currentSpriteFrame = 0;
-            drawingFrameDelay = 20;
-            spriteFrameIncrement = -1;
         }
 
         public void Update()

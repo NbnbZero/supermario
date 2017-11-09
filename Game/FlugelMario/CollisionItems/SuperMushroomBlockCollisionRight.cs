@@ -1,4 +1,5 @@
-﻿using SuperMario;
+﻿using Microsoft.Xna.Framework;
+using SuperMario.GameObjects;
 using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,16 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class SuperMushroomBlockCollisionRight:ICollisionCommand
+    class SuperMushroomBlockCollisionRight:ICommand
     {
-        public SuperMushroomBlockCollisionRight()
+        CollisionHandlerSuperMushroom myhandler;
+        public SuperMushroomBlockCollisionRight(CollisionHandlerSuperMushroom handler)
         {
-
+            myhandler = handler;
         }
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
+            /*
             SuperMushroom superMushroom = (SuperMushroom)gameObject1;
             if (superMushroom.IsPreparing)
             {
@@ -32,6 +35,23 @@ namespace SuperMario
                 return;
             }
             superMushroom.ChangeDirection();
+            */
+            if (myhandler.superMushroom1.IsPreparing)
+            {
+                return;
+            }
+            int superMushroomPreY = (int)(myhandler.superMushroom1.Destination.Y - (myhandler.superMushroom1.Velocity.Y - 1));
+            if (superMushroomPreY + myhandler.superMushroom1.Destination.Height <= myhandler.block.Destination.Y)
+            {
+                return;
+            }
+
+            else if (superMushroomPreY > myhandler.block.Destination.Y + myhandler.block.Destination.Height)
+            {
+                return;
+            }
+            myhandler.superMushroom1.ChangeDirection();
+
         }
     }
 }
