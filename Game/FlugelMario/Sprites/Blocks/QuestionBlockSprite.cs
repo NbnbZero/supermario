@@ -28,8 +28,7 @@ namespace SuperMario.Sprites.Blocks
             column = BlockSpriteFactory.Instance.QuestionSpriteSheetColum;
             totalFrame = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
             currentFrame = 0;
-            counter = 0;
-            spriteFrameIncrement = -1;            
+            counter = 0;         
         }
 
         public void Update()
