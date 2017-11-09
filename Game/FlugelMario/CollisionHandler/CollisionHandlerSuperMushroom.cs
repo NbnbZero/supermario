@@ -13,8 +13,8 @@ namespace SuperMario
 {
     public class CollisionHandlerSuperMushroom
     {
-        public SuperMushroom superMushroom1{ get; set; }
-        public IBlock block { get; set; }
+        public SuperMushroom superMushroom1{ get; private set; }
+        public IBlock block { get; private set; }
 
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
@@ -24,9 +24,18 @@ namespace SuperMario
             commandDict = new Dictionary<Type, Dictionary<CollisionDirection, ICommand>>();
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
             commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new SuperMushroomBlockCollisionLeft(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new SuperMushroomBlockCollisionLeft(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new SuperMushroomBlockCollisionLeft(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new SuperMushroomBlockCollisionLeft(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new SuperMushroomBlockCollisionRight(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new SuperMushroomBlockCollisionTop(this));
+        }
+
+        public void HandleBlockCollision(IBlock Block)
+        {
+            block = Block;
+            CollisionDirection Direction = DetectCollisionDirection(superMushroom1.Destination, block.Destination);
+
+            if (commandDict[typeof(IBlock)].ContainsKey(Direction))
+                commandDict[typeof(IBlock)][Direction].Execute();
+
         }
 
     }

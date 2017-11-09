@@ -46,49 +46,20 @@
   <ItemGroup>
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
     <Compile Include="Animation\CoinCollectedFromBlockAnimation.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaBlockCollisionBottom.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaBlockCollisionLeft.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaBlockCollisionRight.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaBlockCollisionTop.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaGoombaCollisionBottom.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaGoombaCollisionLeft.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaGoombaCollisionRight.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaGoombaCollisionTop.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaKoopaCollisionBottom.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaKoopaCollisionLeft.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaKoopaCollisionRight.cs" />
-    <Compile Include="CollisionEnemies\GoombaCollision\GoombaKoopaCollisionTop.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaBlockCollisionBottom.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaBlockCollisionLeft.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaBlockCollisionRight.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaBlockCollisionTop.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaGoombaCollisionBottom.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaGoombaCollisionLeft.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaGoombaCollisionRight.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaGoombaCollisionTop.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaKoopaCollisionBottom.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaKoopaCollisionLeft.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaKoopaCollisionRight.cs" />
-    <Compile Include="CollisionEnemies\KoopaCollision\KoopaKoopaCollisionTop.cs" />
+    <Compile Include="CollisionEnemies\EnemyBlockTop.cs" />
+    <Compile Include="CollisionEnemies\EnemyBlockTwoSide.cs" />
+    <Compile Include="CollisionEnemies\EnemyEnemyTop.cs" />
+    <Compile Include="CollisionEnemies\EnemyEnemyTwoSide.cs" />
+    <Compile Include="CollisionEnemies\EnemyPipeLeftRight.cs" />
+    <Compile Include="CollisionEnemies\EnemyPipeTop.cs" />
     <Compile Include="CollisionHandler\CollisionDetector.cs" />
-    <Compile Include="CollisionHandler\CollisionHandlerKoopa.cs" />
-    <Compile Include="CollisionHandler\CollisionHandlerGoomba.cs" />
+    <Compile Include="CollisionHandler\CollisionHandlerEnemy.cs" />
     <Compile Include="CollisionHandler\CollisionHandlerMario.cs" />
-    <Compile Include="CollisionHandler\CollisionHandlerSuperMushroom.cs" />
-    <Compile Include="CollisionItems\StarBlockCollisionBottom.cs" />
-    <Compile Include="CollisionItems\StarBlockCollisionLeft.cs" />
-    <Compile Include="CollisionItems\StarBlockCollisionRight.cs" />
-    <Compile Include="CollisionItems\StarBlockCollisionTop.cs" />
-    <Compile Include="CollisionItems\SuperMushroomBlockCollisionLeft.cs" />
-    <Compile Include="CollisionItems\SuperMushroomBlockCollisionRight.cs" />
-    <Compile Include="CollisionItems\SuperMushroomBlockCollisionTop.cs" />
-    <Compile Include="CollisionItems\UpMushroomBlockCollisionBottom.cs" />
-    <Compile Include="CollisionItems\UpMushroomBlockCollisionLeft.cs" />
-    <Compile Include="CollisionItems\UpMushroomBlockCollisionRight.cs" />
-    <Compile Include="CollisionItems\UpMushroomBlockCollisionTop.cs" />
+    <Compile Include="CollisionHandler\HandleAllCollison.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockTop.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockBottom.cs" />
-    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTowSide.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTop.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTwoSideBottom.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioPipeTop.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioPipeTwoSide.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionBottom.cs" />
@@ -145,6 +116,7 @@
     <Compile Include="GameObjects\MarioObject.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />
     <Compile Include="Interfaces\IAnimationInGame.cs" />
+    <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Interfaces\IPipe.cs" />
     <Compile Include="SpriteFactories\PipeSpriteFactory.cs" />
     <Compile Include="Sprites\Background\backgroundSprite.cs" />
@@ -335,7 +307,9 @@
     <None Include="app.manifest" />
     <None Include="tsconfig1.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CollisionItems\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

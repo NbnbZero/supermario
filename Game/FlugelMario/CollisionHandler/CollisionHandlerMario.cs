@@ -10,13 +10,12 @@ using static SuperMario.CollisionDetector;
 
 namespace SuperMario
 {
-    public class CollisionHandlerMario
+    public class CollisionHandlerMario: ICollisionHandler
     {
         public IMario mario { get; private set; }
         public IBlock block { get; private set; }
         public IPipe pipe { get; private set; }
-
-        private IGameObject Obj { get; set; }
+        public IEnemy enemy { get; private set; }
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
         public CollisionHandlerMario(IMario Mario)
@@ -26,16 +25,31 @@ namespace SuperMario
 
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
             commandDict.Add(typeof(IPipe), new Dictionary<CollisionDirection, ICommand>());
+            commandDict.Add(typeof(IEnemy), new Dictionary<CollisionDirection, ICommand>());
 
             commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new MarioBlockTwoSide(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new MarioBlockTwoSide(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new MarioBlockTop(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new MarioBlockBottom(this));
 
+            commandDict[typeof(IEnemy)].Add(CollisionDirection.Left, new MarioEnemyTwoSideBottom(this));
+            commandDict[typeof(IEnemy)].Add(CollisionDirection.Right, new MarioEnemyTwoSideBottom(this));
+            commandDict[typeof(IEnemy)].Add(CollisionDirection.Top, new MarioEnemyTop(this));
+            commandDict[typeof(IEnemy)].Add(CollisionDirection.Bottom, new MarioEnemyTwoSideBottom(this));
+
             commandDict[typeof(IPipe)].Add(CollisionDirection.Left, new MarioPipeTwoSide(this));
             commandDict[typeof(IPipe)].Add(CollisionDirection.Right, new MarioPipeTwoSide(this));
             commandDict[typeof(IPipe)].Add(CollisionDirection.Top, new MarioPipeTop(this));
 
+
+        }
+        
+        public void HandleEnemyCollision(IEnemy Enemy)
+        {
+            enemy = Enemy;
+            CollisionDirection Direction = DetectCollisionDirection(mario.Destination, enemy.Destination);
+            if (commandDict[typeof(IEnemy)].ContainsKey(Direction))
+                commandDict[typeof(IEnemy)][Direction].Execute();
 
         }
 

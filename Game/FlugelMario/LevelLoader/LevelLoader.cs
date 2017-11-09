@@ -56,6 +56,7 @@ namespace SuperMario
             {
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 212)));
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 205)));
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 195)));
             }
                     
                 foreach (BlockData block in myObjects)
