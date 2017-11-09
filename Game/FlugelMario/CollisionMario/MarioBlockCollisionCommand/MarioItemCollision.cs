@@ -28,7 +28,6 @@ namespace SuperMario.Commands
                 myhandler.item.Collect();
                 if (myhandler.item.GetType() == typeof(FireFlower))
                 {
-                    FireFlower flower = (FireFlower)myhandler.item;
                     switch (myhandler.mario.State.MarioShape)
                     {
                         case Shape.Small:
@@ -48,7 +47,6 @@ namespace SuperMario.Commands
                 }
                 else if (myhandler.item.GetType() == typeof(SuperMushroom))
                 {
-                    SuperMushroom Smush = (SuperMushroom)myhandler.item;
                     switch (myhandler.mario.State.MarioShape)
                     {
                         case Shape.Small:
@@ -60,13 +58,14 @@ namespace SuperMario.Commands
                             break;
                     }
                 }
+
                 else if (myhandler.item.GetType() == typeof(UpMushroom))
                 {
-                    UpMushroom Umush = (UpMushroom)myhandler.item;
                 }
+
                 else if (myhandler.item.GetType() == typeof(Star))
                 {
-                    Star star = (Star)myhandler.item;
+
                     if (myhandler.mario.State.MarioShape != Shape.StarSmall &&
                     myhandler.mario.State.MarioShape != Shape.StarBig)
                     {
@@ -76,7 +75,6 @@ namespace SuperMario.Commands
                 }
                 else if (myhandler.item.GetType() == typeof(Coin))
                 {
-                    Coin coin = (Coin)myhandler.item;
                 }
             }
         }
