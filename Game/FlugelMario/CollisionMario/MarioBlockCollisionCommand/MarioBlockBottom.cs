@@ -3,10 +3,10 @@ using SuperMario.Interfaces;
 
 namespace SuperMario.Commands
 {
-    class BlockMarioBottomCommand : ICommand
+    class MarioBlockBottom : ICommand
     {
         CollisionHandler myhandler;
-        public BlockMarioBottomCommand(CollisionHandler handler)
+        public MarioBlockBottom(CollisionHandler handler)
         {
             myhandler = handler;
         }
