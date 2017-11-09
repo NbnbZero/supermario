@@ -83,8 +83,9 @@
     <Compile Include="CollisionItems\UpMushroomBlockCollisionLeft.cs" />
     <Compile Include="CollisionItems\UpMushroomBlockCollisionRight.cs" />
     <Compile Include="CollisionItems\UpMushroomBlockCollisionTop.cs" />
-    <Compile Include="CollisionMario\MarioBlockCollisionCommand\BlockMarioTopCollisionCommand.cs" />
-    <Compile Include="CollisionMario\MarioBlockCollisionCommand\BlockMarioBottomCommand.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockTop.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockBottom.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTowSide.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionBottom.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionLeft.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionRight.cs" />
@@ -117,7 +118,7 @@
     <Compile Include="CollisionMario\OldCommand\MarioUpMushroomCollisionLeft.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioUpMushroomCollisionRight.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioUpMushroomCollisionTop.cs" />
-    <Compile Include="CollisionMario\MarioBlockCollisionCommand\BlockStopMarioRunningCommand.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockTwoSide.cs" />
     <Compile Include="Enums\AnimationState.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Game Controllers\InputState.cs" />

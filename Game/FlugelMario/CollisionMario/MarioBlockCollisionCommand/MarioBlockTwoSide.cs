@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework;
 using SuperMario.States.MarioStates;
 namespace SuperMario.Commands
 {
-    public class BlockStopMarioRunningCommand:ICommand
+    public class MarioBlockTwoSide : ICommand
     {
         
         CollisionHandler myhandler;
-        public BlockStopMarioRunningCommand(CollisionHandler handler)
+        public MarioBlockTwoSide(CollisionHandler handler)
         {
             myhandler = handler;
         }
