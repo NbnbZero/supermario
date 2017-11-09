@@ -12,21 +12,20 @@ namespace SuperMario.Sprites.Blocks
         private int width;
         private int row;
         private int column;
-        private int totalFrame;
         public RockBlockSprite(Texture2D texture) 
         {
+            Texture = texture;
             width = BlockSpriteFactory.Instance.RockBlockWidth;
             height = BlockSpriteFactory.Instance.RockBlockHeight;
             row = BlockSpriteFactory.Instance.RockSpriteSheetRows;
-            height = BlockSpriteFactory.Instance.RockSpriteSheetColum;
-            totalFrame = BlockSpriteFactory.Instance.RockBlockAnimeTotalFrame;
+            column = BlockSpriteFactory.Instance.RockSpriteSheetColum;
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle sourceRectangle = new Rectangle(width* row, height* column, width, height);
             Rectangle destinationRectangle= MakeDestinationRectangle(location);
 
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
         public  void Update()

@@ -6,107 +6,121 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.GameObjects;
+using SuperMario.SpriteFactories;
+using SuperMario.Interfaces;
 
 namespace SuperMario
 {
     public class Camera
     {
-        public Camera(Viewport viewport)
+        public Camera()
         {
-            _viewport = viewport;
-            Origin = new Vector2(_viewport.Width / 2.0f, _viewport.Height / 2.0f);
-            Zoom = 1.0f;
+            Zoom = 1;
+            Position = Vector2.Zero;
+            Rotation = 0;
+            Origin = Vector2.Zero;
         }
-
-        public Vector2 Position
-        {
-            get
-            {
-                return _position;
-            }
-            set
-            {
-                _position = value;
-
-                // If there's a limit set and there's no zoom or rotation clamp the position
-                if (Limits != null && Zoom == 1.0f && Rotation == 0.0f)
-                {
-                    _position.X = MathHelper.Clamp(_position.X, Limits.Value.X, Limits.Value.X + Limits.Value.Width - _viewport.Width);
-                    _position.Y = MathHelper.Clamp(_position.Y, Limits.Value.Y, Limits.Value.Y + Limits.Value.Height - _viewport.Height);
-                }
-            }
-        }
-
-        public Vector2 Origin { get; set; }
-
         public float Zoom { get; set; }
-
+        public static Vector2 Position { get; set; }
+        public static List<int> LimitationList { get; } = new List<int>();
         public float Rotation { get; set; }
+        public Vector2 Origin { get; set; }
+        private static int centerOfScreen = 240;
+        private static int centerOfCamera = 240;
+        private static int CameraXPos = 0;
+        private static int scale = 1;
 
-
-        public Rectangle? Limits
+        public static int CenterOfScreen
         {
             get
             {
-                return _limits;
+                return centerOfScreen;
             }
             set
             {
-                if (value != null)
-                {
-                    // Assign limit but make sure it's always bigger than the viewport
-                    _limits = new Rectangle
-                    {
-                        X = value.Value.X,
-                        Y = value.Value.Y,
-                        Width = System.Math.Max(_viewport.Width, value.Value.Width),
-                        Height = System.Math.Max(_viewport.Height, value.Value.Height)
-                    };
-
-                    // Validate camera position with new limit
-                    Position = Position;
-                }
-                else
-                {
-                    _limits = null;
-                }
+                centerOfScreen = value;
             }
         }
 
-        public Matrix GetViewMatrix(Vector2 parallax)
+        public static int CenterOfCamera
         {
-            return Matrix.CreateTranslation(new Vector3(-Position * parallax, 0.0f)) *
-                   Matrix.CreateTranslation(new Vector3(-Origin, 0.0f)) *
-                   Matrix.CreateRotationZ(Rotation) *
-                   Matrix.CreateScale(Zoom, Zoom, 1.0f) *
-                   Matrix.CreateTranslation(new Vector3(Origin, 0.0f));
-        }
-
-        public void LookAt(Vector2 position)
-        {
-            Position = position - new Vector2(_viewport.Width / 2.0f, _viewport.Height / 2.0f);
-        }
-
-        public void Move(Vector2 displacement, bool respectRotation = false)
-        {
-            if (respectRotation)
+            get
             {
-                displacement = Vector2.Transform(displacement, Matrix.CreateRotationZ(-Rotation));
+                return centerOfCamera;
             }
-
-            Position += displacement;
-        }
-
-        public void Update(MarioObject mario)
-        {
-            if (mario.Location.X > _viewport.Width /2)
+            set
             {
-                LookAt(mario.Location);
+                centerOfCamera = value;
             }
         }
 
-        private readonly Viewport _viewport;
-        private Vector2 _position;
-        private Rectangle? _limits;
+        public static int CameraX
+        {
+            get
+            {
+                return CameraXPos;
+            }
+            set
+            {
+                CameraXPos = value;
+            }
+        }
+
+        public static void Move(IMario mario)
+        {
+            int fullWidthOfScreen = 2 * CenterOfScreen;
+            int x = (int)-Position.X;
+
+            foreach (int limitation in LimitationList)
+            {
+                if (x >= limitation - fullWidthOfScreen && x < limitation)
+                {
+                    Position = new Vector2(-(limitation - fullWidthOfScreen), 0);
+                    return;
+                }
+
+            }
+
+            int halfOfMarioWidth = MarioSpriteFactory.Instance.NormalMarioWidth / 2;
+
+            if (((mario.Destination.X + halfOfMarioWidth) > centerOfCamera) && mario.Velocity.X >= 0)
+            {
+                Vector2 tempNewPos = new Vector2(-(mario.Location.X + halfOfMarioWidth - centerOfScreen), 0);
+                if (-Position.X > -tempNewPos.X)
+                {
+                    return;
+                }
+                Position = new Vector2(-(mario.Location.X + halfOfMarioWidth - centerOfScreen), 0);
+                CameraXPos = (int)-Position.X;
+                centerOfCamera = CameraXPos + centerOfScreen;
+            }
+        }
+
+        public static void ResetCamera()
+        {
+            CameraXPos = 0;
+            centerOfCamera = centerOfScreen;
+            Position = Vector2.Zero;
+        }
+
+        public static void SetCamera(Vector2 location)
+        {
+            CameraXPos = (int)location.X;
+            centerOfCamera = (int)location.X + centerOfScreen;
+            Position = new Vector2(-location.X, location.Y);
+        }
+
+        public Matrix GetTransform
+        {
+            get
+            {
+                var translationMatrix = Matrix.CreateTranslation(new Vector3(Position.X, Position.Y, 0));
+                var rotationMatrix = Matrix.CreateRotationZ(Rotation);
+                var scaleMatrix = Matrix.CreateScale(new Vector3(Zoom, Zoom, scale));
+                var originMatrix = Matrix.CreateTranslation(new Vector3(Origin.X, Origin.Y, 0));
+
+                return translationMatrix * rotationMatrix * scaleMatrix * originMatrix;
+            }
+        }
     }
 }

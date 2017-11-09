@@ -16,7 +16,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         private MarioObject mario;
-        private IBlock block;
+
         public GameObjectManager(MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -50,14 +50,20 @@ namespace SuperMario.GameObjects
             {               
                 obj.Update();
             }
+            foreach (IGameObject obj in objectList)
+            {
+                obj.Update();
+            }
+
             mario.Update();
+
+            Camera.Move(mario);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (IGameObject obj in itemList)
             {
-
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in blockList)

@@ -10,8 +10,6 @@ namespace SuperMario.Sprites.Blocks
         public Texture2D Texture { get; set; }
         private int height;
         private int width;
-        private int row;
-        private int column;
         
         public HiddenBlockSprite(Texture2D texture)
         {

@@ -22,10 +22,10 @@ namespace SuperMario
             mario = Mario;
             commandDict = new Dictionary<Type, Dictionary<CollisionDirection, ICommand>>();
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new BlockStopMarioRunningCommand(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new BlockStopMarioRunningCommand(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new BlockMarioTopCollisionCommand(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new BlockMarioBottomCommand(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new MarioBlockTwoSide(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new MarioBlockTwoSide(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new MarioBlockTop(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new MarioBlockBottom(this));
 
             
         }

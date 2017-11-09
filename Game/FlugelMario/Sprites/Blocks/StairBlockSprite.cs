@@ -30,7 +30,6 @@ namespace SuperMario.Sprites.StairBlocks
         }
         public void Update()
         {
-            //Animate();
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
