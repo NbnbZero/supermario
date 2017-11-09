@@ -1838,13 +1838,13 @@
   </EnemyData>
   <EnemyData>
     <enemyType>Koopa</enemyType>
-    <xLocation>450</xLocation>
-    <yLocation>377</yLocation>
+    <xLocation>300</xLocation>
+    <yLocation>100</yLocation>
   </EnemyData>
   <EnemyData>
     <enemyType>Goomba</enemyType>
-    <xLocation>500</xLocation>
-    <yLocation>385</yLocation>
+    <xLocation>270</xLocation>
+    <yLocation>100</yLocation>
   </EnemyData>
 
 

@@ -18,5 +18,6 @@ namespace SuperMario
 
         public static int collisionDisplacement { get; } = 3;
 
+        public static int marioBouncingSpeed { get; } = -2;
     }
 }

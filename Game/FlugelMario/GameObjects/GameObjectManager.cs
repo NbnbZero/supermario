@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SuperMario.Interfaces;
 using SuperMario;
 using Microsoft.Xna.Framework.Graphics;
+using static SuperMario.HandleAllCollison;
 
 namespace SuperMario.GameObjects
 {
@@ -24,19 +25,11 @@ namespace SuperMario.GameObjects
             enemyList = new List<IGameObject>();
             pipeList = new List<IGameObject>();
             mario = Mario;
-        }
-        
+        }        
 
         public void HandleCollisions()
         {
-            CollisionHandlerMario myhandler = new CollisionHandlerMario(mario);
-            foreach(IBlock block in blockList) {
-                myhandler.HandleBlockCollision(block);
-            }  
-            foreach(IPipe pipe in pipeList)
-            {
-                myhandler.HandlePipeCollision(pipe);
-            }
+            HandleAllCollisions(mario, blockList, enemyList, itemList,pipeList);
         }
 
         public void Update()
