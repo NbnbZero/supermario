@@ -23,7 +23,7 @@ namespace SuperMario.Sprites.Blocks
         }
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Rectangle sourceRectangle = new Rectangle(width, height * row, width, height);
+            Rectangle sourceRectangle = new Rectangle(width, height, width, height);
             Rectangle destinationRectangle= MakeDestinationRectangle(location);
 
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
