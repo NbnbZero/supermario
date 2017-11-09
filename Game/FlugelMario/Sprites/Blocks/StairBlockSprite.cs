@@ -23,7 +23,7 @@ namespace SuperMario.Sprites.StairBlocks
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            Rectangle sourceRectangle = new Rectangle(0, 0, width, height);
             Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
             spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
