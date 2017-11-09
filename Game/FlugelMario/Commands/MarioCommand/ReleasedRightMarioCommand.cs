@@ -20,7 +20,6 @@ namespace SuperMario.Commands.ControllerCommand
 
             if (mario.State.MarioPosture == Posture.Running)
             {
-                System.Console.WriteLine("paole");
                 mario.State.RunLeft();
             }
         }

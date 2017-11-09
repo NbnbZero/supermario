@@ -12,8 +12,7 @@ namespace SuperMario.SpriteFactories
     public class PipeSpriteFactory
     {
         public static int PipeSpriteSheetRows { get; } = 1;
-        public static int PipeSpriteColumn { get; } = 1;
-        public static int PipeSpriteRow { get; } = 0;
+        public static int PipeSpriteColumn { get; } = 4;
 
         private Texture2D PipeSheet;
         private Texture2D pipeSheet2;

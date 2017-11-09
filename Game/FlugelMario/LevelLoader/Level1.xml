@@ -16,6 +16,30 @@
     <color>Normal</color>
   </BlockData>
 
+  <BlockData>
+    <State>Question</State>
+    <itemType>Null</itemType>
+    <xLocation>300</xLocation>
+    <yLocation>196</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Question</State>
+    <itemType>Null</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>196</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <PipeData>
+    <PipeType>Pipe</PipeType>
+    <xLocation>100</xLocation>
+    <yLocation>176</yLocation>
+    <color>Normal</color>
+  </PipeData>
+  
+
   <!--secret pipes-->
 
   <BlockData>
