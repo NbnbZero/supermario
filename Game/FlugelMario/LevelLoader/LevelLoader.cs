@@ -52,17 +52,12 @@ namespace SuperMario
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
-
-            for (int i = 10; i < 500; i=i+16)
+            for (int i = 0; i < 1094; i += 16)
             {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 212)));
             }
-            for (int i = 550; i < 1500; i = i + 16)
-            {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
-            }
-
-            foreach (BlockData block in myObjects)
+                    
+                foreach (BlockData block in myObjects)
                 {                                           
                 //add Floor & Used block object
                 switch (block.State)
