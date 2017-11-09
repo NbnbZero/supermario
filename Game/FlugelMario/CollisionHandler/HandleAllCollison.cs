@@ -36,6 +36,10 @@ namespace SuperMario
             {
                 myhandler.HandleEnemyCollision(enemy);
             }
+            foreach (IItem item in itemlist)
+            {
+                myhandler.HandleItemCollision(item);
+            }
 
         }
 
