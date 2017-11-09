@@ -129,7 +129,14 @@
     <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\StairBlock.cs" />
     <Compile Include="GameObjects\GameObjectManager.cs" />
-    <Compile Include="GameObjects\ItemGameObjects\Pipe.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\BigPipe.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\LPipe.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\LPipeBottom.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\LPipeBottomLeft.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\LPipeTop.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\LPipeTopLeft.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\MediumPipe.cs" />
+    <Compile Include="GameObjects\PipeGameObjects\Pipe.cs" />
     <Compile Include="GameObjects\MarioObject.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />
     <Compile Include="Interfaces\IAnimationInGame.cs" />

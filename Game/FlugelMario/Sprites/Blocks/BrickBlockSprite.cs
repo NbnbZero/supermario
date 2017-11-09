@@ -12,8 +12,6 @@ namespace SuperMario.Sprites.Blocks
         public Texture2D Texture { get; set; }
         private int height;
         private int width;
-        private int row;
-        private int column;
 
         public BrickBlockSprite(Texture2D texture)
         {
@@ -23,17 +21,6 @@ namespace SuperMario.Sprites.Blocks
             int row = BlockSpriteFactory.Instance.BrickSpriteSheetRows;
             int column = BlockSpriteFactory.Instance.BrickSpriteSheetColum;
         }
-
-        /*public BrickBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
-        {
-
-            TextureX = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.Y;
-            
-            TotalFrames = BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame;
-
-            //SetItem(item);
-        }*/
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {            
@@ -51,15 +38,5 @@ namespace SuperMario.Sprites.Blocks
         {
             return new Rectangle((int)location.X, (int)location.Y, width, height);
         }
-
-        /*public override void RespondToCollision(CollisionDirection direction)
-        {
-            if (direction == CollisionDirection.Bottom)
-            {
-                BumpUp();
-                //Animate();
-                GetItem().Reveal();
-            }
-        }*/
     }
 }

@@ -54,7 +54,10 @@ namespace SuperMario.GameObjects
             {
                 obj.Update();
             }
+
             mario.Update();
+
+            Camera.Move(mario);
         }
 
         public void Draw(SpriteBatch spriteBatch)

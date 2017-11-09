@@ -18,20 +18,7 @@ namespace SuperMario.Sprites.Blocks
         private int currentFrame;
         private int totalFrame;
         private int counter;
-        private int spriteFrameIncrement;
-        /*public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
-        {
-            Width = BlockSpriteFactory.Instance.QuestionBlockWidth;
-            Height = BlockSpriteFactory.Instance.QuestionBlockHeight;
 
-            TextureX = (int)BlockSpriteFactory.Instance.QuestionBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.QuestionBlockAnimation1.Y;
-
-            TotalFrames = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
-
-            SetItem(item);
-        }
-        */
         public QuestionBlockSprite(Texture2D texture)
         {
             Texture = texture;
@@ -44,18 +31,6 @@ namespace SuperMario.Sprites.Blocks
             counter = 0;
             spriteFrameIncrement = -1;            
         }
-        /*public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
-        {
-            Width = BlockSpriteFactory.Instance.QuestionBlockWidth;
-            Height = BlockSpriteFactory.Instance.QuestionBlockHeight;
-
-            TextureX = (int)BlockSpriteFactory.Instance.QuestionBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.QuestionBlockAnimation1.Y;
-
-            TotalFrames = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
-
-            SetItem(item);
-        }*/
 
         public void Update()
         {

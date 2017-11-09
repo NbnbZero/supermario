@@ -13,7 +13,8 @@ namespace SuperMario.GameObjects
             Coin,
             UpMushroom,
             Star,
-            Pipe
+            Pipe,
+            LPipe
         }
     }
 }
