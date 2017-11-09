@@ -12,6 +12,8 @@ namespace SuperMario.Sprites.Blocks
         public Texture2D Texture { get; set; }
         private int height;
         private int width;
+        private int row;
+        private int column;
 
         public BrickBlockSprite(Texture2D texture)
         {
@@ -24,7 +26,7 @@ namespace SuperMario.Sprites.Blocks
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {            
-            Rectangle sourceRectangle = new Rectangle(width,height,width,height);
+            Rectangle sourceRectangle = new Rectangle(width* row, height* column, width,height);
             Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);            

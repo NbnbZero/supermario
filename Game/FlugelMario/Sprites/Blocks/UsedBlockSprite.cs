@@ -17,6 +17,8 @@ namespace SuperMario.Sprites.Blocks
             Texture = texture;
             width = BlockSpriteFactory.Instance.UsedBlockWidth;
             height = BlockSpriteFactory.Instance.UsedBlockHeight;
+            row = BlockSpriteFactory.Instance.UsedSpriteSheetRows;
+            column = BlockSpriteFactory.Instance.UsedSpriteSheetColum;
 
         }
         public void Update()
@@ -25,10 +27,10 @@ namespace SuperMario.Sprites.Blocks
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            width = BlockSpriteFactory.Instance.UsedBlockWidth;
-            height = BlockSpriteFactory.Instance.UsedBlockHeight;
-            row = BlockSpriteFactory.Instance.UsedSpriteSheetRows;
-            column = BlockSpriteFactory.Instance.UsedSpriteSheetColum;
+            Rectangle sourceRectangle = new Rectangle(width * row, height * column, width, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
