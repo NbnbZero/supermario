@@ -65,7 +65,7 @@ namespace SuperMario.GameObjects
             State.MarioShape = Shape.Small;
             State.MarioDirection = Direction.Right;
             Velocity = new Vector2(0, 0);
-            Acceleration = new Vector2(0, 0);
+            Acceleration = new Vector2(0, GameData.Gravity);
             IsProtected = false;
             maxSpeed = 4;
         }
