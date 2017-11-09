@@ -17,7 +17,7 @@ namespace SuperMario.Commands
             {
                 return;
             }
-            myhandler.enemy.Location = new Vector2(myhandler.enemy.Location.X, myhandler.enemy.Location.Y - myhandler.enemy.Destination.Height);
+            myhandler.enemy.Location = new Vector2(myhandler.enemy.Location.X, myhandler.block.Location.Y - myhandler.enemy.Destination.Height);
             
             myhandler.enemy.Velocity = new Vector2(myhandler.enemy.Velocity.X, 0);
         }
