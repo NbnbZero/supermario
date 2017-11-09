@@ -9,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    class GoombaBlockCollisionTop : ICollisionCommand
+    class GoombaBlockCollisionTop : ICommand
     {
-        public GoombaBlockCollisionTop()
+        CollisionHandlerGoomba myhandler;
+        public GoombaBlockCollisionTop(CollisionHandlerGoomba handler)
         {
-
+            myhandler = handler;
         }
 
-        public void Execute(IGameObject gameObject1, IGameObject gameObject2)
+        public void Execute()
         {
             
-            if (gameObject2.GetType() == typeof(HiddenBlock))
+            if (myhandler.block.GetType() == typeof(HiddenBlock))
             {
-                HiddenBlock hiddenBlock = (HiddenBlock)gameObject2;
+                HiddenBlock hiddenBlock = (HiddenBlock)myhandler.block;
                 if (!hiddenBlock.Used) return;
             }
 
-            Goomba goomba = (Goomba)gameObject1;
-            if (!goomba.Alive)
+            if (!myhandler.goomba1.Alive)
             {
                   return;
             }
-            goomba.Location = new Vector2(goomba.Location.X, gameObject2.Location.Y - goomba.Destination.Height);
-            goomba.Velocity = new Vector2(goomba.Velocity.X, 0);
+            myhandler.goomba1.Location = new Vector2(myhandler.goomba1.Location.X, myhandler.block.Location.Y - myhandler.goomba1.Destination.Height);
+            myhandler.goomba1.Velocity = new Vector2(myhandler.goomba1.Velocity.X, 0);
         }
     }
 }

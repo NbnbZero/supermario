@@ -15,6 +15,8 @@ namespace SuperMario
         public Goomba goomba2 { get; private set; }
         public Koopa koopa1 { get; private set; }
 
+        public IBlock block { get; private set; }
+
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
         public CollisionHandlerGoomba(Goomba goomba)
@@ -30,6 +32,10 @@ namespace SuperMario
             commandDict[typeof(Koopa)].Add(CollisionDirection.Right, new GoombaKoopaCollisionRight(this));
             commandDict[typeof(Koopa)].Add(CollisionDirection.Top, new GoombaKoopaCollisionTop(this));
             commandDict[typeof(Koopa)].Add(CollisionDirection.Bottom, new GoombaKoopaCollisionBottom(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new GoombaBlockCollisionLeft(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new GoombaBlockCollisionRight(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new GoombaBlockCollisionTop(this));
+            commandDict[typeof(IBlock)].Add(CollisionDirection.Bottom, new GoombaBlockCollisionBottom(this));
         }
 
         public void HandleGoombaCollision(Goomba goomba)
@@ -51,6 +57,17 @@ namespace SuperMario
             if (commandDict[typeof(Koopa)].ContainsKey(Direction))
             {
                 commandDict[typeof(Koopa)][Direction].Execute();
+            }
+        }
+
+        public void HandlerBlockCollision(IBlock Block)
+        {
+            block=Block;
+            CollisionDirection Direction = DetectCollisionDirection(goomba1.Destination, block.Destination);
+
+            if (commandDict[typeof(IBlock)].ContainsKey(Direction))
+            {
+                commandDict[typeof(IBlock)][Direction].Execute();
             }
         }
 
