@@ -59,7 +59,7 @@ namespace SuperMario
             PipeSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
-            Vector2 location = new Vector2(200, 200);
+            Vector2 location = new Vector2(50, 200);
             Mario = new MarioObject(location);
 
             objectManager = new GameObjectManager(Mario);

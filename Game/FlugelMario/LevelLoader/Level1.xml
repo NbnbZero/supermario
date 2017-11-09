@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Map>
+<Map>  
   <BlockData>
     <State>Question</State>
     <itemType>UpMushroom</itemType>
@@ -15,30 +15,6 @@
     <yLocation>72</yLocation>
     <color>Normal</color>
   </BlockData>
-
-  <BlockData>
-    <State>Question</State>
-    <itemType>Null</itemType>
-    <xLocation>300</xLocation>
-    <yLocation>196</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Question</State>
-    <itemType>Null</itemType>
-    <xLocation>200</xLocation>
-    <yLocation>196</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <PipeData>
-    <PipeType>Pipe</PipeType>
-    <xLocation>100</xLocation>
-    <yLocation>176</yLocation>
-    <color>Normal</color>
-  </PipeData>
-  
 
   <!--secret pipes-->
 
@@ -707,7 +683,7 @@
 
   <BlockData>
     <State>Question</State>
-    <itemType>UpMushroom</itemType>
+    <itemType>Coin</itemType>
     <xLocation>336</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
@@ -715,7 +691,7 @@
 
   <BlockData>
     <State>Question</State>
-    <itemType>SuperMushroom</itemType>
+    <itemType>Coin</itemType>
     <xLocation>368</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
@@ -990,140 +966,140 @@
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2144</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2160</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2160</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2176</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2176</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2176</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2192</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2192</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2192</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2192</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2240</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2240</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2240</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2240</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2256</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2256</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2256</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2272</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2272</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2288</xLocation>
     <yLocation>184</yLocation>
@@ -1138,70 +1114,70 @@
   </BlockData>
 
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2480</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2480</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2480</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2480</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2496</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2496</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2496</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2512</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2512</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2528</xLocation>
     <yLocation>184</yLocation>
@@ -1209,98 +1185,98 @@
   </BlockData>
 
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2368</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2384</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2384</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2400</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2400</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2400</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2416</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2416</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2416</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2416</xLocation>
     <yLocation>136</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2432</xLocation>
     <yLocation>184</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2432</xLocation>
     <yLocation>168</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2432</xLocation>
     <yLocation>152</yLocation>
     <color>Normal</color>
   </BlockData>
   <BlockData>
-    <State>Used</State>
+    <State>Stair</State>
     <itemType>Null</itemType>
     <xLocation>2432</xLocation>
     <yLocation>136</yLocation>
@@ -1823,29 +1799,32 @@
   </BlockData>
 
 
-
-
-
-  <!--<EnemyData>
+  <EnemyData>
     <enemyType>Goomba</enemyType>
     <xLocation>200</xLocation>
     <yLocation>180</yLocation>
-  </EnemyData>-->
+  </EnemyData>
   <EnemyData>
     <enemyType>Koopa</enemyType>
     <xLocation>150</xLocation>
-    <yLocation>377</yLocation>
+    <yLocation>180</yLocation>
   </EnemyData>
   <EnemyData>
     <enemyType>Koopa</enemyType>
-    <xLocation>300</xLocation>
-    <yLocation>100</yLocation>
+    <xLocation>2100</xLocation>
+    <yLocation>180</yLocation>
   </EnemyData>
   <EnemyData>
     <enemyType>Goomba</enemyType>
-    <xLocation>270</xLocation>
-    <yLocation>100</yLocation>
+    <xLocation>1550</xLocation>
+    <yLocation>180</yLocation>
   </EnemyData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>2350</xLocation>
+    <yLocation>180</yLocation>
+  </EnemyData>
+
 
 
 
@@ -1941,4 +1920,7 @@
     <xLocation>320</xLocation>
     <yLocation>100</yLocation>
   </ItemData>
+
+
+
 </Map>
