@@ -54,5 +54,9 @@ namespace SuperMario
             }
         }
 
+        public static implicit operator CollisionHandlerGoomba(CollisionHandlerSuperMushroom v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

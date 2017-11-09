@@ -73,6 +73,7 @@
     <Compile Include="CollisionHandler\CollisionDetector.cs" />
     <Compile Include="CollisionHandler\CollisionHandlerGoomba.cs" />
     <Compile Include="CollisionHandler\CollisionHandlerMario.cs" />
+    <Compile Include="CollisionHandler\CollisionHandlerSuperMushroom.cs" />
     <Compile Include="CollisionItems\StarBlockCollisionBottom.cs" />
     <Compile Include="CollisionItems\StarBlockCollisionLeft.cs" />
     <Compile Include="CollisionItems\StarBlockCollisionRight.cs" />
