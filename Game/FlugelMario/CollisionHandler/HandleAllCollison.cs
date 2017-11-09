@@ -36,10 +36,12 @@ namespace SuperMario
             {
                 myhandler.HandleEnemyCollision(enemy);
             }
+
         }
 
         public static void HandleItemCollision()
         {
+
 
         }
         public static void HandleEnemyCollision(List<IGameObject> enemylist, List<IGameObject> blocklist)

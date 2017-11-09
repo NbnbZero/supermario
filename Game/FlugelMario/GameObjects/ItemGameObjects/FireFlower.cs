@@ -58,6 +58,11 @@ namespace SuperMario
             sprite.Update();
 
         }
+
+        public void ChangeDirection()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 

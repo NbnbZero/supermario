@@ -39,6 +39,5 @@ namespace SuperMario.Sprites.Items
         {
             return new Rectangle((int)location.X, (int)location.Y, width, height);
         }
-
     }
 }
