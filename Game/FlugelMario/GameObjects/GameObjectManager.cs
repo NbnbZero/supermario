@@ -11,7 +11,7 @@ namespace SuperMario.GameObjects
 {
     public class GameObjectManager
     {
-        public static List<IGameObject> objectList;
+        public static List<IGameObject> pipeList;
         public static List<IGameObject> blockList;
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
@@ -22,7 +22,7 @@ namespace SuperMario.GameObjects
             blockList = new List<IGameObject>();
             itemList = new List<IGameObject>();
             enemyList = new List<IGameObject>();
-            objectList = new List<IGameObject>();
+            pipeList = new List<IGameObject>();
             mario = Mario;
         }
         
@@ -33,6 +33,10 @@ namespace SuperMario.GameObjects
             foreach(IBlock block in blockList) {
                 myhandler.HandleBlockCollision(block);
             }  
+            foreach(IPipe pipe in pipeList)
+            {
+                myhandler.HandlePipeCollision(pipe);
+            }
         }
 
         public void Update()
@@ -50,7 +54,7 @@ namespace SuperMario.GameObjects
             {               
                 obj.Update();
             }
-            foreach (IGameObject obj in objectList)
+            foreach (IGameObject obj in pipeList)
             {
                 obj.Update();
             }
@@ -68,14 +72,13 @@ namespace SuperMario.GameObjects
             }
             foreach (IGameObject obj in blockList)
             {
-                System.Console.WriteLine(obj.GetType().ToString());
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in enemyList)
             {               
                 obj.Draw(spriteBatch);
             }
-            foreach(IGameObject obj in objectList)
+            foreach(IGameObject obj in pipeList)
             {
                 obj.Draw(spriteBatch);
             }

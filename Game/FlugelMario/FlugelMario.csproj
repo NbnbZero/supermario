@@ -88,6 +88,8 @@
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockTop.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioBlockBottom.cs" />
     <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioEnemyTowSide.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioPipeTop.cs" />
+    <Compile Include="CollisionMario\MarioBlockCollisionCommand\MarioPipeTwoSide.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionBottom.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionLeft.cs" />
     <Compile Include="CollisionMario\OldCommand\MarioBlockCollisionRight.cs" />

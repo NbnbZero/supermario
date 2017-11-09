@@ -28,9 +28,14 @@ namespace SuperMario
                     return CollisionDirection.Bottom;
                 }
             }
+            else
+            {
+                ///return DetermineBorderOrNoCollisionSide(firstObject, secondObject);
+            }
             return CollisionDirection.NoCollision;
         }
 
+       
     }
 
 }

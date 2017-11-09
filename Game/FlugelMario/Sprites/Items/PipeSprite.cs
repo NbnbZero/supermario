@@ -15,34 +15,27 @@ namespace FlugelMario.Sprites.Items
         public Texture2D Texture { get; set; }
         private int width;
         private int height;
-        private int heightOffset = 4;
 
         public PipeSprite(Texture2D texture)
         {
-            Texture = texture;
-            width = 32;
-            height = Texture.Height / PipeSpriteFactory.PipeSpriteSheetRows - heightOffset;
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-
-            int row = PipeSpriteFactory.PipeSpriteRow;
-            int column = PipeSpriteFactory.PipeSpriteColumn;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row + heightOffset, width, height);
-            Rectangle destinationRectangle = MakeDestinationRectangle(location);
-
-
-            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-
+            this.Texture = texture;
+            width = this.Texture.Width / PipeSpriteFactory.PipeSpriteColumn;
+            height = this.Texture.Height / PipeSpriteFactory.PipeSpriteSheetRows;
         }
 
         public void Update()
         {
         }
 
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
 
+            Rectangle sourceRectangle = new Rectangle( 0, 0, width-4, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
+
+        }
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
             return new Rectangle((int)location.X, (int)location.Y, width, height);

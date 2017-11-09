@@ -55,6 +55,7 @@ namespace SuperMario
             for (int i = 0; i < 1094; i += 16)
             {
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 212)));
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 205)));
             }
                     
                 foreach (BlockData block in myObjects)
@@ -170,8 +171,7 @@ namespace SuperMario
                 switch (pipe.PipeType)
                 {
                     case PipeType.Pipe:
-                        System.Console.WriteLine("create pipe");
-                        GameObjectManager.objectList.Add(new Pipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        GameObjectManager.pipeList.Add(new Pipe(new Vector2(pipe.xLocation, pipe.yLocation)));
                         break;
                 }
             }
