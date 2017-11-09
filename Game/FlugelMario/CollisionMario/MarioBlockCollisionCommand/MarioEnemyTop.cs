@@ -22,6 +22,7 @@ namespace SuperMario.Commands
             if (myhandler.enemy.Alive)
             {
                 myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X,GameData.marioBouncingSpeed);
+                myhandler.enemy.Terminate("Top");
             }
         }
     }

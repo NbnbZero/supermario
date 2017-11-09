@@ -21,9 +21,9 @@ namespace SuperMario
             commandDict = new Dictionary<Type, Dictionary<CollisionDirection, ICommand>>();
             commandDict.Add(typeof(IItem), new Dictionary<CollisionDirection, ICommand>());
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new ItemBlockTwoSide(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new ItemBlockTwoSide(this));
-            commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new ItemBlockTop(this));
+            //commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new ItemBlockTwoSide(this));
+            //commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new ItemBlockTwoSide(this));
+            //commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new ItemBlockTop(this));
         }
         
         public void HandleBlockCollision(IBlock Block)

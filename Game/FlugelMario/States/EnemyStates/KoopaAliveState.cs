@@ -29,7 +29,7 @@ namespace SuperMario.States.EnemyStates
 
         public void Terminate(string direction)
         {
-            if (direction.ToUpper().Equals("UP"))
+            if (direction.ToUpper().Equals("TOP"))
                 koopa.State = new KoopaDeadState(koopa);
         }
 

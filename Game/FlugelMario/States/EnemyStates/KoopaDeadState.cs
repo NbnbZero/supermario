@@ -23,7 +23,6 @@ namespace SuperMario.States.EnemyStates
 
         public void ChangeDirection()
         {
-            throw new NotImplementedException();
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)

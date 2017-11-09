@@ -13,26 +13,45 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
-            if (myhandler.mario.State.IsStar)
+            if (myhandler.mario.State.MarioShape == Shape.Dead ||
+               myhandler.mario.IsProtected || !myhandler.enemy.Alive)
             {
-                //Add score
+                return;
             }
-            else
+
+            int marioPreY = (int)(myhandler.mario.Destination.Y - (myhandler.mario.Velocity.Y - 1));
+            if (marioPreY + myhandler.mario.Destination.Height < myhandler.enemy.Destination.Y)
             {
-                switch (myhandler.mario.State.MarioShape)
+                ICommand TopCommand = new MarioEnemyTop(myhandler);
+                TopCommand.Execute();
+                return;
+            }
+
+            if (myhandler.enemy.Alive)
+            {
+                if (myhandler.mario.State.IsStar)
                 {
-                    case Shape.Small:
-                        myhandler.mario.State.MarioShape = Shape.Dead;
-                        break;
-                    case Shape.Big:
-                        myhandler.mario.IsProtected = true;
-                        break;
-                    case Shape.Fire:
-                        myhandler.mario.IsProtected = true;
-                        break;
+                    //Add score
+                    myhandler.enemy.Terminate("Right");
                 }
-
-
+                else
+                {
+                    myhandler.enemy.ChangeDirection();
+                    switch (myhandler.mario.State.MarioShape)
+                    {
+                        case Shape.Small:
+                            myhandler.mario.State.Terminated();
+                            break;
+                        case Shape.Big:
+                            myhandler.mario.IsProtected = true;
+                            myhandler.mario.State.MarioShapeChange(Shape.Small);
+                            break;
+                        case Shape.Fire:
+                            myhandler.mario.IsProtected = true;
+                            myhandler.mario.State.MarioShapeChange(Shape.Small);
+                            break;
+                    }
+                }
             }
         }
     }
