@@ -48,6 +48,7 @@ namespace SuperMario.Commands
                     myhandler.mario.State.MarioShape == Shape.StarBig)
                     && myhandler.block.GetType() == typeof(QuestionBlock))
                 {
+                    myhandler.block.Trigger();
                     SoundManager.Instance.PlayBumpSound();
                 }
             }

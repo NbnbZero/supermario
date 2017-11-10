@@ -66,7 +66,7 @@ namespace SuperMario.GameObjects
             if (newObject != null)
             {
                 newObject.Location = new Vector2(Location.X, Location.Y - 2);
-                //Need To add to list
+                GameObjectManager.itemList.Add(newObject);
             }
 
             stateMachine.BeTriggered();

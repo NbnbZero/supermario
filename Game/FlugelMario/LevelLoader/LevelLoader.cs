@@ -60,46 +60,44 @@ namespace SuperMario
                     
                 foreach (BlockData block in myObjects)
                 {                                           
-                //add Floor & Used block object
-                switch (block.State)
+                    switch (block.State)
                         {
                             case BlockType.Brick:
                                 GameObjectManager.blockList.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
                                 break;
                             case BlockType.Stair:
                                 GameObjectManager.blockList.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
-                            break;
+                                break;
                             case BlockType.Broken:
                                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(block.xLocation, block.yLocation)));
                                 break;
                             case BlockType.Question:
                                 QuestionBlock question = new QuestionBlock(new Vector2(block.xLocation, block.yLocation));
                                 if (block.itemType == ItemType.Flower)
-                                 {
-                                question.hiddenItem = ItemType.Flower;
-                                       GameObjectManager.blockList.Add(question);
-                                     }
-                                 else if (block.itemType == ItemType.Star)
-                                     {
-                                question.hiddenItem = ItemType.Star;
-                                GameObjectManager.blockList.Add(question);
-                                    }
-                                 else if (block.itemType == ItemType.UpMushroom)
-                                     {
-                                question.hiddenItem = ItemType.UpMushroom;
-                                GameObjectManager.blockList.Add(question);
-                                     }
-                                 else if (block.itemType == ItemType.SuperMushroom)
-                                      {
-                                question.hiddenItem = ItemType.SuperMushroom;
-                                GameObjectManager.blockList.Add(question);
-                                      }
-                                      
-                                  else if (block.itemType == ItemType.Coin)
-                                    {
+                                {
+                                      question.hiddenItem = ItemType.Flower;
+                                      GameObjectManager.blockList.Add(question);
+                                }
+                                else if (block.itemType == ItemType.Star)
+                                {
+                                    question.hiddenItem = ItemType.Star;
+                                    GameObjectManager.blockList.Add(question);
+                                }
+                                else if (block.itemType == ItemType.UpMushroom)
+                                {
+                                    question.hiddenItem = ItemType.UpMushroom;
+                                    GameObjectManager.blockList.Add(question);
+                                }
+                                else if (block.itemType == ItemType.SuperMushroom)
+                                {
+                                     question.hiddenItem = ItemType.SuperMushroom;
+                                     GameObjectManager.blockList.Add(question);
+                                }                                 
+                                else if (block.itemType == ItemType.Coin)
+                                {
                                     question.hiddenItem = ItemType.Coin;
                                     GameObjectManager.blockList.Add(question);
-                        } 
+                                } 
                                         break;
                         
                         }

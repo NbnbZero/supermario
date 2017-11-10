@@ -29,7 +29,7 @@ namespace SuperMario.GameObjects
 
         public void HandleCollisions()
         {
-            HandleAllCollisions(mario, blockList, enemyList, itemList,pipeList);
+            HandleAllCollisions(mario, blockList, enemyList, itemList, pipeList);
         }
 
         public void Update()
