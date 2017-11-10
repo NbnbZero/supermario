@@ -20,7 +20,7 @@ namespace SuperMario.Commands
         {
             myhandler.mario.IsInAir = false;
             myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X, 0);
-            myhandler.mario.Location = new Vector2(myhandler.mario.Destination.X, myhandler.pipe.Destination.Y - myhandler.mario.Destination.Height);
+            myhandler.mario.Location = new Vector2(myhandler.mario.Destination.X, myhandler.pipe.Destination.Y - myhandler.mario.Destination.Height + 4);
         }
     }
 }
