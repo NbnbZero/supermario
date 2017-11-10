@@ -9,6 +9,7 @@ using SuperMario.Game_Controllers;
 using Microsoft.Xna.Framework.Input;
 using SuperMario.GameObjects;
 using SuperMario.Sprites.Goomba;
+using SuperMario.Sound;
 
 namespace SuperMario
 {
@@ -57,6 +58,7 @@ namespace SuperMario
             FireballSpriteFactory.Instance.LoadAllTextures(Content);
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             PipeSpriteFactory.Instance.LoadAllTextures(Content);
+            SoundManager.Instance.LoadAllSounds(Content);
             #endregion
 
             Vector2 location = new Vector2(50, 200);

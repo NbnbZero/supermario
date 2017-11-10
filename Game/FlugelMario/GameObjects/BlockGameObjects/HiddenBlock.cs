@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.StateMachine;
+using SuperMario.Sound;
 
 namespace SuperMario.GameObjects
 {
@@ -36,6 +37,7 @@ namespace SuperMario.GameObjects
                 return;
             }
             UpMushroom newObject = new UpMushroom(new Vector2(Location.X, Location.Y - 2));
+            SoundManager.Instance.PlayPowerUpAppearsSound();
             //Need to Add to List
             stateMachine.BeTriggered();
         }

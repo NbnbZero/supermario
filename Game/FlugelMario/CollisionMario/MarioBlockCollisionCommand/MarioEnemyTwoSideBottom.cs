@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using SuperMario.Interfaces;
 using SuperMario.Enums;
+using SuperMario.Sound;
+
 namespace SuperMario.Commands
 {
     class MarioEnemyTwoSideBottom : ICommand
@@ -45,10 +47,12 @@ namespace SuperMario.Commands
                         case Shape.Big:
                             myhandler.mario.IsProtected = true;
                             myhandler.mario.State.MarioShapeChange(Shape.Small);
+                            SoundManager.Instance.PlayPipeSound();
                             break;
                         case Shape.Fire:
                             myhandler.mario.IsProtected = true;
                             myhandler.mario.State.MarioShapeChange(Shape.Small);
+                            SoundManager.Instance.PlayPipeSound();
                             break;
                     }
                 }

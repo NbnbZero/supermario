@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
+using SuperMario.Sound;
 using SuperMario.SpriteFactories;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,10 @@ namespace SuperMario.States.MarioStates
             this.MarioPosture = Posture.Jump;
             this.MarioDirection = Direction.Right;
             this.MarioShape = Shape.StarSmall; mario.Acceleration = new Vector2(0, mario.Acceleration.Y);
+            if (mario.IsInAir == false && !mario.IsProtected)
+            {
+                SoundManager.Instance.PlaySmallJumpSound();
+            }
             mario.IsInAir = true;
         }
 

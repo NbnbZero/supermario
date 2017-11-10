@@ -3,6 +3,8 @@ using SuperMario.Interfaces;
 using SuperMario.Enums;
 using SuperMario.GameObjects.ItemGameObjects;
 using SuperMario.GameObjects;
+using SuperMario.Sound;
+
 namespace SuperMario.Commands
 {
     class MarioBlockBottom : ICommand
@@ -39,6 +41,14 @@ namespace SuperMario.Commands
                 {
                     int verticalDisplacement = 5;
                     myhandler.block.Location = new Vector2(myhandler.block.Location.X, myhandler.block.Location.Y - verticalDisplacement);
+                    SoundManager.Instance.PlayBumpSound();
+                }
+                if ((myhandler.mario.State.MarioShape == Shape.Big ||
+                    myhandler.mario.State.MarioShape == Shape.Fire ||
+                    myhandler.mario.State.MarioShape == Shape.StarBig)
+                    && myhandler.block.GetType() == typeof(QuestionBlock))
+                {
+                    SoundManager.Instance.PlayBumpSound();
                 }
             }
         }

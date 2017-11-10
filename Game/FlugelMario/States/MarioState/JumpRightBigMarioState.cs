@@ -2,6 +2,7 @@
 using SuperMario.AbstractClasses;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
+using SuperMario.Sound;
 using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
@@ -16,6 +17,10 @@ namespace SuperMario.States.MarioStates
             this.MarioDirection = Direction.Right;
             this.MarioShape = Shape.Big;
             mario.Acceleration = new Vector2(0, mario.Acceleration.Y);
+            if (mario.IsInAir == false && !mario.IsProtected)
+            {
+                SoundManager.Instance.PlaySuperJumpSound();
+            }
             mario.IsInAir = true;
         }
 

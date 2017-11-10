@@ -3,6 +3,7 @@ using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using SuperMario.Enums;
 using Microsoft.Xna.Framework;
+using SuperMario.Sound;
 
 namespace SuperMario.States.MarioStates
 {
@@ -15,6 +16,7 @@ namespace SuperMario.States.MarioStates
             this.MarioPosture = Posture.Dead;
             this.MarioDirection = Direction.Dead;
             this.MarioShape = Shape.Dead;
+            SoundManager.Instance.PlayMarioDyingSound();
             this.Mario.Velocity = new Vector2(0,0);
             this.Mario.Acceleration = new Vector2(0,0);
             MarioAttributes.MarioLife[0]--;
