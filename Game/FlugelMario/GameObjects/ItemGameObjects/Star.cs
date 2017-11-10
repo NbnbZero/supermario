@@ -4,6 +4,7 @@ using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
+using SuperMario.Sound;
 
 namespace SuperMario
 {
@@ -34,6 +35,7 @@ namespace SuperMario
         {
             sprite = (ISprite)ItemSpriteFactory.Instance.CreateDisappearedSprite();
             IsCollected = true;
+            SoundManager.Instance.PlayPowerUpSound();
         }
 
         public void Draw(SpriteBatch spriteBatch)

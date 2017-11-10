@@ -6,6 +6,8 @@ using SuperMario.StateMachine;
 using SuperMario.Animation;
 using SuperMario.Enums;
 using SuperMario.GameObjects;
+using SuperMario.Sound;
+
 namespace SuperMario.GameObjects
 {
     public class QuestionBlock : IBlock
@@ -43,15 +45,19 @@ namespace SuperMario.GameObjects
             {
                 case ItemType.Flower:
                     newObject = new FireFlower(new Vector2(Location.X, Location.Y - 2));
+                    SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.UpMushroom:
                     newObject = new UpMushroom(new Vector2(Location.X, Location.Y - 2));
+                    SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.SuperMushroom:
                     newObject = new SuperMushroom(new Vector2(Location.X, Location.Y - 2));
+                    SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.Star:
                     newObject = new Star(new Vector2(Location.X, Location.Y - 2));
+                    SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 default:
                     coinAnimation.StartAnimation();

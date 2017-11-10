@@ -90,6 +90,7 @@
     <Compile Include="Interfaces\IAnimationInGame.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Interfaces\IPipe.cs" />
+    <Compile Include="Sound\SoundManager.cs" />
     <Compile Include="SpriteFactories\PipeSpriteFactory.cs" />
     <Compile Include="Sprites\Background\backgroundSprite.cs" />
     <Compile Include="Sprites\Items\BigPipeSprite.cs" />

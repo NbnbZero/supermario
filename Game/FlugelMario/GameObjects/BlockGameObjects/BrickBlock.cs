@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.StateMachine;
 using static SuperMario.GameObjects.GameObjectType;
+using SuperMario.Sound;
+
 namespace SuperMario.GameObjects
 {
     public class BrickBlock: IBlock
@@ -46,6 +48,7 @@ namespace SuperMario.GameObjects
         public void Trigger()
         {
             state.BeTriggered();
+            SoundManager.Instance.PlayBrickBreakSound();
         }
         public void Draw(SpriteBatch spriteBatch)
         {

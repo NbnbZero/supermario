@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using SuperMario.Interfaces;
 using SuperMario.Enums;
+using SuperMario.Sound;
+
 namespace SuperMario.Commands
 {
     class MarioEnemyTop : ICommand
@@ -23,6 +25,7 @@ namespace SuperMario.Commands
             {
                 myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X,GameData.marioBouncingSpeed);
                 myhandler.enemy.Terminate("Top");
+                SoundManager.Instance.PlayStompSound();
             }
         }
     }
