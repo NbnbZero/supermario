@@ -137,8 +137,9 @@ namespace SuperMario.Game_Controllers
 
                     if (preKeys.Contains(key) && Keyboard.GetState().IsKeyUp(key))
                     {
-                        releasedCommandDict[key].Execute();
-                    }                        
+                        if(releasedCommandDict.ContainsKey(key))
+                            releasedCommandDict[key].Execute();
+                    }
                 }
             }
             preKeys = pressedKeys;
