@@ -13,6 +13,10 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
+            if (myhandler.mario.State.MarioShape == Shape.Dead)
+            {
+                return;
+            }
             myhandler.mario.IsInAir = false;
             if (myhandler.mario.Velocity.Y > 0)
             { 

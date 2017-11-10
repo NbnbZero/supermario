@@ -15,7 +15,10 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
-
+            if (myhandler.mario.State.MarioShape == Shape.Dead)
+            {
+                return;
+            }
             int marioPreY = (int)(myhandler.mario.Destination.Y - (myhandler.mario.Velocity.Y - 1));
 
             if (marioPreY + myhandler.mario.Destination.Height <= myhandler.block.Destination.Y)

@@ -10,6 +10,9 @@ namespace SuperMario.States.MarioStates
     public class DeadMarioState : MarioState
     {
         public override bool IsStar { get; } = false;
+        private int counter = 20;
+        private float marioDeathAcceleration = .75f;
+        private int marioDeathVelocity = -10;
         public DeadMarioState(IMario mario) : base(mario)
         {
             StateSprite = MarioSpriteFactory.Instance.CreateDeadMarioSprite();
@@ -60,14 +63,17 @@ namespace SuperMario.States.MarioStates
 
         public override void Update()
         {
-            if (MarioAttributes.MarioLife[0] == 0)
+            if (counter > 0)
             {
-                //...
+                counter--;
             }
-            else
+            else if (counter == 0)
             {
-                //...
+                this.Mario.Velocity = new Vector2(0, marioDeathVelocity);
+                this.Mario.Acceleration = new Vector2(0, marioDeathAcceleration);
+                counter--;
             }
+
         }
     }
 }
