@@ -44,7 +44,7 @@ namespace SuperMario.GameObjects
             switch (hiddenItem)
             {
                 case ItemType.Flower:
-                    newObject = new FireFlower(new Vector2(Location.X, Location.Y - 16));
+                    newObject = new FireFlower(new Vector2(Location.X, Location.Y - 2));
                     SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.UpMushroom:
