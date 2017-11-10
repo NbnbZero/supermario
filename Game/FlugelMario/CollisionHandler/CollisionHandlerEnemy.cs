@@ -14,6 +14,7 @@ namespace SuperMario
         public IEnemy enemy { get; private set; }
         public IEnemy another { get; private set; }
         public IBlock block { get; private set; }
+        public IPipe pipe { get; private set; }
         Dictionary<Type, Dictionary<CollisionDirection, ICommand>> commandDict;
 
         public CollisionHandlerEnemy(IEnemy Enemy)
@@ -22,6 +23,8 @@ namespace SuperMario
             commandDict = new Dictionary<Type, Dictionary<CollisionDirection, ICommand>>();
             commandDict.Add(typeof(IEnemy), new Dictionary<CollisionDirection, ICommand>());
             commandDict.Add(typeof(IBlock), new Dictionary<CollisionDirection, ICommand>());
+            commandDict.Add(typeof(IPipe), new Dictionary<CollisionDirection, ICommand>());
+
             commandDict[typeof(IEnemy)].Add(CollisionDirection.Left, new EnemyEnemyTwoSide(this));
             commandDict[typeof(IEnemy)].Add(CollisionDirection.Right, new EnemyEnemyTwoSide(this));
             commandDict[typeof(IEnemy)].Add(CollisionDirection.Top, new EnemyEnemyTop(this));
@@ -29,6 +32,9 @@ namespace SuperMario
             commandDict[typeof(IBlock)].Add(CollisionDirection.Left, new EnemyBlockTwoSide(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Right, new EnemyBlockTwoSide(this));
             commandDict[typeof(IBlock)].Add(CollisionDirection.Top, new EnemyBlockTop(this));
+
+            commandDict[typeof(IPipe)].Add(CollisionDirection.Left, new EnemyPipeLeftRight(this));
+            commandDict[typeof(IPipe)].Add(CollisionDirection.Right, new EnemyPipeLeftRight(this));
         }
         
         public void HandleEnemyCollision(IEnemy Another)
@@ -50,7 +56,17 @@ namespace SuperMario
             {
                 commandDict[typeof(IBlock)][Direction].Execute();
             }
-        }        
+        }
+
+        public void HandlePipeCollision(IPipe Pipe)
+        {
+            pipe = Pipe;
+            CollisionDirection Direction = DetectCollisionDirection(enemy.Destination, Pipe.Destination);
+            if (commandDict[typeof(IPipe)].ContainsKey(Direction))
+            {
+                commandDict[typeof(IPipe)][Direction].Execute();
+            }
+        }
 
     }
 }
