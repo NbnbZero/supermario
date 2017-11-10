@@ -16,12 +16,17 @@
     <color>Normal</color>
   </BlockData>
   
-    <PipeData>
+  <PipeData>
     <PipeType>Pipe</PipeType>
     <xLocation>100</xLocation>
     <yLocation>164</yLocation>
   </PipeData>
-  
+
+  <ItemData>
+    <itemType>UpMushroom</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>100</yLocation>
+  </ItemData>
 
   <!--secret pipes-->
 

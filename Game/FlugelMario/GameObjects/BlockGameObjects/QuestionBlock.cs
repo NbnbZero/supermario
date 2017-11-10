@@ -44,19 +44,19 @@ namespace SuperMario.GameObjects
             switch (hiddenItem)
             {
                 case ItemType.Flower:
-                    newObject = new FireFlower(new Vector2(Location.X, Location.Y - 2));
+                    newObject = new FireFlower(new Vector2(Location.X, Location.Y - 16));
                     SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.UpMushroom:
-                    newObject = new UpMushroom(new Vector2(Location.X, Location.Y - 2));
+                    newObject = new UpMushroom(new Vector2(Location.X, Location.Y - 16));
                     SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.SuperMushroom:
-                    newObject = new SuperMushroom(new Vector2(Location.X, Location.Y - 2));
+                    newObject = new SuperMushroom(new Vector2(Location.X, Location.Y - 16));
                     SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 case ItemType.Star:
-                    newObject = new Star(new Vector2(Location.X, Location.Y - 2));
+                    newObject = new Star(new Vector2(Location.X, Location.Y - 16));
                     SoundManager.Instance.PlayPowerUpAppearsSound();
                     break;
                 default:
@@ -65,7 +65,6 @@ namespace SuperMario.GameObjects
             }
             if (newObject != null)
             {
-                newObject.Location = new Vector2(Location.X, Location.Y - 2);
                 GameObjectManager.itemList.Add(newObject);
             }
 

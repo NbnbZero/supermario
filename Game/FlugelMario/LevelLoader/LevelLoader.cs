@@ -25,7 +25,7 @@ namespace SuperMario
             //LoadMarioStart();
             LoadBlocks();
             LoadEnemies();
-            //LoadItems();
+            LoadItems();
             LoadPipe();
         }
 
