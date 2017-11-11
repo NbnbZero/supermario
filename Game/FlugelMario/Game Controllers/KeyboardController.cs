@@ -5,6 +5,9 @@ using System.Linq;
 using SuperMario.States.MarioStates;
 using SuperMario.Interfaces;
 using SuperMario.Commands.ControllerCommand;
+using SuperMairo.Interfaces;
+using SuperMairo.States.GameState;
+
 namespace SuperMario.Game_Controllers
 {
     public class KeyboardControls
@@ -58,12 +61,7 @@ namespace SuperMario.Game_Controllers
 
         public void Update()
         {
-            /*if (mario == null || commandDict.LongCount() == 0)
-            {
-                return;
-            }*/
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-           
 
             foreach (Keys key in pressedKeys)
             {
@@ -78,71 +76,87 @@ namespace SuperMario.Game_Controllers
                 }
             }
 
-            if (Left(pressedKeys))
-            {
-                commandDict[Keys.Left].Execute();
-            }
-            else if (Right(pressedKeys))
-            {
-                commandDict[Keys.Right].Execute();
-            }
-            else if (Jump(pressedKeys))
-            {
-                commandDict[Keys.Up].Execute();
-            }
-            else if (Down(pressedKeys))
-            {
-                commandDict[Keys.Down].Execute();
-            }
-            else if (LeftJump(pressedKeys))
-            {
-                if (mario.IsInAir)
+            if ((Game1.State.Type == GameStates.Playing))
+            {                
+                if (Left(pressedKeys))
                 {
                     commandDict[Keys.Left].Execute();
                 }
-                else
-                {
-                    commandDict[Keys.Up].Execute();
-                }
-
-            }
-            else if (LeftDown(pressedKeys))
-            {
-                commandDict[Keys.Down].Execute();
-            }
-            else if (RightJump(pressedKeys))
-            {
-                if (mario.IsInAir)
+                else if (Right(pressedKeys))
                 {
                     commandDict[Keys.Right].Execute();
                 }
-                else
+                else if (Jump(pressedKeys))
                 {
                     commandDict[Keys.Up].Execute();
                 }
-            }
-            else if (RightDown(pressedKeys))
-            {
-                commandDict[Keys.Down].Execute();
-            }
-            else if (LeftRightJump(pressedKeys))
-            {
-                commandDict[Keys.Up].Execute();
-            }
-
-            if (preKeys != null)
-            {
-                foreach (Keys key in preKeys)
+                else if (Down(pressedKeys))
                 {
-
-                    if (preKeys.Contains(key) && Keyboard.GetState().IsKeyUp(key))
+                    commandDict[Keys.Down].Execute();
+                }
+                else if (LeftJump(pressedKeys))
+                {
+                    if (mario.IsInAir)
                     {
-                        if(releasedCommandDict.ContainsKey(key))
-                            releasedCommandDict[key].Execute();
+                        commandDict[Keys.Left].Execute();
+                    }
+                    else
+                    {
+                        commandDict[Keys.Up].Execute();
+                    }
+
+                }
+                else if (LeftDown(pressedKeys))
+                {
+                    commandDict[Keys.Down].Execute();
+                }
+                else if (RightJump(pressedKeys))
+                {
+                    if (mario.IsInAir)
+                    {
+                        commandDict[Keys.Right].Execute();
+                    }
+                    else
+                    {
+                        commandDict[Keys.Up].Execute();
                     }
                 }
+                else if (RightDown(pressedKeys))
+                {
+                    commandDict[Keys.Down].Execute();
+                }
+                else if (LeftRightJump(pressedKeys))
+                {
+                    commandDict[Keys.Up].Execute();
+                }
+
+                if (preKeys != null)
+                {
+                    foreach (Keys key in preKeys)
+                    {
+
+                        if (preKeys.Contains(key) && Keyboard.GetState().IsKeyUp(key))
+                        {
+                            if (releasedCommandDict.ContainsKey(key))
+                                releasedCommandDict[key].Execute();
+                        }
+                    }
+                }
+                preKeys = pressedKeys;
             }
-            preKeys = pressedKeys;
+            else if (Game1.State.Type == GameStates.Title)
+            {
+                //if (pressedKeys.Contains(keyDict[key]) && preKeys != null && !preKeys.Contains(keyDict[KeyboardKeys.A]))
+                //{
+                   // commandDict[keyDict[KeyboardKeys.A]].Execute();
+                //}
+           
+                if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
+                {
+                    Game1.State = new PlayingState(mygame);
+                }
+            }
+
 
         }
 

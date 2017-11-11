@@ -90,11 +90,11 @@
     <Compile Include="GameObjects\PipeGameObjects\Pipe.cs" />
     <Compile Include="GameObjects\MarioObject.cs" />
     <Compile Include="Heads_Up\ScoringSystem.cs" />
-    <Compile Include="Interfaces\GameState.cs" />
     <Compile Include="Interfaces\IDisplayPanel.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />
     <Compile Include="Interfaces\IAnimationInGame.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
+    <Compile Include="Interfaces\IGameState.cs" />
     <Compile Include="Interfaces\IPipe.cs" />
     <Compile Include="Interfaces\IText.cs" />
     <Compile Include="Sound\SoundManager.cs" />

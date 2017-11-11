@@ -30,7 +30,7 @@ namespace SuperMario
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            State = new PlayingState(this);
+            State = new Title(this);
         }
 
         /// <summary>
