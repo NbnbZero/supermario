@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperMario.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace SuperMario
     public static class GameData
     {
         // just in case we forget these data
+        public static AbstractGame Game { get; set; }
+        public static GameObjectManager GameObjectManager { get; set; }
 
         public static int MarioJumpingSpeed = -8;
         public static float Gravity { get; } = 0.4f;

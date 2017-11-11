@@ -7,6 +7,9 @@ using SuperMario.Interfaces;
 using SuperMario;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.HandleAllCollison;
+using SuperMairo.Interfaces;
+using SuperMairo.DisplayPanel;
+using Microsoft.Xna.Framework;
 
 namespace SuperMario.GameObjects
 {
@@ -18,6 +21,8 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> enemyList;
         private MarioObject mario;
 
+        private IDisplayPanel titleDisplayPanel;
+
         public GameObjectManager(MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -25,7 +30,17 @@ namespace SuperMario.GameObjects
             enemyList = new List<IGameObject>();
             pipeList = new List<IGameObject>();
             mario = Mario;
-        }        
+
+            titleDisplayPanel = new TitleDisplayPanel();
+        }
+
+        public IDisplayPanel TitlePanel
+        {
+            get
+            {
+                return titleDisplayPanel;
+            }
+        }
 
         public void HandleCollisions()
         {
@@ -34,27 +49,37 @@ namespace SuperMario.GameObjects
 
         public void Update()
         {
-            HandleCollisions();
-            foreach (IGameObject obj in itemList)
+            bool updateHUD = true;
+
+            if (GamePlayable())
             {
-                obj.Update();
-            }
-            foreach (IGameObject obj in blockList)
-            {
-                obj.Update();
-            }
-            foreach (IGameObject obj in enemyList)
-            {               
-                obj.Update();
-            }
-            foreach (IGameObject obj in pipeList)
-            {
-                obj.Update();
+                HandleCollisions();
+                foreach (IGameObject obj in itemList)
+                {
+                    obj.Update();
+                }
+                foreach (IGameObject obj in blockList)
+                {
+                    obj.Update();
+                }
+                foreach (IGameObject obj in enemyList)
+                {
+                    obj.Update();
+                }
+                foreach (IGameObject obj in pipeList)
+                {
+                    obj.Update();
+                }
+
+                mario.Update();
+
+                Camera.Move(mario);
             }
 
-            mario.Update();
-
-            Camera.Move(mario);
+            if (updateHUD)
+            {
+                titleDisplayPanel.Update();
+            }           
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -76,14 +101,20 @@ namespace SuperMario.GameObjects
                 obj.Draw(spriteBatch);
             }
             mario.Draw(spriteBatch);
+
+            titleDisplayPanel.Draw(spriteBatch);
+        }
+        private static bool GamePlayable()
+        {
+            return Game1.State.Type == GameStates.Playing ||
+                Game1.State.Type == GameStates.LevelComplete;
         }
 
 
-        
 
-        
 
-        
+
+
 
 
 

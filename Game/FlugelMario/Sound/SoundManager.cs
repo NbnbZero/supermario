@@ -18,6 +18,7 @@ namespace SuperMario.Sound
         private SoundEffect gameOverSound;
         private SoundEffect brickBreakSound;
         private SoundEffect stompSound;
+
         private SoundEffect bumpSound;
         private SoundEffect pipeSound;
         private SoundEffect smallJumpSound;
@@ -109,6 +110,14 @@ namespace SuperMario.Sound
         public void PlayWarningSound()
         {
             warningSound.Play();
+        }
+        public void StopAllSound()
+        {
+            throw new NotImplementedException();
+        }
+        public void PlayStageClearSound()
+        {
+            throw new NotImplementedException();
         }
 
     }

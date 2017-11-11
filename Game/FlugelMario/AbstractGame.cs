@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using SuperMairo.Interfaces;
 using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,10 @@ namespace SuperMario
     public abstract class AbstractGame : Game
     {
         private GraphicsDeviceManager graphics;
+        public static IGameState State { get; set; }
+        public bool IsPause { get; set; } = false;
+        public bool IsControllerEnable { get; set; } = true;
+        public bool IsInAnimation { get; set; } = false;
 
         public GraphicsDeviceManager GraphicsManager
         {

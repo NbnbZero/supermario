@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Input;
 using SuperMario.GameObjects;
 using SuperMario.Sprites.Goomba;
 using SuperMario.Sound;
+using SuperMairo.States.GameState;
+using SuperMairo.SpriteFactories;
 
 namespace SuperMario
 {
@@ -28,6 +30,7 @@ namespace SuperMario
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            State = new PlayingState(this);
         }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace SuperMario
             BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
             PipeSpriteFactory.Instance.LoadAllTextures(Content);
             SoundManager.Instance.LoadAllSounds(Content);
+            TextSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
             Vector2 location = new Vector2(50, 200);
