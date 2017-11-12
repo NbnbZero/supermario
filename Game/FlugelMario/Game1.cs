@@ -74,6 +74,7 @@ namespace SuperMario
             objectManager = new GameObjectManager(this,Mario);
 
             camera1 = new Camera();
+            Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);
 
             LevelLoader loader = new LevelLoader(objectManager);

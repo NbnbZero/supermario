@@ -103,6 +103,15 @@ namespace SuperMario.GameObjects
         
         public void Update()
         {
+            if (location.X < 4)
+            {
+                location = new Vector2(location.X + 6, location.Y);
+                return;
+            }
+            if (location.Y > 445)
+            {
+                State.Terminated();
+            }
             if (IsProtected)
             {
                 protectTime++;
