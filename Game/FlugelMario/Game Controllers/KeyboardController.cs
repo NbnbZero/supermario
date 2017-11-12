@@ -8,6 +8,7 @@ using SuperMario.Commands.ControllerCommand;
 using SuperMairo.Interfaces;
 using SuperMairo.States.GameState;
 using SuperMairo.Commands;
+using SuperMario.Sound;
 
 namespace SuperMario.Game_Controllers
 {
@@ -165,6 +166,7 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
                 {
                     Game1.State = new PlayingState(mygame);
+                    SoundManager.Instance.PlayOverWorldSong();
                 }
                 else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {

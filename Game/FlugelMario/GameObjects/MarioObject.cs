@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.States.MarioStates;
+using SuperMario.Sound;
+
 namespace SuperMario.GameObjects
 {
     public class MarioObject : IMario
@@ -28,6 +30,10 @@ namespace SuperMario.GameObjects
         public Shape PreStarShape { set; get; }
         private Vector2 location;
         private bool isProtect = false;
+        private int starTime;
+        private const int starDuration = 400;
+        private const int starTimeMin = -1;
+        private const int starTimeNormal = 0;
         public bool IsProtected
         {
             get { return isProtect; }
@@ -56,6 +62,8 @@ namespace SuperMario.GameObjects
         private const int smallMarioHeriDis = 3;
         private const int bigMarioVertDis = 5;
         private const int bigMarioHeriDis = 2;
+        private int protectTime;
+        private const int protectDuration = 50;
         private const int maxYSpeed = 10;
         public MarioObject(Vector2 location)
         {
@@ -95,6 +103,14 @@ namespace SuperMario.GameObjects
         
         public void Update()
         {
+            if (IsProtected)
+            {
+                protectTime++;
+                if (protectTime >= protectDuration)
+                {
+                    IsProtected = false;
+                }
+            }
             //horizontal velocity control
             float newVelocityX = this.Velocity.X;
             if ((this.Velocity.X < maxSpeed && this.Velocity.X > -maxSpeed) ||
@@ -116,6 +132,41 @@ namespace SuperMario.GameObjects
             this.Location = new Vector2(newLocationX, newLocationY);
             State.Update();
 
+            if(State.IsStar)
+            {
+                starTime--;
+                if (starTime == starTimeMin)
+                {
+                    starTime = starDuration;
+                }
+                if (starTime == starTimeNormal)
+                {
+                    SoundManager.Instance.PlayOverWorldSong();
+                    switch (PreStarShape)
+                    {
+                        case Shape.Big:
+                            State.ChangeSizeToBig();
+                            break;
+                        case Shape.Fire:
+                            State.ChangeFireMode();
+                            break;
+                        case Shape.Small:
+                            State.ChangeSizeToSmall();
+                            break;
+                        default:
+                            State.ChangeSizeToSmall();
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                PreStarShape = State.MarioShape;
+                if (starTime != starTimeNormal)
+                {
+                    starTime = starTimeNormal;
+                }
+            }
 
         }
 

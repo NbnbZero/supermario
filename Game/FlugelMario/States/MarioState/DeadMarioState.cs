@@ -20,6 +20,7 @@ namespace SuperMario.States.MarioStates
             this.MarioDirection = Direction.Dead;
             this.MarioShape = Shape.Dead;
             SoundManager.Instance.PlayMarioDyingSound();
+            SoundManager.Instance.StopAllSound();
             this.Mario.Velocity = new Vector2(0,0);
             this.Mario.Acceleration = new Vector2(0,0);
             MarioAttributes.MarioLife[0]--;
@@ -74,6 +75,14 @@ namespace SuperMario.States.MarioStates
                 counter--;
             }
 
+            if (MarioAttributes.MarioLife[0] == 0)
+            {
+                Game1.State.GameOver();
+            }
+            else
+            {
+                Game1.State.MarioDied();
+            }
         }
     }
 }
