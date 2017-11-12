@@ -30,7 +30,7 @@ namespace SuperMario
 
         public static void ResetTimer()
         {
-            Time = 63;
+            Time = 300;
             isTimeCounting = false;
         }
 
