@@ -2,6 +2,7 @@
 using SuperMario.Interfaces;
 using SuperMario.Enums;
 using SuperMario.Sound;
+using SuperMairo.HeadsUp;
 
 namespace SuperMario.Commands
 {
@@ -26,6 +27,7 @@ namespace SuperMario.Commands
                 myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X,GameData.marioBouncingSpeed);
                 myhandler.enemy.Terminate("Top");
                 SoundManager.Instance.PlayStompSound();
+                ScoringSystem.AddPointsForStompingEnemy(myhandler.enemy);
             }
         }
     }

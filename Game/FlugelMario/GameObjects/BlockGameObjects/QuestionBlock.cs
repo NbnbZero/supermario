@@ -7,6 +7,8 @@ using SuperMario.Animation;
 using SuperMario.Enums;
 using SuperMario.GameObjects;
 using SuperMario.Sound;
+using SuperMario.Heads_Up;
+using SuperMairo.HeadsUp;
 
 namespace SuperMario.GameObjects
 {
@@ -61,6 +63,8 @@ namespace SuperMario.GameObjects
                     break;
                 default:
                     coinAnimation.StartAnimation();
+                    CoinSystem.Instance.AddCoin();
+                    ScoringSystem.AddPointsForCoin(this);
                     break;
             }
             if (newObject != null)

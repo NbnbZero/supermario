@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.Sound;
+using SuperMairo.HeadsUp;
 
 namespace SuperMario
 {
@@ -39,6 +40,7 @@ namespace SuperMario
             IsCollected = true;
             MarioAttributes.MarioLife[0]++;
             SoundManager.Instance.Play1UpSound();
+            ScoringSystem.AddPointsForGMush(this);
         }
 
         public void Draw(SpriteBatch spriteBatch)

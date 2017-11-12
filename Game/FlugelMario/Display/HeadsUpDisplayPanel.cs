@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMairo.HeadsUp;
 using SuperMairo.Interfaces;
 using SuperMairo.SpriteFactories;
 using SuperMario.Heads_Up;
@@ -22,9 +23,10 @@ namespace SuperMario.Display
         IText worldTextSprite;
         IText timeTitleTextSprite;
         IText timeTextSprite;
+        IText scoreTextSprite;
         private const int distanceOfFirstRowText = 20;
         private const int distanceOfSecondRowText = 40;
-
+        private const int scoreLength = 6;
         private const int coinLength = 2;
         private const int timeLength = 3;
 
@@ -32,7 +34,8 @@ namespace SuperMario.Display
         {
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             marioTitleTextSprite.text = "Mario: " + MarioAttributes.MarioLife[0].ToString();
-            
+            scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+            scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
             coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
             coinTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             coinTextSprite.text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
@@ -52,6 +55,9 @@ namespace SuperMario.Display
 
             int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, distanceOfFirstRowText));
+
+            int scoreTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (scoreTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
+            scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, distanceOfSecondRowText));
 
             int coinTextX = Camera.CameraX + (Camera.CenterOfScreen * 4 / 5 - (coinTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, distanceOfFirstRowText));
@@ -79,6 +85,7 @@ namespace SuperMario.Display
             coinTextSprite.text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
             timeTextSprite.text = fixText("" + MarioAttributes.Time, timeLength);
             marioTitleTextSprite.text = "Mario: " + MarioAttributes.MarioLife[0].ToString();
+            scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
         }
 
         private static String fixText(String str, int length)

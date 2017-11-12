@@ -10,7 +10,6 @@ namespace SuperMario
     public static class GameData
     {
         // just in case we forget these data
-        public static AbstractGame Game { get; set; }
         public static GameObjectManager GameObjectManager { get; set; }
 
         public static int MarioJumpingSpeed = -8;

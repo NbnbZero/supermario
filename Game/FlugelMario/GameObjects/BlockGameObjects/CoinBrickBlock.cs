@@ -3,6 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.StateMachine;
+using SuperMairo.HeadsUp;
+using SuperMario.Heads_Up;
+
 namespace SuperMario.GameObjects
 {
     public class CoinBrickBlock: IBlock
@@ -49,7 +52,9 @@ namespace SuperMario.GameObjects
             if (coinNum > 0)
             {
                 Location = new Vector2(Location.X, initialLocation.Y - 5);
-                coinNum--;                
+                coinNum--;
+                CoinSystem.Instance.AddCoin();
+                ScoringSystem.AddPointsForCoin(this);
             }
             else
             {

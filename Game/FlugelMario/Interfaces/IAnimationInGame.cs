@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario.Interfaces
 {
-    public interface IAnimationInGame
+    public interface IAnimationInGame : IAnimation
     {
         Vector2 Location { set; get; }
         Vector2 Velocity { get; set; }
