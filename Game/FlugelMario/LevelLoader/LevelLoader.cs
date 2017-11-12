@@ -11,6 +11,7 @@ using System;
 using SuperMario.GameObjects.ItemGameObjects;
 using FlugelMario.GameObjects.PipeGameObjects;
 using SuperMairo.GameObjects;
+using SuperMairoGameObjects;
 
 namespace SuperMario
 {
@@ -173,7 +174,6 @@ namespace SuperMario
                 myObjects = (List<PipeData>)serializer.Deserialize(reader);
             }
 
-            //TODO: add more cases
             foreach (PipeData pipe in myObjects)
             {
                 switch (pipe.PipeType)
@@ -200,7 +200,6 @@ namespace SuperMario
                 myObjects = (List<ObjectData>)serializer.Deserialize(reader);
             }
 
-            //TODO: add more cases && fix bug
             foreach (ObjectData obj in myObjects)
             {
                 switch (obj.BackgourndObj)
@@ -210,6 +209,27 @@ namespace SuperMario
                         break;
                     case BackgroundObjType.BigHill:
                         GameObjectManager.objectList.Add(new BigHill(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.BigCloud:
+                        GameObjectManager.objectList.Add(new BigCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.BigBush:
+                        GameObjectManager.objectList.Add(new BigBush(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.MediumCloud:
+                        GameObjectManager.objectList.Add(new MediumCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.MediumBush:
+                        GameObjectManager.objectList.Add(new MediumBush(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.SmallHill:
+                        GameObjectManager.objectList.Add(new SmallHill(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.SmallCloud:
+                        GameObjectManager.objectList.Add(new SmallCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.SmallBush:
+                        GameObjectManager.objectList.Add(new SmallBush(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                 }
             }

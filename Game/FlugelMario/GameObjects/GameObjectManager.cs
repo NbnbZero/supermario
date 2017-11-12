@@ -107,6 +107,10 @@ namespace SuperMario.GameObjects
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            foreach (IGameObject obj in objectList)
+            {
+                obj.Draw(spriteBatch);
+            }
             foreach (IGameObject obj in itemList)
             {
                 obj.Draw(spriteBatch);
@@ -123,10 +127,7 @@ namespace SuperMario.GameObjects
             {
                 obj.Draw(spriteBatch);
             }
-            foreach (IGameObject obj in objectList)
-            {
-                obj.Draw(spriteBatch);
-            }
+
             mario.Draw(spriteBatch);
 
             titleDisplayPanel.Draw(spriteBatch);

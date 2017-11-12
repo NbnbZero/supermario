@@ -22,7 +22,8 @@ namespace SuperMario
     {
         SpriteBatch spriteBatch;
         KeyboardControls keyboard;
-        Camera camera;
+        Camera camera1;
+        Camera camera2;
         MarioObject Mario;
         GameObjectManager objectManager;
         public Game1()
@@ -69,8 +70,9 @@ namespace SuperMario
 
             objectManager = new GameObjectManager(this,Mario);
 
-            camera = new Camera();
-            
+            camera1 = new Camera();
+            camera2 = new Camera();
+
             LevelLoader loader = new LevelLoader(objectManager);
             loader.Load();
 
@@ -111,7 +113,7 @@ namespace SuperMario
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform* Matrix.CreateScale(GetScreenScale));
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera1.GetTransform* Matrix.CreateScale(GetScreenScale));
             objectManager.Draw(spriteBatch);
             spriteBatch.End();
 
