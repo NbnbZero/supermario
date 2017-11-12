@@ -14,8 +14,10 @@ namespace SuperMario.Game_Controllers
         private Buttons[] preKeys = new Buttons[0];
         private IMario mario;
         private Game1 mygame;
-        public GamePadControls()
+        public GamePadControls(Game1 game, IMario Mario)
         {
+            mygame = game;
+            mario = Mario;
         }
 
         public void RegisterCommand()
@@ -120,7 +122,7 @@ namespace SuperMario.Game_Controllers
 
             if (preKeys != null)
             {
-                foreach (Buttons key in pressedKeys)
+                foreach (Buttons key in preKeys)
                 {
                     if (preKeys.Contains(key) && GamePad.GetState(0).IsButtonUp(key))
                     {

@@ -26,7 +26,6 @@ namespace SuperMario.Game_Controllers
         {
             mygame = game;
             mario = Mario;
-            RegisterCommand();
         }
 
         public void RegisterCommand()
@@ -157,7 +156,7 @@ namespace SuperMario.Game_Controllers
                 preKeys = pressedKeys;
             }
             else if (Game1.State.Type == GameStates.Title)
-            { 
+            {
                 if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
                 {    
                     mygame.Reset();
@@ -180,8 +179,7 @@ namespace SuperMario.Game_Controllers
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
                 {
-                    Game1.State.Proceed();
-                    Game1.State.GameOver();
+                    commandDict[Keys.Q].Execute();
                 }
             }
             else if (Game1.State.Type == GameStates.Pause)
@@ -191,6 +189,19 @@ namespace SuperMario.Game_Controllers
                     Game1.State.Proceed();
                     SoundManager.Instance.muteAndUnmute(Muted);
                     Muted = !Muted;
+                }
+            }
+            else if (Game1.State.Type == GameStates.GameOver)
+            {
+
+                if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
+                {
+                    mygame.Reset();
+                    Game1.State.Proceed();
+                }
+                else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
+                {
+                    commandDict[Keys.Q].Execute();
                 }
             }
         }

@@ -23,9 +23,10 @@ namespace SuperMario.Display
         IText lifeTextSprite;
         IText AskForContSprite;
         private const int screenHeight = 500;
-        private const int firstRowY = screenHeight / 2 - 35;
-        private const int secRowY = screenHeight / 2 - 10;
-        private const int thirdRowY = screenHeight / 2 + 10;
+        private const int firstRowY = screenHeight / 2 - 30;
+        private const int marioRowY = screenHeight / 2 - 20;
+        private const int secRowY = screenHeight / 2;
+        private const int thirdRowY = screenHeight / 2 + 30;
         public MarioLifeDisplayPanel()
         {
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
@@ -56,7 +57,7 @@ namespace SuperMario.Display
                 lifeTextSprite.Draw(spriteBatch, new Vector2(lifeTextX, secRowY));
 
                 int marioX = Camera.CameraX + Camera.CenterOfScreen - (marioSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2) - 20;
-                marioSprite.Draw(spriteBatch, new Vector2(marioX, firstRowY));
+                marioSprite.Draw(spriteBatch, new Vector2(marioX, marioRowY));
 
                 int askForContX = Camera.CameraX + Camera.CenterOfScreen - (AskForContSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2);
                 AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, thirdRowY));
@@ -66,9 +67,12 @@ namespace SuperMario.Display
 
         public void Update()
         {
-            if (MarioAttributes.MarioLife[0] > 0)
+            if (Game1.State.Type == GameStates.LifeDisplay)
             {
-                lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
+                if (MarioAttributes.MarioLife[0] > 0)
+                {
+                    lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
+                }
             }
         }
     }

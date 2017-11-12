@@ -18,9 +18,8 @@ namespace SuperMario.Display
         public bool IsEnable { get; set; }
         ISprite backgroundSprite;
         IText gameOverTextSprite;
+        IText AskForContSprite;
         Game1 game;
-        private int count = 0;
-        private const int maxCount = 200;
         private const int screenHeight = 500;
 
         public GameOverDisplayPanel(Game1 Game)
@@ -28,7 +27,8 @@ namespace SuperMario.Display
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             gameOverTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             gameOverTextSprite.text = "GAME OVER";
-            count = maxCount;
+            AskForContSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+            AskForContSprite.text = "Continue? Y / N";
             game = Game;
         }
 
@@ -40,6 +40,8 @@ namespace SuperMario.Display
                 int halfOfGameOverTextWidth = gameOverTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2;
                 int gameOverTextY = screenHeight / 2 - 30;
                 gameOverTextSprite.Draw(spriteBatch, new Vector2(Camera.CameraX + Camera.CenterOfScreen - halfOfGameOverTextWidth, gameOverTextY));
+                int askForContX = Camera.CameraX + Camera.CenterOfScreen - (AskForContSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2);
+                AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, gameOverTextY + 50));
             }
 
         }
@@ -48,17 +50,13 @@ namespace SuperMario.Display
         {
             if (Game1.State.Type == GameStates.GameOver)
             {
-                count--;
-                if (count == 0)
-                {
-                    game.Reset();
-                    Game1.State.Proceed();
+                
                     MarioAttributes.MarioLife[0] = 3;
                     MarioAttributes.UpdateHighestScore();
                     CoinSystem.Instance.ResetCoin();
                     ScoringSystem.ResetScore();
                     MarioAttributes.ClearTimer();
-                }
+                
             }
         }
     }
