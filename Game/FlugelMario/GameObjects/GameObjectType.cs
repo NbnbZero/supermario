@@ -14,7 +14,8 @@ namespace SuperMario.GameObjects
             UpMushroom,
             Star,
             Pipe,
-            LPipe
+            LPipe,
+            Castle
         }
     }
 }

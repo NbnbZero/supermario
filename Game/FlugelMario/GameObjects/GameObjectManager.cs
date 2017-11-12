@@ -20,6 +20,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> blockList;
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
+        public static List<IGameObject> objectList;
         private MarioObject mario;
         private Game1 game;
         private IDisplayPanel titleDisplayPanel;
@@ -32,6 +33,7 @@ namespace SuperMario.GameObjects
             itemList = new List<IGameObject>();
             enemyList = new List<IGameObject>();
             pipeList = new List<IGameObject>();
+            objectList = new List<IGameObject>();
             mario = Mario;
             game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel();
@@ -77,6 +79,10 @@ namespace SuperMario.GameObjects
                 {
                     obj.Update();
                 }
+                foreach (IGameObject obj in objectList)
+                {
+                    obj.Update();
+                }
 
                 mario.Update();
 
@@ -107,6 +113,10 @@ namespace SuperMario.GameObjects
                 obj.Draw(spriteBatch);
             }
             foreach(IGameObject obj in pipeList)
+            {
+                obj.Draw(spriteBatch);
+            }
+            foreach (IGameObject obj in objectList)
             {
                 obj.Draw(spriteBatch);
             }

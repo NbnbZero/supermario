@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SuperMario.Enums;
 using Microsoft.Xna.Framework;
 using System.Xml.Serialization;
+using static SuperMario.GameObjects.GameObjectType;
 
 namespace TileDefinition
 {   
@@ -37,6 +38,12 @@ namespace TileDefinition
     public class PipeData
     {
         public PipeType PipeType;
+        public int xLocation;
+        public int yLocation;
+    }
+    public class ObjectData
+    {
+        public BackgroundObjType BackgourndObj;
         public int xLocation;
         public int yLocation;
     }

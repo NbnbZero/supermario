@@ -15,6 +15,7 @@ namespace SuperMario.SpriteFactories
         private Texture2D blackSheet;
         private Texture2D backgroundSheet;
         private Texture2D titleSheet;
+        private Texture2D castleSheet;
 
         private static BackgroundSpriteFactory instance = new BackgroundSpriteFactory();
 
@@ -36,6 +37,7 @@ namespace SuperMario.SpriteFactories
             blackSheet = content.Load<Texture2D>("blackBackground");
             backgroundSheet = content.Load<Texture2D>("Background");
             titleSheet = content.Load<Texture2D>("TitleImage");
+            castleSheet = content.Load<Texture2D>("castle");
         }
       
         public ISprite CreateBlackBackgroundSprite()
@@ -49,6 +51,10 @@ namespace SuperMario.SpriteFactories
         public ISprite CreateTitleImgSprite()
         {
             return new TitleImg(titleSheet);
+        }
+        public ISprite CreateCastleSprite()
+        {
+            return new CastleSprite(castleSheet);
         }
     }
 }
