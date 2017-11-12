@@ -69,8 +69,10 @@
     <Compile Include="CollisionMario\MarioPipeTop.cs" />
     <Compile Include="CollisionMario\MarioPipeTwoSide.cs" />
     <Compile Include="CollisionMario\MarioBlockTwoSide.cs" />
-    <Compile Include="Display\GameOverDisplayPanel.cs" />
-    <Compile Include="Display\MarioLifeDisplayPanel.cs" />
+    <Compile Include="Commands\MarioCommand\ChangeBigState.cs" />
+    <Compile Include="Commands\MarioCommand\ChangeDeadState.cs" />
+    <Compile Include="Commands\MarioCommand\ChangeFireState.cs" />
+    <Compile Include="Commands\MarioCommand\ChangeSmallState.cs" />
     <Compile Include="Display\TitleDisplayPanel.cs" />
     <Compile Include="Enums\AnimationState.cs" />
     <Compile Include="Enums\PipeType.cs" />
@@ -91,7 +93,6 @@
     <Compile Include="GameObjects\PipeGameObjects\MediumPipe.cs" />
     <Compile Include="GameObjects\PipeGameObjects\Pipe.cs" />
     <Compile Include="GameObjects\MarioObject.cs" />
-    <Compile Include="Heads_Up\CoinSystem.cs" />
     <Compile Include="Heads_Up\ScoringSystem.cs" />
     <Compile Include="Interfaces\IDisplayPanel.cs" />
     <Compile Include="Interfaces\IAnimation.cs" />

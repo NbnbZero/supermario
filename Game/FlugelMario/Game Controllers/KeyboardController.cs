@@ -7,6 +7,7 @@ using SuperMario.Interfaces;
 using SuperMario.Commands.ControllerCommand;
 using SuperMairo.Interfaces;
 using SuperMairo.States.GameState;
+using SuperMairo.Commands;
 
 namespace SuperMario.Game_Controllers
 {
@@ -32,8 +33,13 @@ namespace SuperMario.Game_Controllers
             commandDict.Add(Keys.Down, new MarioCrouchCommand(mario));
             commandDict.Add(Keys.Up, new MarioJumpCommand(mario));
             commandDict.Add(Keys.Q, new QuitGameCommand(mygame));
+            commandDict.Add(Keys.Y, new ChangeSmallState(mario));
+            commandDict.Add(Keys.U, new ChangeBigState(mario));
+            commandDict.Add(Keys.I, new ChangeFireState(mario));
+            commandDict.Add(Keys.O, new ChangeDeadState(mario));
 
-            releasedCommandDict.Add(Keys.Z, new ReleasedRightMarioCommand(mario));
+
+
 
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
@@ -63,21 +69,31 @@ namespace SuperMario.Game_Controllers
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
-            foreach (Keys key in pressedKeys)
-            {
-                switch (key)
-                {
-                    case Keys.Q:
-                        commandDict[key].Execute();
-                        break;
-                    case Keys.Z:
-                        releasedCommandDict[key].Execute();
-                        break;
-                }
-            }
-
             if ((Game1.State.Type == GameStates.Playing))
-            {                
+            {
+                //cheat Keys
+                foreach (Keys key in pressedKeys)
+                {
+                    switch (key)
+                    {
+                        case Keys.Q:
+                            commandDict[key].Execute();
+                            break;
+                        case Keys.Y:
+                            commandDict[key].Execute();
+                            break;
+                        case Keys.U:
+                            commandDict[key].Execute();
+                            break;
+                        case Keys.I:
+                            commandDict[key].Execute();
+                            break;
+                        case Keys.O:
+                            commandDict[key].Execute();
+                            break;
+                    }
+                }
+
                 if (Left(pressedKeys))
                 {
                     commandDict[Keys.Left].Execute();
@@ -145,18 +161,16 @@ namespace SuperMario.Game_Controllers
                 preKeys = pressedKeys;
             }
             else if (Game1.State.Type == GameStates.Title)
-            {
-                //if (pressedKeys.Contains(keyDict[key]) && preKeys != null && !preKeys.Contains(keyDict[KeyboardKeys.A]))
-                //{
-                   // commandDict[keyDict[KeyboardKeys.A]].Execute();
-                //}
-           
+            { 
                 if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
                 {
                     Game1.State = new PlayingState(mygame);
                 }
+                else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
             }
-
 
         }
 
