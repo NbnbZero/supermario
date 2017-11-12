@@ -11,7 +11,7 @@ using static SuperMario.GameObjects.GameObjectType;
 
 namespace SuperMario.GameObjects.PipeGameObjects
 {
-    class LPipeBottom
+    class LPipeBottom:IPipe
     {
         private ISprite sprite;
         public ObjectType Type { get; } = ObjectType.Pipe;

@@ -9,7 +9,7 @@ using TileDefinition;
 using SuperMario.GameObjects;
 using System;
 using SuperMario.GameObjects.ItemGameObjects;
-using FlugelMario.GameObjects.PipeGameObjects;
+using SuperMario.GameObjects.PipeGameObjects;
 using SuperMairo.GameObjects;
 using SuperMairoGameObjects;
 
@@ -186,6 +186,9 @@ namespace SuperMario
                         break;
                     case PipeType.BigPipe:
                         GameObjectManager.pipeList.Add(new BigPipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        break;
+                    case PipeType.LPipeBottom:
+                        GameObjectManager.pipeList.Add(new LPipeBottom(new Vector2(pipe.xLocation, pipe.yLocation)));
                         break;
                 }
             }

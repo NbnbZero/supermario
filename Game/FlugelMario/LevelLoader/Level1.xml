@@ -6,7 +6,247 @@
     <yLocation>352</yLocation>
     <color>Normal</color>
   </ObjectData>
-  
+  ///////////
+  //Left Bounrdy
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>480</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>496</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>510</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>526</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>542</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>558</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>572</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>586</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>598</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>610</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>626</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  //Floor
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>630</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>640</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>650</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>660</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>670</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>680</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>690</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>700</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>710</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>720</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>730</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>740</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>750</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>760</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>760</xLocation>
+    <yLocation>642</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <PipeData>
+    <PipeType>LPipeBottom</PipeType>
+    <xLocation>760</xLocation>
+    <yLocation>608</yLocation>
+  </PipeData>
+
+
+
+
+
+
+
+
+
+
+
+
+  ///////////
   <BlockData>
     <State>Question</State>
     <itemType>Coin</itemType>

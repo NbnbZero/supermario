@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static SuperMario.GameObjects.GameObjectType;
 
-namespace FlugelMario.GameObjects.PipeGameObjects
+namespace SuperMario.GameObjects.PipeGameObjects
 {
     class LPipeBottomLeft : IPipe
     {
