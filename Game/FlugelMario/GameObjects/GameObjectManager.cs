@@ -21,12 +21,16 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         public static List<IGameObject> objectList;
+
         private MarioObject mario;
         private Game1 game;
+
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
         private IDisplayPanel headsUpDisplayPanel;
+
+        private const int BufferSize = 32;
         public GameObjectManager(Game1 Game, MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -36,9 +40,9 @@ namespace SuperMario.GameObjects
             objectList = new List<IGameObject>();
             mario = Mario;
             game = Game;
-            gameOverDisplayPanel = new GameOverDisplayPanel();
+            gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();
-            marioLifeDisplayPanel = new MarioLifeDisplayPanel(game);
+            marioLifeDisplayPanel = new MarioLifeDisplayPanel();
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
         }
 
@@ -73,7 +77,10 @@ namespace SuperMario.GameObjects
                 }
                 foreach (IGameObject obj in enemyList)
                 {
-                    obj.Update();
+                    if (IsInView(obj))
+                    {
+                        obj.Update();
+                    }                    
                 }
                 foreach (IGameObject obj in pipeList)
                 {
@@ -100,6 +107,10 @@ namespace SuperMario.GameObjects
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            foreach (IGameObject obj in objectList)
+            {
+                obj.Draw(spriteBatch);
+            }
             foreach (IGameObject obj in itemList)
             {
                 obj.Draw(spriteBatch);
@@ -116,10 +127,7 @@ namespace SuperMario.GameObjects
             {
                 obj.Draw(spriteBatch);
             }
-            foreach (IGameObject obj in objectList)
-            {
-                obj.Draw(spriteBatch);
-            }
+
             mario.Draw(spriteBatch);
 
             titleDisplayPanel.Draw(spriteBatch);
@@ -133,9 +141,12 @@ namespace SuperMario.GameObjects
                 Game1.State.Type == GameStates.LevelComplete;
         }
 
-
-
-
+        private static bool IsInView(IGameObject obj)
+        {
+            return (obj.Location.X >= Camera.CameraX - BufferSize) &&
+                (obj.Location.X <= Camera.CameraX + 2 * Camera.CenterOfScreen) &&
+                (obj.Location.Y <= 480);
+        }
 
 
 

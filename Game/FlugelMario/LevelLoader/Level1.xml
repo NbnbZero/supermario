@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Map>
-
+  <ObjectData>
+    <BackgourndObj>BigHill</BackgourndObj>
+    <xLocation>0</xLocation>
+    <yLocation>352</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  
   <BlockData>
     <State>Question</State>
     <itemType>Coin</itemType>
@@ -8,6 +14,24 @@
     <yLocation>335</yLocation>
     <color>Normal</color>
   </BlockData>
+  <ObjectData>
+    <BackgourndObj>BigBush</BackgourndObj>
+    <xLocation>350</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallHill</BackgourndObj>
+    <xLocation>420</xLocation>
+    <yLocation>369</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallBush</BackgourndObj>
+    <xLocation>540</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -50,6 +74,12 @@
     <yLocation>335</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>400</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   
   
   <PipeData>
@@ -58,20 +88,68 @@
     <yLocation>365</yLocation>
     <color>Normal</color>
   </PipeData>
+  <ObjectData>
+    <BackgourndObj>MediumBush</BackgourndObj>
+    <xLocation>700</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
   <PipeData>
     <PipeType>MediumPipe</PipeType>
     <xLocation>820</xLocation>
     <yLocation>353</yLocation>
     <color>Normal</color>
   </PipeData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>700</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>870</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>950</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <ObjectData>
+    <BackgourndObj>BigHill</BackgourndObj>
+    <xLocation>850</xLocation>
+    <yLocation>352</yLocation>
+    <color>Normal</color>
+  </ObjectData>
   <PipeData>
     <PipeType>BigPipe</PipeType>
     <xLocation>1000</xLocation>
     <yLocation>336</yLocation>
     <color>Normal</color>
   </PipeData>
+  <ObjectData>
+    <BackgourndObj>BigBush</BackgourndObj>
+    <xLocation>1030</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallHill</BackgourndObj>
+    <xLocation>1110</xLocation>
+    <yLocation>369</yLocation>
+    <color>Normal</color>
+  </ObjectData>
 
 
+  <ObjectData>
+    <BackgourndObj>SmallBush</BackgourndObj>
+    <xLocation>1270</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -93,6 +171,12 @@
     <yLocation>335</yLocation>
     <color>Normal</color>
   </BlockData>
+  <ObjectData>
+    <BackgourndObj>BigHill</BackgourndObj>
+    <xLocation>1650</xLocation>
+    <yLocation>352</yLocation>
+    <color>Normal</color>
+  </ObjectData>
 
 
   <BlockData>
@@ -116,6 +200,12 @@
     <yLocation>270</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>1480</xLocation>
+    <yLocation>254</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -123,6 +213,12 @@
     <yLocation>270</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>1496</xLocation>
+    <yLocation>254</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -211,6 +307,36 @@
     <yLocation>335</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>1800</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>1820</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Koopa</enemyType>
+    <xLocation>1900</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Goomba</enemyType>
+    <xLocation>1950</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Koopa</enemyType>
+    <xLocation>1930</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
 
 
   <BlockData>
@@ -241,6 +367,18 @@
     <yLocation>270</yLocation>
     <color>Normal</color>
   </BlockData>
+  <ObjectData>
+    <BackgourndObj>MediumBush</BackgourndObj>
+    <xLocation>1976</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallHill</BackgourndObj>
+    <xLocation>2150</xLocation>
+    <yLocation>369</yLocation>
+    <color>Normal</color>
+  </ObjectData>
 
 
   <BlockData>
@@ -465,6 +603,12 @@
     <yLocation>365</yLocation>
     <color>Normal</color>
   </PipeData>
+  <ObjectData>
+    <BackgourndObj>SmallBush</BackgourndObj>
+    <xLocation>2650</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
 
 
   <BlockData>
@@ -820,6 +964,169 @@
     <yLocation>272</yLocation>
     <color>Normal</color>
   </BlockData>
+  <ObjectData>
+    <BackgourndObj>BigHill</BackgourndObj>
+    <xLocation>3150</xLocation>
+    <yLocation>352</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>100</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>350</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>625</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>930</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>1300</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>1650</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>1800</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>SmallCloud</BackgourndObj>
+    <xLocation>2150</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>250</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>460</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>720</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>1060</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>1340</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>250</xLocation>
+    <yLocation>1690</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>1980</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>2020</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>MediumCloud</BackgourndObj>
+    <xLocation>2350</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>320</xLocation>
+    <yLocation>150</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>570</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>960</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>1080</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>1390</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>1825</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>2060</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>2160</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  <ObjectData>
+    <BackgourndObj>BigCloud</BackgourndObj>
+    <xLocation>2450</xLocation>
+    <yLocation>175</yLocation>
+    <color>Normal</color>
+  </ObjectData>
 
 
   <ObjectData>

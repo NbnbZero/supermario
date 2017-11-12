@@ -74,8 +74,9 @@ namespace SuperMario.States.MarioStates
                 this.Mario.Acceleration = new Vector2(0, marioDeathAcceleration);
                 counter--;
             }
+            
             if (this.Mario.Destination.Y > 1000)
-            {
+            {  
                 if (MarioAttributes.MarioLife[0] == 0)
                 {
                     Game1.State.GameOver();

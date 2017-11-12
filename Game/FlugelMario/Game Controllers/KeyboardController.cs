@@ -33,35 +33,19 @@ namespace SuperMario.Game_Controllers
             commandDict.Add(Keys.Right, new RightMarioCommand(mario));
             commandDict.Add(Keys.Down, new MarioCrouchCommand(mario));
             commandDict.Add(Keys.Up, new MarioJumpCommand(mario));
+
             commandDict.Add(Keys.Q, new QuitGameCommand(mygame));
+
             commandDict.Add(Keys.Y, new ChangeSmallState(mario));
             commandDict.Add(Keys.U, new ChangeBigState(mario));
             commandDict.Add(Keys.I, new ChangeFireState(mario));
             commandDict.Add(Keys.O, new ChangeDeadState(mario));
-
-
 
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
             releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));
             releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));
             
-
-            /*
-            controllerMappings.Add(Keys.P , HandlePauseOrResume);
-            controllerMappings.Add(Keys.R, HandlePauseOrResume);
-            controllerMappings.Add(Keys.Left, HandleLeft);
-            controllerMappings.Add(Keys.Right, HandleRight);
-            controllerMappings.Add(Keys.Up, HandleAscend);
-            controllerMappings.Add(Keys.Down,HandleDown);
-            controllerMappings.Add(Keys.Y, MakeSmall);
-            controllerMappings.Add(Keys.U, MakeBig);
-            controllerMappings.Add(Keys.I, MakeFire);
-            controllerMappings.Add(Keys.O, MakeDead);
-            controllerMappings.Add(Keys.B, BumpUp);
-            controllerMappings.Add(Keys.X, ChangeToUsed);            
-            controllerMappings.Add(Keys.Z, HandleJump);*/
-            //controllerMappings.Add(Keys )
         }
 
 
@@ -78,6 +62,9 @@ namespace SuperMario.Game_Controllers
                     {
                         case Keys.Q:
                             commandDict[key].Execute();
+                            break;
+                        case Keys.P:
+                            Game1.State.Pause();
                             break;
                         case Keys.Y:
                             commandDict[key].Execute();
@@ -172,7 +159,26 @@ namespace SuperMario.Game_Controllers
                     commandDict[Keys.Q].Execute();
                 }
             }
-
+            else if (Game1.State.Type == GameStates.LifeDisplay)
+            {
+                if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
+                {
+                    mygame.Reset();
+                    Game1.State.Proceed();
+                    SoundManager.Instance.PlayOverWorldSong();
+                }
+                else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
+            }
+            else if (Game1.State.Type == GameStates.Pause)
+            {
+                if ((pressedKeys.Contains(Keys.P) && preKeys != null))
+                {
+                    Game1.State.Proceed();
+                }
+            }
         }
 
         private bool Left(Keys[] pressedKeys)

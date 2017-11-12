@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using SuperMario.Enums;
 using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,14 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
-            myhandler.mario.IsInAir = false;
+            if (myhandler.mario.State.MarioShape == Shape.Dead)
+            {
+                return;
+            }
+            if (myhandler.mario.Velocity.Y >= 0)
+            {
+                myhandler.mario.IsInAir = false;
+            }
             myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X, 0);
             myhandler.mario.Location = new Vector2(myhandler.mario.Destination.X, myhandler.pipe.Destination.Y - myhandler.mario.Destination.Height);
         }

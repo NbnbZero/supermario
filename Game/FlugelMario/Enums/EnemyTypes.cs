@@ -9,5 +9,5 @@ namespace SuperMario.Enums
     public enum EnemyType {
         Goomba,
         Koopa
-    }
+    };
 }

@@ -18,16 +18,18 @@ namespace SuperMario.Display
         public bool IsEnable { get; set; }
         ISprite backgroundSprite;
         IText gameOverTextSprite;
+        Game1 game;
         private int count = 0;
         private const int maxCount = 200;
-        private const int screenHeight = 280;
+        private const int screenHeight = 500;
 
-        public GameOverDisplayPanel()
+        public GameOverDisplayPanel(Game1 Game)
         {
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             gameOverTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             gameOverTextSprite.text = "GAME OVER";
             count = maxCount;
+            game = Game;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -49,7 +51,6 @@ namespace SuperMario.Display
                 count--;
                 if (count == 0)
                 {
-                    Game1 game = (Game1)GameData.Game;
                     game.Reset();
                     Game1.State.Proceed();
                     MarioAttributes.MarioLife[0] = 3;

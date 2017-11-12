@@ -10,6 +10,8 @@ using SuperMario.GameObjects;
 using System;
 using SuperMario.GameObjects.ItemGameObjects;
 using FlugelMario.GameObjects.PipeGameObjects;
+using SuperMairo.GameObjects;
+using SuperMairoGameObjects;
 
 namespace SuperMario
 {
@@ -23,27 +25,12 @@ namespace SuperMario
 
         public void Load()
         {
-            //LoadMarioStart();
             LoadBlocks();
             LoadEnemies();
             LoadItems();
             LoadPipe();
             LoadObject();
         }
-
-        /*public void LoadMarioStart()
-        {   
-            List<StartData> myObjects = new List<StartData>();
-            XmlSerializer serializer = new XmlSerializer(typeof(List<StartData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level.xml"))
-            {
-                myObjects = (List<StartData>)serializer.Deserialize(reader);
-            }
-            foreach (StartData marioStart in myObjects)
-            {
-                objectMagager.Add(new MarioObject(new Vector2(marioStart.xLocation, marioStart.yLocation)));
-            }
-        }*/
 
 
         public void LoadBlocks()
@@ -161,20 +148,20 @@ namespace SuperMario
             {
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
-
-            
-                foreach (EnemyData enemy in myObjects)
+           
+            foreach (EnemyData enemy in myObjects)
+            {
+                switch (enemy.enemyType)
                 {
-                    switch (enemy.enemyType)
-                    {
-                        case EnemyType.Goomba:
-                            GameObjectManager.enemyList.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
-                            break;
-                        case EnemyType.Koopa:
-                            GameObjectManager.enemyList.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
-                            break;
-                    }
+                    case EnemyType.Koopa:
+                        GameObjectManager.enemyList.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
+                        break;
+                    case EnemyType.Goomba:
+                        GameObjectManager.enemyList.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
+                        break;
+
                 }
+            }
             
         }
 
@@ -187,7 +174,6 @@ namespace SuperMario
                 myObjects = (List<PipeData>)serializer.Deserialize(reader);
             }
 
-            //TODO: add more cases
             foreach (PipeData pipe in myObjects)
             {
                 switch (pipe.PipeType)
@@ -214,13 +200,36 @@ namespace SuperMario
                 myObjects = (List<ObjectData>)serializer.Deserialize(reader);
             }
 
-            //TODO: add more cases
             foreach (ObjectData obj in myObjects)
             {
                 switch (obj.BackgourndObj)
                 {
                     case BackgroundObjType.Castle:
                         GameObjectManager.objectList.Add(new Castle(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.BigHill:
+                        GameObjectManager.objectList.Add(new BigHill(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.BigCloud:
+                        GameObjectManager.objectList.Add(new BigCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.BigBush:
+                        GameObjectManager.objectList.Add(new BigBush(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.MediumCloud:
+                        GameObjectManager.objectList.Add(new MediumCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.MediumBush:
+                        GameObjectManager.objectList.Add(new MediumBush(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.SmallHill:
+                        GameObjectManager.objectList.Add(new SmallHill(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.SmallCloud:
+                        GameObjectManager.objectList.Add(new SmallCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.SmallBush:
+                        GameObjectManager.objectList.Add(new SmallBush(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                 }
             }
