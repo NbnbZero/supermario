@@ -21,12 +21,16 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         public static List<IGameObject> objectList;
+
         private MarioObject mario;
         private Game1 game;
+
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
         private IDisplayPanel headsUpDisplayPanel;
+
+        private const int BufferSize = 32;
         public GameObjectManager(Game1 Game, MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -73,7 +77,10 @@ namespace SuperMario.GameObjects
                 }
                 foreach (IGameObject obj in enemyList)
                 {
-                    obj.Update();
+                    if (IsInView(obj))
+                    {
+                        obj.Update();
+                    }                    
                 }
                 foreach (IGameObject obj in pipeList)
                 {
@@ -133,9 +140,12 @@ namespace SuperMario.GameObjects
                 Game1.State.Type == GameStates.LevelComplete;
         }
 
-
-
-
+        private static bool IsInView(IGameObject obj)
+        {
+            return (obj.Location.X >= Camera.CameraX - BufferSize) &&
+                (obj.Location.X <= Camera.CameraX + 2 * Camera.CenterOfScreen) &&
+                (obj.Location.Y <= 480);
+        }
 
 
 

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Map>
-
+  <ObjectData>
+    <BackgroundObjType>BigHill</BackgroundObjType>
+    <xLocation>0</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  
   <BlockData>
     <State>Question</State>
     <itemType>Coin</itemType>
@@ -50,6 +56,12 @@
     <yLocation>335</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>400</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   
   
   <PipeData>
@@ -64,6 +76,24 @@
     <yLocation>353</yLocation>
     <color>Normal</color>
   </PipeData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>700</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>870</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>950</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   <PipeData>
     <PipeType>BigPipe</PipeType>
     <xLocation>1000</xLocation>
@@ -116,6 +146,12 @@
     <yLocation>270</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>1480</xLocation>
+    <yLocation>254</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -123,6 +159,12 @@
     <yLocation>270</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>1496</xLocation>
+    <yLocation>254</yLocation>
+    <color>Normal</color>
+  </EnemyData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -211,6 +253,36 @@
     <yLocation>335</yLocation>
     <color>Normal</color>
   </BlockData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>1800</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>1820</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <EnemyType>Koopa</EnemyType>
+    <xLocation>1900</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <EnemyType>Goomba</EnemyType>
+    <xLocation>1950</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <EnemyType>Koopa</EnemyType>
+    <xLocation>10</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </EnemyData>
 
 
   <BlockData>

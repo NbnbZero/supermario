@@ -41,9 +41,6 @@ namespace SuperMario.Game_Controllers
             commandDict.Add(Keys.I, new ChangeFireState(mario));
             commandDict.Add(Keys.O, new ChangeDeadState(mario));
 
-
-
-
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
             releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));

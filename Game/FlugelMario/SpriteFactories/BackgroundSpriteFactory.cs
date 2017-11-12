@@ -35,18 +35,46 @@ namespace SuperMario.SpriteFactories
         public void LoadAllTextures(ContentManager content)
         {
             blackSheet = content.Load<Texture2D>("blackBackground");
-            backgroundSheet = content.Load<Texture2D>("Background");
             titleSheet = content.Load<Texture2D>("TitleImage");
             castleSheet = content.Load<Texture2D>("castle");
+            backgroundSheet = content.Load<Texture2D>("outside_scenery");
         }
-      
+        public ISprite CreateSmallHillSprite()
+        {
+            return new SmallHillSprite(backgroundSheet);
+        }
+        public ISprite CreateBigHillSprite()
+        {
+            return new BigHillSprite(backgroundSheet);
+        }
+
+        public ISprite CreateSmallCloudSprite()
+        {
+            return new SmallCloudSprite(backgroundSheet);
+        }
+        public ISprite CreateMediumCloudSprite()
+        {
+            return new MediumCloudSprite(backgroundSheet);
+        }
+        public ISprite CreateBigCloudSprite()
+        {
+            return new BigCloudSprite(backgroundSheet);
+        }
+        public ISprite CreateSmallBushSprite()
+        {
+            return new SmallBushSprite(backgroundSheet);
+        }
+        public ISprite CreateMediumBushSprite()
+        {
+            return new MediumBushSprite(backgroundSheet);
+        }
+        public ISprite CreateBigBushSprite()
+        {
+            return new BigBushSprite(backgroundSheet);
+        }
         public ISprite CreateBlackBackgroundSprite()
         {
             return new BlackBackgroundSprite(blackSheet);
-        }
-        public ISprite CreateBackgroundSprite()
-        {
-            return new BlackBackgroundSprite(backgroundSheet);
         }
         public ISprite CreateTitleImgSprite()
         {

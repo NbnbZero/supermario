@@ -10,6 +10,7 @@ using SuperMario.GameObjects;
 using System;
 using SuperMario.GameObjects.ItemGameObjects;
 using FlugelMario.GameObjects.PipeGameObjects;
+using SuperMairo.GameObjects;
 
 namespace SuperMario
 {
@@ -23,27 +24,12 @@ namespace SuperMario
 
         public void Load()
         {
-            //LoadMarioStart();
             LoadBlocks();
             LoadEnemies();
             LoadItems();
             LoadPipe();
             LoadObject();
         }
-
-        /*public void LoadMarioStart()
-        {   
-            List<StartData> myObjects = new List<StartData>();
-            XmlSerializer serializer = new XmlSerializer(typeof(List<StartData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("Level.xml"))
-            {
-                myObjects = (List<StartData>)serializer.Deserialize(reader);
-            }
-            foreach (StartData marioStart in myObjects)
-            {
-                objectMagager.Add(new MarioObject(new Vector2(marioStart.xLocation, marioStart.yLocation)));
-            }
-        }*/
 
 
         public void LoadBlocks()
@@ -161,20 +147,20 @@ namespace SuperMario
             {
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
-
-            
-                foreach (EnemyData enemy in myObjects)
+           
+            foreach (EnemyData enemy in myObjects)
+            {
+                switch (enemy.enemyType)
                 {
-                    switch (enemy.enemyType)
-                    {
-                        case EnemyType.Goomba:
-                            GameObjectManager.enemyList.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
-                            break;
-                        case EnemyType.Koopa:
-                            GameObjectManager.enemyList.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
-                            break;
-                    }
+                    case EnemyType.Koopa:
+                        GameObjectManager.enemyList.Add(new Koopa(new Vector2(enemy.xLocation, enemy.yLocation)));
+                        break;
+                    case EnemyType.Goomba:
+                        GameObjectManager.enemyList.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
+                        break;
+
                 }
+            }
             
         }
 
@@ -214,13 +200,16 @@ namespace SuperMario
                 myObjects = (List<ObjectData>)serializer.Deserialize(reader);
             }
 
-            //TODO: add more cases
+            //TODO: add more cases && fix bug
             foreach (ObjectData obj in myObjects)
             {
                 switch (obj.BackgourndObj)
                 {
                     case BackgroundObjType.Castle:
                         GameObjectManager.objectList.Add(new Castle(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.BigHill:
+                        GameObjectManager.objectList.Add(new BigHill(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                 }
             }

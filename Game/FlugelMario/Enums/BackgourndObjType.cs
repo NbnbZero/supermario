@@ -9,7 +9,14 @@ namespace SuperMario.Enums
 
     public enum BackgroundObjType
     {
-        Castle
+        Castle,BigCloud,
+        BigHill,
+        MediumBush,
+        MediumCloud,
+        SmallBush,
+        SmallCloud,
+        SmallHill,
+        BigBush
     }
 
 }
