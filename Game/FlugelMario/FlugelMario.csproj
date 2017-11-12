@@ -75,8 +75,10 @@
     <Compile Include="Commands\MarioCommand\ChangeSmallState.cs" />
     <Compile Include="Display\TitleDisplayPanel.cs" />
     <Compile Include="Enums\AnimationState.cs" />
+    <Compile Include="Enums\BackgourndObjType.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Game Controllers\InputState.cs" />
+    <Compile Include="GameObjects\BackGourndObjects\Castle.cs" />
     <Compile Include="GameObjects\BlockGameObjects\BrickBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\CoinBrickBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\FloorBlock.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="SpriteFactories\PipeSpriteFactory.cs" />
     <Compile Include="SpriteFactories\TextSpriteFactory.cs" />
     <Compile Include="Sprites\Background\backgroundSprite.cs" />
+    <Compile Include="Sprites\Background\CastleSprite.cs" />
     <Compile Include="Sprites\Background\TileImg.cs" />
     <Compile Include="Sprites\Items\BigPipeSprite.cs" />
     <Compile Include="Sprites\Items\LPipeBottomLeftSprite.cs" />

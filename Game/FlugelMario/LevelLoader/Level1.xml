@@ -822,15 +822,12 @@
   </BlockData>
 
 
-  <BlockData>
-    <State>Stair</State>
-    <itemType>Null</itemType>
-    <xLocation>3300</xLocation>
-    <yLocation>384</yLocation>
+  <ObjectData>
+    <BackgroundObjType>Castle</BackgroundObjType>
+    <xLocation>3400</xLocation>
+    <yLocation>320</yLocation>
     <color>Normal</color>
-  </BlockData>
-
-
+  </ObjectData>
 
 
 </Map>

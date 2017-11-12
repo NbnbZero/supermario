@@ -28,6 +28,7 @@ namespace SuperMario
             LoadEnemies();
             LoadItems();
             LoadPipe();
+            LoadObject();
         }
 
         /*public void LoadMarioStart()
@@ -65,7 +66,7 @@ namespace SuperMario
             {
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
             }
-            for (int i = 2350; i < 3500; i += 16)
+            for (int i = 2350; i < 3700; i += 16)
             {
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
             }
@@ -199,6 +200,27 @@ namespace SuperMario
                         break;
                     case PipeType.BigPipe:
                         GameObjectManager.pipeList.Add(new BigPipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        break;
+                }
+            }
+        }
+
+        private void LoadObject()
+        {
+            List<ObjectData> myObjects = new List<ObjectData>();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<ObjectData>), new XmlRootAttribute("Map"));
+            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
+            {
+                myObjects = (List<ObjectData>)serializer.Deserialize(reader);
+            }
+
+            //TODO: add more cases
+            foreach (ObjectData obj in myObjects)
+            {
+                switch (obj.BackgourndObj)
+                {
+                    case BackgroundObjType.Castle:
+                        GameObjectManager.objectList.Add(new Castle(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                 }
             }
