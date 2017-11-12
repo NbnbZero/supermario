@@ -159,7 +159,8 @@ namespace SuperMario.Game_Controllers
             else if (Game1.State.Type == GameStates.Title)
             { 
                 if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
-                {
+                {    
+                    mygame.Reset();
                     Game1.State = new PlayingState(mygame);
                     SoundManager.Instance.PlayOverWorldSong();
                     MarioAttributes.StartTimer();
