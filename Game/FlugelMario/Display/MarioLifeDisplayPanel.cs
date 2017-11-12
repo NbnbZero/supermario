@@ -22,7 +22,7 @@ namespace SuperMario.Display
         IText lifeTextSprite;
         private int count = 0;
         private const int maxCount = 100;
-        private const int screenHeight = 280;
+        private const int screenHeight = 500;
         private const int firstRowY = screenHeight / 2 - 35;
         private const int secRowY = screenHeight / 2 - 10;
 
@@ -69,9 +69,9 @@ namespace SuperMario.Display
                 if (count == 0)
                 {
                     Game1 game = (Game1)GameData.Game;
-                    //game.Reset();
+                    game.Reset();
                     Game1.State.Proceed();
-                    //SoundManager.Instance.PlayOverWorldSong();
+                    SoundManager.Instance.PlayOverWorldSong();
                 }
             }
         }

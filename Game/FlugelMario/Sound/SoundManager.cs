@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace SuperMario.Sound
         private SoundEffect superJumpSound;
         private SoundEffect warningSound;
 
+        private Song overworldSong;
+        private Song starSong;
 
         private static SoundManager instance = new SoundManager();
 
@@ -56,10 +59,12 @@ namespace SuperMario.Sound
             smallJumpSound = content.Load<SoundEffect>("v_jump-small");
             superJumpSound = content.Load<SoundEffect>("v_jump-super");
             warningSound = content.Load<SoundEffect>("v_warning");
-
+            overworldSong = content.Load<Song>("v_overworld");
+            starSong = content.Load<Song>("v_starmario");
         }
         public void PlayMarioDyingSound()
         {
+            MediaPlayer.Stop();
             marioDyingSound.Play();
         }
         public void PlayCoinSound()
@@ -113,12 +118,25 @@ namespace SuperMario.Sound
         }
         public void StopAllSound()
         {
-            throw new NotImplementedException();
+            MediaPlayer.Stop();
+
         }
         public void PlayStageClearSound()
         {
             throw new NotImplementedException();
         }
 
+        public void PlayOverWorldSong()
+        {
+            MediaPlayer.Stop();
+            MediaPlayer.Play(overworldSong);
+            MediaPlayer.IsRepeating = true;
+        }
+
+        public void PlayStarSong()
+        {
+            MediaPlayer.Stop();
+            MediaPlayer.Play(starSong);
+        }
     }
 }

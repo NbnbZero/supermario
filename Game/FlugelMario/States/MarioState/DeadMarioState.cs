@@ -20,6 +20,7 @@ namespace SuperMario.States.MarioStates
             this.MarioDirection = Direction.Dead;
             this.MarioShape = Shape.Dead;
             SoundManager.Instance.PlayMarioDyingSound();
+            SoundManager.Instance.StopAllSound();
             this.Mario.Velocity = new Vector2(0,0);
             this.Mario.Acceleration = new Vector2(0,0);
             MarioAttributes.MarioLife[0]--;

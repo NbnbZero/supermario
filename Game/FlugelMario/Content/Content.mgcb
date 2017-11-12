@@ -446,3 +446,15 @@
 /processorParam:TextureFormat=Compressed
 /build:File.spritefont
 
+#begin v_overworld.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:v_overworld.mp3
+
+#begin v_starmario.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:v_starmario.mp3
+

@@ -36,6 +36,7 @@ namespace SuperMario
             sprite = (ISprite)ItemSpriteFactory.Instance.CreateDisappearedSprite();
             IsCollected = true;
             SoundManager.Instance.PlayPowerUpSound();
+            SoundManager.Instance.PlayStarSong();
         }
 
         public void Draw(SpriteBatch spriteBatch)

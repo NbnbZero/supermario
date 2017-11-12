@@ -25,6 +25,7 @@ namespace SuperMario.GameObjects
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
+        private IDisplayPanel headsUpDisplayPanel;
         public GameObjectManager(MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -35,6 +36,7 @@ namespace SuperMario.GameObjects
             gameOverDisplayPanel = new GameOverDisplayPanel();
             titleDisplayPanel = new TitleDisplayPanel();
             marioLifeDisplayPanel = new MarioLifeDisplayPanel();
+            headsUpDisplayPanel = new HeadsUpDisplayPanel();
         }
 
         public IDisplayPanel TitlePanel
@@ -53,7 +55,7 @@ namespace SuperMario.GameObjects
 
         public void Update()
         {
-            //bool updateHUD = true;
+            bool updateHUD = true;
 
             if (GamePlayable())
             {
@@ -80,12 +82,13 @@ namespace SuperMario.GameObjects
                 Camera.Move(mario);
             }
 
-            //if (updateHUD)
-           // {
+            if (updateHUD)
+            {
                 titleDisplayPanel.Update();
                 gameOverDisplayPanel.Update();
                 marioLifeDisplayPanel.Update();
-            // }           
+                headsUpDisplayPanel.Update();
+            }           
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -111,6 +114,7 @@ namespace SuperMario.GameObjects
             titleDisplayPanel.Draw(spriteBatch);
             gameOverDisplayPanel.Draw(spriteBatch);
             marioLifeDisplayPanel.Draw(spriteBatch);
+            headsUpDisplayPanel.Draw(spriteBatch);
         }
         private static bool GamePlayable()
         {

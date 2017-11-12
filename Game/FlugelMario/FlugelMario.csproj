@@ -74,6 +74,7 @@
     <Compile Include="Commands\MarioCommand\ChangeFireState.cs" />
     <Compile Include="Commands\MarioCommand\ChangeSmallState.cs" />
     <Compile Include="Display\GameOverDisplayPanel.cs" />
+    <Compile Include="Display\HeadsUpDisplayPanel.cs" />
     <Compile Include="Display\MarioLifeDisplayPanel.cs" />
     <Compile Include="Display\TitleDisplayPanel.cs" />
     <Compile Include="Enums\AnimationState.cs" />
