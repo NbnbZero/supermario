@@ -100,7 +100,7 @@ namespace SuperMario
             keyboard.Update();
 
             objectManager.Update();
-
+            MarioAttributes.timeCount(gameTime,Mario);
             base.Update(gameTime);
         }
 
@@ -134,8 +134,8 @@ namespace SuperMario
         {
             LoadContent();
             Camera.ResetCamera();
-            //MarioAttributes.ResetTimer();
-            //MarioAttributes.StartTimer();
+            MarioAttributes.ResetTimer();
+            MarioAttributes.StartTimer();
         }
     }
 }

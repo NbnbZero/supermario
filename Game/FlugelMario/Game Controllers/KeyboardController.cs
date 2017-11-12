@@ -20,7 +20,7 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> commandDict = new Dictionary<Keys, ICommand>();
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
-        private bool muted = true;
+        private bool Muted = true;
 
         public KeyboardControls(Game1 game, IMario Mario)
         {
@@ -69,8 +69,8 @@ namespace SuperMario.Game_Controllers
                             Game1.State.Pause();
                             break;
                         case Keys.M:
-                            SoundManager.Instance.muteAndUnmute(muted);
-                            muted = !muted;
+                            SoundManager.Instance.muteAndUnmute(Muted);
+                            Muted = !Muted;
                             break;
                         case Keys.Y:
                             commandDict[key].Execute();

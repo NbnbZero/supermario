@@ -76,7 +76,8 @@ namespace SuperMario.States.MarioStates
             }
             
             if (this.Mario.Destination.Y > 1000)
-            {  
+            {
+                MarioAttributes.StopTimer();
                 if (MarioAttributes.MarioLife[0] == 0)
                 {
                     Game1.State.GameOver();
