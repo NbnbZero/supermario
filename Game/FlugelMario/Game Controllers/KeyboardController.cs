@@ -57,34 +57,37 @@ namespace SuperMario.Game_Controllers
 
             if ((Game1.State.Type == GameStates.Playing))
             {
-                //cheat Keys
-                foreach (Keys key in pressedKeys)
+
+                if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {
-                    switch (key)
-                    {
-                        case Keys.Q:
-                            commandDict[key].Execute();
-                            break;
-                        case Keys.P:
-                            Game1.State.Pause();
-                            break;
-                        case Keys.M:
-                            SoundManager.Instance.muteAndUnmute(Muted);
-                            Muted = !Muted;
-                            break;
-                        case Keys.Y:
-                            commandDict[key].Execute();
-                            break;
-                        case Keys.U:
-                            commandDict[key].Execute();
-                            break;
-                        case Keys.I:
-                            commandDict[key].Execute();
-                            break;
-                        case Keys.O:
-                            commandDict[key].Execute();
-                            break;
-                    }
+                    commandDict[Keys.Q].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.P) && preKeys != null))
+                {
+                    Game1.State.Pause();
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
+                }
+                else if ((pressedKeys.Contains(Keys.M) && preKeys != null))
+                {
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
+                }
+                else if ((pressedKeys.Contains(Keys.Y) && preKeys != null))
+                {
+                    commandDict[Keys.Y].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.U) && preKeys != null))
+                {
+                    commandDict[Keys.U].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.I) && preKeys != null))
+                {
+                    commandDict[Keys.I].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.Y) && preKeys != null))
+                {
+                    commandDict[Keys.O].Execute();
                 }
 
                 if (Left(pressedKeys))
@@ -185,6 +188,8 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.P) && preKeys != null))
                 {
                     Game1.State.Proceed();
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
                 }
             }
         }

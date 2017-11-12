@@ -211,13 +211,13 @@ namespace SuperMario
                         GameObjectManager.objectList.Add(new BigHill(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                     case BackgroundObjType.BigCloud:
-                        GameObjectManager.objectList.Add(new BigCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        GameObjectManager.cloudList.Add(new BigCloud(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                     case BackgroundObjType.BigBush:
                         GameObjectManager.objectList.Add(new BigBush(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                     case BackgroundObjType.MediumCloud:
-                        GameObjectManager.objectList.Add(new MediumCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        GameObjectManager.cloudList.Add(new MediumCloud(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                     case BackgroundObjType.MediumBush:
                         GameObjectManager.objectList.Add(new MediumBush(new Vector2(obj.xLocation, obj.yLocation)));
@@ -226,7 +226,7 @@ namespace SuperMario
                         GameObjectManager.objectList.Add(new SmallHill(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                     case BackgroundObjType.SmallCloud:
-                        GameObjectManager.objectList.Add(new SmallCloud(new Vector2(obj.xLocation, obj.yLocation)));
+                        GameObjectManager.cloudList.Add(new SmallCloud(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                     case BackgroundObjType.SmallBush:
                         GameObjectManager.objectList.Add(new SmallBush(new Vector2(obj.xLocation, obj.yLocation)));

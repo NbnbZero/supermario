@@ -12,6 +12,7 @@ using SuperMario.Sprites.Goomba;
 using SuperMario.Sound;
 using SuperMairo.States.GameState;
 using SuperMairo.SpriteFactories;
+using SuperMairo;
 
 namespace SuperMario
 {
@@ -23,7 +24,8 @@ namespace SuperMario
         SpriteBatch spriteBatch;
         KeyboardControls keyboard;
         Camera camera1;
-        Camera camera2;
+        Camera2D camera2;
+        Vector2 parallax = new Vector2(0.1f);
         MarioObject Mario;
         GameObjectManager objectManager;
 
@@ -72,7 +74,7 @@ namespace SuperMario
             objectManager = new GameObjectManager(this,Mario);
 
             camera1 = new Camera();
-            camera2 = new Camera();
+            camera2 = new Camera2D(GraphicsDevice.Viewport);
 
             LevelLoader loader = new LevelLoader(objectManager);
             loader.Load();
@@ -104,6 +106,9 @@ namespace SuperMario
                 objectManager.Update();
             }
             MarioAttributes.timeCount(gameTime,Mario);
+
+            camera2.LookAt(new Vector2(Mario.Location.X - 20, GraphicsDevice.Viewport.Height / 2));          
+
             base.Update(gameTime);
         }
 
@@ -115,6 +120,13 @@ namespace SuperMario
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera2.GetViewMatrix(parallax));
+            foreach (IGameObject obj in GameObjectManager.cloudList)
+            {
+                obj.Draw(spriteBatch);
+            }
+            spriteBatch.End();
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera1.GetTransform* Matrix.CreateScale(GetScreenScale));
             objectManager.Draw(spriteBatch);

@@ -21,6 +21,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         public static List<IGameObject> objectList;
+        public static List<IGameObject> cloudList;
 
         private MarioObject mario;
         private Game1 game;
@@ -38,6 +39,7 @@ namespace SuperMario.GameObjects
             enemyList = new List<IGameObject>();
             pipeList = new List<IGameObject>();
             objectList = new List<IGameObject>();
+            cloudList = new List<IGameObject>();
             mario = Mario;
             game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel(game);
