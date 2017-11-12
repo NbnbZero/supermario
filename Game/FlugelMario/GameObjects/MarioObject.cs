@@ -109,10 +109,11 @@ namespace SuperMario.GameObjects
                 return;
             }
             //TODO: add level condition for Game (ground/underground)
-            if (location.Y > 445)
+            if (location.Y >= 445&&location.Y<=460)
             {
                 State.Terminated();
             }
+
             if (IsProtected)
             {
                 protectTime++;
