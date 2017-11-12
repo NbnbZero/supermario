@@ -20,11 +20,13 @@ namespace SuperMario.Display
         IText coinTextSprite;
         IText worldTitleTextSprite;
         IText worldTextSprite;
-
+        IText timeTitleTextSprite;
+        IText timeTextSprite;
         private const int distanceOfFirstRowText = 20;
         private const int distanceOfSecondRowText = 40;
 
         private const int coinLength = 2;
+        private const int timeLength = 3;
 
         public HeadsUpDisplayPanel()
         {
@@ -38,7 +40,11 @@ namespace SuperMario.Display
             worldTitleTextSprite.text = "WORLD";
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             worldTextSprite.text = "1-1";
-            
+            timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+            timeTitleTextSprite.text = "Time";
+            timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+            timeTextSprite.text = fixText("" + MarioAttributes.Time, timeLength);
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -59,13 +65,19 @@ namespace SuperMario.Display
 
             int worldTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (worldTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             worldTextSprite.Draw(spriteBatch, new Vector2(worldTextX, distanceOfSecondRowText));
+
+            int timeTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 8 / 5 - (timeTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
+            timeTitleTextSprite.Draw(spriteBatch, new Vector2(timeTitleTextX, distanceOfFirstRowText));
+
+            int timeTextX = Camera.CameraX + (Camera.CenterOfScreen * 8 / 5 - (timeTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
+            timeTextSprite.Draw(spriteBatch, new Vector2(timeTextX, distanceOfSecondRowText));
         }
 
         public void Update()
         {
             coinSprite.Update();
             coinTextSprite.text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
-
+            timeTextSprite.text = fixText("" + MarioAttributes.Time, timeLength);
         }
 
         private static String fixText(String str, int length)

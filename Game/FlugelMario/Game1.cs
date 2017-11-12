@@ -26,6 +26,7 @@ namespace SuperMario
         Camera camera2;
         MarioObject Mario;
         GameObjectManager objectManager;
+
         public Game1()
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
@@ -41,6 +42,7 @@ namespace SuperMario
         /// </summary>
         protected override void Initialize()
         {
+            MarioAttributes.StartTimer();
             base.Initialize();
         }
 
@@ -98,8 +100,10 @@ namespace SuperMario
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
-
-            objectManager.Update();
+            if (State.Type != SuperMairo.Interfaces.GameStates.Pause)
+            { 
+                objectManager.Update();
+            }
             MarioAttributes.timeCount(gameTime,Mario);
             base.Update(gameTime);
         }
