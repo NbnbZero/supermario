@@ -108,6 +108,7 @@ namespace SuperMario.GameObjects
                 location = new Vector2(location.X + 6, location.Y);
                 return;
             }
+            //TODO: add level condition for Game (ground/underground)
             if (location.Y > 445)
             {
                 State.Terminated();
