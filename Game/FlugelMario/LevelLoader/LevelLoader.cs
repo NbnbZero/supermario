@@ -9,6 +9,7 @@ using TileDefinition;
 using SuperMario.GameObjects;
 using System;
 using SuperMario.GameObjects.ItemGameObjects;
+using FlugelMario.GameObjects.PipeGameObjects;
 
 namespace SuperMario
 {
@@ -52,13 +53,24 @@ namespace SuperMario
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
-            for (int i = 0; i < 3000; i += 16)
+            for (int i = 0; i < 1200; i += 16)
             {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 212)));
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 200)));
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
             }
-                    
-                foreach (BlockData block in myObjects)
+            for (int i = 1250; i < 1500; i += 16)
+            {
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+            }
+            for (int i = 1550; i < 2300; i += 16)
+            {
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+            }
+            for (int i = 2350; i < 3500; i += 16)
+            {
+                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+            }
+
+            foreach (BlockData block in myObjects)
                 {                                           
                     switch (block.State)
                         {
@@ -181,6 +193,12 @@ namespace SuperMario
                 {
                     case PipeType.Pipe:
                         GameObjectManager.pipeList.Add(new Pipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        break;
+                    case PipeType.MediumPipe:
+                        GameObjectManager.pipeList.Add(new MediumPipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        break;
+                    case PipeType.BigPipe:
+                        GameObjectManager.pipeList.Add(new BigPipe(new Vector2(pipe.xLocation, pipe.yLocation)));
                         break;
                 }
             }
