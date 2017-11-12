@@ -23,7 +23,6 @@ namespace SuperMairo.States.GameState
         public GameOverState(AbstractGame _game)
         {
             this.game = _game;
-            SoundManager.Instance.StopAllSound();
             SoundManager.Instance.PlayGameOverSound();
         }
 

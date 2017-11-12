@@ -50,13 +50,13 @@ namespace SuperMairo.DisplayPanel
         {
             if (Game1.State.Type == GameStates.Title)
             {
-                int titleImgX = Camera.CameraX + Camera.CenterOfScreen - (titleImg.MakeDestinationRectangle(Vector2.Zero).Width / 3);
+                int titleImgX = Camera.CameraX + Camera.CenterOfScreen - (titleImg.MakeDestinationRectangle(Vector2.Zero).Width / 2);
                 titleImg.Draw(spriteBatch, new Vector2(titleImgX, titleImgY));
 
-                int instructionTextX = Camera.CameraX + Camera.CenterOfScreen - (instructionText.MakeDestinationRectangle(Vector2.Zero).Width / 3);
+                int instructionTextX = Camera.CameraX + Camera.CenterOfScreen - (instructionText.MakeDestinationRectangle(Vector2.Zero).Width / 2);
                 instructionText.Draw(spriteBatch, new Vector2(instructionTextX, instructionY));
 
-                int highestScoreTextX = Camera.CameraX + Camera.CenterOfScreen - (highestScoreText.MakeDestinationRectangle(Vector2.Zero).Width / 3);
+                int highestScoreTextX = Camera.CameraX + Camera.CenterOfScreen - (highestScoreText.MakeDestinationRectangle(Vector2.Zero).Width / 2);
                 highestScoreText.Draw(spriteBatch, new Vector2(highestScoreTextX, highestScoreY));
             }
         }

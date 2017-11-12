@@ -159,6 +159,7 @@ namespace SuperMario.Game_Controllers
                 {
                     Game1.State = new PlayingState(mygame);
                     SoundManager.Instance.PlayOverWorldSong();
+                    MarioAttributes.StartTimer();
                 }
                 else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {
@@ -175,7 +176,8 @@ namespace SuperMario.Game_Controllers
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
                 {
-                    commandDict[Keys.Q].Execute();
+                    Game1.State.Proceed();
+                    Game1.State.GameOver();
                 }
             }
             else if (Game1.State.Type == GameStates.Pause)

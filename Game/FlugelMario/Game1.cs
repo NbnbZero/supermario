@@ -42,7 +42,6 @@ namespace SuperMario
         /// </summary>
         protected override void Initialize()
         {
-            MarioAttributes.StartTimer();
             base.Initialize();
         }
 
