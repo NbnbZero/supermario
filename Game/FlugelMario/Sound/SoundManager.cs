@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMario.Interfaces;
 
 namespace SuperMario.Sound
 {
@@ -111,7 +112,7 @@ namespace SuperMario.Sound
         {
             superJumpSound.Play();
         }
- 
+
         public void PlayWarningSound()
         {
             warningSound.Play();
@@ -124,6 +125,10 @@ namespace SuperMario.Sound
         public void PlayStageClearSound()
         {
             throw new NotImplementedException();
+        }
+        public void MuteAndUnmute()
+        {
+
         }
 
         public void PlayOverWorldSong()
