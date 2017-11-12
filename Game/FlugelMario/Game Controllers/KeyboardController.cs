@@ -26,6 +26,7 @@ namespace SuperMario.Game_Controllers
         {
             mygame = game;
             mario = Mario;
+            RegisterCommand();
         }
 
         public void RegisterCommand()

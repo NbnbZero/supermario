@@ -33,7 +33,7 @@ namespace SuperMario.Display
         public HeadsUpDisplayPanel()
         {
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            marioTitleTextSprite.text = "Mario: " + MarioAttributes.MarioLife[0].ToString();
+            marioTitleTextSprite.text = "Player1Mario";
             scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
             coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
