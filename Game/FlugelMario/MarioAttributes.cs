@@ -14,8 +14,8 @@ namespace SuperMario
         public static int[] MarioLife { get; } = {3};
         public static int HighestScore { get; set; } = 0;
         public static int Time { get; set; } = 0;
-        private static int counter = 0;
-        private static bool isTimeTicking = false;
+        //private static int counter = 0;
+        //private static bool isTimeTicking = false;
         public static void UpdateHighestScore()
         {
             if (ScoringSystem.Score > HighestScore)

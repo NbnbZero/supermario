@@ -74,6 +74,14 @@ namespace SuperMario.States.MarioStates
                 counter--;
             }
 
+            if (MarioAttributes.MarioLife[0] == 0)
+            {
+                Game1.State.GameOver();
+            }
+            else
+            {
+                Game1.State.MarioDied();
+            }
         }
     }
 }

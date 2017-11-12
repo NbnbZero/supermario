@@ -32,7 +32,7 @@ namespace SuperMairo.States.GameState
 
         public void MarioDied()
         {
-            Game1.State = new LifeDisplayState(game);
+             Game1.State = new LifeDisplayState(game);
         }
 
         public void Pause()
@@ -47,7 +47,7 @@ namespace SuperMairo.States.GameState
 
         public void Proceed()
         {
-            Game1.State = new LevelComplete(game);
+             Game1.State = new LevelComplete(game);
         }
     }
 }

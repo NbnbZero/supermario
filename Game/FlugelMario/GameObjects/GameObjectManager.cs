@@ -10,19 +10,21 @@ using static SuperMario.HandleAllCollison;
 using SuperMairo.Interfaces;
 using SuperMairo.DisplayPanel;
 using Microsoft.Xna.Framework;
+using SuperMario.Display;
 
 namespace SuperMario.GameObjects
 {
-    public class GameObjectManager
+    public class GameObjectManager 
     {
         public static List<IGameObject> pipeList;
         public static List<IGameObject> blockList;
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         private MarioObject mario;
-
+        private AbstractGame game;
         private IDisplayPanel titleDisplayPanel;
-
+        private IDisplayPanel gameOverDisplayPanel;
+        private IDisplayPanel marioLifeDisplayPanel;
         public GameObjectManager(MarioObject Mario)
         {
             blockList = new List<IGameObject>();
@@ -30,8 +32,9 @@ namespace SuperMario.GameObjects
             enemyList = new List<IGameObject>();
             pipeList = new List<IGameObject>();
             mario = Mario;
-
+            gameOverDisplayPanel = new GameOverDisplayPanel();
             titleDisplayPanel = new TitleDisplayPanel();
+            marioLifeDisplayPanel = new MarioLifeDisplayPanel();
         }
 
         public IDisplayPanel TitlePanel
@@ -42,6 +45,7 @@ namespace SuperMario.GameObjects
             }
         }
 
+
         public void HandleCollisions()
         {
             HandleAllCollisions(mario, blockList, enemyList, itemList, pipeList);
@@ -49,7 +53,7 @@ namespace SuperMario.GameObjects
 
         public void Update()
         {
-            bool updateHUD = true;
+            //bool updateHUD = true;
 
             if (GamePlayable())
             {
@@ -76,10 +80,12 @@ namespace SuperMario.GameObjects
                 Camera.Move(mario);
             }
 
-            if (updateHUD)
-            {
+            //if (updateHUD)
+           // {
                 titleDisplayPanel.Update();
-            }           
+                gameOverDisplayPanel.Update();
+                marioLifeDisplayPanel.Update();
+            // }           
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -103,6 +109,8 @@ namespace SuperMario.GameObjects
             mario.Draw(spriteBatch);
 
             titleDisplayPanel.Draw(spriteBatch);
+            gameOverDisplayPanel.Draw(spriteBatch);
+            marioLifeDisplayPanel.Draw(spriteBatch);
         }
         private static bool GamePlayable()
         {

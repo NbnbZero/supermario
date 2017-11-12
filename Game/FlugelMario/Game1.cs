@@ -25,7 +25,6 @@ namespace SuperMario
         Camera camera;
         MarioObject Mario;
         GameObjectManager objectManager;
-
         public Game1()
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
@@ -127,6 +126,14 @@ namespace SuperMario
                 var scaleY = (float)GraphicsDevice.Viewport.Height / (float)480;
                 return new Vector3(scaleX, scaleY, 1.0f);
             }
+        }
+
+        public void Reset()
+        {
+            LoadContent();
+            Camera.ResetCamera();
+            //MarioAttributes.ResetTimer();
+            //MarioAttributes.StartTimer();
         }
     }
 }

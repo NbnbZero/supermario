@@ -12,11 +12,6 @@ namespace SuperMario
     public abstract class AbstractGame : Game
     {
         private GraphicsDeviceManager graphics;
-        public static IGameState State { get; set; }
-        public bool IsPause { get; set; } = false;
-        public bool IsControllerEnable { get; set; } = true;
-        public bool IsInAnimation { get; set; } = false;
-
         public GraphicsDeviceManager GraphicsManager
         {
             get
@@ -28,5 +23,10 @@ namespace SuperMario
                 this.graphics = value;
             }
         }
+
+        public static IGameState State { get; set; }
+        public bool IsPause { get; set; } = false;
+        public bool IsControllerEnable { get; set; } = true;
+        public bool IsInAnimation { get; set; } = false;
     }
 }
