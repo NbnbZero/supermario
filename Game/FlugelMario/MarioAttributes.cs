@@ -19,6 +19,7 @@ namespace SuperMario
         public static int Time { get; set; } = 0;
         private static int counter = 0;
         private static bool isTimeCounting = false;
+        private static bool isWarningPlaying = false;
         public static void UpdateHighestScore()
         {
             if (ScoringSystem.Score > HighestScore)
@@ -29,7 +30,7 @@ namespace SuperMario
 
         public static void ResetTimer()
         {
-            Time = 300;
+            Time = 63;
             isTimeCounting = false;
         }
 
@@ -61,7 +62,12 @@ namespace SuperMario
                 }
                 if (Time == 60)
                 {
-                    SoundManager.Instance.PlayWarningSound();
+                    if (!isWarningPlaying)
+                    {
+                        SoundManager.Instance.PlayWarningSound();
+                    }
+                    isWarningPlaying = true;
+
                 }
                 if (Time == 0)
                 {
