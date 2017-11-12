@@ -13,6 +13,7 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
+
             myhandler.item.Location = new Vector2(myhandler.item.Location.X, myhandler.block.Location.Y - myhandler.item.Destination.Height);
 
             myhandler.item.Velocity = new Vector2(myhandler.item.Velocity.X, 0);
