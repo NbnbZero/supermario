@@ -2,6 +2,7 @@
 using SuperMairo.HeadsUp;
 using SuperMario.GameObjects;
 using SuperMario.Interfaces;
+using SuperMario.Sound;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,10 @@ namespace SuperMario
     {      
         public static int[] MarioLife { get; } = {3};
         public static int HighestScore { get; set; } = 0;
-        public static int Time { get; set; } = 300;
+        public static int Time { get; set; } = 0;
         private static int counter = 0;
         private static bool isTimeCounting = false;
+        private static bool isWarningPlaying = false;
         public static void UpdateHighestScore()
         {
             if (ScoringSystem.Score > HighestScore)
@@ -57,6 +59,15 @@ namespace SuperMario
                 {
                     Time--;
                     counter = 0;
+                }
+                if (Time == 60)
+                {
+                    if (!isWarningPlaying)
+                    {
+                        SoundManager.Instance.PlayWarningSound();
+                    }
+                    isWarningPlaying = true;
+
                 }
                 if (Time == 0)
                 {

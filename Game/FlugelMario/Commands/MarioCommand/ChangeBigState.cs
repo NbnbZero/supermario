@@ -17,6 +17,10 @@ namespace SuperMairo.Commands
         }
         public void Execute()
         {
+            if (mario.State.MarioShape == Shape.Dead)
+            {
+                return;
+            }
             mario.State.ChangeSizeToBig();
         }
     }
