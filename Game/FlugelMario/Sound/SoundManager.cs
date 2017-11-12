@@ -85,6 +85,7 @@ namespace SuperMario.Sound
         }
         public void PlayGameOverSound()
         {
+            MediaPlayer.Stop();
             gameOverSound.Play();
         }
         public void PlayStompSound()

@@ -36,9 +36,9 @@ namespace SuperMario.GameObjects
             objectList = new List<IGameObject>();
             mario = Mario;
             game = Game;
-            gameOverDisplayPanel = new GameOverDisplayPanel();
+            gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();
-            marioLifeDisplayPanel = new MarioLifeDisplayPanel(game);
+            marioLifeDisplayPanel = new MarioLifeDisplayPanel();
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
         }
 
