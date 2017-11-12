@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using SuperMairo.Interfaces;
 using SuperMairo.SpriteFactories;
 using SuperMario.Sound;
@@ -20,12 +21,11 @@ namespace SuperMario.Display
         IText worldTextSprite;
         IText multiTextSprite;
         IText lifeTextSprite;
-        private int count = 0;
-        private const int maxCount = 100;
+        IText AskForContSprite;
         private const int screenHeight = 500;
         private const int firstRowY = screenHeight / 2 - 35;
         private const int secRowY = screenHeight / 2 - 10;
-
+        private const int thirdRowY = screenHeight / 2 + 10;
         public MarioLifeDisplayPanel()
         {
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
@@ -36,7 +36,8 @@ namespace SuperMario.Display
             multiTextSprite.text = "*";
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
-            count = maxCount;
+            AskForContSprite= TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+            AskForContSprite.text = "Continue? Y / N";
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -56,23 +57,18 @@ namespace SuperMario.Display
 
                 int marioX = Camera.CameraX + Camera.CenterOfScreen - (marioSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2) - 20;
                 marioSprite.Draw(spriteBatch, new Vector2(marioX, firstRowY));
+
+                int askForContX = Camera.CameraX + Camera.CenterOfScreen - (AskForContSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2);
+                AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, thirdRowY));
             }
 
         }
 
         public void Update()
         {
-            lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
-            if (Game1.State.Type == GameStates.LifeDisplay)
+            if (MarioAttributes.MarioLife[0] > 0)
             {
-                count--;
-                if (count == 0)
-                {
-                    Game1 game = (Game1)GameData.Game;
-                    game.Reset();
-                    Game1.State.Proceed();
-                    SoundManager.Instance.PlayOverWorldSong();
-                }
+                lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
             }
         }
     }

@@ -67,7 +67,7 @@ namespace SuperMario
             Vector2 location = new Vector2(50, 200);
             Mario = new MarioObject(location);
 
-            objectManager = new GameObjectManager(Mario);
+            objectManager = new GameObjectManager(this,Mario);
 
             camera = new Camera();
             

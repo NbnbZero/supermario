@@ -22,12 +22,12 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> enemyList;
         public static List<IGameObject> objectList;
         private MarioObject mario;
-        private AbstractGame game;
+        private Game1 game;
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
         private IDisplayPanel headsUpDisplayPanel;
-        public GameObjectManager(MarioObject Mario)
+        public GameObjectManager(Game1 Game, MarioObject Mario)
         {
             blockList = new List<IGameObject>();
             itemList = new List<IGameObject>();
@@ -35,7 +35,8 @@ namespace SuperMario.GameObjects
             pipeList = new List<IGameObject>();
             objectList = new List<IGameObject>();
             mario = Mario;
-            gameOverDisplayPanel = new GameOverDisplayPanel();
+            game = Game;
+            gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();
             marioLifeDisplayPanel = new MarioLifeDisplayPanel();
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
