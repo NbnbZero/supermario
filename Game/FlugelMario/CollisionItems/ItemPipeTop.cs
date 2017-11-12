@@ -16,7 +16,14 @@ namespace SuperMario.Commands
 
             myhandler.item.Location = new Vector2(myhandler.item.Location.X, myhandler.block.Location.Y - myhandler.item.Destination.Height);
 
-            myhandler.item.Velocity = new Vector2(myhandler.item.Velocity.X, 0);
+            if (myhandler.item.GetType() == typeof(Star))
+            {
+                myhandler.item.Velocity = new Vector2(myhandler.item.Velocity.X, -5);
+            }
+            else
+            {
+                myhandler.item.Velocity = new Vector2(myhandler.item.Velocity.X, 0);
+            }
         }
     }
 }

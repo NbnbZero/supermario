@@ -14,8 +14,15 @@ namespace SuperMario
         public void Execute()
         {
             myHandler.item.Location = new Vector2(myHandler.item.Location.X, myHandler.block.Location.Y - myHandler.item.Destination.Height);
-
-            myHandler.item.Velocity = new Vector2(myHandler.item.Velocity.X, 0);
+            if (myHandler.item.GetType()==typeof(Star))
+            {
+                myHandler.item.Velocity = new Vector2(myHandler.item.Velocity.X, -5);
+            }
+            else
+            {
+                myHandler.item.Velocity = new Vector2(myHandler.item.Velocity.X, 0);
+            }
+            
         }
     }
 }
