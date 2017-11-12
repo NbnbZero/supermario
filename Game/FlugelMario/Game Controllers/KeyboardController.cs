@@ -9,6 +9,7 @@ using SuperMairo.Interfaces;
 using SuperMairo.States.GameState;
 using SuperMairo.Commands;
 using SuperMario.Sound;
+using Microsoft.Xna.Framework.Audio;
 
 namespace SuperMario.Game_Controllers
 {
@@ -19,6 +20,7 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> commandDict = new Dictionary<Keys, ICommand>();
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
+        private bool muted = true;
 
         public KeyboardControls(Game1 game, IMario Mario)
         {
@@ -65,6 +67,10 @@ namespace SuperMario.Game_Controllers
                             break;
                         case Keys.P:
                             Game1.State.Pause();
+                            break;
+                        case Keys.M:
+                            SoundManager.Instance.muteAndUnmute(muted);
+                            muted = !muted;
                             break;
                         case Keys.Y:
                             commandDict[key].Execute();

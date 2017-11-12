@@ -29,6 +29,10 @@ namespace SuperMario.Sound
 
         private Song overworldSong;
         private Song starSong;
+        private bool local_mute = false;
+
+
+
 
         private static SoundManager instance = new SoundManager();
 
@@ -65,58 +69,109 @@ namespace SuperMario.Sound
         }
         public void PlayMarioDyingSound()
         {
-            MediaPlayer.Stop();
-            marioDyingSound.Play();
+            if (!local_mute)
+            {
+                MediaPlayer.Stop();
+                marioDyingSound.Play();
+            }
+            
         }
         public void PlayCoinSound()
         {
-            coinSound.Play();
+            if (!local_mute)
+            {
+                coinSound.Play();
+            }
+            
         }
         public void Play1UpSound()
         {
-            oneUpSound.Play();
+            if (!local_mute)
+            {
+                oneUpSound.Play();
+            }
+            
         }
         public void PlayPowerUpAppearsSound()
         {
-            powerUpAppearsSound.Play();
+            if (!local_mute)
+            {
+                powerUpAppearsSound.Play();
+            }
+            
         }
         public void PlayPowerUpSound()
         {
-            powerUpSound.Play();
+            if (!local_mute)
+            {
+                powerUpSound.Play();
+            }
+            
         }
         public void PlayGameOverSound()
         {
-            MediaPlayer.Stop();
-            gameOverSound.Play();
+            if (!local_mute)
+            {
+                MediaPlayer.Stop();
+                gameOverSound.Play();
+            }
+            
         }
         public void PlayStompSound()
         {
-            stompSound.Play();
+            if (!local_mute)
+            {
+                stompSound.Play();
+            }
         }
         public void PlayBrickBreakSound()
         {
-            brickBreakSound.Play();
+            if (!local_mute)
+            {
+                brickBreakSound.Play();
+            }
+            
         }
         public void PlayBumpSound()
         {
-            bumpSound.Play();
+            if (!local_mute)
+            {
+                bumpSound.Play();
+            }
+            
         }
         public void PlayPipeSound()
         {
-            pipeSound.Play();
+            if (!local_mute)
+            {
+                pipeSound.Play();
+            }
+
         }
         public void PlaySmallJumpSound()
         {
-            smallJumpSound.Play();
+            if (!local_mute)
+            {
+                smallJumpSound.Play();
+            }
+            
         }
         public void PlaySuperJumpSound()
         {
-            superJumpSound.Play();
+            if (!local_mute)
+            {superJumpSound.Play();
+
+            }
+            
         }
 
         public void PlayWarningSound()
         {
-            warningSound.Play();
+            if (!local_mute)
+            {warningSound.Play();
+
+            }
+            
         }
         public void StopAllSound()
         {
@@ -127,22 +182,41 @@ namespace SuperMario.Sound
         {
             throw new NotImplementedException();
         }
-        public void MuteAndUnmute()
-        {
 
+        public void muteAndUnmute(bool muted)
+        {
+            if (muted)
+            {
+                MediaPlayer.Volume = 0.0f;
+                local_mute = true;
+            }
+            else
+            {
+                MediaPlayer.Volume = 1.0f;
+                local_mute = false;
+            }
         }
+        
 
         public void PlayOverWorldSong()
         {
-            MediaPlayer.Stop();
-            MediaPlayer.Play(overworldSong);
-            MediaPlayer.IsRepeating = true;
+            if (!local_mute)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(overworldSong);
+                MediaPlayer.IsRepeating = true;
+            }
+            
         }
 
         public void PlayStarSong()
         {
-            MediaPlayer.Stop();
-            MediaPlayer.Play(starSong);
+            if (!local_mute)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(starSong);
+            }
+            
         }
     }
 }
