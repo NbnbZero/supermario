@@ -25,8 +25,8 @@ namespace SuperMario.Display
         private const int screenHeight = 500;
         private const int firstRowY = screenHeight / 2 - 35;
         private const int secRowY = screenHeight / 2 - 10;
-
-        public MarioLifeDisplayPanel()
+        private Game1 game;
+        public MarioLifeDisplayPanel(Game1 Game)
         {
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             marioSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
@@ -37,6 +37,7 @@ namespace SuperMario.Display
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
             count = maxCount;
+            game = Game;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -68,7 +69,6 @@ namespace SuperMario.Display
                 count--;
                 if (count == 0)
                 {
-                    Game1 game = (Game1)GameData.Game;
                     game.Reset();
                     Game1.State.Proceed();
                     SoundManager.Instance.PlayOverWorldSong();

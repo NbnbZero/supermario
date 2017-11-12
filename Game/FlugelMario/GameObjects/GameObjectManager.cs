@@ -21,21 +21,22 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> itemList;
         public static List<IGameObject> enemyList;
         private MarioObject mario;
-        private AbstractGame game;
+        private Game1 game;
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
         private IDisplayPanel headsUpDisplayPanel;
-        public GameObjectManager(MarioObject Mario)
+        public GameObjectManager(Game1 Game, MarioObject Mario)
         {
             blockList = new List<IGameObject>();
             itemList = new List<IGameObject>();
             enemyList = new List<IGameObject>();
             pipeList = new List<IGameObject>();
             mario = Mario;
+            game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel();
             titleDisplayPanel = new TitleDisplayPanel();
-            marioLifeDisplayPanel = new MarioLifeDisplayPanel();
+            marioLifeDisplayPanel = new MarioLifeDisplayPanel(game);
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
         }
 
