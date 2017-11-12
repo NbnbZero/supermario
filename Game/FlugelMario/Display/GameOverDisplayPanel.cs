@@ -56,7 +56,6 @@ namespace SuperMario.Display
                     MarioAttributes.MarioLife[0] = 3;
                     MarioAttributes.UpdateHighestScore();
                     CoinSystem.Instance.ResetCoin();
-                    //ScoringSystem.Player1Score.ResetScore();
                     MarioAttributes.ClearTimer();
                 }
             }
