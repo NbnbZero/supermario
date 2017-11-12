@@ -85,7 +85,7 @@ namespace SuperMario.Game_Controllers
                 {
                     commandDict[Keys.I].Execute();
                 }
-                else if ((pressedKeys.Contains(Keys.Y) && preKeys != null))
+                else if ((pressedKeys.Contains(Keys.O) && preKeys != null))
                 {
                     commandDict[Keys.O].Execute();
                 }

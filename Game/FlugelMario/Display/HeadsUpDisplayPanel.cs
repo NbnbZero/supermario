@@ -31,7 +31,7 @@ namespace SuperMario.Display
         public HeadsUpDisplayPanel()
         {
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            marioTitleTextSprite.text = "Mario";
+            marioTitleTextSprite.text = "Mario: " + MarioAttributes.MarioLife[0].ToString();
             
             coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
             coinTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
@@ -78,6 +78,7 @@ namespace SuperMario.Display
             coinSprite.Update();
             coinTextSprite.text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
             timeTextSprite.text = fixText("" + MarioAttributes.Time, timeLength);
+            marioTitleTextSprite.text = "Mario: " + MarioAttributes.MarioLife[0].ToString();
         }
 
         private static String fixText(String str, int length)
