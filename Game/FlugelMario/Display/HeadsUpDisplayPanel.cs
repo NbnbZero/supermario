@@ -44,20 +44,20 @@ namespace SuperMario.Display
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2));
+            int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, distanceOfFirstRowText));
 
-            int coinTextX = Camera.CameraX + (Camera.CenterOfScreen * 4 / 5 - (coinTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2));
+            int coinTextX = Camera.CameraX + (Camera.CenterOfScreen * 4 / 5 - (coinTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, distanceOfFirstRowText));
 
             int coinX = coinTextX - coinSprite.MakeDestinationRectangle(Vector2.Zero).Width + 2;
-            int coinY = distanceOfFirstRowText - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 2;
+            int coinY = distanceOfFirstRowText - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 3;
             coinSprite.Draw(spriteBatch, new Vector2(coinX, coinY));
 
-            int worldTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (worldTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2));
+            int worldTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (worldTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             worldTitleTextSprite.Draw(spriteBatch, new Vector2(worldTitleTextX, distanceOfFirstRowText));
 
-            int worldTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (worldTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2));
+            int worldTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (worldTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             worldTextSprite.Draw(spriteBatch, new Vector2(worldTextX, distanceOfSecondRowText));
         }
 

@@ -26,9 +26,9 @@ namespace SuperMairo.DisplayPanel
         IText instructionText;
         IText highestScoreText;
 
-        private const int screenHeight = 280;
+        private const int screenHeight = 500;
         private const int scoreLength = 6;
-        private const int titleImgY = 30;
+        private const int titleImgY = 130;
         private const int castY = screenHeight / 2 + 50;
         private const int instructionY = screenHeight / 2 + 20;
         private const int highestScoreY = screenHeight / 2 + 40;
@@ -50,13 +50,13 @@ namespace SuperMairo.DisplayPanel
         {
             if (Game1.State.Type == GameStates.Title)
             {
-                int titleImgX = Camera.CameraX + Camera.CenterOfScreen - (titleImg.MakeDestinationRectangle(Vector2.Zero).Width / 2);
+                int titleImgX = Camera.CameraX + Camera.CenterOfScreen - (titleImg.MakeDestinationRectangle(Vector2.Zero).Width / 3);
                 titleImg.Draw(spriteBatch, new Vector2(titleImgX, titleImgY));
 
-                int instructionTextX = Camera.CameraX + Camera.CenterOfScreen - (instructionText.MakeDestinationRectangle(Vector2.Zero).Width / 2);
+                int instructionTextX = Camera.CameraX + Camera.CenterOfScreen - (instructionText.MakeDestinationRectangle(Vector2.Zero).Width / 3);
                 instructionText.Draw(spriteBatch, new Vector2(instructionTextX, instructionY));
 
-                int highestScoreTextX = Camera.CameraX + Camera.CenterOfScreen - (highestScoreText.MakeDestinationRectangle(Vector2.Zero).Width / 2);
+                int highestScoreTextX = Camera.CameraX + Camera.CenterOfScreen - (highestScoreText.MakeDestinationRectangle(Vector2.Zero).Width / 3);
                 highestScoreText.Draw(spriteBatch, new Vector2(highestScoreTextX, highestScoreY));
             }
         }
