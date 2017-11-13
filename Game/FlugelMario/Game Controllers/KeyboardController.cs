@@ -62,13 +62,13 @@ namespace SuperMario.Game_Controllers
                 {
                     commandDict[Keys.Q].Execute();
                 }
-                else if ((pressedKeys.Contains(Keys.P) && preKeys != null))
+                else if ((pressedKeys.Contains(Keys.P)&& preKeys.Contains(Keys.P)&&preKeys!=pressedKeys))
                 {
                     Game1.State.Pause();
                     SoundManager.Instance.muteAndUnmute(Muted);
                     Muted = !Muted;
                 }
-                else if ((pressedKeys.Contains(Keys.M) && preKeys != null))
+                else if ((pressedKeys.Contains(Keys.M) && !preKeys.Contains(Keys.M)))
                 {
                     SoundManager.Instance.muteAndUnmute(Muted);
                     Muted = !Muted;
