@@ -28,6 +28,7 @@ namespace SuperMario
         private static int centerOfScreen = 380;
         private static int centerOfCamera = 380;
         private static int CameraXPos = 0;
+        private static int CameraYPos = 0;
         private static int scale = 1;
 
         public static int CenterOfScreen
@@ -66,6 +67,18 @@ namespace SuperMario
             }
         }
 
+        public static int CameraY
+        {
+            get
+            {
+                return CameraYPos;
+            }
+            set
+            {
+                CameraYPos = value;
+            }
+        }
+
         public static void Move(IMario mario)
         {
             int fullWidthOfScreen = 2 * CenterOfScreen;
@@ -99,6 +112,7 @@ namespace SuperMario
         public static void ResetCamera()
         {
             CameraXPos = 0;
+            CameraYPos = 0;
             centerOfCamera = centerOfScreen;
             Position = Vector2.Zero;
         }
@@ -106,6 +120,7 @@ namespace SuperMario
         public static void SetCamera(Vector2 location)
         {
             CameraXPos = (int)location.X;
+            CameraYPos = (int)location.Y;
             centerOfCamera = (int)location.X + centerOfScreen;
             Position = new Vector2(-location.X, location.Y);
         }

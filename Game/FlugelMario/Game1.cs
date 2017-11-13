@@ -30,7 +30,7 @@ namespace SuperMario
         Vector2 parallax = new Vector2(0.1f);
         MarioObject Mario;
         GameObjectManager objectManager;
-        ScoringSystem scoreSyst;
+        GameData gamedata;
         public Game1()
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
@@ -74,7 +74,7 @@ namespace SuperMario
             Mario = new MarioObject(location);
 
             objectManager = new GameObjectManager(this,Mario);
-            scoreSyst = new ScoringSystem(objectManager);
+            gamedata = new GameData(objectManager);
             camera1 = new Camera();
             Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);
