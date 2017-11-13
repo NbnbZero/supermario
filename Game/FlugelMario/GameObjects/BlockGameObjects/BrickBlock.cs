@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario.StateMachine;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.Sound;
+using SuperMairo.HeadsUp;
 
 namespace SuperMario.GameObjects
 {
@@ -49,6 +50,7 @@ namespace SuperMario.GameObjects
         {
             state.BeTriggered();
             SoundManager.Instance.PlayBrickBreakSound();
+            ScoringSystem.AddPointsForBreakingBlock(this);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

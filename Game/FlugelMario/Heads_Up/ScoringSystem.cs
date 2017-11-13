@@ -38,6 +38,12 @@ namespace SuperMairo.HeadsUp
             score = 0;
         }
 
+        public static void AddPointsForBreakingBlock(IGameObject block)
+        {
+            score += 50;
+            ScoreAnimation(block, "50");
+        }
+
         public static void AddPointsForCollectingPwrUp(IGameObject PUitem)
         {
             score+=1000;
