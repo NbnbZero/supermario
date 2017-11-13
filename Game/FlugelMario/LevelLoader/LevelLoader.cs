@@ -164,7 +164,7 @@ namespace SuperMario
                         case ItemType.FlagPole:
                             ScoringSystem.RegisgerFlagPole(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                             GameObjectManager.itemList.Add(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
-                        break;
+                            break;
                         case ItemType.PiranhaPlants:
                             GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation)));
                             break;
