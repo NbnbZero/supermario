@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Interfaces;
+using SuperMario.Sound;
 using SuperMario.SpriteFactories;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,8 @@ namespace SuperMario.GameObjects.PipeGameObjects
                 Camera.SetCamera(new Vector2(teleLocation.X - 16 * 5, 0));
                 mario.Velocity = Vector2.Zero;
                 mario.Location = new Vector2(teleLocation.X - 8, teleLocation.Y - mario.Destination.Height);
+                SoundManager.Instance.PlayPipeSound();
+                SoundManager.Instance.PlayOverWorldSong();
             }
         }
 
