@@ -134,7 +134,10 @@ namespace SuperMario
                         case ItemType.Star:
                             GameObjectManager.itemList.Add(new Star(new Vector2(item.xLocation, item.yLocation)));
                             break;
-                    }
+                        case ItemType.PiranhaPlants:
+                            GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation)));
+                            break;
+                }
 
                 }
             

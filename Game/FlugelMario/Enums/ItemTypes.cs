@@ -12,6 +12,7 @@ namespace SuperMario.Enums
         Flower,
         UpMushroom,
         Star,
-        Null
+        Null,
+        PiranhaPlants
     }
 }

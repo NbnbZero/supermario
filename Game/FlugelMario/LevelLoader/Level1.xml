@@ -328,6 +328,12 @@
     <yLocation>365</yLocation>
     <color>Normal</color>
   </PipeData>
+  <ItemData>
+    <itemType>PiranhaPlants</itemType>
+    <xLocation>630</xLocation>
+    <yLocation>370</yLocation>
+    <color>Normal</color>
+  </ItemData>
   <ObjectData>
     <BackgourndObj>MediumBush</BackgourndObj>
     <xLocation>700</xLocation>
