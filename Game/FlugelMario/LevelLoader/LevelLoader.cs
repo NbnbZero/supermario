@@ -19,9 +19,11 @@ namespace SuperMario
     public class LevelLoader
     {
         private GameObjectManager objectMagager;
-        public LevelLoader(GameObjectManager gameManager)
+        private MarioObject mario;
+        public LevelLoader(GameObjectManager gameManager, MarioObject Mario)
         {
-            objectMagager = gameManager;            
+            objectMagager = gameManager;
+            mario = Mario;
         }
 
         public void Load()
@@ -166,7 +168,7 @@ namespace SuperMario
                             GameObjectManager.itemList.Add(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.PiranhaPlants:
-                            GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation)));
+                            GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation), mario));
                             break;
                 }
 

@@ -80,7 +80,7 @@ namespace SuperMario
             Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);
             blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
-            LevelLoader loader = new LevelLoader(objectManager);
+            LevelLoader loader = new LevelLoader(objectManager, Mario);
             loader.Load();
 
             keyboard = new KeyboardControls(this, Mario);
