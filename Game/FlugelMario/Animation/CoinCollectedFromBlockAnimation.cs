@@ -51,8 +51,8 @@ namespace SuperMario.Animation
         public void StartAnimation()
         {
             State = AnimationState.IsPlaying;
-            //GameObjectManager.AddAnimation(this);
-            accelerationY = 0.01f;
+            GameData.GameObjectManager.AddAnimation(this);
+            accelerationY = 0.1f;
             velocityY = -1.5f;
         }
     }

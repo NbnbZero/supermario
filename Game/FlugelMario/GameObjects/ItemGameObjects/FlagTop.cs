@@ -11,9 +11,9 @@ using SuperMario.SpriteFactories;
 using SuperMario;
 using static SuperMario.GameObjects.GameObjectType;
 
-namespace SuperMairo
+namespace SuperMario.GameObjects.ItemGameObjects
 {
-    class FlagTop : IItem
+    public class FlagTop : IItem
     {
         private ISprite sprite;
         public Microsoft.Xna.Framework.Vector2 Location { get; set; }

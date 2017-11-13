@@ -55,34 +55,33 @@ namespace SuperMario.Display
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
             int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, FirstRow));
+            marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, -Camera.CameraY+FirstRow));
 
             int scoreTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (scoreTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, SecondRow));
+            scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, -Camera.CameraY+SecondRow));
 
             int coinTextX = Camera.CameraX + (Camera.CenterOfScreen * 4 / 5 - (coinTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, FirstRow));
+            coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, -Camera.CameraY+FirstRow));
 
             int coinX = coinTextX - coinSprite.MakeDestinationRectangle(Vector2.Zero).Width + 2;
-            int coinY = FirstRow - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 3;
+            int coinY = -Camera.CameraY+FirstRow - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 3;
             coinSprite.Draw(spriteBatch, new Vector2(coinX, coinY));
 
             int marioX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (marioSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3)-20);
-            marioSprite.Draw(spriteBatch, new Vector2(marioX, marioRow));
+            marioSprite.Draw(spriteBatch, new Vector2(marioX, -Camera.CameraY + marioRow));
 
             int multiTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (multiTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            multiTextSprite.Draw(spriteBatch, new Vector2(multiTextX, FirstRow));
+            multiTextSprite.Draw(spriteBatch, new Vector2(multiTextX, -Camera.CameraY+FirstRow));
 
             int lifeTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (lifeTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3) + 10);
-            lifeTextSprite.Draw(spriteBatch, new Vector2(lifeTextX, FirstRow));
+            lifeTextSprite.Draw(spriteBatch, new Vector2(lifeTextX, -Camera.CameraY+FirstRow));
 
             int timeTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 8 / 5 - (timeTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            timeTitleTextSprite.Draw(spriteBatch, new Vector2(timeTitleTextX, FirstRow));
+            timeTitleTextSprite.Draw(spriteBatch, new Vector2(timeTitleTextX, -Camera.CameraY+FirstRow));
 
             int timeTextX = Camera.CameraX + (Camera.CenterOfScreen * 8 / 5 - (timeTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            timeTextSprite.Draw(spriteBatch, new Vector2(timeTextX, SecondRow));
+            timeTextSprite.Draw(spriteBatch, new Vector2(timeTextX, -Camera.CameraY+SecondRow));
         }
 
         public void Update()

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
     <Compile Include="Animation\CoinCollectedFromBlockAnimation.cs" />
+    <Compile Include="Animation\PoleScoreTextAnimation.cs" />
     <Compile Include="Animation\ScoreTextAnimation.cs" />
     <Compile Include="Camera\Camera2D.cs" />
     <Compile Include="CollisionEnemies\EnemyBlockTop.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="GameObjects\BackGourndObjects\BigBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\BigCloud.cs" />
     <Compile Include="GameObjects\BackGourndObjects\BigHill.cs" />
+    <Compile Include="GameObjects\BackGourndObjects\BlackBackground.cs" />
     <Compile Include="GameObjects\BackGourndObjects\Castle.cs" />
     <Compile Include="GameObjects\BackGourndObjects\MediumBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\MediumCloud.cs" />

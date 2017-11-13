@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Map>
   <ObjectData>
+    <BackgourndObj>blackbackground</BackgourndObj>
+    <xLocation>600</xLocation>
+    <yLocation>420</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+  
+  <ObjectData>
     <BackgourndObj>BigHill</BackgourndObj>
     <xLocation>0</xLocation>
     <yLocation>352</yLocation>
@@ -228,6 +235,7 @@
     <yLocation>642</yLocation>
     <color>Normal</color>
   </BlockData>
+  
 
   <PipeData>
     <PipeType>LPipeBottom</PipeType>
@@ -235,14 +243,54 @@
     <yLocation>608</yLocation>
   </PipeData>
 
+<ItemData>
+   <itemType>Flag</itemType>
+   <xLocation>184</xLocation>
+  <yLocation>280</yLocation>
+</ItemData>
 
+  <ItemData>
+    <itemType>FlagTop</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>264</yLocation>
+  </ItemData>
 
-
-
-
-
-
-
+   <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>376</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>360</yLocation>
+  </ItemData>
+    <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>344</yLocation>
+  </ItemData>
+      <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>328</yLocation>
+  </ItemData>
+        <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>312</yLocation>
+  </ItemData>
+          <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>296</yLocation>
+  </ItemData>
+  
+          <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>200</xLocation>
+    <yLocation>280</yLocation>
+  </ItemData>
 
 
 
