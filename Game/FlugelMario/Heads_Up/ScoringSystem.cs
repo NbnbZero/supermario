@@ -86,7 +86,7 @@ namespace SuperMairo.HeadsUp
         {
             Rectangle objDestination = obj.Destination;
             Vector2 location = new Vector2(objDestination.X, objDestination.Y);
-            IAnimationInGame scoreAnimation = new ScoreTextAnimation(location, scoreToDisplay, objM);
+            IAnimationInGame scoreAnimation = new ScoreTextAnimation(location, scoreToDisplay);
             scoreAnimation.StartAnimation();
         }
     }
