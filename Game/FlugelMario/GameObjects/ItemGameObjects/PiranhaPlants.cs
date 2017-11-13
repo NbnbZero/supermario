@@ -51,6 +51,7 @@ namespace SuperMario
                 {
                     Velocity = new Vector2(0, 0);
                     IsPreparing = false;
+
                 }
                 return;
             }
