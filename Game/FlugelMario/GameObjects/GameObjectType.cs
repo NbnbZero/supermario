@@ -27,6 +27,7 @@ namespace SuperMario.GameObjects
             FlagTop,
             FlagPole,
             Flag,
+            PiranhaPlants,
             blackbackground
         }
     }

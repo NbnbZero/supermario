@@ -13,8 +13,29 @@
     <yLocation>352</yLocation>
     <color>Normal</color>
   </ObjectData>
-  ///////////
-  //Left Bounrdy
+
+
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>432</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>448</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Brick</State>
+    <itemType>Null</itemType>
+    <xLocation>610</xLocation>
+    <yLocation>464</yLocation>
+    <color>Normal</color>
+  </BlockData>
   <BlockData>
     <State>Brick</State>
     <itemType>Null</itemType>
@@ -109,140 +130,20 @@
     <yLocation>642</yLocation>
     <color>Normal</color>
   </BlockData>
-
-  //Floor
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>630</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>640</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>650</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>660</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>670</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>680</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>690</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>700</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>710</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>720</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>730</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>740</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>750</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>760</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-
-  <BlockData>
-    <State>Brick</State>
-    <itemType>Null</itemType>
-    <xLocation>760</xLocation>
-    <yLocation>642</yLocation>
-    <color>Normal</color>
-  </BlockData>
   
 
   <PipeData>
     <PipeType>LPipeBottom</PipeType>
-    <xLocation>760</xLocation>
+    <xLocation>1310</xLocation>
     <yLocation>608</yLocation>
   </PipeData>
-
+  <PipeData>
+    <PipeType>LPipeTop</PipeType>
+    <xLocation>1342</xLocation>
+    <yLocation>464</yLocation>
+  </PipeData>
+  
+  
 <ItemData>
    <itemType>Flag</itemType>
    <xLocation>184</xLocation>
@@ -376,6 +277,12 @@
     <yLocation>365</yLocation>
     <color>Normal</color>
   </PipeData>
+  <ItemData>
+    <itemType>PiranhaPlants</itemType>
+    <xLocation>630</xLocation>
+    <yLocation>370</yLocation>
+    <color>Normal</color>
+  </ItemData>
   <ObjectData>
     <BackgourndObj>MediumBush</BackgourndObj>
     <xLocation>700</xLocation>

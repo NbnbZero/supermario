@@ -106,6 +106,7 @@
     <Compile Include="GameObjects\ItemGameObjects\Flag.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FlagPole.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FlagTop.cs" />
+    <Compile Include="GameObjects\ItemGameObjects\PiranhaPlants.cs" />
     <Compile Include="GameObjects\PipeGameObjects\BigPipe.cs" />
     <Compile Include="GameObjects\PipeGameObjects\LPipe.cs" />
     <Compile Include="GameObjects\PipeGameObjects\LPipeBottom.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Sprites\Items\LPipeTopSprite.cs" />
     <Compile Include="Sprites\Items\MediumPipeSprite.cs" />
     <Compile Include="Sprites\Items\PipeSprite.cs" />
+    <Compile Include="Sprites\Items\PiranhaPlantsSprite.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractGame.cs" />

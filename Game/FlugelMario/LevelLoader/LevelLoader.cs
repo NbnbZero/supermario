@@ -58,6 +58,16 @@ namespace SuperMario
             {
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
             }
+            for (int i = 620; i < 1390; i += 16)
+            {
+                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 642)));
+            }
+            for (int i = 800; i < 1100; i += 16)
+            {
+                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 626)));
+                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 610)));
+                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 594)));
+            }
 
             foreach (BlockData block in myObjects)
                 {                                           
@@ -99,7 +109,7 @@ namespace SuperMario
                                     question.hiddenItem = ItemType.Coin;
                                     GameObjectManager.blockList.Add(question);
                                 } 
-                                        break;
+                                break;
                         
                         }
                 }
@@ -116,7 +126,17 @@ namespace SuperMario
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
 
-                foreach (ItemData item in myObjects)
+            for (int i = 800; i < 1100; i += 32)
+            {
+                GameObjectManager.itemList.Add(new Coin(new Vector2(i, 578)));
+                GameObjectManager.itemList.Add(new Coin(new Vector2(i, 514)));
+            }
+            for (int i = 820; i < 1100; i += 32)
+            {
+                GameObjectManager.itemList.Add(new Coin(new Vector2(i, 546)));
+            }
+
+            foreach (ItemData item in myObjects)
                 {
                     switch (item.itemType)
                     {
@@ -145,7 +165,9 @@ namespace SuperMario
                             ScoringSystem.RegisgerFlagPole(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                             GameObjectManager.itemList.Add(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                         break;
-
+                        case ItemType.PiranhaPlants:
+                            GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation)));
+                            break;
                 }
 
                 }
@@ -201,6 +223,9 @@ namespace SuperMario
                         break;
                     case PipeType.LPipeBottom:
                         GameObjectManager.pipeList.Add(new LPipeBottom(new Vector2(pipe.xLocation, pipe.yLocation),new Vector2(2500,0)));
+                        break;
+                    case PipeType.LPipeTop:
+                        GameObjectManager.pipeList.Add(new LPipeTop(new Vector2(pipe.xLocation, pipe.yLocation)));
                         break;
                 }
             }
