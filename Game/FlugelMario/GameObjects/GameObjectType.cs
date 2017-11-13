@@ -23,7 +23,10 @@ namespace SuperMario.GameObjects
             SmallBush,
             SmallCloud,
             SmallHill,
-            BigBush
+            BigBush,
+            FlagTop,
+            FlagPole,
+            Flag
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SuperMario.Enums;
+using SuperMairo;
 
 namespace SuperMario.SpriteFactories
 {
@@ -30,9 +31,18 @@ namespace SuperMario.SpriteFactories
         public static int StarSpriteRow { get; } = 3;
         public static int StarSpriteColumn { get; } = 0;
 
+
+        public static int FlagSpriteSheetColumns { get; } = 1;
+        public static int FlagSpriteSheetRows { get; } = 3;
+        public static int FlagSpriteSheetColumn { get; } = 0;
+        public static int FlagRow { get; } = 0;
+        public static int FlagTopRow { get; } = 1;
+        public static int FlagPoleRow { get; } = 2;
+
         public Texture2D itemSpriteSheet;
         public Texture2D CoinSpriteSheet;
         public Texture2D FlowerSpriteSheet;
+        private Texture2D flagSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
         public static ItemSpriteFactory Instance
@@ -52,9 +62,7 @@ namespace SuperMario.SpriteFactories
             itemSpriteSheet = content.Load<Texture2D>("Itemsheet");
             CoinSpriteSheet = content.Load<Texture2D>("CoinSheet");
             FlowerSpriteSheet = content.Load<Texture2D>("FlowerSheet");
-            
-
-
+            flagSpriteSheet = content.Load<Texture2D>("flagpole");
         }
 
      
@@ -85,6 +93,22 @@ namespace SuperMario.SpriteFactories
         public ISprite CreateDisappearedSprite()
         {
             return new DisappearedSprite(itemSpriteSheet);
+        }
+
+
+        public ISprite CreateFlagPoleSprite()
+        {
+            return new FlagPoleSprite(flagSpriteSheet);
+        }
+
+        public ISprite CreateFlagTopSprite()
+        {
+            return new FlagTopSprite(flagSpriteSheet);
+        }
+
+        public ISprite CreateFlagSprite()
+        {
+            return new FlagSprite(flagSpriteSheet);
         }
 
     }
