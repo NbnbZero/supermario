@@ -14,6 +14,7 @@ using SuperMairo.States.GameState;
 using SuperMairo.SpriteFactories;
 using SuperMairo;
 using SuperMairo.HeadsUp;
+using SuperMario.Animation;
 
 namespace SuperMario
 {
