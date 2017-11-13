@@ -23,10 +23,10 @@ namespace SuperMario.Display
         IText lifeTextSprite;
         IText AskForContSprite;
         private const int screenHeight = 500;
-        private const int firstRowY = screenHeight / 2 - 30;
-        private const int marioRowY = screenHeight / 2 - 20;
-        private const int secRowY = screenHeight / 2;
-        private const int thirdRowY = screenHeight / 2 + 30;
+        private const int firstRowY = screenHeight / 2 - 60 ;
+        private const int marioRowY = screenHeight / 2 - 50;
+        private const int secRowY = screenHeight / 2 -30;
+        private const int thirdRowY = screenHeight / 2;
         public MarioLifeDisplayPanel()
         {
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();

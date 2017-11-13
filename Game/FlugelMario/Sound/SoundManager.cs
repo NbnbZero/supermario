@@ -26,7 +26,7 @@ namespace SuperMario.Sound
         private SoundEffect smallJumpSound;
         private SoundEffect superJumpSound;
         private SoundEffect warningSound;
-
+        private Song undergroundSong;
         private Song overworldSong;
         private Song starSong;
         private bool IsMuted = false;
@@ -63,6 +63,7 @@ namespace SuperMario.Sound
             warningSound = content.Load<SoundEffect>("v_warning");
             overworldSong = content.Load<Song>("v_overworld");
             starSong = content.Load<Song>("v_starmario");
+            undergroundSong = content.Load<Song>("v_underground");
         }
         public void PlayMarioDyingSound()
         {
@@ -205,6 +206,16 @@ namespace SuperMario.Sound
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(starSong);
+            }
+        }
+
+        public void PlayUndergroundSong()
+        {
+            if (!IsMuted)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(undergroundSong);
+                MediaPlayer.IsRepeating = true;
             }
         }
     }

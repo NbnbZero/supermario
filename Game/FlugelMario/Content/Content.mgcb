@@ -494,3 +494,9 @@
 /processorParam:TextureFormat=Color
 /build:flagpole.png
 
+#begin v_underground.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:v_underground.mp3
+

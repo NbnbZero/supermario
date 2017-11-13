@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static SuperMario.GameObjects.GameObjectType;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Sound;
 
 namespace SuperMario.GameObjects
 {
@@ -48,6 +49,8 @@ namespace SuperMario.GameObjects
             {
                 Camera.SetCamera(new Vector2(teleLocation.X - 16 * 3, -420));
                 mario.Location = teleLocation;
+                SoundManager.Instance.PlayPipeSound();
+                SoundManager.Instance.PlayUndergroundSong();
             }
         }
 
