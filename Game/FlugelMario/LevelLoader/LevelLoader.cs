@@ -142,7 +142,7 @@ namespace SuperMario
                             GameObjectManager.itemList.Add(new FlagTop(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.FlagPole:
-                            ScoringSystem.RegisgerFlagPole(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
+                            //ScoringSystem.RegisgerFlagPole(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                             GameObjectManager.itemList.Add(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                         break;
 
@@ -245,6 +245,9 @@ namespace SuperMario
                         break;
                     case BackgroundObjType.SmallBush:
                         GameObjectManager.objectList.Add(new SmallBush(new Vector2(obj.xLocation, obj.yLocation)));
+                        break;
+                    case BackgroundObjType.blackbackground:
+                        GameObjectManager.objectList.Add(new BlackBackground(new Vector2(obj.xLocation, obj.yLocation)));
                         break;
                 }
             }

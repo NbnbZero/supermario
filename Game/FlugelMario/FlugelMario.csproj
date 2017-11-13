@@ -86,6 +86,7 @@
     <Compile Include="GameObjects\BackGourndObjects\BigBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\BigCloud.cs" />
     <Compile Include="GameObjects\BackGourndObjects\BigHill.cs" />
+    <Compile Include="GameObjects\BackGourndObjects\BlackBackground.cs" />
     <Compile Include="GameObjects\BackGourndObjects\Castle.cs" />
     <Compile Include="GameObjects\BackGourndObjects\MediumBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\MediumCloud.cs" />

@@ -14,11 +14,11 @@ namespace SuperMairo.HeadsUp
     {
         private static int score = 0;
         public static int Score { get { return score; } }
-        private static List<IGameObject> flagParts;
-        public static void RegisgerFlagPole(IGameObject pole)
-        {
-            flagParts.Add(pole);
-        }
+        //private static List<IGameObject> flagParts;
+        //public static void RegisgerFlagPole(IGameObject pole)
+        //{
+         //   flagParts.Add(pole);
+        //}
         public static void ResetScore()
         {
             score = 0;
