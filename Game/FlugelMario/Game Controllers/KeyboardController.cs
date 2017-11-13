@@ -46,8 +46,7 @@ namespace SuperMario.Game_Controllers
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
             releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));
-            releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));
-            
+            releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));            
         }
 
 
@@ -61,14 +60,8 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {
                     commandDict[Keys.Q].Execute();
-                }
-                else if ((pressedKeys.Contains(Keys.P)&& preKeys.Contains(Keys.P)&&preKeys!=pressedKeys))
-                {
-                    Game1.State.Pause();
-                    SoundManager.Instance.muteAndUnmute(Muted);
-                    Muted = !Muted;
-                }
-                else if ((pressedKeys.Contains(Keys.M) && !preKeys.Contains(Keys.M)))
+                }                
+                if ((pressedKeys.Contains(Keys.M) && !preKeys.Contains(Keys.M)))
                 {
                     SoundManager.Instance.muteAndUnmute(Muted);
                     Muted = !Muted;
@@ -154,6 +147,14 @@ namespace SuperMario.Game_Controllers
                         }
                     }
                 }
+
+                if ((pressedKeys.Contains(Keys.P) && preKeys != null && preKeys.Contains(Keys.P)))
+                {
+                    Game1.State.Pause();
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
+                }
+
                 preKeys = pressedKeys;
             }
             else if (Game1.State.Type == GameStates.Title)
