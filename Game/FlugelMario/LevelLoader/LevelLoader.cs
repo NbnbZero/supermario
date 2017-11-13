@@ -99,7 +99,7 @@ namespace SuperMario
                                     question.hiddenItem = ItemType.Coin;
                                     GameObjectManager.blockList.Add(question);
                                 } 
-                                        break;
+                                break;
                         
                         }
                 }
