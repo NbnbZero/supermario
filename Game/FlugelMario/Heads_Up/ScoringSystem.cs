@@ -15,9 +15,16 @@ namespace SuperMairo.HeadsUp
         private static int score = 0;
         public static int Score { get { return score; } }
         private static GameObjectManager objM;
+        private static List<IGameObject> flagParts;
         public ScoringSystem(GameObjectManager ObjM)
         {
             objM = ObjM;
+            flagParts = new List<IGameObject>();
+        }
+
+        public static void RegisgerFlagPole(IGameObject pole)
+        {
+            flagParts.Add(pole);
         }
         public static void ResetScore()
         {
