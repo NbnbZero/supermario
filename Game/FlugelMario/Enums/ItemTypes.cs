@@ -15,6 +15,7 @@ namespace SuperMario.Enums
         Flag,
         FlagTop,
         FlagPole,
-        Null
+        Null,
+        PiranhaPlants
     }
 }
