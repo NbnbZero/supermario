@@ -21,7 +21,6 @@ namespace SuperMario.Animation
 
         public Vector2 Velocity { get { return new Vector2(0, veloY); } set { } }
 
-        private GameObjectManager objManager;
         private const float YOffset = 15;
         private Vector2 location;
         private float veloY;
@@ -30,14 +29,13 @@ namespace SuperMario.Animation
         private float cameraXTextDistance;
         private IText textSprite;
 
-        public ScoreTextAnimation(Vector2 location, string score, GameObjectManager ObjM)
+        public ScoreTextAnimation(Vector2 location, string score)
         {
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = score;
             this.State = AnimationState.NotStart;
             this.endLocationY = location.Y - YOffset * 1;
             this.location = location;
-            objManager = ObjM;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -48,7 +46,7 @@ namespace SuperMario.Animation
         public void StartAnimation()
         {
             State = AnimationState.IsPlaying;
-            objManager.AddAnimation(this);
+            GameData.GameObjectManager.AddAnimation(this);
             accelY = 0.005f;
             veloY = -1.5f;
             cameraXTextDistance = location.X - Camera.CameraX;

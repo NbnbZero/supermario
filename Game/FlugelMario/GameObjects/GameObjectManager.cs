@@ -26,7 +26,7 @@ namespace SuperMario.GameObjects
         private List<IAnimationInGame> animationList;
         private MarioObject mario;
         private Game1 game;
-
+        private bool isLevelComplete = false;
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
@@ -100,7 +100,10 @@ namespace SuperMario.GameObjects
                 }
                 mario.Update();
 
-                Camera.Move(mario);
+                if (mario.Location.Y < 400)
+                {
+                    Camera.Move(mario);
+                }              
             }
 
             if (updateHUD)
@@ -160,13 +163,10 @@ namespace SuperMario.GameObjects
                 (obj.Location.Y <= 480);
         }
 
-
         public void AddAnimation(IAnimationInGame animation)
         {
             animationList.Add(animation);
         }
-
-
 
     }   
 }

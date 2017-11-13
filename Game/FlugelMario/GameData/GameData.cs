@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    public static class GameData 
+    public class GameData 
     {
         // just in case we forget these data
-        public static GameObjectManager GameObjectManager { get; set; }
-
+        public static GameObjectManager GameObjectManager { get {return objM; } set { } }
+        private static GameObjectManager objM;
+        public GameData(GameObjectManager ObjM)
+        {
+            objM = ObjM;
+        }
         public static int MarioJumpingSpeed = -8;
         public static float Gravity { get; } = 0.4f;
         public static float GoombaSpeed { get; } = .75f;

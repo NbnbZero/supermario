@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
     <Compile Include="Animation\CoinCollectedFromBlockAnimation.cs" />
+    <Compile Include="Animation\PoleScoreTextAnimation.cs" />
     <Compile Include="Animation\ScoreTextAnimation.cs" />
+    <Compile Include="Animation\VictoryAnimation.cs" />
     <Compile Include="Camera\Camera2D.cs" />
     <Compile Include="CollisionEnemies\EnemyBlockTop.cs" />
     <Compile Include="CollisionEnemies\EnemyBlockTwoSide.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="CollisionItems\ItemBlockTwoSide.cs" />
     <Compile Include="CollisionItems\ItemPipeTop.cs" />
     <Compile Include="CollisionItems\ItemPipeTwoSides.cs" />
+    <Compile Include="CollisionMario\MarioFlagCollision.cs" />
     <Compile Include="CollisionMario\MarioBlockTop.cs" />
     <Compile Include="CollisionMario\MarioBlockBottom.cs" />
     <Compile Include="CollisionMario\MarioEnemyTop.cs" />
@@ -86,6 +89,7 @@
     <Compile Include="GameObjects\BackGourndObjects\BigBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\BigCloud.cs" />
     <Compile Include="GameObjects\BackGourndObjects\BigHill.cs" />
+    <Compile Include="GameObjects\BackGourndObjects\BlackBackground.cs" />
     <Compile Include="GameObjects\BackGourndObjects\Castle.cs" />
     <Compile Include="GameObjects\BackGourndObjects\MediumBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\MediumCloud.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="GameObjects\ItemGameObjects\Flag.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FlagPole.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FlagTop.cs" />
+    <Compile Include="GameObjects\ItemGameObjects\PiranhaPlants.cs" />
     <Compile Include="GameObjects\PipeGameObjects\BigPipe.cs" />
     <Compile Include="GameObjects\PipeGameObjects\LPipe.cs" />
     <Compile Include="GameObjects\PipeGameObjects\LPipeBottom.cs" />
@@ -144,6 +149,7 @@
     <Compile Include="Sprites\Items\LPipeTopSprite.cs" />
     <Compile Include="Sprites\Items\MediumPipeSprite.cs" />
     <Compile Include="Sprites\Items\PipeSprite.cs" />
+    <Compile Include="Sprites\Items\PiranhaPlantsSprite.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractGame.cs" />

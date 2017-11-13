@@ -35,14 +35,21 @@ namespace SuperMario.SpriteFactories
         public static int FlagSpriteSheetColumns { get; } = 1;
         public static int FlagSpriteSheetRows { get; } = 3;
         public static int FlagSpriteSheetColumn { get; } = 0;
+        public static int PiranhaPlantsColumn { get; } = 1;
         public static int FlagRow { get; } = 0;
         public static int FlagTopRow { get; } = 1;
         public static int FlagPoleRow { get; } = 2;
+        public static int PiranhaPlantsRow { get; } = 2;
+
+
+
+
 
         public Texture2D itemSpriteSheet;
         public Texture2D CoinSpriteSheet;
         public Texture2D FlowerSpriteSheet;
         private Texture2D flagSpriteSheet;
+        private Texture2D PiranhaPlantsSpriteSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
         public static ItemSpriteFactory Instance
@@ -63,6 +70,7 @@ namespace SuperMario.SpriteFactories
             CoinSpriteSheet = content.Load<Texture2D>("CoinSheet");
             FlowerSpriteSheet = content.Load<Texture2D>("FlowerSheet");
             flagSpriteSheet = content.Load<Texture2D>("flagpole");
+            PiranhaPlantsSpriteSheet = content.Load<Texture2D>("Piranha Plants");
         }
 
      
@@ -109,6 +117,10 @@ namespace SuperMario.SpriteFactories
         public ISprite CreateFlagSprite()
         {
             return new FlagSprite(flagSpriteSheet);
+        }
+        public ISprite CreatePiranhaPlantsSprite()
+        {
+            return new PiranhaPlantsSprite(PiranhaPlantsSpriteSheet);
         }
 
     }

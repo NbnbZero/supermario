@@ -21,13 +21,6 @@ namespace SuperMario.GameObjects
         private bool canWarp = false;
         private Vector2 teleLocation;
 
-        public BigPipe(Vector2 location)
-        {
-            sprite = PipeSpriteFactory.Instance.CreateBigPipeSprite();
-            Location = location;
-            Destination = sprite.MakeDestinationRectangle(Location);
-        }
-
         public BigPipe(Vector2 location, Vector2 teleLocation)
         {
             sprite = PipeSpriteFactory.Instance.CreateBigPipeSprite();
@@ -38,16 +31,12 @@ namespace SuperMario.GameObjects
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch, this.Location);
-        }
-
         public void Warp(IMario mario)
         {
             if (canWarp)
             {
                 Camera.SetCamera(new Vector2(teleLocation.X - 16 * 3, -420));
+                System.Console.WriteLine(teleLocation.X);
                 mario.Location = teleLocation;
                 SoundManager.Instance.PlayPipeSound();
                 SoundManager.Instance.PlayUndergroundSong();
@@ -58,6 +47,11 @@ namespace SuperMario.GameObjects
         {
             Destination = sprite.MakeDestinationRectangle(Location);
             sprite.Update();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            sprite.Draw(spriteBatch, this.Location);
         }
     }
 }

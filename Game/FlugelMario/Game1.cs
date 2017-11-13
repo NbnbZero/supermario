@@ -27,10 +27,11 @@ namespace SuperMario
         KeyboardControls keyboard;
         Camera camera1;
         Camera2D camera2;
+        ISprite blackbackground;
         Vector2 parallax = new Vector2(0.1f);
         MarioObject Mario;
         GameObjectManager objectManager;
-        ScoringSystem scoreSyst;
+        GameData gamedata;
         public Game1()
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
@@ -74,11 +75,11 @@ namespace SuperMario
             Mario = new MarioObject(location);
 
             objectManager = new GameObjectManager(this,Mario);
-            scoreSyst = new ScoringSystem(objectManager);
+            gamedata = new GameData(objectManager);
             camera1 = new Camera();
             Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);
-
+            blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             LevelLoader loader = new LevelLoader(objectManager);
             loader.Load();
 
@@ -124,12 +125,12 @@ namespace SuperMario
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera2.GetViewMatrix(parallax));
+            
             foreach (IGameObject obj in GameObjectManager.cloudList)
             {
                 obj.Draw(spriteBatch);
             }
             spriteBatch.End();
-
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera1.GetTransform* Matrix.CreateScale(GetScreenScale));
             objectManager.Draw(spriteBatch);
             spriteBatch.End();

@@ -16,7 +16,8 @@ namespace SuperMario.Enums
         SmallBush,
         SmallCloud,
         SmallHill,
-        BigBush
+        BigBush,
+        blackbackground
     }
 
 }
