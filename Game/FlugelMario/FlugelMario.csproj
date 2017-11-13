@@ -48,6 +48,7 @@
     <Compile Include="Animation\CoinCollectedFromBlockAnimation.cs" />
     <Compile Include="Animation\PoleScoreTextAnimation.cs" />
     <Compile Include="Animation\ScoreTextAnimation.cs" />
+    <Compile Include="Animation\VictoryAnimation.cs" />
     <Compile Include="Camera\Camera2D.cs" />
     <Compile Include="CollisionEnemies\EnemyBlockTop.cs" />
     <Compile Include="CollisionEnemies\EnemyBlockTwoSide.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="CollisionItems\ItemBlockTwoSide.cs" />
     <Compile Include="CollisionItems\ItemPipeTop.cs" />
     <Compile Include="CollisionItems\ItemPipeTwoSides.cs" />
+    <Compile Include="CollisionMario\MarioFlagCollision.cs" />
     <Compile Include="CollisionMario\MarioBlockTop.cs" />
     <Compile Include="CollisionMario\MarioBlockBottom.cs" />
     <Compile Include="CollisionMario\MarioEnemyTop.cs" />

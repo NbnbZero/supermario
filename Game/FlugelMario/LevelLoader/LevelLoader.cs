@@ -142,7 +142,7 @@ namespace SuperMario
                             GameObjectManager.itemList.Add(new FlagTop(new Vector2(item.xLocation, item.yLocation)));
                             break;
                         case ItemType.FlagPole:
-                            //ScoringSystem.RegisgerFlagPole(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
+                            ScoringSystem.RegisgerFlagPole(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                             GameObjectManager.itemList.Add(new FlagPole(new Vector2(item.xLocation, item.yLocation)));
                         break;
 

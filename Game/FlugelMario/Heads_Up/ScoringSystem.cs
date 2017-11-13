@@ -14,6 +14,9 @@ namespace SuperMairo.HeadsUp
     {
         private static int score = 0;
         public static int Score { get { return score; } }
+        public static int flagScore = 0;
+        public static int Flagscore { get { return flagScore; } }
+
         private static List<IGameObject> flagParts=new List<IGameObject>();
         private static int FlagCutOff1 = 1;
         private static int FlagCutOff2 = 3;
@@ -55,24 +58,25 @@ namespace SuperMairo.HeadsUp
             score += 100;
             ScoreAnimation(enemy, "100");
         }
-        public void AddPointsForFinalPole(Rectangle marioDestination)
+        public void AddPointsForPole(Rectangle marioDestination)
         {
             if (marioDestination.Y <= flagParts[FlagCutOff1].Destination.Y)
             {
-                score += CutOffScore1;
+                flagScore += CutOffScore1;
             }else if(marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
             {
-                score += CutOffScore2;
+                flagScore += CutOffScore2;
             }
             else if (marioDestination.Y < flagParts[FlagCutOff3].Destination.Y)
             {
-                score += CutOffScore3;
+                flagScore += CutOffScore3;
             }
             else if (marioDestination.Y < flagParts[FlagCutOff4].Destination.Y)
             {
-                score += CutOffScore4;
+                flagScore += CutOffScore4;
             }
-
+            score += flagScore;
+            CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, flagScore);
         }
 
         private static void ScoreAnimation(IGameObject obj, String scoreToDisplay)
@@ -80,6 +84,12 @@ namespace SuperMairo.HeadsUp
             Rectangle objDestination = obj.Destination;
             Vector2 location = new Vector2(objDestination.X, objDestination.Y);
             IAnimationInGame scoreAnimation = new ScoreTextAnimation(location, scoreToDisplay);
+            scoreAnimation.StartAnimation();
+        }
+
+        private static void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, int scoreToDisplay)
+        {
+            IAnimationInGame scoreAnimation = new PoleScoreTextAnimation(marioDestination, poleDestination, "" + scoreToDisplay);
             scoreAnimation.StartAnimation();
         }
     }
