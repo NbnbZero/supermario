@@ -37,68 +37,7 @@ namespace SuperMario.Animation
 
         public void Update()
         {
-            if (State != AnimationState.IsPlaying)
-            {
-                return;
-            }
 
-            switch (stage)
-            {
-                case stage1:
-                    if (!mario_.IsInAir)
-                    {
-                        mario_.Velocity = new Vector2(0, 0);
-                        mario_.Acceleration = new Vector2(0, GameData.Gravity);
-                    }
-                    if (flag_.Location.Y >= GameUtilities.VictoryAnimationGround * GameUtilities.BlockSize)
-                    {
-                        flag_.Velocity = new Vector2(0, 0);
-                        flag_.Location = new Vector2(flag_.Location.X, GameUtilities.VictoryAnimationGround * GameUtilities.BlockSize);
-
-                    }
-
-                    if (!mario_.IsInAir && flag_.Location.Y == GameUtilities.VictoryAnimationGround * GameUtilities.BlockSize)
-                    {
-                        stage++;
-                    }
-                    break;
-                case stage2:
-                    mario_.State.MarioDirection = Direction.Right;
-                    if (mario_.Destination.X >= GameUtilities.castleGate * GameUtilities.BlockSize)
-                    {
-                        mario_.State.ChangeToLeft();
-                        mario_.State.StateSprite = BlockSpriteFactory.Instance.CreateHiddenBlockSprite();
-                        stage++;
-                    }
-                    break;
-                case stage3:
-                    if (MarioAttributes.Time == minTime)
-                    {
-                        stage++;
-                    }
-                    else
-                    {
-                        counter++;
-                        if (counter == maxCount)
-                        {
-                            ScoringSystem.Player1Score.AddPointsForRestTime();
-                            MarioAttributes.Time--;
-                            counter = minCount;
-                        }
-                    }
-
-                    break;
-                default:
-                    Game1 game = (Game1)GameUtilities.Game;
-                    game.Reset();
-                    game.State.Proceed();
-                    MarioAttributes.MarioLife[mario_.] = 0;
-                    MarioAttributes.UpdateHighestScore();
-                    CoinSystem.Instance.ResetCoin();
-
-                    MarioAttributes.ClearTimer();
-                    break;
-            }
         }
     }
 }
