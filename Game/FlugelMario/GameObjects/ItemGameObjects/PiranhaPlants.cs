@@ -43,7 +43,6 @@ namespace SuperMario
 
         public void Update()
         {
-            System.Console.WriteLine(Location.ToString());
             if (IsPreparing)
             {
                 Location = new Vector2(Location.X, Location.Y + Velocity.Y);
