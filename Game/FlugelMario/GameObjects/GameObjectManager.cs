@@ -100,7 +100,10 @@ namespace SuperMario.GameObjects
                 }
                 mario.Update();
 
-                Camera.Move(mario);
+                if (mario.Location.Y < 400)
+                {
+                    Camera.Move(mario);
+                }              
             }
 
             if (updateHUD)

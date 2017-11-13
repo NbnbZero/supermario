@@ -103,13 +103,13 @@ namespace SuperMario.GameObjects
         
         public void Update()
         {
-            if (location.X < 4)
+            if (location.X < Camera.CameraX)
             {
-                location = new Vector2(location.X + 6, location.Y);
+                location = new Vector2(location.X + 5, location.Y);
                 return;
             }
             //TODO: add level condition for Game (ground/underground)
-            if (location.Y >= 445&&location.Y<=460)
+            if (location.Y >= 445 && location.Y<=460)
             {
                 State.Terminated();
             }
