@@ -72,6 +72,7 @@ namespace SuperMario
                 Velocity = new Vector2(0, -3);
                 acceleration = new Vector2(0, GameData.Gravity);
             }
+
         }
 
         public void Update()

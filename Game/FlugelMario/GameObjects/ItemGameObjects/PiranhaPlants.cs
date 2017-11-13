@@ -43,8 +43,19 @@ namespace SuperMario
 
         public void Update()
         {
+            if (IsPreparing)
+            {
+                Location = new Vector2(Location.X, Location.Y + Velocity.Y);
+                Destination = sprite.MakeDestinationRectangle(Location);
+                if (Location.Y <= initialLocation.Y - Destination.Height + 2)
+                {
+                    Velocity = new Vector2(0, 0);
+                    IsPreparing = false;
 
-            Location = new Vector2(Location.X, Location.Y - 1);
+
+                }
+                return;
+            }
             Destination = sprite.MakeDestinationRectangle(Location);
             sprite.Update();
         }
