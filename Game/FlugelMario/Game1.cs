@@ -142,7 +142,7 @@ namespace SuperMario
             get
             {
                 var scaleX = (float)GraphicsDevice.Viewport.Width / (float)760;
-                var scaleY = (float)GraphicsDevice.Viewport.Height / (float)800;
+                var scaleY = (float)GraphicsDevice.Viewport.Height / (float)420;
                 return new Vector3(scaleX, scaleY, 1.0f);
             }
         }

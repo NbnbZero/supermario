@@ -1,11 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SuperMario.GameObjects.PipeGameObjects;
 
 namespace SuperMario.Commands
 {
@@ -29,6 +25,13 @@ namespace SuperMario.Commands
             }
             myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X, 0);
             myhandler.mario.Location = new Vector2(myhandler.mario.Destination.X, myhandler.pipe.Destination.Y - myhandler.mario.Destination.Height);
+
+
+            if (myhandler.mario.State.MarioPosture == Posture.Crouch &&
+                myhandler.pipe.GetType() == typeof(GameObjects.BigPipe))
+            {
+                myhandler.pipe.Warp(myhandler.mario);
+            }
         }
     }
 }

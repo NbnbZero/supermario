@@ -46,7 +46,7 @@ namespace SuperMario.GameObjects
         {
             if (canWarp)
             {
-                Camera.SetCamera(new Vector2(teleLocation.X - 16 * 2, 0));
+                Camera.SetCamera(new Vector2(teleLocation.X - 16 * 3, -420));
                 mario.Location = teleLocation;
             }
         }

@@ -79,10 +79,6 @@ namespace SuperMario
                 }
             }
         }
-
-        public static void HandlePipeCollision()
-        {
-
-        }
+        
     }
 }

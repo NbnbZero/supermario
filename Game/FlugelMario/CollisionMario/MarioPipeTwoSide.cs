@@ -2,12 +2,7 @@
 using SuperMario;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using SuperMario.GameObjects.PipeGameObjects;
 namespace SuperMario.Commands
 {
     public class MarioPipeTwoSide : ICommand
@@ -51,6 +46,14 @@ namespace SuperMario.Commands
                 myhandler.mario.Velocity = new Vector2(0, myhandler.mario.Velocity.Y);
             }
 
+            if (myhandler.pipe.GetType() == typeof(LPipeBottom))
+            {
+                LPipeBottom pipe = (LPipeBottom)myhandler.pipe;
+                if (pipe.IsTelable)
+                {
+                    pipe.Warp(myhandler.mario);
+                }
+            }
         }
 
     }

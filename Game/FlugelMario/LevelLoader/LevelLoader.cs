@@ -185,10 +185,10 @@ namespace SuperMario
                         GameObjectManager.pipeList.Add(new MediumPipe(new Vector2(pipe.xLocation, pipe.yLocation)));
                         break;
                     case PipeType.BigPipe:
-                        GameObjectManager.pipeList.Add(new BigPipe(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        GameObjectManager.pipeList.Add(new BigPipe(new Vector2(pipe.xLocation, pipe.yLocation),new Vector2(660,500)));
                         break;
                     case PipeType.LPipeBottom:
-                        GameObjectManager.pipeList.Add(new LPipeBottom(new Vector2(pipe.xLocation, pipe.yLocation)));
+                        GameObjectManager.pipeList.Add(new LPipeBottom(new Vector2(pipe.xLocation, pipe.yLocation),new Vector2(2500,0)));
                         break;
                 }
             }
