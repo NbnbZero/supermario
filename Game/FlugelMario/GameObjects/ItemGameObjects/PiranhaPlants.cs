@@ -45,9 +45,9 @@ namespace SuperMario
         {
             if (IsPreparing)
             {
-                Location = new Vector2(Location.X, Location.Y - 1);
+                Location = new Vector2(Location.X, Location.Y + Velocity.Y);
                 Destination = sprite.MakeDestinationRectangle(Location);
-                if (Location.Y <= initialLocation.Y - Destination.Height)
+                if (Location.Y <= initialLocation.Y - Destination.Height + 2)
                 {
                     Velocity = new Vector2(0, 0);
                     IsPreparing = false;
