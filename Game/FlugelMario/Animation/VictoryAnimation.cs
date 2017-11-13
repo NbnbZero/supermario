@@ -10,7 +10,7 @@ namespace SuperMario.Animation
 {
     public class VictoryAnimation : IAnimation
     {
-        public AnimationState State { get; set; } = AnimationState.NotStart;
+        public AnimationState State { get; set; } = AnimationState.ToBegin;
 
         private IMario mario_;
         private IItem flag_;

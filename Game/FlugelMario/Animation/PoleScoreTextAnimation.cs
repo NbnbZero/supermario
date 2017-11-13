@@ -27,7 +27,7 @@ namespace SuperMario.Animation
         {
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = score;
-            this.State = AnimationState.NotStart;
+            this.State = AnimationState.ToBegin;
             this.endLocationY = marioDestination.Y;
             float startingLocationY = poleDestination.Y + poleDestination.Height - textSprite.MakeDestinationRectangle(new Vector2(0,0)).Height;
             this.location = new Vector2(marioDestination.X + marioDestination.Width + locationXFix, startingLocationY);

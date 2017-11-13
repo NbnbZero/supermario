@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace SuperMario.Enums
 {
-     public enum AnimationState { IsPlaying, Stopped, NotStart}
+     public enum AnimationState { IsPlaying, Stopped, ToBegin}
 }

@@ -33,7 +33,7 @@ namespace SuperMario.Animation
         {
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = score;
-            this.State = AnimationState.NotStart;
+            this.State = AnimationState.ToBegin;
             this.endLocationY = location.Y - YOffset * 1;
             this.location = location;
         }

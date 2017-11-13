@@ -23,7 +23,7 @@ namespace SuperMario.Animation
         public CoinCollectedFromBlockAnimation(Vector2 location)
         {
             this.coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
-            this.State = AnimationState.NotStart; 
+            this.State = AnimationState.ToBegin; 
             Rectangle spriteDestination = coinSprite.MakeDestinationRectangle(location);
             int halfOfDestinationHeight = spriteDestination.Height / 2;
             this.endLocationY = location.Y - halfOfDestinationHeight;
