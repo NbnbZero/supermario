@@ -14,7 +14,7 @@ namespace SuperMairo.HeadsUp
     {
         private static int score = 0;
         public static int Score { get { return score; } }
-        private static List<IGameObject> flagParts;
+        private static List<IGameObject> flagParts=new List<IGameObject>();
         private static int FlagCutOff1 = 1;
         private static int FlagCutOff2 = 3;
         private static int FlagCutOff3 = 5;
