@@ -23,7 +23,7 @@ namespace SuperMairo.HeadsUp
         private static int CutOffScore2 = 500;
         private static int CutOffScore3 = 1000;
         private static int CutOffScore4 = 2000;
-        
+
         public static void RegisgerFlagPole(IGameObject pole)
         {
             flagParts.Add(pole);
