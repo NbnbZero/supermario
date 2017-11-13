@@ -13,6 +13,8 @@ using SuperMario.Sound;
 using SuperMairo.States.GameState;
 using SuperMairo.SpriteFactories;
 using SuperMairo;
+using SuperMairo.HeadsUp;
+using SuperMario.Animation;
 
 namespace SuperMario
 {
@@ -28,7 +30,7 @@ namespace SuperMario
         Vector2 parallax = new Vector2(0.1f);
         MarioObject Mario;
         GameObjectManager objectManager;
-
+        ScoringSystem scoreSyst;
         public Game1()
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
@@ -72,7 +74,7 @@ namespace SuperMario
             Mario = new MarioObject(location);
 
             objectManager = new GameObjectManager(this,Mario);
-
+            scoreSyst = new ScoringSystem(objectManager);
             camera1 = new Camera();
             Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);

@@ -11,6 +11,7 @@ using SuperMairo.Interfaces;
 using SuperMairo.DisplayPanel;
 using Microsoft.Xna.Framework;
 using SuperMario.Display;
+using SuperMario.Enums;
 
 namespace SuperMario.GameObjects
 {
@@ -22,7 +23,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> enemyList;
         public static List<IGameObject> objectList;
         public static List<IGameObject> cloudList;
-
+        private List<IAnimationInGame> animationList;
         private MarioObject mario;
         private Game1 game;
 
@@ -46,6 +47,7 @@ namespace SuperMario.GameObjects
             titleDisplayPanel = new TitleDisplayPanel();
             marioLifeDisplayPanel = new MarioLifeDisplayPanel();
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
+            animationList = new List<IAnimationInGame>();
         }
 
         public IDisplayPanel TitlePanel
@@ -92,7 +94,10 @@ namespace SuperMario.GameObjects
                 {
                     obj.Update();
                 }
-
+                foreach (IAnimationInGame obj in animationList)
+                {
+                    obj.Update();
+                }
                 mario.Update();
 
                 Camera.Move(mario);
@@ -129,6 +134,11 @@ namespace SuperMario.GameObjects
             {
                 obj.Draw(spriteBatch);
             }
+            foreach (IAnimationInGame obj in animationList)
+            {
+                if (obj.State == AnimationState.IsPlaying)
+                    obj.Draw(spriteBatch);
+            }
 
             mario.Draw(spriteBatch);
 
@@ -151,7 +161,10 @@ namespace SuperMario.GameObjects
         }
 
 
-
+        public void AddAnimation(IAnimationInGame animation)
+        {
+            animationList.Add(animation);
+        }
 
 
 

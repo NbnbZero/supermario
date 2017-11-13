@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using SuperMario.Enums;
+using SuperMario.GameObjects;
+
 namespace SuperMario.Animation
 {
     public class CoinCollectedFromBlockAnimation : IAnimationInGame
@@ -18,11 +20,13 @@ namespace SuperMario.Animation
         private float accelerationY;
         private float endLocationY;
         private ISprite coinSprite;
+        private IAnimationInGame scoreAnimation;
+ 
 
         public CoinCollectedFromBlockAnimation(Vector2 location)
         {
             this.coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
-            this.State = AnimationState.Stopped; 
+            this.State = AnimationState.NotStart; 
             Rectangle spriteDestination = coinSprite.MakeDestinationRectangle(location);
             int halfOfDestinationHeight = spriteDestination.Height / 2;
             this.endLocationY = location.Y - halfOfDestinationHeight;
@@ -51,9 +55,6 @@ namespace SuperMario.Animation
         public void StartAnimation()
         {
             State = AnimationState.IsPlaying;
-            //
-            accelerationY = 0.1f;
-            velocityY = -1.5f;
         }
     }
 }
