@@ -14,7 +14,6 @@ namespace SuperMairo.HeadsUp
     {
         private static int score = 0;
         public static int Score { get { return score; } }
-        private static GameObjectManager objM;
         private static List<IGameObject> flagParts;
         private static int FlagCutOff1 = 1;
         private static int FlagCutOff2 = 3;
@@ -24,13 +23,7 @@ namespace SuperMairo.HeadsUp
         private static int CutOffScore2 = 500;
         private static int CutOffScore3 = 1000;
         private static int CutOffScore4 = 2000;
-
-        public ScoringSystem(GameObjectManager ObjM)
-        {
-            objM = ObjM;
-            flagParts = new List<IGameObject>();
-        }
-
+        
         public static void RegisgerFlagPole(IGameObject pole)
         {
             flagParts.Add(pole);
