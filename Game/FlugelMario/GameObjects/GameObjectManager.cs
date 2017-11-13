@@ -12,6 +12,9 @@ using SuperMairo.DisplayPanel;
 using Microsoft.Xna.Framework;
 using SuperMario.Display;
 using SuperMario.Enums;
+using SuperMairo.HeadsUp;
+using SuperMario.GameObjects.ItemGameObjects;
+using SuperMario.Animation;
 
 namespace SuperMario.GameObjects
 {
@@ -24,6 +27,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> objectList;
         public static List<IGameObject> cloudList;
         private List<IAnimationInGame> animationList;
+        public IAnimation victoryAnimation;
         private MarioObject mario;
         private Game1 game;
         private bool isLevelComplete = false;
@@ -149,7 +153,40 @@ namespace SuperMario.GameObjects
             gameOverDisplayPanel.Draw(spriteBatch);
             marioLifeDisplayPanel.Draw(spriteBatch);
             headsUpDisplayPanel.Draw(spriteBatch);
+            CheckAndStartSinglePlayerEndGame();
         }
+
+        private void CheckAndStartSinglePlayerEndGame()
+        {
+            if (!isLevelComplete)
+            {
+                if (IsEndGame())
+                {
+                    Game1.State.Proceed();
+                    MarioAttributes.StopTimer();
+                    isLevelComplete = true;
+                    ScoringSystem.AddPointsForPole(mario.Destination);
+                    IItem flag_ = null;
+                    foreach (IGameObject obj in itemList)
+                    {
+                        if (obj.GetType() == typeof(Flag))
+                            flag_ = (IItem)obj;
+                    }
+                    victoryAnimation = new VictoryAnimation(mario, flag_);
+                    victoryAnimation.State = AnimationState.IsPlaying;
+                }
+            }
+            else
+            {
+                victoryAnimation.Update();
+            }
+        }
+        private bool IsEndGame()
+        {
+            return mario.Destination.X + mario.Destination.Width >= 3242&&
+                   mario.Destination.X + mario.Destination.Width <= 3266;
+        }
+
         private static bool GamePlayable()
         {
             return Game1.State.Type == GameStates.Playing ||

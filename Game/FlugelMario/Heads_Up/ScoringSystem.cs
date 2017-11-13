@@ -24,10 +24,12 @@ namespace SuperMairo.HeadsUp
         private static int FlagCutOff2 = 3;
         private static int FlagCutOff3 = 5;
         private static int FlagCutOff4 = 7;
-        private static int CutOffScore1 = 200;
-        private static int CutOffScore2 = 500;
-        private static int CutOffScore3 = 1000;
-        private static int CutOffScore4 = 2000;
+        private static int FlagCutOff5 = 10;
+        private static int CutOffScore5 = 100;
+        private static int CutOffScore4 = 400;
+        private static int CutOffScore3 = 800;
+        private static int CutOffScore2 = 2000;
+        private static int CutOffScore1 = 4000;
 
         public static void RegisgerFlagPole(IGameObject pole)
         {
@@ -83,7 +85,11 @@ namespace SuperMairo.HeadsUp
             {
                 flagScore += CutOffScore4;
             }
-            score += flagScore;
+            else if (marioDestination.Y < flagParts[FlagCutOff5].Destination.Y)
+            {
+                flagScore += CutOffScore5;
+            }
+                score += flagScore;
             CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, flagScore);
         }
         public static void AddPointsForRestTime()
