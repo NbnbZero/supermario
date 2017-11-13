@@ -25,7 +25,7 @@ namespace FlugelMario.States.GameState
         {
             this.game = _game;
             SoundManager.Instance.StopAllSound();
-            SoundManager.Instance.PlayStageClearSound();
+            SoundManager.Instance.PlayGameCompleteSound();
         }
 
         public void GameOver()

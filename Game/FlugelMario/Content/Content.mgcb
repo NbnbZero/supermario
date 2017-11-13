@@ -524,3 +524,9 @@
 /processorParam:TextureFormat=Color
 /build:Piranha Plants.png
 
+#begin v_gameComplete.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:v_gameComplete.wav
+
