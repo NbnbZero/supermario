@@ -51,11 +51,11 @@ namespace SuperMario.Display
             if (Game1.State.Type == GameStates.GameOver)
             {
                 
-                    MarioAttributes.MarioLife[0] = 3;
-                    MarioAttributes.UpdateHighestScore();
+                    MarioInfo.MarioLife[0] = 3;
+                    MarioInfo.UpdateHighestScore();
                     CoinSystem.Instance.ResetCoin();
                     ScoringSystem.ResetScore();
-                    MarioAttributes.ClearTimer();
+                    MarioInfo.ClearTimer();
                 
             }
         }

@@ -109,7 +109,7 @@ namespace SuperMario
             { 
                 objectManager.Update();
             }
-            MarioAttributes.timeCount(gameTime,Mario);
+            MarioInfo.timeCount(gameTime,Mario);
             camera2.LookAt(new Vector2(Mario.Location.X - 20, GraphicsDevice.Viewport.Height / 2));          
 
             base.Update(gameTime);
@@ -152,8 +152,8 @@ namespace SuperMario
         {
             LoadContent();
             Camera.ResetCamera();
-            MarioAttributes.ResetTimer();
-            MarioAttributes.StartTimer();
+            MarioInfo.ResetTimer();
+            MarioInfo.StartTimer();
         }
     }
 }

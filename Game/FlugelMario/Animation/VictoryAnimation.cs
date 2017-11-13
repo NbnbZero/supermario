@@ -71,7 +71,7 @@ namespace SuperMario.Animation
                     }
                     break;
                 case stage3:
-                    if (MarioAttributes.Time == minTime)
+                    if (MarioInfo.Time == minTime)
                     {
                         stage++;
                     }
@@ -81,7 +81,7 @@ namespace SuperMario.Animation
                         if (counter == maxCount)
                         {
                             ScoringSystem.AddPointsForRestTime();
-                            MarioAttributes.Time--;
+                            MarioInfo.Time--;
                             counter = minCount;
                         }
                     }
@@ -91,11 +91,11 @@ namespace SuperMario.Animation
                     Game1 game = (Game1)GameData.Game;
                     game.Reset();
                     Game1.State.Proceed();
-                    MarioAttributes.MarioLife[0] = 3;
-                    MarioAttributes.UpdateHighestScore();
+                    MarioInfo.MarioLife[0] = 3;
+                    MarioInfo.UpdateHighestScore();
                     CoinSystem.Instance.ResetCoin();
                     ScoringSystem.ResetScore();
-                    MarioAttributes.ClearTimer();
+                    MarioInfo.ClearTimer();
                     break;
             }
         }

@@ -23,7 +23,7 @@ namespace SuperMario.States.MarioStates
             SoundManager.Instance.StopAllSound();
             this.Mario.Velocity = new Vector2(0,0);
             this.Mario.Acceleration = new Vector2(0,0);
-            MarioAttributes.MarioLife[0]--;
+            MarioInfo.MarioLife[0]--;
         }
 
         public override void RunLeft()
@@ -77,8 +77,8 @@ namespace SuperMario.States.MarioStates
             
             if (this.Mario.Destination.Y > 1000)
             {
-                MarioAttributes.StopTimer();
-                if (MarioAttributes.MarioLife[0] == 0)
+                MarioInfo.StopTimer();
+                if (MarioInfo.MarioLife[0] == 0)
                 {
                     Game1.State.GameOver();
                 }

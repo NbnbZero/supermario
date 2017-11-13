@@ -190,7 +190,7 @@
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="LevelLoader\LevelLoader.cs" />
     <Compile Include="LevelLoader\TileDefinition.cs" />
-    <Compile Include="GameObjects\MarioAttributes.cs" />
+    <Compile Include="GameObjects\MarioInfo.cs" />
     <Compile Include="SpriteFactories\BackgroundSpriteFactory.cs" />
     <Compile Include="SpriteFactories\FireballSpriteFactory.cs" />
     <Compile Include="SpriteFactories\ItemSpriteFactory.cs" />

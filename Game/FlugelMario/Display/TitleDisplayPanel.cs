@@ -42,7 +42,7 @@ namespace SuperMairo.DisplayPanel
             instructionText = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             instructionText.text = pressEnter;
             highestScoreText = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            highestScoreText.text = "Top Score - " + fixText(" " + MarioAttributes.HighestScore, scoreLength);
+            highestScoreText.text = "Top Score - " + fixText(" " + MarioInfo.HighestScore, scoreLength);
 
         }
 
@@ -63,7 +63,7 @@ namespace SuperMairo.DisplayPanel
 
         public void Update()
         {
-            highestScoreText.text = "Highest Score - " + fixText(" " + MarioAttributes.HighestScore, scoreLength);
+            highestScoreText.text = "Highest Score - " + fixText(" " + MarioInfo.HighestScore, scoreLength);
         }
 
 

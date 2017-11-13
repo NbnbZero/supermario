@@ -163,7 +163,7 @@ namespace SuperMario.GameObjects
                 if (IsEndGame())
                 {
                     Game1.State.Proceed();
-                    MarioAttributes.StopTimer();
+                    MarioInfo.StopTimer();
                     isLevelComplete = true;
                     ScoringSystem.AddPointsForPole(mario.Destination);
                     IItem flag_ = null;

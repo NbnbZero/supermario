@@ -38,7 +38,7 @@ namespace SuperMario
         {
             sprite = (ISprite)ItemSpriteFactory.Instance.CreateDisappearedSprite();
             IsCollected = true;
-            MarioAttributes.MarioLife[0]++;
+            MarioInfo.MarioLife[0]++;
             SoundManager.Instance.Play1UpSound();
             ScoringSystem.AddPointsForGMush(this);
         }
