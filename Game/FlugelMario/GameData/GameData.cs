@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SuperMario
 {
-    public static class GameData
+    public static class GameData 
     {
         // just in case we forget these data
         public static GameObjectManager GameObjectManager { get; set; }

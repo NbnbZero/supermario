@@ -25,8 +25,5 @@ namespace SuperMario
         }
 
         public static IGameState State { get; set; }
-        public bool IsPause { get; set; } = false;
-        public bool IsControllerEnable { get; set; } = true;
-        public bool IsInAnimation { get; set; } = false;
     }
 }

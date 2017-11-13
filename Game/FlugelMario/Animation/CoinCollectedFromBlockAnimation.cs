@@ -20,9 +20,6 @@ namespace SuperMario.Animation
         private float accelerationY;
         private float endLocationY;
         private ISprite coinSprite;
-        private IAnimationInGame scoreAnimation;
- 
-
         public CoinCollectedFromBlockAnimation(Vector2 location)
         {
             this.coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
@@ -31,7 +28,6 @@ namespace SuperMario.Animation
             int halfOfDestinationHeight = spriteDestination.Height / 2;
             this.endLocationY = location.Y - halfOfDestinationHeight;
             this.location = new Vector2(location.X, endLocationY);
-            Vector2 scoreLocation = new Vector2(spriteDestination.X, spriteDestination.Y - spriteDestination.Height);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -55,6 +51,9 @@ namespace SuperMario.Animation
         public void StartAnimation()
         {
             State = AnimationState.IsPlaying;
+            //GameData.GameObjectManager.AddAnimation(this);
+            accelerationY = 0.01f;
+            velocityY = -1.5f;
         }
     }
 }
