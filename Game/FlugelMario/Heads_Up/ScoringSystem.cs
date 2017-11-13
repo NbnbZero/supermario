@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SuperMairo.DisplayPanel;
+using SuperMario.Sound;
+
 namespace SuperMairo.HeadsUp
 {
     public class ScoringSystem
@@ -58,7 +60,7 @@ namespace SuperMairo.HeadsUp
             score += 100;
             ScoreAnimation(enemy, "100");
         }
-        public void AddPointsForPole(Rectangle marioDestination)
+        public static void AddPointsForPole(Rectangle marioDestination)
         {
             if (marioDestination.Y <= flagParts[FlagCutOff1].Destination.Y)
             {
@@ -77,6 +79,11 @@ namespace SuperMairo.HeadsUp
             }
             score += flagScore;
             CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, flagScore);
+        }
+        public static void AddPointsForRestTime()
+        {
+            score += 10;
+            SoundManager.Instance.PlayCoinSound();
         }
 
         private static void ScoreAnimation(IGameObject obj, String scoreToDisplay)

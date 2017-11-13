@@ -4,6 +4,8 @@ using SuperMario.Enums;
 using SuperMario.Interfaces;
 using SuperMairo.HeadsUp;
 using SuperMario.Heads_Up;
+using SuperMario.SpriteFactories;
+
 namespace SuperMario.Animation
 {
     public class VictoryAnimation : IAnimation
@@ -34,10 +36,68 @@ namespace SuperMario.Animation
             flag_.Velocity = new Vector2(0, 0);
         }
 
-
         public void Update()
         {
+            if (State != AnimationState.IsPlaying)
+            {
+                return;
+            }
 
+            switch (stage)
+            {
+                case stage1:
+                    if (!mario_.IsInAir)
+                    {
+                        mario_.Velocity = new Vector2(0, 0);
+                        mario_.Acceleration = new Vector2(0, GameData.Gravity);
+                    }
+                    if (flag_.Location.Y >= 160)
+                    {
+                        flag_.Velocity = new Vector2(0, 0);
+                        flag_.Location = new Vector2(flag_.Location.X, 160);
+                    }
+
+                    if (!mario_.IsInAir && flag_.Location.Y == 160)
+                    {
+                        stage++;
+                    }
+                    break;
+                case stage2:
+                    mario_.State.RunRight();
+                    if (mario_.Destination.X >= 204 * 16)
+                    {
+                        mario_.State.RunLeft();
+                        stage++;
+                    }
+                    break;
+                case stage3:
+                    if (MarioAttributes.Time == minTime)
+                    {
+                        stage++;
+                    }
+                    else
+                    {
+                        counter++;
+                        if (counter == maxCount)
+                        {
+                            ScoringSystem.AddPointsForRestTime();
+                            MarioAttributes.Time--;
+                            counter = minCount;
+                        }
+                    }
+
+                    break;
+                default:
+                    Game1 game = (Game1)GameData.Game;
+                    game.Reset();
+                    Game1.State.Proceed();
+                    MarioAttributes.MarioLife[0] = 3;
+                    MarioAttributes.UpdateHighestScore();
+                    CoinSystem.Instance.ResetCoin();
+                    ScoringSystem.ResetScore();
+                    MarioAttributes.ClearTimer();
+                    break;
+            }
         }
     }
 }

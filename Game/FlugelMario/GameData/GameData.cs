@@ -10,6 +10,7 @@ namespace SuperMario
     public class GameData 
     {
         // just in case we forget these data
+        public static AbstractGame Game { get; set; }
         public static GameObjectManager GameObjectManager { get {return objM; } set { } }
         private static GameObjectManager objM;
         public GameData(GameObjectManager ObjM)
