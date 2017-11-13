@@ -11,9 +11,9 @@ using SuperMario.SpriteFactories;
 using SuperMario;
 using static SuperMario.GameObjects.GameObjectType;
 
-namespace SuperMairo
+namespace SuperMario.GameObjects.ItemGameObjects
 {
-    class FlagPole : IItem
+    public class FlagPole : IItem
     {
         private ISprite sprite;
         public Vector2 Location { get; set; }

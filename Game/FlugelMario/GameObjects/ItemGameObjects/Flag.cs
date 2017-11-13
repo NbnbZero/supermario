@@ -10,9 +10,9 @@ using SuperMario.GameObjects;
 using SuperMario.SpriteFactories;
 using SuperMario;
 using static SuperMario.GameObjects.GameObjectType;
-namespace SuperMairo
+namespace SuperMario.GameObjects.ItemGameObjects
 {
-    class Flag : IItem
+    public class Flag : IItem
     {
         private ISprite sprite;
         public Microsoft.Xna.Framework.Vector2 Location { get; set; }
@@ -48,8 +48,7 @@ namespace SuperMairo
         }
 
         public void ChangeDirection()
-        {
-            throw new NotImplementedException();
+        {            
         }
     }
 }
