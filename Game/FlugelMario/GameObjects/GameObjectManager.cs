@@ -76,7 +76,8 @@ namespace SuperMario.GameObjects
 
             bool updateHUD = true;
 
-            if (GamePlayable())
+            if (Game1.State.Type == GameStates.Playing ||
+                Game1.State.Type == GameStates.LevelComplete)
             {
                 HandleCollisions();
                 foreach (IGameObject obj in itemList)

@@ -34,6 +34,7 @@ namespace SuperMario.Animation
             mario_.Velocity = new Vector2(0, 1);
             SoundManager.Instance.PlayFlagSong();
             flag_.Velocity = new Vector2(0, 1);
+            
         }
 
         public void Update()
@@ -44,8 +45,9 @@ namespace SuperMario.Animation
             }
 
             switch (stage)
-            {
+            {               
                 case stage1:
+
                     if (!mario_.IsInAir)
                     {
                         mario_.Velocity = new Vector2(0, 0);
