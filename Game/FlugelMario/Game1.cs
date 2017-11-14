@@ -151,6 +151,37 @@ namespace SuperMario
             MarioInfo.ResetTimer();
             MarioInfo.StartTimer();
         }
+
+        public void LevelReset()
+        {
+            Vector2 restartPoint = GameObjectManager.restartPoint;
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            #region Load Textures
+            MarioSpriteFactory.Instance.LoadAllTextures(Content);
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            ItemSpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            FireballSpriteFactory.Instance.LoadAllTextures(Content);
+            BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
+            PipeSpriteFactory.Instance.LoadAllTextures(Content);
+            SoundManager.Instance.LoadAllSounds(Content);
+            TextSpriteFactory.Instance.LoadAllTextures(Content);
+            #endregion
+            
+            Mario = new MarioObject(restartPoint);
+            objectManager = new GameObjectManager(this, Mario);
+            gamedata = new GameData(objectManager);
+            camera1 = new Camera();
+            Camera.LimitationList.Add(3600);
+            camera2 = new Camera2D(GraphicsDevice.Viewport);
+            blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
+            LevelLoader loader = new LevelLoader(objectManager, Mario);
+            loader.Load();
+            keyboard = new KeyboardControls(this, Mario);
+            gamepad = new GamePadControls(this, Mario);
+            Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
+        }
     }
 }
 

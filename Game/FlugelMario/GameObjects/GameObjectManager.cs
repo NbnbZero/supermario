@@ -25,6 +25,7 @@ namespace SuperMario.GameObjects
         public static List<IGameObject> enemyList;
         public static List<IGameObject> objectList;
         public static List<IGameObject> cloudList;
+        public static Vector2 restartPoint;
         private List<IAnimationInGame> animationList;
         public IAnimation victoryAnimation;
         private MarioObject mario;
@@ -46,6 +47,7 @@ namespace SuperMario.GameObjects
             objectList = new List<IGameObject>();
             cloudList = new List<IGameObject>();
             mario = Mario;
+            restartPoint = new Vector2(150,200);
             game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();
@@ -111,7 +113,7 @@ namespace SuperMario.GameObjects
                 }
                 mario.Update();
             }
-            
+            restartPoint=continueLevel(mario);
             CheckEndGame();
 
 
@@ -210,6 +212,23 @@ namespace SuperMario.GameObjects
         public void AddAnimation(IAnimationInGame animation)
         {
             animationList.Add(animation);
+        }
+
+        public static Vector2 continueLevel(IMario Mario)
+        {
+            IMario mario = Mario;
+            Vector2 restartpoint = new Vector2(200,200);
+
+            for(int i=0;i< pipeList.Count; i++)
+            {
+                IPipe pipe = (IPipe)pipeList[i];
+                if (mario.Location.X > pipe.Location.X&&
+                    pipe.Location.Y<420)
+                {
+                    restartpoint = new Vector2(pipe.Location.X,pipe.Location.Y-mario.Destination.Height);
+                }
+            }
+            return restartpoint;
         }
 
     }   
