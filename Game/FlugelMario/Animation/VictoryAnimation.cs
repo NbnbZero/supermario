@@ -53,13 +53,13 @@ namespace SuperMario.Animation
                         mario_.Velocity = new Vector2(0, 0);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
-                    if (flag_.Location.Y >= 384)
+                    if (flag_.Location.Y >= GameData.flagPoleBottomY)
                     {
                         flag_.Velocity = new Vector2(0, 0);
-                        flag_.Location = new Vector2(flag_.Location.X,384);
+                        flag_.Location = new Vector2(flag_.Location.X, GameData.flagPoleBottomY);
                     }
 
-                    if (!mario_.IsInAir&&flag_.Location.Y == 384)
+                    if (!mario_.IsInAir&&flag_.Location.Y == GameData.flagPoleBottomY)
                     {
                         stage++;
                     }

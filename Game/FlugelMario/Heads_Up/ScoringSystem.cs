@@ -112,13 +112,13 @@ namespace SuperMairo.HeadsUp
         {
             Rectangle objDestination = obj.Destination;
             Vector2 location = new Vector2(objDestination.X, objDestination.Y);
-            IAnimationInGame scoreAnimation = new ScoreTextAnimation(location, scoreToDisplay);
+            IAnimationInGame scoreAnimation = new ScoreAnimation(location, scoreToDisplay);
             scoreAnimation.StartAnimation();
         }
 
         private static void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, String scoreToDisplay)
         {
-            IAnimationInGame scoreAnimation = new PoleScoreTextAnimation(marioDestination, poleDestination, scoreToDisplay);
+            IAnimationInGame scoreAnimation = new PoleScoreAnimation(marioDestination, poleDestination, scoreToDisplay);
             scoreAnimation.StartAnimation();
         }
     }

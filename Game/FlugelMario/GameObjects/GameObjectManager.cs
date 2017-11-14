@@ -113,7 +113,7 @@ namespace SuperMario.GameObjects
                 mario.Update();
             }
             
-            CheckAndStartSinglePlayerEndGame();
+            CheckEndGame();
 
 
 
@@ -164,7 +164,7 @@ namespace SuperMario.GameObjects
             winningDisplayPanel.Draw(spriteBatch);
         }
 
-        private void CheckAndStartSinglePlayerEndGame()
+        private void CheckEndGame()
         {
             if (!isLevelComplete)
             {

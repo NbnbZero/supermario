@@ -64,7 +64,7 @@ namespace SuperMario.GameObjects
         private const int bigMarioHeriDis = 2;
         private int protectTime;
         private const int protectDuration = 50;
-        private const int maxYSpeed = 10;
+        private const int maxYSpeed = 8;
         public MarioObject(Vector2 location)
         {
             State = new IdleRightSmallMarioState(this);

@@ -7,7 +7,7 @@ using SuperMario.GameObjects;
 
 namespace SuperMario.Animation
 {
-    public class CoinCollectedFromBlockAnimation : IAnimationInGame
+    public class CoinOutOfBlockAnimation : IAnimationInGame
     {
         public Vector2 Location { get { return location; } set { } }
 
@@ -20,7 +20,7 @@ namespace SuperMario.Animation
         private float accelerationY;
         private float endLocationY;
         private ISprite coinSprite;
-        public CoinCollectedFromBlockAnimation(Vector2 location)
+        public CoinOutOfBlockAnimation(Vector2 location)
         {
             this.coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
             this.State = AnimationState.ToBegin; 

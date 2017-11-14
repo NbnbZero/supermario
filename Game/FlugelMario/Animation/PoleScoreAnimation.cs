@@ -7,7 +7,7 @@ using SuperMario.Interfaces;
 
 namespace SuperMario.Animation
 {
-    public class PoleScoreTextAnimation: IAnimationInGame
+    public class PoleScoreAnimation: IAnimationInGame
     {
         public Vector2 Location { get { return location; } set { location = value; } }
 
@@ -17,18 +17,25 @@ namespace SuperMario.Animation
 
         private Vector2 location;
         private float endpointY;
-        private float cameraXTextDistance;
+
         private IText textSprite;
         private float poleVelocity = -1;
 
-        public PoleScoreTextAnimation(Rectangle marioDestination, Rectangle poleDestination, string score)
+        public PoleScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, string score)
         {
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = score;
             this.State = AnimationState.ToBegin;
             this.endpointY = marioDestination.Y;
-            float startingLocationY = poleDestination.Y + poleDestination.Height - textSprite.MakeDestinationRectangle(new Vector2(0,0)).Height;
-            this.location = new Vector2(marioDestination.X + marioDestination.Width + 7, startingLocationY);
+            float startingLocationY = poleDestination.Y + poleDestination.Height - textSprite.MakeDestinationRectangle(new Vector2(0, 0)).Height;
+            if (score.Equals("1UP"))
+            {
+                this.location = new Vector2(marioDestination.X + marioDestination.Width + 7, startingLocationY - 20);
+            }
+            else
+            { 
+                this.location = new Vector2(marioDestination.X + marioDestination.Width + 7, startingLocationY);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -41,7 +48,6 @@ namespace SuperMario.Animation
         {
             State = AnimationState.IsPlaying;
             GameData.GameObjectManager.AddAnimation(this);
-            cameraXTextDistance = location.X - Camera.CameraX;
         }
 
         public void Update()
@@ -49,7 +55,6 @@ namespace SuperMario.Animation
             if (State == AnimationState.IsPlaying && location.Y >= endpointY)
             {
                 location.Y = location.Y + poleVelocity;
-                location.X = Camera.CameraX + cameraXTextDistance;
                 if (location.Y == endpointY)
                 {
                     State = AnimationState.Stopped;

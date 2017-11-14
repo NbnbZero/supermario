@@ -60,7 +60,7 @@ namespace SuperMario
                     Time--;
                     counter = 0;
                 }
-                if (Time == 60)
+                if (Time == 100)
                 {
                     if (!isWarningPlaying)
                     {

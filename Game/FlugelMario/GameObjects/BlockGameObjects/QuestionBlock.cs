@@ -28,7 +28,7 @@ namespace SuperMario.GameObjects
             stateMachine = new QuestionmarkBlockStateMachine();
             Location = location;
             Destination = stateMachine.MakeDestinationRectangle(Location);
-            coinAnimation = new CoinCollectedFromBlockAnimation(new Vector2(Location.X, Location.Y - Destination.Height));
+            coinAnimation = new CoinOutOfBlockAnimation(new Vector2(Location.X, Location.Y - Destination.Height));
         }
 
         public void Draw(SpriteBatch spriteBatch)

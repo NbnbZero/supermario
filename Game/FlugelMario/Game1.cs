@@ -1,4 +1,4 @@
-using SuperMario.Interfaces;
+﻿using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,6 +25,7 @@ namespace SuperMario
     {
         SpriteBatch spriteBatch;
         KeyboardControls keyboard;
+        GamePadControls gamepad; //No！
         Camera camera1;
         Camera2D camera2;
         ISprite blackbackground;
@@ -73,7 +74,6 @@ namespace SuperMario
 
             Vector2 location = new Vector2(50, 200);
             Mario = new MarioObject(location);
-
             objectManager = new GameObjectManager(this,Mario);
             gamedata = new GameData(objectManager);
             camera1 = new Camera();
@@ -82,9 +82,8 @@ namespace SuperMario
             blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             LevelLoader loader = new LevelLoader(objectManager, Mario);
             loader.Load();
-
             keyboard = new KeyboardControls(this, Mario);
-
+            gamepad = new GamePadControls(this,Mario);
         }
 
         /// <summary>
@@ -105,13 +104,13 @@ namespace SuperMario
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
+            gamepad.Update(); 
             if (State.Type != SuperMairo.Interfaces.GameStates.Pause)
             { 
                 objectManager.Update();
             }
             MarioInfo.timeCount(gameTime,Mario);
             camera2.LookAt(new Vector2(Mario.Location.X - 20, GraphicsDevice.Viewport.Height / 2));          
-
             base.Update(gameTime);
         }
 
