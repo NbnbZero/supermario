@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using SuperMario.States.MarioStates;
 using SuperMario.Enums;
+using SuperMario.GameObjects;
+
 namespace SuperMario.Commands
 {
     public class MarioBlockTwoSide : ICommand
@@ -15,6 +17,10 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
+            if (myhandler.block.GetType() == typeof(HiddenBlock))
+            {
+                return;
+            }
             if (myhandler.mario.State.MarioShape == Shape.Dead)
             {
                 return;

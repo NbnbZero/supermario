@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using SuperMario.GameObjects;
 using SuperMario.Interfaces;
 
 namespace SuperMario
@@ -13,6 +14,10 @@ namespace SuperMario
 
         public void Execute()
         {
+            if (myHandler.block.GetType() == typeof(HiddenBlock))
+            {
+                return;
+            }
             if (myHandler.item.Velocity.X != 0)
             {
                 myHandler.item.ChangeDirection();

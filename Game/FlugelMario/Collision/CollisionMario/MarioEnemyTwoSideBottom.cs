@@ -2,6 +2,7 @@
 using SuperMario.Interfaces;
 using SuperMario.Enums;
 using SuperMario.Sound;
+using SuperMario.SCsystem;
 
 namespace SuperMario.Commands
 {
@@ -33,8 +34,9 @@ namespace SuperMario.Commands
             {
                 if (myhandler.mario.State.IsStar)
                 {
-                    //Add score
                     myhandler.enemy.Terminate("Right");
+                    ScoringSystem.AddPointsForStompingEnemy(myhandler.enemy);
+                    SoundManager.Instance.PlayStompSound();
                 }
                 else
                 {
