@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SuperMairo.Interfaces;
-using SuperMairo.SpriteFactories;
-using SuperMario.Sound;
+using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using System;
 using System.Collections.Generic;

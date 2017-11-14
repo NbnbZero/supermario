@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.Sound;
-using SuperMairo.HeadsUp;
+using SuperMario.Heads_Up;
 
 namespace SuperMario
 {

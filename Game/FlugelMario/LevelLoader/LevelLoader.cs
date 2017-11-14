@@ -10,9 +10,8 @@ using SuperMario.GameObjects;
 using System;
 using SuperMario.GameObjects.ItemGameObjects;
 using SuperMario.GameObjects.PipeGameObjects;
-using SuperMairo.GameObjects;
-using SuperMairoGameObjects;
-using SuperMairo.HeadsUp;
+using SuperMarioGameObjects;
+using SuperMario.Heads_Up;
 
 namespace SuperMario
 {

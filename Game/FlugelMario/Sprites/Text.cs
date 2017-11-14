@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMairo.Interfaces;
+using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.Sprites
+namespace SuperMario.Sprites
 {
     public class Text : IText
     {

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.GameObjects
+namespace SuperMario.GameObjects
 {
     public class BigBush : IGameObject
     {

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SuperMario.Enums;
-using SuperMairo;
+using SuperMario;
 
 namespace SuperMario.SpriteFactories
 {

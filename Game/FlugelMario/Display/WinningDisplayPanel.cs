@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMairo.HeadsUp;
-using SuperMairo.Interfaces;
-using SuperMairo.SpriteFactories;
-using SuperMario.Heads_Up;
+using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
+using SuperMario.Heads_Up;
 using System;
 using System.Collections.Generic;
 using System.Linq;

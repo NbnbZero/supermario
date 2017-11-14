@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.Sprites.Background
+namespace SuperMario.Sprites.Background
 {
     public class SmallHillSprite : ISprite
     {

@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SuperMario.Enums;
-using SuperMairo.SpriteFactories;
+using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMairo.Interfaces;
 using SuperMario.Interfaces;
 
 namespace SuperMario.Animation

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMairo.Sprites.Background;
 using SuperMario.Sprites.Background;
 using System;
 using System.Collections.Generic;

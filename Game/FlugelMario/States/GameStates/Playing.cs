@@ -1,5 +1,5 @@
 ﻿using FlugelMario.States.GameState;
-using SuperMairo.Interfaces;
+using SuperMario.Interfaces;
 using SuperMario;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.States.GameState
+namespace SuperMario.States.GameState
 {
     public class PlayingState : IGameState
     {

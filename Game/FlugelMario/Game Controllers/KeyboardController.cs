@@ -5,13 +5,9 @@ using System.Linq;
 using SuperMario.States.MarioStates;
 using SuperMario.Interfaces;
 using SuperMario.Commands.ControllerCommand;
-using SuperMairo.Interfaces;
-using SuperMairo.States.GameState;
-using SuperMairo.Commands;
+using SuperMario.States.GameState;
+using SuperMario.Commands;
 using SuperMario.Sound;
-using Microsoft.Xna.Framework.Audio;
-using SuperMario.Heads_Up;
-using SuperMairo.HeadsUp;
 
 namespace SuperMario.Game_Controllers
 {

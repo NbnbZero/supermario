@@ -1,5 +1,5 @@
-﻿using SuperMairo.DisplayPanel;
-using SuperMairo.Interfaces;
+﻿using SuperMario.DisplayPanel;
+using SuperMario.Interfaces;
 using SuperMario;
 using SuperMario.GameObjects;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.States.GameState
+namespace SuperMario.States.GameState
 {
     public class Title : IGameState
     {

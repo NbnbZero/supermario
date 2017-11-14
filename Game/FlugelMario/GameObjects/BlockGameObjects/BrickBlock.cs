@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario.StateMachine;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.Sound;
-using SuperMairo.HeadsUp;
 
 namespace SuperMario.GameObjects
 {

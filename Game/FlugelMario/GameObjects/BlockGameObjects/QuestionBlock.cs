@@ -8,7 +8,6 @@ using SuperMario.Enums;
 using SuperMario.GameObjects;
 using SuperMario.Sound;
 using SuperMario.Heads_Up;
-using SuperMairo.HeadsUp;
 
 namespace SuperMario.GameObjects
 {

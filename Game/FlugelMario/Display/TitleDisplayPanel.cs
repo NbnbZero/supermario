@@ -1,4 +1,4 @@
-﻿using SuperMairo.Interfaces;
+﻿using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario;
 using SuperMario.SpriteFactories;
-using SuperMairo.SpriteFactories;
 using Microsoft.Xna.Framework;
 using SuperMario.Heads_Up;
-using SuperMairo.HeadsUp;
 
-namespace SuperMairo.DisplayPanel
+namespace SuperMario.DisplayPanel
 {
     class TitleDisplayPanel : IDisplayPanel
     {

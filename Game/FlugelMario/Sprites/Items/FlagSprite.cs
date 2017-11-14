@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.SpriteFactories;
 
-namespace SuperMairo
+namespace SuperMario
 {
     public class FlagSprite : ISprite
     {

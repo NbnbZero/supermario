@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMairo.Interfaces;
-using SuperMairo.Sprites;
+using SuperMario.Interfaces;
+using SuperMario.Sprites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.SpriteFactories
+namespace SuperMario.SpriteFactories
 {
     class TextSpriteFactory
     {

@@ -7,11 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SuperMairo.DisplayPanel;
+using SuperMario.DisplayPanel;
 using SuperMario.Sound;
 using SuperMario;
 
-namespace SuperMairo.HeadsUp
+namespace SuperMario.Heads_Up
 {
     public class ScoringSystem
     {

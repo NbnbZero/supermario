@@ -4,8 +4,6 @@ using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
-using SuperMario.Sound;
-using SuperMairo.HeadsUp;
 using System;
 
 namespace SuperMario

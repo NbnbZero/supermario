@@ -1,5 +1,5 @@
-﻿using SuperMairo.Interfaces;
-using SuperMairo.States.GameState;
+﻿using SuperMario.Interfaces;
+using SuperMario.States.GameState;
 using SuperMario;
 using SuperMario.Sound;
 using System;

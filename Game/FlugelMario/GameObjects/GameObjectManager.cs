@@ -7,12 +7,11 @@ using SuperMario.Interfaces;
 using SuperMario;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.HandleAllCollison;
-using SuperMairo.Interfaces;
-using SuperMairo.DisplayPanel;
+using SuperMario.DisplayPanel;
 using Microsoft.Xna.Framework;
 using SuperMario.Display;
 using SuperMario.Enums;
-using SuperMairo.HeadsUp;
+using SuperMario.Heads_Up;
 using SuperMario.GameObjects.ItemGameObjects;
 using SuperMario.Animation;
 

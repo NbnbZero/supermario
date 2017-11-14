@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.Interfaces
+namespace SuperMario.Interfaces
 {
     public interface IDisplayPanel
     {

@@ -2,7 +2,7 @@
 using SuperMario.Interfaces;
 using SuperMario.Enums;
 using SuperMario.Sound;
-using SuperMairo.HeadsUp;
+using SuperMario.Heads_Up;
 
 namespace SuperMario.Commands
 {

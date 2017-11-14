@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMairo.Interfaces;
-using SuperMairo.SpriteFactories;
-using SuperMario.Enums;
-using SuperMario.GameObjects;
 using SuperMario.Interfaces;
+using SuperMario.SpriteFactories;
+using SuperMario.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

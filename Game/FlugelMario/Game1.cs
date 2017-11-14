@@ -10,10 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using SuperMario.GameObjects;
 using SuperMario.Sprites.Goomba;
 using SuperMario.Sound;
-using SuperMairo.States.GameState;
-using SuperMairo.SpriteFactories;
-using SuperMairo;
-using SuperMairo.HeadsUp;
+using SuperMario.States.GameState;
 using SuperMario.Animation;
 
 namespace SuperMario
@@ -105,7 +102,7 @@ namespace SuperMario
         {
             keyboard.Update();
             gamepad.Update(); 
-            if (State.Type != SuperMairo.Interfaces.GameStates.Pause)
+            if (State.Type != SuperMario.Interfaces.GameStates.Pause)
             { 
                 objectManager.Update();
             }

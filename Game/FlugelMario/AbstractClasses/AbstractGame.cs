@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using SuperMairo.Interfaces;
 using SuperMario.Interfaces;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairo.Commands
+namespace SuperMario.Commands
 {
     class ChangeFireState : ICommand
     {

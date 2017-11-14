@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using SuperMairo.HeadsUp;
-using SuperMario.GameObjects;
+using SuperMario.Heads_Up;
 using SuperMario.Interfaces;
 using SuperMario.Sound;
 using System;

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMairoGameObjects
+namespace SuperMarioGameObjects
 {
     public class SmallBush : IGameObject
     {
