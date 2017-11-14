@@ -76,7 +76,14 @@ namespace SuperMario
                     switch (block.State)
                         {
                             case BlockType.Brick:
-                                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
+                                if (block.itemType == ItemType.Coin)
+                                {
+                                    GameObjectManager.blockList.Add(new CoinBrickBlock(new Vector2(block.xLocation, block.yLocation)));
+                                }
+                                else
+                                {
+                                    GameObjectManager.blockList.Add(new BrickBlock(new Vector2(block.xLocation, block.yLocation)));
+                                }
                                 break;
                             case BlockType.Stair:
                                 GameObjectManager.blockList.Add(new StairBlock(new Vector2(block.xLocation, block.yLocation)));
@@ -112,8 +119,10 @@ namespace SuperMario
                                     GameObjectManager.blockList.Add(question);
                                 } 
                                 break;
-                        
-                        }
+                            case BlockType.Hidden:
+                                GameObjectManager.blockList.Add(new HiddenBlock(new Vector2(block.xLocation, block.yLocation)));
+                                break;
+                    }
                 }
             
         }

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.StateMachine;
 using SuperMario.SCsystem;
+using SuperMario.Animation;
 
 namespace SuperMario.GameObjects
 {
@@ -11,6 +12,7 @@ namespace SuperMario.GameObjects
     {
         private IBlockStateMachine state;
         public ObjectType Type { get; } = ObjectType.Block;
+        private IAnimationInGame coinAnimation;
         private int coinNum = 5;
         public Vector2 Location { get; set; }
         private Vector2 initialLocation;
@@ -38,7 +40,8 @@ namespace SuperMario.GameObjects
             initialLocation = location;
             fallingSpeed = new Vector2(0, 0);
             fallingAcce = new Vector2(0, 0.5f);
-            destinationRect = state.MakeDestinationRectangle(Location);            
+            destinationRect = state.MakeDestinationRectangle(Location);
+            coinAnimation = new CoinOutOfBlockAnimation(new Vector2(Location.X, Location.Y - Destination.Height));
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -54,6 +57,7 @@ namespace SuperMario.GameObjects
                 coinNum--;
                 CoinSystem.Instance.AddCoin();
                 ScoringSystem.AddPointsForCoin(this);
+                coinAnimation.StartAnimation();
             }
             else
             {

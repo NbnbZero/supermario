@@ -266,10 +266,10 @@
     <Compile Include="Sprites\Mario\RunningRightFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightSmallMarioSprite.cs" />
     <Compile Include="Sprites\Text.cs" />
-    <Compile Include="StateMachine\BrickBlockStateMachine.cs" />
-    <Compile Include="StateMachine\CoinBrickBlockStateMachine.cs" />
-    <Compile Include="StateMachine\HiddenBlockStateMachine.cs" />
-    <Compile Include="StateMachine\QuestionBlockStateMachine.cs" />
+    <Compile Include="States\BlockStates\BrickBlockState.cs" />
+    <Compile Include="States\BlockStates\CoinBrickBlockState.cs" />
+    <Compile Include="States\BlockStates\HiddenBlockState.cs" />
+    <Compile Include="States\BlockStates\QuestionBlockState.cs" />
     <Compile Include="States\EnemyStates\GoombaAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaDeadState.cs" />
     <Compile Include="States\EnemyStates\KoopaAliveRightState.cs" />
