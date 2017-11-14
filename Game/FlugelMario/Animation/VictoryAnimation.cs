@@ -34,7 +34,7 @@ namespace SuperMario.Animation
             mario_.Velocity = new Vector2(0, 1);
             SoundManager.Instance.PlayFlagSong();
             flag_.Velocity = new Vector2(0, 1);
-            
+            mario.IsInAir = false;
         }
 
         public void Update()
@@ -53,10 +53,10 @@ namespace SuperMario.Animation
                         mario_.Velocity = new Vector2(0, 0);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
-                    if (flag_.Location.Y >= 384)
+                    if (flag_.Location.Y >= 160)
                     {
                         flag_.Velocity = new Vector2(0, 0);
-                        flag_.Location = new Vector2(flag_.Location.X, 384);
+                        flag_.Location = new Vector2(flag_.Location.X, 160);
                     }
 
                     if (!mario_.IsInAir && flag_.Location.Y == 384)
