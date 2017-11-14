@@ -112,9 +112,11 @@ namespace SuperMario.GameObjects
                 }
                 mario.Update();
             }
-
             
             CheckAndStartSinglePlayerEndGame();
+
+
+
             if (updateHUD)
             {
                 titleDisplayPanel.Update();
@@ -195,7 +197,7 @@ namespace SuperMario.GameObjects
         private static bool GamePlayable()
         {
             return Game1.State.Type == GameStates.Playing ||
-                Game1.State.Type == GameStates.GameComplete;
+                Game1.State.Type == GameStates.LevelComplete;
         }
 
         private static bool IsInView(IGameObject obj)
