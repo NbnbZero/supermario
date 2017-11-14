@@ -86,7 +86,7 @@ namespace SuperMairo.HeadsUp
             {
                 flagScore += CutOffScore3;
             }
-            else if (marioDestination.Y < flagParts[FlagCutOff4].Destination.Y)
+            else if (marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
             {
                 flagScore += CutOffScore4;
             }
