@@ -4,9 +4,16 @@ Sprint: 	4
 Name of File: 	VictoryAnimation.cs
 Author of File:	Haifang Yang
 Comments:
-	This class has a very clear structure. Firstly, it declares mario and flag objects as well as other data stuffs. All of them are declared as private, which is good. And if this victoryAnimation class is triggered. It means that mario should fall down with flag together. Here you reassigned the speed and acceleration to mario and flag, and called Flag sound effect command. In your update part, you have 3 stages. I like your thoughts that you divided the entire animation into 3 parts: both mario and flag collide with block, mario runs to castle, and the rest time converts to score. Finally, if current game is at levelcomplete state, then proceed to victory state.
+	This class has a very clear structure. Firstly, it declares mario and flag objects as well as other data stuffs. 
+	All of them are declared as private, which is good. And if this victoryAnimation class is triggered. 
+	It means that mario should fall down with flag together. Here you reassigned the speed and acceleration to mario and flag, and called Flag sound effect command. 
+	In your update part, you have 3 stages. I like your thoughts that you divided the entire animation into 3 parts: both mario and flag collide with block, mario runs to castle, and the rest time converts to score. 
+	Finally, if current game is at levelcomplete state, then proceed to victory state.
 
 Number of minutes: ~15 mins
 
 Hypothetical changes:
-	In your update part, there are magic numbers such as 215, 16 are used. I was thinking for a while and figured it out. 215 is the total floor block numbers, and 16 is the block size. So what you mean to do here is to prevent mario from running out of the map and dropping to death. What I recommend here is that you can use our GameData class to make these numbers become int variables, and simply get those numbers from GameData.cs whenever you want to use them..
+	In your update part, there are magic numbers such as 215, 16 are used. 
+	I was thinking for a while and figured it out. 215 is the total floor block numbers, and 16 is the block size. 
+	So what you mean to do here is to prevent mario from running out of the map and dropping to death. 
+	What I recommend here is that you can use our GameData class to make these numbers become int variables, and simply get those numbers from GameData.cs whenever you want to use them.
