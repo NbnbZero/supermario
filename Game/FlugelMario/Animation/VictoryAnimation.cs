@@ -53,7 +53,7 @@ namespace SuperMario.Animation
                         mario_.Velocity = new Vector2(0, 3);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
-                    if (flag_.Location.Y >= 160)
+                    if (flag_.Location.Y >= 300)
                     {
                         flag_.Velocity = new Vector2(0, 0);
                         flag_.Location = new Vector2(flag_.Location.X, 100);
