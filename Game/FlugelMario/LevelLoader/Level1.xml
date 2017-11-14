@@ -1280,26 +1280,6 @@
   </ItemData>
 
   <ItemData>
-    <itemType>FlagTop</itemType>
-    <xLocation>3250</xLocation>
-    <yLocation>216</yLocation>
-  </ItemData>
-  <ItemData>
-    <itemType>FlagPole</itemType>
-    <xLocation>3250</xLocation>
-    <yLocation>232</yLocation>
-  </ItemData>
-  <ItemData>
-    <itemType>FlagPole</itemType>
-    <xLocation>3250</xLocation>
-    <yLocation>248</yLocation>
-  </ItemData>
-  <ItemData>
-    <itemType>FlagPole</itemType>
-    <xLocation>3250</xLocation>
-    <yLocation>264</yLocation>
-  </ItemData>
-  <ItemData>
     <itemType>FlagPole</itemType>
     <xLocation>3250</xLocation>
     <yLocation>376</yLocation>
@@ -1334,6 +1314,31 @@
     <xLocation>3250</xLocation>
     <yLocation>280</yLocation>
   </ItemData>
+
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>264</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>248</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>232</yLocation>
+  </ItemData>
+  
+  <ItemData>
+    <itemType>FlagTop</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>216</yLocation>
+  </ItemData>
+  
   <BlockData>
     <State>Stair</State>
     <itemType>Null</itemType>
