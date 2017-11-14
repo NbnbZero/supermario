@@ -22,7 +22,7 @@ namespace SuperMairo.HeadsUp
 
         private static List<IGameObject> flagParts=new List<IGameObject>();
 
-        private static int FlagCutOff1 = 1;
+        private static int FlagCutOff1 = 386;
         private static int FlagCutOff2 = 3;
         private static int FlagCutOff3 = 5;
         private static int FlagCutOff4 = 7;
@@ -90,7 +90,7 @@ namespace SuperMairo.HeadsUp
             {
                 flagScore += CutOffScore4;
             }
-            else if (marioDestination.Y < flagParts[FlagCutOff1].Destination.Y)
+            else if (marioDestination.Y < FlagCutOff1)
             {
                 flagScore += CutOffScore5;
             }
