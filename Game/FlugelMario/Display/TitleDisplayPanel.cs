@@ -9,6 +9,8 @@ using SuperMario;
 using SuperMario.SpriteFactories;
 using SuperMairo.SpriteFactories;
 using Microsoft.Xna.Framework;
+using SuperMario.Heads_Up;
+using SuperMairo.HeadsUp;
 
 namespace SuperMairo.DisplayPanel
 {
@@ -42,7 +44,7 @@ namespace SuperMairo.DisplayPanel
             instructionText = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             instructionText.text = pressEnter;
             highestScoreText = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            highestScoreText.text = "Top Score - " + fixText(" " + MarioAttributes.HighestScore, scoreLength);
+            highestScoreText.text = "Top Score - " + fixText(" " + MarioInfo.HighestScore, scoreLength);
 
         }
 
@@ -63,7 +65,7 @@ namespace SuperMairo.DisplayPanel
 
         public void Update()
         {
-            highestScoreText.text = "Highest Score - " + fixText(" " + MarioAttributes.HighestScore, scoreLength);
+            highestScoreText.text = "Highest Score - " + fixText(" " + MarioInfo.HighestScore, scoreLength);
         }
 
 

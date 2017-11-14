@@ -36,7 +36,7 @@ namespace SuperMario.Display
             multiTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             multiTextSprite.text = "*";
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
+            lifeTextSprite.text = "" + MarioInfo.MarioLife[0];
             AskForContSprite= TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             AskForContSprite.text = "Continue? Y / N";
         }
@@ -69,9 +69,9 @@ namespace SuperMario.Display
         {
             if (Game1.State.Type == GameStates.LifeDisplay)
             {
-                if (MarioAttributes.MarioLife[0] > 0)
+                if (MarioInfo.MarioLife[0] > 0)
                 {
-                    lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
+                    lifeTextSprite.text = "" + MarioInfo.MarioLife[0];
                 }
             }
         }

@@ -49,10 +49,6 @@ namespace SuperMairo.States.GameState
         public void Proceed()
         {
             TitleDisplayPanel titlePanel = (TitleDisplayPanel)GameData.GameObjectManager.TitlePanel;
-            //if (titlePanel.OptionNum == 0)
-            //{
-                //game.State = new LifeDisplay(Game1);
-            //}
         }
     }
 }

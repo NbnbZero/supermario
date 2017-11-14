@@ -1,5 +1,4 @@
 ﻿using SuperMairo.Interfaces;
-using SuperMairo.States.GameState;
 using SuperMario;
 using SuperMario.Sound;
 using System;
@@ -8,24 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlugelMario.States.GameState
+namespace SuperMairo.States.GameState
 {
-    public class LevelComplete : IGameState
+    class Victory : IGameState
     {
         private AbstractGame game;
-        public GameStates Type
+        public Interfaces.GameStates Type
         {
             get
             {
-                return GameStates.GameComplete;
+                return Interfaces.GameStates.Victory;
             }
         }
 
-        public LevelComplete(AbstractGame _game)
+        public Victory(AbstractGame _game)
         {
             this.game = _game;
-            SoundManager.Instance.StopAllSound();
-            SoundManager.Instance.PlayGameCompleteSound();
         }
 
         public void GameOver()
@@ -47,9 +44,10 @@ namespace FlugelMario.States.GameState
         {
 
         }
+
         public void Proceed()
         {
-            Game1.State = new Victory(game);
+            Game1.State = new Title(game);
         }
     }
 }

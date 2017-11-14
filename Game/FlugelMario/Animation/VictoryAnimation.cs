@@ -5,6 +5,7 @@ using SuperMario.Interfaces;
 using SuperMairo.HeadsUp;
 using SuperMario.Heads_Up;
 using SuperMario.SpriteFactories;
+using SuperMario.Sound;
 
 namespace SuperMario.Animation
 {
@@ -44,14 +45,15 @@ namespace SuperMario.Animation
             }
 
             switch (stage)
-            {
+            {               
                 case stage1:
+
                     if (!mario_.IsInAir)
                     {
                         mario_.Velocity = new Vector2(0, 3);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
-                    if (flag_.Location.Y >= 160)
+                    if (flag_.Location.Y >= 384)
                     {
                         flag_.Velocity = new Vector2(0, 0);
                         flag_.Location = new Vector2(flag_.Location.X, 100);
@@ -67,11 +69,12 @@ namespace SuperMario.Animation
                     if (mario_.Destination.X >= 215 * 16)
                     {
                         mario_.State.RunLeft();
+                        mario_.State.StateSprite = ItemSpriteFactory.Instance.CreateDisappearedSprite();
                         stage++;
                     }
                     break;
                 case stage3:
-                    if (MarioAttributes.Time == minTime)
+                    if (MarioInfo.Time == minTime)
                     {
                         stage++;
                     }
@@ -81,21 +84,14 @@ namespace SuperMario.Animation
                         if (counter == maxCount)
                         {
                             ScoringSystem.AddPointsForRestTime();
-                            MarioAttributes.Time--;
+                            MarioInfo.Time--;
                             counter = minCount;
                         }
                     }
 
                     break;
                 default:
-                    Game1 game = (Game1)GameData.Game;
-                    game.Reset();
                     Game1.State.Proceed();
-                    MarioAttributes.MarioLife[0] = 3;
-                    MarioAttributes.UpdateHighestScore();
-                    CoinSystem.Instance.ResetCoin();
-                    ScoringSystem.ResetScore();
-                    MarioAttributes.ClearTimer();
                     break;
             }
         }

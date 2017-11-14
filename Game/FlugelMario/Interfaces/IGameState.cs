@@ -9,7 +9,7 @@ namespace SuperMairo.Interfaces
     public enum GameStates
     {
         Title, Demo, Playing, Pause, LevelComplete, GameComplete,
-        LifeDisplay, GameOver
+        LifeDisplay, GameOver, Victory
     }
 
     public interface IGameState

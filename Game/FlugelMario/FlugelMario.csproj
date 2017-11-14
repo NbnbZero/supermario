@@ -81,6 +81,7 @@
     <Compile Include="Display\HeadsUpDisplayPanel.cs" />
     <Compile Include="Display\MarioLifeDisplayPanel.cs" />
     <Compile Include="Display\TitleDisplayPanel.cs" />
+    <Compile Include="Display\WinningDisplayPanel.cs" />
     <Compile Include="Enums\AnimationState.cs" />
     <Compile Include="Enums\BackgourndObjType.cs" />
     <Compile Include="Enums\PipeType.cs" />
@@ -189,7 +190,7 @@
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="LevelLoader\LevelLoader.cs" />
     <Compile Include="LevelLoader\TileDefinition.cs" />
-    <Compile Include="GameObjects\MarioAttributes.cs" />
+    <Compile Include="GameObjects\MarioInfo.cs" />
     <Compile Include="SpriteFactories\BackgroundSpriteFactory.cs" />
     <Compile Include="SpriteFactories\FireballSpriteFactory.cs" />
     <Compile Include="SpriteFactories\ItemSpriteFactory.cs" />
@@ -280,6 +281,7 @@
     <Compile Include="States\GameStates\Pause.cs" />
     <Compile Include="States\GameStates\Playing.cs" />
     <Compile Include="States\GameStates\Title.cs" />
+    <Compile Include="States\GameStates\Victory.cs" />
     <Compile Include="States\MarioState\CrouchLeftBigMarioState.cs" />
     <Compile Include="States\MarioState\CrouchLeftFireMarioState.cs" />
     <Compile Include="States\MarioState\CrouchLeftStarMarioState.cs" />

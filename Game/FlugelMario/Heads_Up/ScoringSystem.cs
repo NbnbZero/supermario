@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperMairo.DisplayPanel;
 using SuperMario.Sound;
+using SuperMario;
 
 namespace SuperMairo.HeadsUp
 {
@@ -73,7 +74,10 @@ namespace SuperMairo.HeadsUp
             if (marioDestination.Y <= flagParts[FlagCutOff1].Destination.Y)
             {
                 flagScore += CutOffScore1;
-            }else if(marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
+                MarioInfo.MarioLife[0]++;
+                CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "1UP");
+            }
+            else if(marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
             {
                 flagScore += CutOffScore2;
             }
@@ -90,7 +94,7 @@ namespace SuperMairo.HeadsUp
                 flagScore += CutOffScore5;
             }
                 score += flagScore;
-            CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, flagScore);
+            CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, ""+flagScore);
         }
         public static void AddPointsForRestTime()
         {
@@ -106,9 +110,9 @@ namespace SuperMairo.HeadsUp
             scoreAnimation.StartAnimation();
         }
 
-        private static void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, int scoreToDisplay)
+        private static void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, String scoreToDisplay)
         {
-            IAnimationInGame scoreAnimation = new PoleScoreTextAnimation(marioDestination, poleDestination, "" + scoreToDisplay);
+            IAnimationInGame scoreAnimation = new PoleScoreTextAnimation(marioDestination, poleDestination, scoreToDisplay);
             scoreAnimation.StartAnimation();
         }
     }

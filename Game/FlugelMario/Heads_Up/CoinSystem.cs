@@ -22,7 +22,7 @@ namespace SuperMario.Heads_Up
             else if (coins == 99)
             {
                 coins = 0;
-                MarioAttributes.MarioLife[0]++;
+                MarioInfo.MarioLife[0]++;
                 SoundManager.Instance.Play1UpSound();
             }
             SoundManager.Instance.PlayCoinSound();

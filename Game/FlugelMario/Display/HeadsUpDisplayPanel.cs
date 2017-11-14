@@ -45,11 +45,11 @@ namespace SuperMario.Display
             multiTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             multiTextSprite.text = "*";
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
+            lifeTextSprite.text = "" + MarioInfo.MarioLife[0];
             timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             timeTitleTextSprite.text = "Time";
             timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            timeTextSprite.text = fixText("" + MarioAttributes.Time, timeLength);
+            timeTextSprite.text = fixText("" + MarioInfo.Time, timeLength);
 
         }
 
@@ -88,8 +88,8 @@ namespace SuperMario.Display
         {
             coinSprite.Update();
             coinTextSprite.text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
-            timeTextSprite.text = fixText("" + MarioAttributes.Time, timeLength);
-            lifeTextSprite.text = "" + MarioAttributes.MarioLife[0];
+            timeTextSprite.text = fixText("" + MarioInfo.Time, timeLength);
+            lifeTextSprite.text = "" + MarioInfo.MarioLife[0];
             scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
         }
 

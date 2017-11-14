@@ -12,7 +12,7 @@ using System.Timers;
 
 namespace SuperMario
 {   
-    static class MarioAttributes
+    static class MarioInfo
     {      
         public static int[] MarioLife { get; } = {3};
         public static int HighestScore { get; set; } = 0;

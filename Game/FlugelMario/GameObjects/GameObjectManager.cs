@@ -35,6 +35,7 @@ namespace SuperMario.GameObjects
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
         private IDisplayPanel headsUpDisplayPanel;
+        private IDisplayPanel winningDisplayPanel;
 
         private const int BufferSize = 32;
         public GameObjectManager(Game1 Game, MarioObject Mario)
@@ -52,6 +53,8 @@ namespace SuperMario.GameObjects
             marioLifeDisplayPanel = new MarioLifeDisplayPanel();
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
             animationList = new List<IAnimationInGame>();
+            winningDisplayPanel = new WinningDisplayPanel(game);
+
         }
 
         public IDisplayPanel TitlePanel
@@ -70,9 +73,11 @@ namespace SuperMario.GameObjects
 
         public void Update()
         {
+
             bool updateHUD = true;
 
-            if (GamePlayable())
+            if (Game1.State.Type == GameStates.Playing ||
+                Game1.State.Type == GameStates.LevelComplete)
             {
                 HandleCollisions();
                 foreach (IGameObject obj in itemList)
@@ -154,6 +159,7 @@ namespace SuperMario.GameObjects
             gameOverDisplayPanel.Draw(spriteBatch);
             marioLifeDisplayPanel.Draw(spriteBatch);
             headsUpDisplayPanel.Draw(spriteBatch);
+            winningDisplayPanel.Draw(spriteBatch);
         }
 
         private void CheckAndStartSinglePlayerEndGame()
@@ -163,7 +169,7 @@ namespace SuperMario.GameObjects
                 if (IsEndGame())
                 {
                     Game1.State.Proceed();
-                    MarioAttributes.StopTimer();
+                    MarioInfo.StopTimer();
                     isLevelComplete = true;
                     ScoringSystem.AddPointsForPole(mario.Destination);
                     IItem flag_ = null;
