@@ -44,6 +44,7 @@ namespace SuperMario
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
+                #region Floor
             for (int i = 0; i < 1200; i += 16)
             {
                 GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
@@ -70,7 +71,7 @@ namespace SuperMario
                 GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 610)));
                 GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 594)));
             }
-
+                #endregion
             foreach (BlockData block in myObjects)
                 {                                           
                     switch (block.State)

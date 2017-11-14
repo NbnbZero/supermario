@@ -172,7 +172,7 @@ namespace SuperMario.Sound
         }
         public void PlayStageClearSound()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void muteAndUnmute(bool Muted)
