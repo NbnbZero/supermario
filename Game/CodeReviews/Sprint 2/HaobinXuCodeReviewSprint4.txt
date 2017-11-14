@@ -1,0 +1,18 @@
+Author: Haobin Xu
+Date: 11/14/2017
+Sprint: 2
+File Being Reviewed:	HeadsUpDisplay.cs
+Author of File:	Chen Ling
+Comments on Quality:
+	-Each variable is named and marked with comprehensive name which is easy for other coleague to understand.
+	-Harness the use of sprite factory so that each text is resuing the code.
+	-Some of the spaces between texts are there because of the usage of "space" in text output, quite smart.
+
+Minutes Taken:10 min
+
+Hypothetical Change:
+	-Using the space to manage the density of text is useful in current gamebut however, when some number goes 
+	 single digit to two digit or even more, there might be some display offset. So that the usage of coordinates
+	 for texts are still recommended.
+	-Some variable's name could be abbreviated so that it will be much easier meanwhile faster for other coder to
+	 go through.
