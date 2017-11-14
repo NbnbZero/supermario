@@ -536,3 +536,39 @@
 /processorParam:Quality=Best
 /build:v_flag.wav
 
+#begin doudizhu.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:doudizhu.mp3
+
+#begin v_theNextEp.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:v_theNextEp.mp3
+
+#begin v_doudizhu.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:v_doudizhu.mp3
+
+#begin v_lianai.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:v_lianai.mp3
+
+#begin v_A.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:v_A.wav
+
+#begin v_AA.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:v_AA.wav
+

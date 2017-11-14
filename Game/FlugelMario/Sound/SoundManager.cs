@@ -28,6 +28,7 @@ namespace SuperMario.Sound
         private SoundEffect warningSound;
         private SoundEffect gameCompleteSound;
         private SoundEffect flagSound;
+        private SoundEffect marioScream;
         private Song undergroundSong;
         private Song overworldSong;
         private Song starSong;
@@ -60,20 +61,22 @@ namespace SuperMario.Sound
             brickBreakSound = content.Load<SoundEffect>("v_breakblock");
             bumpSound = content.Load<SoundEffect>("v_bump");
             pipeSound = content.Load<SoundEffect>("v_pipe");
-            smallJumpSound = content.Load<SoundEffect>("v_jump-small");
+            smallJumpSound = content.Load<SoundEffect>("v_A");
             superJumpSound = content.Load<SoundEffect>("v_jump-super");
             warningSound = content.Load<SoundEffect>("v_warning");
-            overworldSong = content.Load<Song>("v_overworld");
+            overworldSong = content.Load<Song>("v_theNextEp");
             starSong = content.Load<Song>("v_starmario");
-            undergroundSong = content.Load<Song>("v_underground");
+            undergroundSong = content.Load<Song>("v_doudizhu");
             gameCompleteSound = content.Load<SoundEffect>("v_gameComplete");
             flagSound = content.Load<SoundEffect>("v_flag");
+            marioScream = content.Load<SoundEffect>("v_AA");
         }
         public void PlayMarioDyingSound()
         {
             if (!IsMuted)
             {
                 MediaPlayer.Stop();
+                marioScream.Play();
                 marioDyingSound.Play();
             }
         }
