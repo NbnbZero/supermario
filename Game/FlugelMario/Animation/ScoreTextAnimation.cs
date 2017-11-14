@@ -25,7 +25,7 @@ namespace SuperMario.Animation
         private Vector2 location;
         private float veloY;
         private float accelY;
-        private float endLocationY;
+        private float endpointY;
         private float cameraXTextDistance;
         private IText textSprite;
 
@@ -34,7 +34,7 @@ namespace SuperMario.Animation
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = score;
             this.State = AnimationState.ToBegin;
-            this.endLocationY = location.Y - YOffset * 1;
+            this.endpointY = location.Y - YOffset;
             this.location = location;
         }
 
@@ -59,7 +59,7 @@ namespace SuperMario.Animation
                 veloY = veloY + accelY;
                 location.Y = location.Y + veloY;
                 location.X = Camera.CameraX + cameraXTextDistance;
-                if (location.Y < endLocationY)
+                if (location.Y < endpointY)
                 {
                     State = AnimationState.Stopped;
                 }

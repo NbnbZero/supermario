@@ -50,7 +50,6 @@ namespace SuperMario.GameObjects
         {
             state.BeTriggered();
             SoundManager.Instance.PlayBrickBreakSound();
-            ScoringSystem.AddPointsForBreakingBlock(this);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

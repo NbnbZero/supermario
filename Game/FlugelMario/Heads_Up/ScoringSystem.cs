@@ -18,7 +18,6 @@ namespace SuperMairo.HeadsUp
         private static int score = 0;
         public static int Score { get { return score; } }
         public static int flagScore = 0;
-        public static int Flagscore { get { return flagScore; } }
 
         private static List<IGameObject> flagParts=new List<IGameObject>();
 
@@ -50,7 +49,7 @@ namespace SuperMairo.HeadsUp
 
         public static void AddPointsForCollectingPwrUp(IGameObject PUitem)
         {
-            score+=1000;
+            score += 1000;
             ScoreAnimation(PUitem, "1000");
         }
 
@@ -70,6 +69,7 @@ namespace SuperMairo.HeadsUp
             score += 100;
             ScoreAnimation(enemy, "100");
         }
+
         public static void AddPointsForPole(Rectangle marioDestination)
         {
             if (marioDestination.Y <= flagParts[FlagCutOff5].Destination.Y)
@@ -86,7 +86,7 @@ namespace SuperMairo.HeadsUp
             {
                 flagScore += CutOffScore3;
             }
-            else if (marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
+            else if (marioDestination.Y < flagParts[FlagCutOff4].Destination.Y)
             {
                 flagScore += CutOffScore4;
             }
@@ -94,8 +94,8 @@ namespace SuperMairo.HeadsUp
             {
                 flagScore += CutOffScore5;
             }
-                score += flagScore;
-            CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, ""+flagScore);
+            score += flagScore;
+            CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "" + flagScore);
         }
         public static void AddPointsForRestTime()
         {

@@ -10,6 +10,8 @@ using SuperMairo.States.GameState;
 using SuperMairo.Commands;
 using SuperMario.Sound;
 using Microsoft.Xna.Framework.Audio;
+using SuperMario.Heads_Up;
+using SuperMairo.HeadsUp;
 
 namespace SuperMario.Game_Controllers
 {
@@ -198,7 +200,6 @@ namespace SuperMario.Game_Controllers
 
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
-                    mygame.Reset();
                     Game1.State.Proceed();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
@@ -206,12 +207,14 @@ namespace SuperMario.Game_Controllers
                     commandDict[Keys.Q].Execute();
                 }
             }
-            else if (Game1.State.Type == GameStates.GameComplete)
+            else if (Game1.State.Type == GameStates.Victory)
             {
 
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
                     mygame.Reset();
+                    MarioInfo.ClearTimer();
+                    MarioInfo.MarioLife[0] = 3;    
                     Game1.State.Proceed();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))

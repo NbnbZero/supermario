@@ -44,7 +44,7 @@ namespace SuperMario.Display
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             marioTitleTextSprite.text = "Player1Mario";
             scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            scoreTextSprite.text = fixText("" + MarioInfo.HighestScore, scoreLength);
+            scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
             coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();
             coinTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             coinTextSprite.text = "*" + fixText("  " + CoinSystem.Instance.Coins, coinLength);
@@ -62,40 +62,40 @@ namespace SuperMario.Display
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Game1.State.Type == GameStates.GameComplete)
+            if (Game1.State.Type == GameStates.Victory)
             {
                 backgroundSprite.Draw(spriteBatch, new Vector2(Camera.CameraX, 0));
                 int halfOfGameOverTextWidth = winningTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2;
-                int winningTextY = screenHeight / 2 - 60;
+                int winningTextY = screenHeight / 2 - 100;
                 winningTextSprite.Draw(spriteBatch, new Vector2(Camera.CameraX + Camera.CenterOfScreen - halfOfGameOverTextWidth, winningTextY));
 
                 int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-                marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, screenHeight / 2 + 40));
+                marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, screenHeight / 2 - 40));
 
                 int scoreTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (scoreTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-                scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, screenHeight / 2 + 60));
+                scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, screenHeight / 2));
 
                 int coinTextX = Camera.CameraX + (Camera.CenterOfScreen * 4 / 5 - (coinTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-                coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, screenHeight / 2 + 40));
+                coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, screenHeight / 2 - 45));
 
                 int coinX = coinTextX - coinSprite.MakeDestinationRectangle(Vector2.Zero).Width + 2;
-                int coinY = screenHeight / 2 + 40 - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 3;
+                int coinY = screenHeight / 2 - 40 - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 3;
                 coinSprite.Draw(spriteBatch, new Vector2(coinX, coinY));
 
                 int marioX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (marioSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3) - 20);
-                marioSprite.Draw(spriteBatch, new Vector2(marioX, screenHeight / 2 + 1));
+                marioSprite.Draw(spriteBatch, new Vector2(marioX, screenHeight / 2 - 60));
 
                 int multiTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (multiTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-                multiTextSprite.Draw(spriteBatch, new Vector2(multiTextX, screenHeight / 2 + 40));
+                multiTextSprite.Draw(spriteBatch, new Vector2(multiTextX, screenHeight / 2 - 40));
 
                 int lifeTextX = Camera.CameraX + (Camera.CenterOfScreen * 6 / 5 - (lifeTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3) + 10);
-                lifeTextSprite.Draw(spriteBatch, new Vector2(lifeTextX, screenHeight / 2 + 40));
+                lifeTextSprite.Draw(spriteBatch, new Vector2(lifeTextX, screenHeight / 2 -40));
 
                 int timeTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 8 / 5 - (timeTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-                timeTitleTextSprite.Draw(spriteBatch, new Vector2(timeTitleTextX, screenHeight / 2 + 40));
+                timeTitleTextSprite.Draw(spriteBatch, new Vector2(timeTitleTextX, screenHeight / 2 - 40));
 
                 int timeTextX = Camera.CameraX + (Camera.CenterOfScreen * 8 / 5 - (timeTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-                timeTextSprite.Draw(spriteBatch, new Vector2(timeTextX, screenHeight / 2 + 60));
+                timeTextSprite.Draw(spriteBatch, new Vector2(timeTextX, screenHeight / 2 ));
 
 
 
@@ -107,13 +107,14 @@ namespace SuperMario.Display
 
         public void Update()
         {
-            if (Game1.State.Type == GameStates.GameComplete)
+            if (Game1.State.Type == GameStates.Victory)
             {
-                MarioInfo.MarioLife[0] = 3;
-                MarioInfo.UpdateHighestScore();
-                CoinSystem.Instance.ResetCoin();
-                ScoringSystem.ResetScore();
-                MarioInfo.ClearTimer();
+                coinSprite.Update();
+                coinTextSprite.text = " * " + fixText("" + CoinSystem.Instance.Coins, coinLength);
+                timeTextSprite.text = fixText("" + MarioInfo.Time, timeLength);
+                lifeTextSprite.text = "" + MarioInfo.MarioLife[0];
+                scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
+                MarioInfo.HighestScore = ScoringSystem.Score;
 
             }
         }

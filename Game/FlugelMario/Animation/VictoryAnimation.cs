@@ -33,7 +33,7 @@ namespace SuperMario.Animation
             flag_.Location= new Vector2(flag_.Location.X, mario_.Location.Y);
             mario_.Acceleration = new Vector2(0, 0);
             mario_.Velocity = new Vector2(0, 1);
-            //add sound
+            SoundManager.Instance.PlayFlagSong();
             flag_.Velocity = new Vector2(0, 1);
         }
 
@@ -87,11 +87,13 @@ namespace SuperMario.Animation
                             counter = minCount;
                         }
                     }
-
                     break;
-                default:
-                    Game1.State.Proceed();
-                    break;
+                default:            
+                    if (Game1.State.Type == GameStates.LevelComplete)
+                    {
+                       Game1.State.Proceed(); 
+                    }
+                    break;                 
             }
         }
     }
