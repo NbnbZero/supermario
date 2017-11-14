@@ -25,7 +25,7 @@ namespace SuperMairo.HeadsUp
         private static int FlagCutOff2 = 3;
         private static int FlagCutOff3 = 5;
         private static int FlagCutOff4 = 7;
-        private static int FlagCutOff5 = 9;
+        private static int FlagCutOff5 = 10;
         private static int CutOffScore5 = 100;
         private static int CutOffScore4 = 400;
         private static int CutOffScore3 = 800;
@@ -72,7 +72,7 @@ namespace SuperMairo.HeadsUp
 
         public static void AddPointsForPole(Rectangle marioDestination)
         {
-            if (marioDestination.Y <= flagParts[FlagCutOff5].Destination.Y)
+            if (marioDestination.Y <= flagParts[FlagCutOff1].Destination.Y)
             {
                 flagScore += CutOffScore1;
                 MarioInfo.MarioLife[0]++;
