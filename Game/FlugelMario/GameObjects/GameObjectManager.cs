@@ -76,8 +76,7 @@ namespace SuperMario.GameObjects
 
             bool updateHUD = true;
 
-            if (Game1.State.Type == GameStates.Playing ||
-                Game1.State.Type == GameStates.LevelComplete)
+            if (GamePlayable())
             {
                 HandleCollisions();
                 foreach (IGameObject obj in itemList)
@@ -108,24 +107,21 @@ namespace SuperMario.GameObjects
                     obj.Update();
                 }
                 mario.Update();
-
                 if (mario.Location.Y < 400)
                 {
                     Camera.Move(mario);
-                }              
+                }
+                
             }
-            
 
+            CheckAndStartSinglePlayerEndGame();
             if (updateHUD)
             {
                 titleDisplayPanel.Update();
                 gameOverDisplayPanel.Update();
                 marioLifeDisplayPanel.Update();
                 headsUpDisplayPanel.Update();
-                winningDisplayPanel.Update();
             }
-
-            CheckAndStartSinglePlayerEndGame();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -176,13 +172,13 @@ namespace SuperMario.GameObjects
                     isLevelComplete = true;
                     ScoringSystem.AddPointsForPole(mario.Destination);
                     IItem flag_ = null;
-                    foreach (IGameObject obj in itemList)
-                    {
+                   foreach (IGameObject obj in itemList)
+                   {
                         if (obj.GetType() == typeof(Flag))
                             flag_ = (IItem)obj;
-                    }
-                    victoryAnimation = new VictoryAnimation(mario, flag_);
-                    victoryAnimation.State = AnimationState.IsPlaying;
+                   }
+                   victoryAnimation = new VictoryAnimation(mario, flag_);
+                   victoryAnimation.State = AnimationState.IsPlaying;
                 }
             }
             else
@@ -192,8 +188,8 @@ namespace SuperMario.GameObjects
         }
         private bool IsEndGame()
         {
-            return mario.Destination.X + mario.Destination.Width >= 3242&&
-                   mario.Destination.X + mario.Destination.Width <= 3266;
+            return mario.Destination.X + mario.Destination.Width >= 3200&&
+                   mario.Destination.X + mario.Destination.Width <= 3250;
         }
 
         private static bool GamePlayable()
@@ -216,3 +212,4 @@ namespace SuperMario.GameObjects
 
     }   
 }
+ 

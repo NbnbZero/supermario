@@ -30,11 +30,11 @@ namespace SuperMario.Animation
         {
             this.mario_ = mario;
             this.flag_ = flag;
-            mario_.Acceleration = new Vector2(0, 0);
-            mario_.Velocity = new Vector2(0, 1);
-            SoundManager.Instance.PlayFlagSong();
-            flag_.Velocity = new Vector2(0, 1);
-            mario.IsInAir = false;
+
+            mario_.Acceleration = new Vector2(0, 1);
+            mario_.Velocity = new Vector2(0, 2);
+            //add sound
+            flag_.Velocity = new Vector2(0, 2);
         }
 
         public void Update()
@@ -47,26 +47,26 @@ namespace SuperMario.Animation
             switch (stage)
             {               
                 case stage1:
-
+                    mario_.IsInAir = false;
                     if (!mario_.IsInAir)
                     {
-                        mario_.Velocity = new Vector2(0, 0);
+                        mario_.Velocity = new Vector2(0, 3);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
                     if (flag_.Location.Y >= 160)
                     {
                         flag_.Velocity = new Vector2(0, 0);
-                        flag_.Location = new Vector2(flag_.Location.X, 160);
+                        flag_.Location = new Vector2(flag_.Location.X, 100);
                     }
 
-                    if (!mario_.IsInAir && flag_.Location.Y == 384)
+                    if (!mario_.IsInAir&&flag_.Location.Y == 100)
                     {
                         stage++;
                     }
                     break;
                 case stage2:
                     mario_.State.RunRight();
-                    if (mario_.Destination.X >= 204 * 16)
+                    if (mario_.Destination.X >= 215 * 16)
                     {
                         mario_.State.RunLeft();
                         mario_.State.StateSprite = ItemSpriteFactory.Instance.CreateDisappearedSprite();
