@@ -17,7 +17,7 @@ namespace FlugelMario.States.GameState
         {
             get
             {
-                return GameStates.LevelComplete;
+                return GameStates.GameComplete;
             }
         }
 

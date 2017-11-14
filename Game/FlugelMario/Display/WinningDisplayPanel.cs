@@ -62,7 +62,7 @@ namespace SuperMario.Display
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Game1.State.Type == GameStates.LevelComplete)
+            if (Game1.State.Type == GameStates.GameComplete)
             {
                 backgroundSprite.Draw(spriteBatch, new Vector2(Camera.CameraX, 0));
                 int halfOfGameOverTextWidth = winningTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2;
@@ -107,7 +107,7 @@ namespace SuperMario.Display
 
         public void Update()
         {
-            if (Game1.State.Type == GameStates.LevelComplete)
+            if (Game1.State.Type == GameStates.GameComplete)
             {
                 MarioInfo.MarioLife[0] = 3;
                 MarioInfo.UpdateHighestScore();

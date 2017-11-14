@@ -76,7 +76,7 @@ namespace SuperMario.GameObjects
 
             bool updateHUD = true;
 
-            if (true)
+            if (GamePlayable())
             {
                 HandleCollisions();
                 foreach (IGameObject obj in itemList)
@@ -110,10 +110,10 @@ namespace SuperMario.GameObjects
                 {
                     Camera.Move(mario);
                 }
-                
+                mario.Update();
             }
 
-            mario.Update();
+            
             CheckAndStartSinglePlayerEndGame();
             if (updateHUD)
             {
