@@ -61,8 +61,8 @@ namespace SuperMario.Sound
             brickBreakSound = content.Load<SoundEffect>("v_breakblock");
             bumpSound = content.Load<SoundEffect>("v_bump");
             pipeSound = content.Load<SoundEffect>("v_pipe");
-            smallJumpSound = content.Load<SoundEffect>("v_A");
-            superJumpSound = content.Load<SoundEffect>("v_jump-super");
+            smallJumpSound = content.Load<SoundEffect>("v_jump-small");
+            superJumpSound = content.Load<SoundEffect>("v_A");
             warningSound = content.Load<SoundEffect>("v_warning");
             overworldSong = content.Load<Song>("v_theNextEp");
             starSong = content.Load<Song>("v_starmario");

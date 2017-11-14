@@ -11,7 +11,7 @@ using SuperMario.DisplayPanel;
 using Microsoft.Xna.Framework;
 using SuperMario.Display;
 using SuperMario.Enums;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 using SuperMario.GameObjects.ItemGameObjects;
 using SuperMario.Animation;
 

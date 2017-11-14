@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using SuperMario;
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 
 namespace SuperMario.DisplayPanel
 {

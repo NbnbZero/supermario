@@ -75,7 +75,7 @@ namespace SuperMario.GameObjects
             Velocity = new Vector2(0, 0);
             Acceleration = new Vector2(0, GameData.Gravity);
             IsProtected = false;
-            maxSpeed = 4;
+            maxSpeed = 4f;
         }
 
         public Rectangle Destination

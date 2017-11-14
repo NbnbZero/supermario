@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static SuperMario.GameObjects.GameObjectType;
 using SuperMario.StateMachine;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 
 namespace SuperMario.GameObjects
 {

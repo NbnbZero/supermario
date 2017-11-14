@@ -7,7 +7,7 @@ using SuperMario.Animation;
 using SuperMario.Enums;
 using SuperMario.GameObjects;
 using SuperMario.Sound;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 
 namespace SuperMario.GameObjects
 {

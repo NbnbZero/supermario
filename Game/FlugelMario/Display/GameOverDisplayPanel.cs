@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using System;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMario.Heads_Up
+namespace SuperMario.SCsystem
 {
     class CoinSystem
     {

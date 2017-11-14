@@ -11,7 +11,7 @@ using System;
 using SuperMario.GameObjects.ItemGameObjects;
 using SuperMario.GameObjects.PipeGameObjects;
 using SuperMarioGameObjects;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 
 namespace SuperMario
 {

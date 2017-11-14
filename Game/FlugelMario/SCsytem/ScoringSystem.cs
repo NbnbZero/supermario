@@ -11,7 +11,7 @@ using SuperMario.DisplayPanel;
 using SuperMario.Sound;
 using SuperMario;
 
-namespace SuperMario.Heads_Up
+namespace SuperMario.SCsystem
 {
     public class ScoringSystem
     {

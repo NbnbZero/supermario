@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SuperMario.Interfaces;
 using SuperMario.Enums;
-using SuperMario.Heads_Up;
+using SuperMario.SCsystem;
 using SuperMario.SpriteFactories;
 using SuperMario.Sound;
 
