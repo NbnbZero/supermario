@@ -123,6 +123,7 @@ namespace SuperMario.GameObjects
                 gameOverDisplayPanel.Update();
                 marioLifeDisplayPanel.Update();
                 headsUpDisplayPanel.Update();
+                winningDisplayPanel.Update();
             }
         }
 

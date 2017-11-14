@@ -69,13 +69,17 @@ namespace SuperMairo.HeadsUp
             score += 100;
             ScoreAnimation(enemy, "100");
         }
+
         public static void AddPointsForPole(Rectangle marioDestination)
         {
             if (marioDestination.Y <= flagParts[FlagCutOff1].Destination.Y)
             {
                 flagScore += CutOffScore1;
-                MarioInfo.MarioLife[0]++;
-                CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "1UP");
+                if (marioDestination.Y <= 240 )
+                {
+                    MarioInfo.MarioLife[0]++;
+                    CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "1UP");
+                }
             }
             else if(marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
             {
@@ -93,7 +97,7 @@ namespace SuperMairo.HeadsUp
             {
                 flagScore += CutOffScore5;
             }
-                score += flagScore;
+            score += flagScore;
             CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, ""+flagScore);
         }
         public static void AddPointsForRestTime()

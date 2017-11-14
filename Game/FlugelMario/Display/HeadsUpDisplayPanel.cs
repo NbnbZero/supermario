@@ -62,7 +62,7 @@ namespace SuperMario.Display
             scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, -Camera.CameraY+SecondRow));
 
             int coinTextX = Camera.CameraX + (Camera.CenterOfScreen * 4 / 5 - (coinTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
-            coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, -Camera.CameraY+FirstRow));
+            coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, -Camera.CameraY+FirstRow - 5));
 
             int coinX = coinTextX - coinSprite.MakeDestinationRectangle(Vector2.Zero).Width + 2;
             int coinY = -Camera.CameraY+FirstRow - coinSprite.MakeDestinationRectangle(Vector2.Zero).Height / 3;
@@ -87,7 +87,7 @@ namespace SuperMario.Display
         public void Update()
         {
             coinSprite.Update();
-            coinTextSprite.text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
+            coinTextSprite.text = " * " + fixText("" + CoinSystem.Instance.Coins, coinLength);
             timeTextSprite.text = fixText("" + MarioInfo.Time, timeLength);
             lifeTextSprite.text = "" + MarioInfo.MarioLife[0];
             scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);

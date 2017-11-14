@@ -16,10 +16,9 @@ namespace SuperMario.Animation
         public Vector2 Velocity { get { return new Vector2(0, poleVelocity); } set { } }
 
         private Vector2 location;
-        private float endLocationY;
-        private float cameraXToTextDistance;
+        private float endpointY;
+        private float cameraXTextDistance;
         private IText textSprite;
-        private int locationXFix = 7;
 
         private float poleVelocity = -1;
 
@@ -28,9 +27,9 @@ namespace SuperMario.Animation
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = score;
             this.State = AnimationState.ToBegin;
-            this.endLocationY = marioDestination.Y;
+            this.endpointY = marioDestination.Y;
             float startingLocationY = poleDestination.Y + poleDestination.Height - textSprite.MakeDestinationRectangle(new Vector2(0,0)).Height;
-            this.location = new Vector2(marioDestination.X + marioDestination.Width + locationXFix, startingLocationY);
+            this.location = new Vector2(marioDestination.X + marioDestination.Width + 7, startingLocationY);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -43,15 +42,19 @@ namespace SuperMario.Animation
         {
             State = AnimationState.IsPlaying;
             GameData.GameObjectManager.AddAnimation(this);
-            cameraXToTextDistance = location.X - Camera.CameraX;
+            cameraXTextDistance = location.X - Camera.CameraX;
         }
 
         public void Update()
         {
-            if (State == AnimationState.IsPlaying && location.Y >= endLocationY)
+            if (State == AnimationState.IsPlaying && location.Y >= endpointY)
             {
                 location.Y = location.Y + poleVelocity;
-                location.X = Camera.CameraX + cameraXToTextDistance;
+                location.X = Camera.CameraX + cameraXTextDistance;
+                if (location.Y == endpointY)
+                {
+                    State = AnimationState.Stopped;
+                }
             }
             textSprite.Update();
         }
