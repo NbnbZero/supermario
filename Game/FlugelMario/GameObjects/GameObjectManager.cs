@@ -76,7 +76,7 @@ namespace SuperMario.GameObjects
 
             bool updateHUD = true;
 
-            if (true)
+            if (GamePlayable())
             {
                 HandleCollisions();
                 foreach (IGameObject obj in itemList)
@@ -110,11 +110,13 @@ namespace SuperMario.GameObjects
                 {
                     Camera.Move(mario);
                 }
-                
+                mario.Update();
             }
-
-            mario.Update();
+            
             CheckAndStartSinglePlayerEndGame();
+
+
+
             if (updateHUD)
             {
                 titleDisplayPanel.Update();
@@ -195,7 +197,7 @@ namespace SuperMario.GameObjects
         private static bool GamePlayable()
         {
             return Game1.State.Type == GameStates.Playing ||
-                Game1.State.Type == GameStates.GameComplete;
+                Game1.State.Type == GameStates.LevelComplete;
         }
 
         private static bool IsInView(IGameObject obj)
