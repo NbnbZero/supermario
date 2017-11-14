@@ -9,6 +9,8 @@ using SuperMario;
 using SuperMario.SpriteFactories;
 using SuperMairo.SpriteFactories;
 using Microsoft.Xna.Framework;
+using SuperMario.Heads_Up;
+using SuperMairo.HeadsUp;
 
 namespace SuperMairo.DisplayPanel
 {

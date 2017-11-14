@@ -530,3 +530,9 @@
 /processorParam:Quality=Best
 /build:v_gameComplete.wav
 
+#begin v_flag.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:v_flag.wav
+

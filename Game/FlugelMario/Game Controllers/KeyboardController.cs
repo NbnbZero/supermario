@@ -206,6 +206,19 @@ namespace SuperMario.Game_Controllers
                     commandDict[Keys.Q].Execute();
                 }
             }
+            else if (Game1.State.Type == GameStates.LevelComplete)
+            {
+
+                if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
+                {
+                    mygame.Reset();
+                    Game1.State.Proceed();
+                }
+                else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
+            }
         }
 
         private bool Left(Keys[] pressedKeys)

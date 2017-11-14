@@ -35,6 +35,7 @@ namespace SuperMario.GameObjects
         private IDisplayPanel gameOverDisplayPanel;
         private IDisplayPanel marioLifeDisplayPanel;
         private IDisplayPanel headsUpDisplayPanel;
+        private IDisplayPanel winningDisplayPanel;
 
         private const int BufferSize = 32;
         public GameObjectManager(Game1 Game, MarioObject Mario)
@@ -52,6 +53,8 @@ namespace SuperMario.GameObjects
             marioLifeDisplayPanel = new MarioLifeDisplayPanel();
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
             animationList = new List<IAnimationInGame>();
+            winningDisplayPanel = new WinningDisplayPanel(game);
+
         }
 
         public IDisplayPanel TitlePanel
@@ -70,6 +73,7 @@ namespace SuperMario.GameObjects
 
         public void Update()
         {
+
             bool updateHUD = true;
 
             if (GamePlayable())
@@ -109,6 +113,7 @@ namespace SuperMario.GameObjects
                     Camera.Move(mario);
                 }              
             }
+            
 
             if (updateHUD)
             {
@@ -116,7 +121,10 @@ namespace SuperMario.GameObjects
                 gameOverDisplayPanel.Update();
                 marioLifeDisplayPanel.Update();
                 headsUpDisplayPanel.Update();
-            }           
+                winningDisplayPanel.Update();
+            }
+
+            CheckAndStartSinglePlayerEndGame();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -153,7 +161,7 @@ namespace SuperMario.GameObjects
             gameOverDisplayPanel.Draw(spriteBatch);
             marioLifeDisplayPanel.Draw(spriteBatch);
             headsUpDisplayPanel.Draw(spriteBatch);
-            CheckAndStartSinglePlayerEndGame();
+            winningDisplayPanel.Draw(spriteBatch);
         }
 
         private void CheckAndStartSinglePlayerEndGame()
