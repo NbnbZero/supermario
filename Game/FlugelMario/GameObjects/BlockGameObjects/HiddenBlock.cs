@@ -37,7 +37,7 @@ namespace SuperMario.GameObjects
                 return;
             }
             UpMushroom newObject = new UpMushroom(new Vector2(Location.X, Location.Y - 2));
-            SoundManager.Instance.PlayMushRoomSound();
+            SoundManager.Instance.PlayMushStarSound();
             //Need to Add to List
             stateMachine.BeTriggered();
         }

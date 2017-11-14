@@ -15,7 +15,7 @@ namespace SuperMario.Sound
         private SoundEffect marioDyingSound;
         private SoundEffect coinSound;
         private SoundEffect oneUpSound;
-        private SoundEffect mushroomSound;
+        private SoundEffect mushStarSound;
         private SoundEffect powerUpSound;
         private SoundEffect gameOverSound;
         private SoundEffect brickBreakSound;
@@ -54,7 +54,7 @@ namespace SuperMario.Sound
             marioDyingSound = content.Load<SoundEffect>("v_mariodying");
             coinSound = content.Load<SoundEffect>("v_coin");
             oneUpSound = content.Load<SoundEffect>("v_1-up");
-            mushroomSound = content.Load<SoundEffect>("v_powerupApp");
+            mushStarSound = content.Load<SoundEffect>("v_powerupApp");
             powerUpSound = content.Load<SoundEffect>("v_powerup");
             gameOverSound = content.Load<SoundEffect>("v_gameover");
             stompSound = content.Load<SoundEffect>("v_stomp");
@@ -95,11 +95,11 @@ namespace SuperMario.Sound
 
             }
         }
-        public void PlayMushRoomSound()
+        public void PlayMushStarSound()
         {
             if (!IsMuted)
             {
-                mushroomSound.Play();
+                mushStarSound.Play();
             }
         }
         public void PlayPowerUpSound()

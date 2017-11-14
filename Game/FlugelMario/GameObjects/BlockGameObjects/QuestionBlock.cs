@@ -46,19 +46,19 @@ namespace SuperMario.GameObjects
             {
                 case ItemType.Flower:
                     newObject = new FireFlower(new Vector2(Location.X, Location.Y - 2));
-                    SoundManager.Instance.PlayMushRoomSound();
+                    SoundManager.Instance.PlayMushStarSound();
                     break;
                 case ItemType.UpMushroom:
                     newObject = new UpMushroom(new Vector2(Location.X, Location.Y - 16));
-                    SoundManager.Instance.PlayMushRoomSound();
+                    SoundManager.Instance.PlayMushStarSound();
                     break;
                 case ItemType.SuperMushroom:
                     newObject = new SuperMushroom(new Vector2(Location.X, Location.Y - 16));
-                    SoundManager.Instance.PlayMushRoomSound();
+                    SoundManager.Instance.PlayMushStarSound();
                     break;
                 case ItemType.Star:
                     newObject = new Star(new Vector2(Location.X, Location.Y - 16));
-                    SoundManager.Instance.PlayMushRoomSound();
+                    SoundManager.Instance.PlayMushStarSound();
                     break;
                 default:
                     coinAnimation.StartAnimation();
