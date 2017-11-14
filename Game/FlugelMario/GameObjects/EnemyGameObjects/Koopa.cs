@@ -56,6 +56,10 @@ namespace SuperMario
             {
                 velocity.Y += acceleration.Y;
             }
+            if (Location.Y > 420)
+            {
+                Terminate("TOP");
+            }
             Location = new Vector2(Location.X + velocity.X, Location.Y + velocity.Y);
             State.Update();
             Destination = State.StateSprite.MakeDestinationRectangle(Location);
