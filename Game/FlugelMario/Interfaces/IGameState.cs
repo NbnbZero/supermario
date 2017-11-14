@@ -8,7 +8,7 @@ namespace SuperMairo.Interfaces
 {
     public enum GameStates
     {
-        Title, Demo, Playing, Pause, LevelComplete, GameComplete,
+        Title, Demo, Playing, Pause, LevelComplete, 
         LifeDisplay, GameOver, Victory
     }
 

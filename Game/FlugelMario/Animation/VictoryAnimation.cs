@@ -31,10 +31,10 @@ namespace SuperMario.Animation
             this.mario_ = mario;
             this.flag_ = flag;
 
-            mario_.Acceleration = new Vector2(0, 1);
-            mario_.Velocity = new Vector2(0, 2);
+            mario_.Acceleration = new Vector2(0, 0);
+            mario_.Velocity = new Vector2(0, 1);
             //add sound
-            flag_.Velocity = new Vector2(0, 2);
+            flag_.Velocity = new Vector2(0, 1);
         }
 
         public void Update()
@@ -47,13 +47,12 @@ namespace SuperMario.Animation
             switch (stage)
             {               
                 case stage1:
-                    mario_.IsInAir = false;
                     if (!mario_.IsInAir)
                     {
                         mario_.Velocity = new Vector2(0, 3);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
-                    if (flag_.Location.Y >= 160)
+                    if (flag_.Location.Y <= 384)
                     {
                         flag_.Velocity = new Vector2(0, 0);
                         flag_.Location = new Vector2(flag_.Location.X, 100);
