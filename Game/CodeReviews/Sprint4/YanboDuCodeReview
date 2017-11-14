@@ -1,0 +1,18 @@
+Author: Yanbo Du
+Date of Review: 11/14/2017
+Sprint: 4
+
+Name of File: 	ScoringSystem.cs
+
+Author of File:	Chen Ling
+
+Comments:
+	- First of all, clear structed class, only serving for scoring system. 
+    - I see commented code in AddPointsForPole(). In my opinion, if it's not necessary just delete it or add some explanations for why it is be commented.
+    - For the part for pole score, it is a little bit to follow. Probably switch structure is a better choice.
+
+Hypothetical changes:
+	- Move all the data to GameData.cs. In this way, it is much easier to change the value if we decide to do it. 
+    - In my opinion, RegisgerFlagPole() should not be included here because it is not a part of the functionality of scoring system which could be refactored.
+
+Number of minutes: 20 mins
