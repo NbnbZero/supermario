@@ -21,11 +21,11 @@ namespace SuperMairo.HeadsUp
 
         private static List<IGameObject> flagParts=new List<IGameObject>();
 
-        private static int FlagCutOff1 = 386;
-        private static int FlagCutOff2 = 3;
-        private static int FlagCutOff3 = 5;
-        private static int FlagCutOff4 = 7;
-        private static int FlagCutOff5 = 9;
+        private static int FlagHeight1 = 384;
+        private static int FlagHeight2 = 367;
+        private static int FlagHeight3 = 327;
+        private static int FlagHeight4 = 303;
+        private static int FlagHeight5 = 257;
         private static int CutOffScore5 = 100;
         private static int CutOffScore4 = 400;
         private static int CutOffScore3 = 800;
@@ -72,30 +72,35 @@ namespace SuperMairo.HeadsUp
 
         public static void AddPointsForPole(Rectangle marioDestination)
         {
-            if (marioDestination.Y <= flagParts[FlagCutOff5].Destination.Y)
+            if (marioDestination.Y <= FlagHeight5)
             {
-                flagScore += CutOffScore1;
+                flagScore = CutOffScore1;
                 MarioInfo.MarioLife[0]++;
-                CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "1UP");
+                CreateNewScoreAnimation(marioDestination, flagParts[4].Destination, "" + flagScore);
+                CreateNewScoreAnimation(marioDestination, flagParts[4].Destination, "1UP");
             }
-            else if(marioDestination.Y < flagParts[FlagCutOff4].Destination.Y)
+            else if(marioDestination.Y < FlagHeight4)
             {
-                flagScore += CutOffScore2;
+                flagScore = CutOffScore2;
+                CreateNewScoreAnimation(marioDestination, flagParts[3].Destination, "" + flagScore);
             }
-            else if (marioDestination.Y < flagParts[FlagCutOff3].Destination.Y)
+            else if (marioDestination.Y < FlagHeight3)
             {
-                flagScore += CutOffScore3;
+                flagScore = CutOffScore3;
+                CreateNewScoreAnimation(marioDestination, flagParts[2].Destination, "" + flagScore);
             }
-            else if (marioDestination.Y < flagParts[FlagCutOff2].Destination.Y)
+            else if (marioDestination.Y < FlagHeight2)
             {
-                flagScore += CutOffScore4;
+                flagScore = CutOffScore4;
+                CreateNewScoreAnimation(marioDestination, flagParts[1].Destination, "" + flagScore);
             }
-            else if (marioDestination.Y < FlagCutOff1)
+            else if (marioDestination.Y < FlagHeight1)
             {
-                flagScore += CutOffScore5;
+                flagScore = CutOffScore5;
+                CreateNewScoreAnimation(marioDestination, flagParts[0].Destination, "" + flagScore);
             }
             score += flagScore;
-            CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "" + flagScore);
+            //CreateNewScoreAnimation(marioDestination, flagParts[flagParts.Count - 1].Destination, "" + flagScore);
         }
         public static void AddPointsForRestTime()
         {
