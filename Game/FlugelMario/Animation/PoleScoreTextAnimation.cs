@@ -19,7 +19,6 @@ namespace SuperMario.Animation
         private float endpointY;
         private float cameraXTextDistance;
         private IText textSprite;
-
         private float poleVelocity = -1;
 
         public PoleScoreTextAnimation(Rectangle marioDestination, Rectangle poleDestination, string score)
