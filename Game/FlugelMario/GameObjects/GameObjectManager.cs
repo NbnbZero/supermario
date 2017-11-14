@@ -76,7 +76,7 @@ namespace SuperMario.GameObjects
 
             bool updateHUD = true;
 
-            if (GamePlayable())
+            if (true)
             {
                 HandleCollisions();
                 foreach (IGameObject obj in itemList)
@@ -106,7 +106,6 @@ namespace SuperMario.GameObjects
                 {
                     obj.Update();
                 }
-                mario.Update();
                 if (mario.Location.Y < 400)
                 {
                     Camera.Move(mario);
@@ -114,6 +113,7 @@ namespace SuperMario.GameObjects
                 
             }
 
+            mario.Update();
             CheckAndStartSinglePlayerEndGame();
             if (updateHUD)
             {
@@ -188,14 +188,14 @@ namespace SuperMario.GameObjects
         }
         private bool IsEndGame()
         {
-            return mario.Destination.X + mario.Destination.Width >= 3200&&
-                   mario.Destination.X + mario.Destination.Width <= 3250;
+            return mario.Destination.X + mario.Destination.Width >= 3265&&
+                   mario.Destination.X + mario.Destination.Width <= 3290;
         }
 
         private static bool GamePlayable()
         {
             return Game1.State.Type == GameStates.Playing ||
-                Game1.State.Type == GameStates.LevelComplete;
+                Game1.State.Type == GameStates.GameComplete;
         }
 
         private static bool IsInView(IGameObject obj)
