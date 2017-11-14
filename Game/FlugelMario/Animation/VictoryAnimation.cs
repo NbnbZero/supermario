@@ -47,13 +47,13 @@ namespace SuperMario.Animation
             switch (stage)
             {               
                 case stage1:
-
+                    mario_.IsInAir = false;
                     if (!mario_.IsInAir)
                     {
                         mario_.Velocity = new Vector2(0, 3);
                         mario_.Acceleration = new Vector2(0, GameData.Gravity);
                     }
-                    if (flag_.Location.Y >= 384)
+                    if (flag_.Location.Y >= 160)
                     {
                         flag_.Velocity = new Vector2(0, 0);
                         flag_.Location = new Vector2(flag_.Location.X, 100);
