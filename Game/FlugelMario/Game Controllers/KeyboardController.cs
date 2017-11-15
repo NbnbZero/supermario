@@ -174,7 +174,7 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
                     mygame.LevelReset();
-                    Game1.State.Proceed();
+                    Game1.State.Proceed();             
                     SoundManager.Instance.PlayOverWorldSong();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
@@ -197,6 +197,7 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
                     Game1.State.Proceed();
+                    MarioInfo.ClearTimer();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
                 {
