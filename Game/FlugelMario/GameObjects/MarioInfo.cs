@@ -37,6 +37,7 @@ namespace SuperMario
         {
             Time = 0;
             isTimeCounting = false;
+            isWarningPlaying = false;
         }
 
         public static void StartTimer()
@@ -59,7 +60,7 @@ namespace SuperMario
                     Time--;
                     counter = 0;
                 }
-                if (Time == 100)
+                if (Time == 60)
                 {
                     if (!isWarningPlaying)
                     {

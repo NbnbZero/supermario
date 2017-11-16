@@ -216,6 +216,7 @@ namespace SuperMario.Sound
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(starSong);
+                MediaPlayer.IsRepeating = true;
             }
         }
 
