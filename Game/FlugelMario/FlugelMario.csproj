@@ -102,6 +102,8 @@
     <Compile Include="GameObjects\BlockGameObjects\HiddenBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\StairBlock.cs" />
+    <Compile Include="GameObjects\EnemyGameObjects\Blooper.cs" />
+    <Compile Include="GameObjects\EnemyGameObjects\CheapCheap.cs" />
     <Compile Include="GameObjects\GameObjectManager.cs" />
     <Compile Include="GameObjects\ItemGameObjects\Flag.cs" />
     <Compile Include="GameObjects\ItemGameObjects\FlagPole.cs" />
@@ -138,6 +140,8 @@
     <Compile Include="Sprites\Background\SmallCLoudSprite.cs" />
     <Compile Include="Sprites\Background\SmallHill.cs" />
     <Compile Include="Sprites\Background\TileImg.cs" />
+    <Compile Include="Sprites\Enemy\Blooper\BlooperSprite.cs" />
+    <Compile Include="Sprites\Enemy\CheapCheap\CheapCheap.cs" />
     <Compile Include="Sprites\Items\BigPipeSprite.cs" />
     <Compile Include="Sprites\Items\FlagPoleSprite.cs" />
     <Compile Include="Sprites\Items\FlagSprite.cs" />
@@ -232,15 +236,15 @@
     <Compile Include="Sprites\Blocks\RockBlockSprite.cs" />
     <Compile Include="Sprites\Blocks\StairBlockSprite.cs" />
     <Compile Include="Sprites\Blocks\UsedBlockSprite.cs" />
-    <Compile Include="Sprites\Goomba\DeadGoombaSprite.cs" />
-    <Compile Include="Sprites\Goomba\GoombaSprite.cs" />
+    <Compile Include="Sprites\Enemy\Goomba\DeadGoombaSprite.cs" />
+    <Compile Include="Sprites\Enemy\Goomba\GoombaSprite.cs" />
     <Compile Include="Sprites\Items\CoinSprite.cs" />
     <Compile Include="Sprites\Items\FlowerSprite.cs" />
     <Compile Include="Sprites\Items\StarSprite.cs" />
     <Compile Include="Sprites\Items\SuperMushroomSprite.cs" />
     <Compile Include="Sprites\Items\UpMushroomSprite.cs" />
-    <Compile Include="Sprites\Koopa\DeadKoopaSprite.cs" />
-    <Compile Include="Sprites\Koopa\KoopaSprite.cs" />
+    <Compile Include="Sprites\Enemy\Koopa\DeadKoopaSprite.cs" />
+    <Compile Include="Sprites\Enemy\Koopa\KoopaSprite.cs" />
     <Compile Include="Sprites\Mario\CrouchLeftBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\CrouchLeftFireMarioSprite.cs" />
     <Compile Include="Sprites\Mario\CrouchRightBigMarioSprite.cs" />
@@ -270,6 +274,8 @@
     <Compile Include="States\BlockStates\CoinBrickBlockState.cs" />
     <Compile Include="States\BlockStates\HiddenBlockState.cs" />
     <Compile Include="States\BlockStates\QuestionBlockState.cs" />
+    <Compile Include="States\EnemyStates\BlooperAliveState.cs" />
+    <Compile Include="States\EnemyStates\CheapCheapAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaDeadState.cs" />
     <Compile Include="States\EnemyStates\KoopaAliveRightState.cs" />
