@@ -21,7 +21,7 @@ namespace SuperMario.Sprites.CheapCheap
         private int TextureX = 0;
         private int TextureY = 0;
         private int currentFrame;
-        private int TotalFrames = 1;
+        private int TotalFrames = 2;
         private int counter = 0;
 
         public CheapCheapSprite(Texture2D texture)
