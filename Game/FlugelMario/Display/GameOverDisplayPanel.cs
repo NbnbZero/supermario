@@ -34,12 +34,12 @@ namespace SuperMario.Display
         {
             if (Game1.State.Type == GameStates.GameOver)
             {
-                backgroundSprite.Draw(spriteBatch, new Vector2(Camera.CameraX, 0));
+                backgroundSprite.Draw(spriteBatch, new Vector2(Camera.CameraX, -Camera.CameraY));
                 int halfOfGameOverTextWidth = gameOverTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2;
                 int gameOverTextY = screenHeight / 2 - 60;
-                gameOverTextSprite.Draw(spriteBatch, new Vector2(Camera.CameraX + Camera.CenterOfScreen - halfOfGameOverTextWidth, gameOverTextY));
+                gameOverTextSprite.Draw(spriteBatch, new Vector2(Camera.CameraX + Camera.CenterOfScreen - halfOfGameOverTextWidth, -Camera.CameraY+gameOverTextY));
                 int askForContX = Camera.CameraX + Camera.CenterOfScreen - (AskForContSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2);
-                AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, gameOverTextY + 40));
+                AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, -Camera.CameraY+gameOverTextY + 40));
             }
 
         }

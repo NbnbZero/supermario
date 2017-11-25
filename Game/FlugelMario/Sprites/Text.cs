@@ -24,13 +24,6 @@ namespace SuperMario.Sprites
             this.size = new Vector2(0, 0);
         }
 
-        public Text(SpriteFont font, string _text)
-        {
-            this.font = font;
-            this.text = _text;
-            this.size = font.MeasureString(_text);
-        }
-
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             spriteBatch.DrawString(font, text, location, Color.White);

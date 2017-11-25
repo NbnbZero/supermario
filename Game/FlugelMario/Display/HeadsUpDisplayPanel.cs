@@ -53,7 +53,7 @@ namespace SuperMario.Display
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
+            int marioTitleTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5- (marioTitleTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
             marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, -Camera.CameraY+FirstRow));
 
             int scoreTextX = Camera.CameraX + (Camera.CenterOfScreen * 2 / 5 - (scoreTextSprite.MakeDestinationRectangle(Vector2.Zero).Width / 3));
