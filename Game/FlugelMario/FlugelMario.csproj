@@ -44,6 +44,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractClasses\BigMarioSwimmingSprite.cs" />
+    <Compile Include="AbstractClasses\NormalMarioSwimmingSprite.cs" />
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
     <Compile Include="Animation\CoinOutOfBlockAnimation.cs" />
     <Compile Include="Animation\PoleScoreAnimation.cs" />
@@ -154,6 +156,12 @@
     <Compile Include="Sprites\Items\MediumPipeSprite.cs" />
     <Compile Include="Sprites\Items\PipeSprite.cs" />
     <Compile Include="Sprites\Items\PiranhaPlantsSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleInWaterRightSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleInWaterLeftSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleInWaterRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleInWaterRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleInWaterLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\IdleInWaterLeftBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractClasses\AbstractGame.cs" />
@@ -213,6 +221,12 @@
     <Compile Include="Sprites\Mario\JumpLeftStarSmallMarioSprite.cs" />
     <Compile Include="Sprites\Mario\JumpRightStarBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\JumpRightStarSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\SwimmingLeftSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\SwimmingRightSmallMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\SwimmingRightFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\SwimmingRightBigMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\SwimmingLeftFireMarioSprite.cs" />
+    <Compile Include="Sprites\Mario\SwimmingLeftBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningLeftStarBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningLeftStarSmallMarioSprite.cs" />
     <Compile Include="Sprites\Mario\RunningRightStarBigMarioSprite.cs" />
@@ -315,6 +329,7 @@
     <Compile Include="States\MarioState\JumpRightSmallMarioState.cs" />
     <Compile Include="States\MarioState\JumpRightStarBigMarioState.cs" />
     <Compile Include="States\MarioState\JumpRightStarSmallMarioState.cs" />
+    <Compile Include="States\MarioState\SwimmingLeftBigMarioState.cs" />
     <Compile Include="States\MarioState\RunningLeftBigMarioState.cs" />
     <Compile Include="States\MarioState\RunningLeftFireMarioState.cs" />
     <Compile Include="States\MarioState\RunningLeftSmallMarioState.cs" />

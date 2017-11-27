@@ -11,5 +11,5 @@ namespace SuperMario.Enums
         Koopa,
         Blooper,
         CheapCheap
-    };
+    }
 }

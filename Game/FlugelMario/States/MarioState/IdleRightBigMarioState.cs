@@ -36,6 +36,13 @@ namespace SuperMario.States.MarioStates
                 Mario.State = new RunningRightBigMarioState(Mario);
             }
         }
+
+        public override void SwimRight()
+        {
+            Mario.State = new IdleInWaterRightBigMarioState(Mario);
+
+        }
+
         public override void Crouch()
         {
             if (!Mario.IsInAir)

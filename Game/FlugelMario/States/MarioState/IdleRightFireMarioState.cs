@@ -41,6 +41,11 @@ namespace SuperMario.States.MarioStates
             }
         }
 
+        public override void SwimRight()
+        {
+            Mario.State = new IdleInWaterRightFireMarioState(Mario);
+
+        }
         public override void Crouch()
         {
             if (!Mario.IsInAir)

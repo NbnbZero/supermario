@@ -13,6 +13,12 @@ namespace SuperMario.AbstractClasses
         public int MarioWidth { get; set; } = MarioSpriteFactory.Instance.NormalMarioWidth;
         public int MarioHeight { get; set; } = MarioSpriteFactory.Instance.NormalMarioHeight;
 
+        public int smallSwimMarioWidth { get; set; } = MarioSpriteFactory.Instance.smallMarioSwimWidth;
+        public int smallSwimMarioHeight { get; set; } = MarioSpriteFactory.Instance.SmallMarioSwimHeight;
+
+        public int bigSwimMarioWidth { get; set; } = MarioSpriteFactory.Instance.bigMarioSwimWidth;
+        public int bigSwimMarioHeight { get; set; } = MarioSpriteFactory.Instance.BigMarioSwimHeight;
+
         protected MarioSprite(Texture2D texture)
         {
             Texture = texture;

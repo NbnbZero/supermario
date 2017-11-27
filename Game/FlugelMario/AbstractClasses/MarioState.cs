@@ -36,6 +36,10 @@ namespace SuperMario
 
         public virtual void RunRight(){}
 
+        public virtual void SwimLeft() { }
+
+        public virtual void SwimRight() { }
+
         public virtual void Crouch(){}
 
         public virtual void JumpOrStand(){}

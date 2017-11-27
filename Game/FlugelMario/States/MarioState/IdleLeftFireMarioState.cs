@@ -29,6 +29,12 @@ namespace SuperMario.States.MarioStates
             }
         }
 
+        public override void SwimLeft()
+        {
+            Mario.State = new IdleInWaterLeftFireMarioState(Mario);
+
+        }
+
         public override void RunRight()
         {
             Mario.State = new IdleRightFireMarioState(Mario);

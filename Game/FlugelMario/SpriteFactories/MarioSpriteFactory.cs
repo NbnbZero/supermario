@@ -13,11 +13,18 @@ namespace SuperMario.SpriteFactories
         public int NormalMarioSpriteSheetColumn { get; } = 14;
         public int NormalMarioSpriteSheetRow { get; } = 4;
         public int NormalMarioSpriteRunningSheetColumn { get; } = 3;
+        public int NormalMarioSpriteSwimmingSheetColumn { get; } = 4;
+        public int BigMarioSpriteSwimmingSheetColumn { get; } = 5;
         public int StarMarioSpriteSheetRow { get; } = 8;
-
+        public int SmallMarioSwimSheetColumn { get; } = 8;
+        public int SmallMarioSwimSheetRow { get; } = 1;
+        public int BigMarioSwimSheetColumn { get; } = 12;
+        public int BigMarioSwimSheetRow { get; } = 3;
 
         private Texture2D normalMarioSpriteSheet;
         private Texture2D starMarioSpriteSheet;
+        private Texture2D smallMarioSwimSheet;
+        private Texture2D bigMarioSwimSheet;
 
         private static MarioSpriteFactory instance = new MarioSpriteFactory();
 
@@ -35,6 +42,8 @@ namespace SuperMario.SpriteFactories
         {
             normalMarioSpriteSheet = content.Load<Texture2D>("Mariosheet");
             starMarioSpriteSheet = content.Load<Texture2D>("mario_sheet_star");
+            smallMarioSwimSheet = content.Load<Texture2D>("SmallMarioSwim");
+            bigMarioSwimSheet = content.Load<Texture2D>("BigMarioSwim");
         }
 
         public int NormalMarioWidth
@@ -45,11 +54,43 @@ namespace SuperMario.SpriteFactories
             }
         }
 
+        public int SmallMarioSwimHeight
+        {
+            get
+            {
+                return smallMarioSwimSheet.Height / SmallMarioSwimSheetRow;
+            }
+        }
+
+        public int smallMarioSwimWidth
+        {
+            get
+            {
+                return smallMarioSwimSheet.Width / SmallMarioSwimSheetColumn;
+            }
+        }
+
         public int NormalMarioHeight
         {
             get
             {
                 return normalMarioSpriteSheet.Height / NormalMarioSpriteSheetRow;
+            }
+        }
+
+        public int BigMarioSwimHeight
+        {
+            get
+            {
+                return bigMarioSwimSheet.Height / BigMarioSwimSheetRow;
+            }
+        }
+
+        public int bigMarioSwimWidth
+        {
+            get
+            {
+                return bigMarioSwimSheet.Width / BigMarioSwimSheetColumn;
             }
         }
 
@@ -98,6 +139,19 @@ namespace SuperMario.SpriteFactories
         public Vector2 RunningRightSmallMarioCord { get; } = new Vector2(10, 0);
         public Vector2 RunningRightStarBigMarioCord { get; } = new Vector2(10, 4);
         public Vector2 RunningRightStarSmallMarioCord { get; } = new Vector2(10, 0);
+        public Vector2 SwimmingLeftBigMarioCord { get; } = new Vector2(5, 0);
+        public Vector2 SwimmingLeftFireMarioCord { get; } = new Vector2(5, 2);
+        public Vector2 SwimmingLeftSmallMarioCord { get; } = new Vector2(3, 0);
+        public Vector2 SwimmingRightBigMarioCord { get; } = new Vector2(6, 0);
+        public Vector2 SwimmingRightFireMarioCord { get; } = new Vector2(6, 2);
+        public Vector2 SwimmingRightSmallMarioCord { get; } = new Vector2(4, 0);
+        public Vector2 IdleInWaterLeftBigMarioCord { get; } = new Vector2(3, 0);
+        public Vector2 IdleInWaterLeftFireMarioCord { get; } = new Vector2(3, 2);
+        public Vector2 IdleInWaterLeftSmallMarioCord { get; } = new Vector2(3, 0);
+        public Vector2 IdleInWaterRightBigMarioCord { get; } = new Vector2(8, 0);
+        public Vector2 IdleInWaterRightFireMarioCord { get; } = new Vector2(8, 2);
+        public Vector2 IdleInWaterRightSmallMarioCord { get; } = new Vector2(4, 0);
+
 
         public ISprite CreateCrouchLeftBigMarioSprite()
         {
@@ -281,6 +335,59 @@ namespace SuperMario.SpriteFactories
         public ISprite CreateRunningRightStarSmallMarioSprite()
         {
             return new RunningRightStarSmallMarioSprite(this.starMarioSpriteSheet);
+        }
+
+        public ISprite CreateSwimmingLeftSmallMarioSprite()
+        {
+            return new SwimmingLeftSmallMarioSprite(this.smallMarioSwimSheet);
+        }
+        public ISprite CreateSwimmingLeftBigMarioSprite()
+        {
+            return new SwimmingLeftBigMarioSprite(this.bigMarioSwimSheet);
+        }
+
+        public ISprite CreateSwimmingLeftFireMarioSprite()
+        {
+            return new SwimmingLeftFireMarioSprite(this.bigMarioSwimSheet);
+        }
+        public ISprite CreateSwimmingRightSmallMarioSprite()
+        {
+            return new SwimmingRightSmallMarioSprite(this.smallMarioSwimSheet);
+        }
+        public ISprite CreateSwimmingRightBigMarioSprite()
+        {
+            return new SwimmingRightBigMarioSprite(this.bigMarioSwimSheet);
+        }
+
+        public ISprite CreateSwimmingRightFireMarioSprite()
+        {
+            return new SwimmingRightFireMarioSprite(this.bigMarioSwimSheet);
+        }
+        public ISprite CreateIdleInWaterLeftSmallMarioSprite()
+        {
+            return new IdleInWaterLeftSmallMarioSprite(this.smallMarioSwimSheet);
+        }
+        public ISprite CreateIdleInWaterLeftBigMarioSprite()
+        {
+            return new IdleInWaterLeftBigMarioSprite(this.bigMarioSwimSheet);
+        }
+
+        public ISprite CreateIdleInWaterLeftFireMarioSprite()
+        {
+            return new IdleInWaterLeftFireMarioSprite(this.bigMarioSwimSheet);
+        }
+        public ISprite CreateIdleInWaterRightSmallMarioSprite()
+        {
+            return new IdleInWaterRightSmallMarioSprite(this.smallMarioSwimSheet);
+        }
+        public ISprite CreateIdleInWaterRightBigMarioSprite()
+        {
+            return new IdleInWaterRightBigMarioSprite(this.bigMarioSwimSheet);
+        }
+
+        public ISprite CreateIdleInWaterRightFireMarioSprite()
+        {
+            return new IdleInWaterRightFireMarioSprite(this.bigMarioSwimSheet);
         }
     }
 }

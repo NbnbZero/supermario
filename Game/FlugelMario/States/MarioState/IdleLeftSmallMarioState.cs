@@ -30,6 +30,11 @@ namespace SuperMario.States.MarioStates
             Mario.State = new IdleRightSmallMarioState(Mario);
         }
 
+        public override void SwimLeft()
+        {
+            Mario.State = new IdleInWaterLeftSmallMarioState(Mario);
+
+        }
         public override void Crouch()
         {
         }

@@ -19,12 +19,22 @@ namespace SuperMario.GameObjects
         public ObjectType Type { get; } = ObjectType.Mario;
         public IMarioState State { get; set; }
         private bool isAir = false;
+        private bool isWater = false;
         public bool IsInAir
         {
             get { return isAir; }
             set
             {
                 isAir = value;
+            }
+        }
+
+        public bool IsInWater
+        {
+            get { return isWater; }
+            set
+            {
+                isWater = value;
             }
         }
         public Shape PreStarShape { set; get; }
