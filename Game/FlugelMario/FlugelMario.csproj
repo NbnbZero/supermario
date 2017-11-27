@@ -336,7 +336,12 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <Content Include="LevelLoader\Level.xml" />
-    <Content Include="LevelLoader\Level1.xml" />
+    <Content Include="LevelLoader\Level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LevelLoader\Level2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
