@@ -17,7 +17,7 @@ namespace SuperMario
             objM = ObjM;
         }
         public static int MarioJumpingSpeed = -8;
-        public static float Gravity { get; } = 0.4f;
+        public static float Gravity { get; set; } = 0.4f;
         public static float GoombaSpeed { get; } = .75f;
         public static float MarioCriticalSpeed { get; } = .75f;
         public static float MarioAccel { get; } = .25f;

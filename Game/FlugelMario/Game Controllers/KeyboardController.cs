@@ -173,7 +173,7 @@ namespace SuperMario.Game_Controllers
             {
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
-                    mygame.LevelReset();
+                    mygame.LevelReset(mygame.File);
                     Game1.State.Proceed();             
                     SoundManager.Instance.PlayOverWorldSong();
                 }

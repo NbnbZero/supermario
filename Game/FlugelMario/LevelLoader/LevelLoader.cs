@@ -25,21 +25,21 @@ namespace SuperMario
             mario = Mario;
         }
 
-        public void Load()
+        public void Load(string file)
         {
-            LoadBlocks();
-            LoadEnemies();
-            LoadItems();
-            LoadPipe();
-            LoadObject();
+            LoadBlocks(file);
+            LoadEnemies(file);
+            LoadItems(file);
+            LoadPipe(file);
+            LoadObject(file);
         }
 
 
-        public void LoadBlocks()
+        public void LoadBlocks(string file)
         {
             List<BlockData> myObjects = new List<BlockData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<BlockData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
+            using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
@@ -128,11 +128,11 @@ namespace SuperMario
         }
 
 
-        public void LoadItems()
+        public void LoadItems(string file)
         {
             List<ItemData> myObjects = new List<ItemData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<ItemData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
+            using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
@@ -185,11 +185,11 @@ namespace SuperMario
             
         }
 
-        public void LoadEnemies()
+        public void LoadEnemies(string file)
         {
             List<EnemyData> myObjects = new List<EnemyData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<EnemyData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
+            using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<EnemyData>)serializer.Deserialize(reader);
             }
@@ -210,11 +210,11 @@ namespace SuperMario
             
         }
 
-        private void LoadPipe()
+        private void LoadPipe(string file)
         {
             List<PipeData> myObjects = new List<PipeData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<PipeData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
+            using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<PipeData>)serializer.Deserialize(reader);
             }
@@ -242,11 +242,11 @@ namespace SuperMario
             }
         }
 
-        private void LoadObject()
+        private void LoadObject(string file)
         {
             List<ObjectData> myObjects = new List<ObjectData>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<ObjectData>), new XmlRootAttribute("Map"));
-            using (XmlReader reader = XmlReader.Create("../../../../LevelLoader/Level1.xml"))
+            using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<ObjectData>)serializer.Deserialize(reader);
             }

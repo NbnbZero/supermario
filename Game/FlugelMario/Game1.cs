@@ -30,6 +30,8 @@ namespace SuperMario
         MarioObject Mario;
         GameObjectManager objectManager;
         GameData gamedata;
+        public string File;
+
         public Game1()
         {
             this.GraphicsManager = new GraphicsDeviceManager(this);
@@ -78,7 +80,8 @@ namespace SuperMario
             camera2 = new Camera2D(GraphicsDevice.Viewport);
             blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             LevelLoader loader = new LevelLoader(objectManager, Mario);
-            loader.Load();
+            File = "./LevelLoader/Level1.xml";
+            loader.Load(File);
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this,Mario);
         }
@@ -152,7 +155,7 @@ namespace SuperMario
             MarioInfo.StartTimer();
         }
 
-        public void LevelReset()
+        public void LevelReset(string file)
         {
             Vector2 restartPoint = GameObjectManager.restartPoint;
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -177,7 +180,41 @@ namespace SuperMario
             camera2 = new Camera2D(GraphicsDevice.Viewport);
             blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             LevelLoader loader = new LevelLoader(objectManager, Mario);
-            loader.Load();
+            loader.Load(file);
+            keyboard = new KeyboardControls(this, Mario);
+            gamepad = new GamePadControls(this, Mario);
+            Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
+            MarioInfo.ClearTimer();
+            MarioInfo.ResetTimer();
+            MarioInfo.StartTimer();
+        }
+
+        public void LoadNextLevel(string file)
+        {
+            Vector2 restartPoint = GameObjectManager.restartPoint;
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            #region Load Textures
+            MarioSpriteFactory.Instance.LoadAllTextures(Content);
+            EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            ItemSpriteFactory.Instance.LoadAllTextures(Content);
+            BlockSpriteFactory.Instance.LoadAllTextures(Content);
+            FireballSpriteFactory.Instance.LoadAllTextures(Content);
+            BackgroundSpriteFactory.Instance.LoadAllTextures(Content);
+            PipeSpriteFactory.Instance.LoadAllTextures(Content);
+            SoundManager.Instance.LoadAllSounds(Content);
+            TextSpriteFactory.Instance.LoadAllTextures(Content);
+            #endregion
+
+            Mario = new MarioObject(restartPoint);
+            objectManager = new GameObjectManager(this, Mario);
+            gamedata = new GameData(objectManager);
+            camera1 = new Camera();
+            Camera.LimitationList.Add(3600);
+            camera2 = new Camera2D(GraphicsDevice.Viewport);
+            blackbackground = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
+            LevelLoader loader = new LevelLoader(objectManager, Mario);
+            loader.Load(file);
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
             Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
