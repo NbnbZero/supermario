@@ -21,6 +21,7 @@ namespace SuperMario
         public GameObjectType.ObjectType Type { get; } = GameObjectType.ObjectType.CheapCheap;
         private Vector2 velocity;
         private Vector2 acceleration;
+        private int counter = 0;
         public Vector2 Velocity
         {
             get
@@ -43,7 +44,7 @@ namespace SuperMario
             Location = location;
             State = new CheapCheapAliveState(this);
             Destination = State.StateSprite.MakeDestinationRectangle(Location);
-            velocity = new Vector2(0, 0);
+            velocity = new Vector2(-0.5f, 0);
             acceleration = new Vector2(0, 0);
         }
 
@@ -65,9 +66,22 @@ namespace SuperMario
         public void Update()
         {
             hasBeenInView = true;
-            //TODO: add movement
 
-            Location = new Vector2(Location.X + velocity.X, Location.Y + velocity.Y);
+            if (counter >= 0 && counter < 50)
+            {
+                Location = new Vector2(Location.X - velocity.X, Location.Y);
+                counter++;
+            }
+            else if (counter >= 50 && counter < 100)
+            {
+                Location = new Vector2(Location.X + velocity.X, Location.Y);
+                counter++;
+            }
+            else
+            {
+                counter = 0;
+            }
+
             Destination = State.StateSprite.MakeDestinationRectangle(Location);
             State.Update();
         }
