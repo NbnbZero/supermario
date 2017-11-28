@@ -14,6 +14,8 @@ namespace SuperMario.Enums
         Stair,
         Hidden,
         None,
-        Broken
+        Broken,
+        Underwater
+        
     }
 }

@@ -104,6 +104,7 @@
     <Compile Include="GameObjects\BlockGameObjects\HiddenBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\StairBlock.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\UnderwaterBlock.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\Blooper.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\CheapCheap.cs" />
     <Compile Include="GameObjects\GameObjectManager.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Sprites\Background\SmallCLoudSprite.cs" />
     <Compile Include="Sprites\Background\SmallHill.cs" />
     <Compile Include="Sprites\Background\TileImg.cs" />
+    <Compile Include="Sprites\Blocks\UnderwaterBlockSprite.cs" />
     <Compile Include="Sprites\Enemy\Blooper\BlooperSprite.cs" />
     <Compile Include="Sprites\Enemy\CheapCheap\CheapCheap.cs" />
     <Compile Include="Sprites\Items\BigPipeSprite.cs" />
