@@ -19,6 +19,7 @@ namespace SuperMario.Interfaces
         void JumpOrStand();
         void ChangeSizeToBig();
         void ChangeSizeToSmall();
+        void Swim();
         void Crouch();
         void ChangeFireMode();
         void Terminated();     

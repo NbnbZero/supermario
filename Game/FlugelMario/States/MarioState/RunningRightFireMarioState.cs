@@ -21,7 +21,7 @@ namespace SuperMario.States.MarioStates
             }
             else
             {
-                Mario.Acceleration = new Vector2(0.25f, Mario.Acceleration.Y + GameData.Float);
+                Mario.Acceleration = new Vector2(0.25f, Mario.Acceleration.Y );
             }
         }
 
@@ -49,7 +49,7 @@ namespace SuperMario.States.MarioStates
         {
             Mario.State = new SwimmingRightFireMarioState(Mario);
             Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y + GameData.Float);
+            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
 
         }
 

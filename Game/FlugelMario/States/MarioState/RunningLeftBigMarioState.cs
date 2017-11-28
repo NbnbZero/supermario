@@ -21,7 +21,7 @@ namespace SuperMario.States.MarioStates
             }
             else
             {
-                Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y + GameData.Float);
+                Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y );
             }
         }
 

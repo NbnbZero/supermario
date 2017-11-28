@@ -18,8 +18,14 @@ namespace SuperMario.Commands.ControllerCommand
 
         public void Execute()
         {
-
-            mario.State.JumpOrStand();
+            if (!mario.IsInWater)
+            {
+                mario.State.JumpOrStand();
+            }
+            else
+            {
+                mario.State.Swim();
+            }
             
         }
     }
