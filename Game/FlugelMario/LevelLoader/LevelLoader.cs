@@ -204,7 +204,12 @@ namespace SuperMario
                     case EnemyType.Goomba:
                         GameObjectManager.enemyList.Add(new Goomba(new Vector2(enemy.xLocation, enemy.yLocation)));
                         break;
-
+                    case EnemyType.Blooper:
+                        GameObjectManager.enemyList.Add(new Blooper(new Vector2(enemy.xLocation, enemy.yLocation)));
+                        break;
+                    case EnemyType.CheapCheap:
+                        GameObjectManager.enemyList.Add(new CheapCheap(new Vector2(enemy.xLocation, enemy.yLocation)));
+                        break;
                 }
             }
             

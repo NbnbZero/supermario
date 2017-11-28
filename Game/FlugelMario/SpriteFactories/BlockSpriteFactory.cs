@@ -35,6 +35,9 @@ namespace SuperMario.SpriteFactories
         public int RockSpriteSheetRows { get; } = 1;
         public int RockBlockAnimeTotalFrame { get; } = 1;
 
+        public int UnderwaterBlockSpriteColumns { get; } = 1;
+        public int UnderwaterBlockSpriteRows { get; } = 1;
+
 
 
         private Texture2D StairSpriteSheet;
@@ -43,6 +46,8 @@ namespace SuperMario.SpriteFactories
         private Texture2D BrickSpriteSheet;
         private Texture2D RockSpriteSheet;
         private Texture2D smallBrickSheet;
+
+        private Texture2D UnderwaterBlockSpriteSheet;
 
         private static BlockSpriteFactory instance = new BlockSpriteFactory();
         public static BlockSpriteFactory Instance
@@ -65,6 +70,7 @@ namespace SuperMario.SpriteFactories
             BrickSpriteSheet = content.Load<Texture2D>("BrickBlockSheet");
             RockSpriteSheet = content.Load<Texture2D>("RockBlockSheet");
             smallBrickSheet = content.Load<Texture2D>("smallbrick");
+            UnderwaterBlockSpriteSheet = content.Load<Texture2D>("UnderwaterBlockSPrite");
         }
         public int StairBlockWidth
         {
@@ -140,6 +146,20 @@ namespace SuperMario.SpriteFactories
                 return RockSpriteSheet.Height / RockSpriteSheetRows;
             }
         }
+        public int UnderwaterBlockWidth
+        {
+            get
+            {
+                return UnderwaterBlockSpriteSheet.Width / UnderwaterBlockSpriteColumns;
+            }
+        }
+        public int UnderwaterBlockHeight
+        {
+            get
+            {
+                return UnderwaterBlockSpriteSheet.Height / UnderwaterBlockSpriteRows;
+            }
+        }
 
         public ISprite CreateStairBlock()
         {
@@ -175,10 +195,16 @@ namespace SuperMario.SpriteFactories
             return new HiddenBlockSprite(UsedSpriteSheet);
         }
 
+        public ISprite CreateUnderwaterBlock()
+        {
+            return new UnderwaterBlockSprite(UnderwaterBlockSpriteSheet);
+        }
+
         public Vector2 UsedBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 QuestionBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 BrickBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 RockBlockAnimation1 { get; } = new Vector2(0, 0);
+        public Vector2 UnderwaterBlockAnimation1 { get; } = new Vector2(0, 0);
 
 
     }
