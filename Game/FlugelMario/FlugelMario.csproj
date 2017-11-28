@@ -79,6 +79,8 @@
     <Compile Include="Commands\MarioCommand\ChangeDeadState.cs" />
     <Compile Include="Commands\MarioCommand\ChangeFireState.cs" />
     <Compile Include="Commands\MarioCommand\ChangeSmallState.cs" />
+    <Compile Include="Commands\MarioCommand\ReleaseSwimUpCommand.cs" />
+    <Compile Include="Commands\MarioCommand\SwimUpCommand.cs" />
     <Compile Include="Display\GameOverDisplayPanel.cs" />
     <Compile Include="Display\HeadsUpDisplayPanel.cs" />
     <Compile Include="Display\MarioLifeDisplayPanel.cs" />

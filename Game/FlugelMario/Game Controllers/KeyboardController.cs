@@ -19,7 +19,7 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
         private bool Muted = true;
-
+        public bool AllowSwimUp = true;
         public KeyboardControls(Game1 game, IMario Mario)
         {
             mygame = game;
@@ -32,7 +32,7 @@ namespace SuperMario.Game_Controllers
             commandDict.Add(Keys.Left, new LeftMarioCommand(mario));
             commandDict.Add(Keys.Right, new RightMarioCommand(mario));
             commandDict.Add(Keys.Down, new MarioCrouchCommand(mario));
-            commandDict.Add(Keys.Up, new MarioJumpCommand(mario));
+            commandDict.Add(Keys.Up, new SwimUpCommand(mario));
 
             commandDict.Add(Keys.Q, new QuitGameCommand(mygame));
 
@@ -44,7 +44,7 @@ namespace SuperMario.Game_Controllers
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
             releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));
-            releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));            
+            releasedCommandDict.Add(Keys.Up, new ReleaseSwimUpCommand());            
         }
 
 
