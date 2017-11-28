@@ -16,7 +16,7 @@ namespace SuperMario.Sprites.CheapCheap
         public Rectangle Destination { get; set; }
 
         private Rectangle sourceRectangle;
-        private int CheapCheapWidth = EnemySpriteFactory.Instance.CheapCheapWidth;
+        private int CheapCheapWidth = EnemySpriteFactory.Instance.CheapCheapWidth/2;
         private int CheapCheapHeight = EnemySpriteFactory.Instance.CheapCheapHeight;
         private int TextureX = 0;
         private int TextureY = 0;

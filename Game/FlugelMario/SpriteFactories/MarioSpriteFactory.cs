@@ -363,31 +363,5 @@ namespace SuperMario.SpriteFactories
         {
             return new SwimmingRightFireMarioSprite(this.bigMarioSwimSheet);
         }
-        public ISprite CreateIdleInWaterLeftSmallMarioSprite()
-        {
-            return new IdleInWaterLeftSmallMarioSprite(this.smallMarioSwimSheet);
-        }
-        public ISprite CreateIdleInWaterLeftBigMarioSprite()
-        {
-            return new IdleInWaterLeftBigMarioSprite(this.bigMarioSwimSheet);
-        }
-
-        public ISprite CreateIdleInWaterLeftFireMarioSprite()
-        {
-            return new IdleInWaterLeftFireMarioSprite(this.bigMarioSwimSheet);
-        }
-        public ISprite CreateIdleInWaterRightSmallMarioSprite()
-        {
-            return new IdleInWaterRightSmallMarioSprite(this.smallMarioSwimSheet);
-        }
-        public ISprite CreateIdleInWaterRightBigMarioSprite()
-        {
-            return new IdleInWaterRightBigMarioSprite(this.bigMarioSwimSheet);
-        }
-
-        public ISprite CreateIdleInWaterRightFireMarioSprite()
-        {
-            return new IdleInWaterRightFireMarioSprite(this.bigMarioSwimSheet);
-        }
     }
 }

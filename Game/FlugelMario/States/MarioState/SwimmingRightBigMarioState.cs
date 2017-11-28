@@ -6,14 +6,14 @@ using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
 {
-    class SwimmingLeftBigMarioState : MarioState
+    class SwimmingRightBigMarioState : MarioState
     {
         public override bool IsStar { get; } = false;
-        public SwimmingLeftBigMarioState(IMario mario) : base(mario)
+        public SwimmingRightBigMarioState(IMario mario) : base(mario)
         {
-            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingLeftBigMarioSprite();
+            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingRightBigMarioSprite();
             this.MarioPosture = Posture.Swimming;
-            this.MarioDirection = Direction.Left;
+            this.MarioDirection = Direction.Right;
             this.MarioShape = Shape.Big;
             mario.IsInWater = true;
             Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y + GameData.Float);
@@ -26,17 +26,17 @@ namespace SuperMario.States.MarioStates
 
         public override void ChangeFireMode()
         {
-            Mario.State = new SwimmingLeftFireMarioState(Mario);
+            Mario.State = new SwimmingRightFireMarioState(Mario);
         }
 
         public override void RunLeft()
         {
-            Mario.Location = new Vector2(Mario.Destination.X - 1, Mario.Destination.Y + GameData.Float);
+            Mario.State = new SwimmingLeftBigMarioState(Mario);
         }
 
         public override void RunRight()
         {
-            Mario.State = new SwimmingRightBigMarioState(Mario);
+            Mario.Location = new Vector2(Mario.Destination.X + 1, Mario.Destination.Y + GameData.Float);
         }
 
         public override void Swim()
@@ -58,14 +58,14 @@ namespace SuperMario.States.MarioStates
 
         public override void ChangeSizeToSmall()
         {
-            Mario.State = new SwimmingLeftSmallMarioState(Mario);
+            Mario.State = new SwimmingRightSmallMarioState(Mario);
         }
 
         public override void Update()
         {
             if (!Mario.IsInAir)
             {
-                Mario.State = new IdleLeftBigMarioState(Mario);
+                Mario.State = new IdleRightBigMarioState(Mario);
             }
             base.Update();
         }

@@ -39,6 +39,11 @@ namespace SuperMario.States.MarioStates
             Mario.State = new IdleLeftBigMarioState(Mario);
         }
 
+        public override void Swim()
+        {
+            Mario.State = new IdleLeftBigMarioState(Mario);
+        }
+
         public override void Crouch()
         {
         }
@@ -55,11 +60,32 @@ namespace SuperMario.States.MarioStates
 
         public override void Update()
         {
-            if (Mario.IsInAir)
+            if (Mario.IsInAir && !Mario.IsInWater)
             {
                 Mario.State = new IdleLeftBigMarioState(Mario); //switch to idle state and return
             }
-            else
+            else if (Mario.IsInAir && Mario.IsInWater)
+            {
+                Mario.State = new SwimmingLeftBigMarioState(Mario);
+            }
+            else if (Mario.IsInWater)
+            {
+                //making the critical speed to 0.75f
+                if (Mario.Velocity.X >= 0.75f)
+                {
+                    Mario.Acceleration = new Vector2(-0.75f, Mario.Acceleration.Y + GameData.Float);
+                }
+                else if (Mario.Velocity.X <= -0.75f)
+                {
+                    Mario.Acceleration = new Vector2(0.75f, Mario.Acceleration.Y + GameData.Float);
+                }
+                else
+                {
+                    Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y + GameData.Float);
+                    Mario.Velocity = new Vector2(0, Mario.Velocity.Y + GameData.Float);
+                }
+            }
+            else if (!Mario.IsInWater)
             {
                 //making the critical speed to 0.75f
                 if (Mario.Velocity.X >= 0.75f)

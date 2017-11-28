@@ -15,7 +15,14 @@ namespace SuperMario.States.MarioStates
             this.MarioPosture = Posture.Running;
             this.MarioDirection = Direction.Left;
             this.MarioShape = Shape.Small;
-            Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y);
+            if (!Mario.IsInWater)
+            {
+                Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y);
+            }
+            else
+            {
+                Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y + GameData.Float);
+            }
         }
 
         public override void RunRight()
@@ -32,6 +39,13 @@ namespace SuperMario.States.MarioStates
             Mario.State = new JumpLeftSmallMarioState(Mario);
             Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
             Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
+        }
+
+        public override void Swim()
+        {
+            Mario.State = new SwimmingLeftSmallMarioState(Mario);
+            Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
+            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y + GameData.Float);
         }
 
         public override void Crouch()
@@ -60,11 +74,15 @@ namespace SuperMario.States.MarioStates
 
         public override void Update()
         {
-            if (Mario.IsInAir && Mario.State.MarioPosture != Posture.Jump) //falling down
+            if (Mario.IsInAir && !Mario.IsInWater && Mario.State.MarioPosture != Posture.Jump)
             {
                 Mario.State = new IdleLeftSmallMarioState(Mario);
             }
 
+            if (Mario.IsInAir && Mario.IsInWater && Mario.State.MarioPosture != Posture.Swimming)
+            {
+                Mario.State = new SwimmingLeftSmallMarioState(Mario);
+            }
             base.Update();
         }
     }

@@ -6,15 +6,15 @@ using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
 {
-    class SwimmingLeftBigMarioState : MarioState
+    class SwimmingLeftFireMarioState : MarioState
     {
         public override bool IsStar { get; } = false;
-        public SwimmingLeftBigMarioState(IMario mario) : base(mario)
+        public SwimmingLeftFireMarioState(IMario mario) : base(mario)
         {
-            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingLeftBigMarioSprite();
+            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingLeftFireMarioSprite();
             this.MarioPosture = Posture.Swimming;
             this.MarioDirection = Direction.Left;
-            this.MarioShape = Shape.Big;
+            this.MarioShape = Shape.Fire;
             mario.IsInWater = true;
             Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y + GameData.Float);
             if (mario.IsInAir == false && !mario.IsProtected)
@@ -36,7 +36,7 @@ namespace SuperMario.States.MarioStates
 
         public override void RunRight()
         {
-            Mario.State = new SwimmingRightBigMarioState(Mario);
+            Mario.State = new SwimmingRightFireMarioState(Mario);
         }
 
         public override void Swim()
@@ -65,7 +65,7 @@ namespace SuperMario.States.MarioStates
         {
             if (!Mario.IsInAir)
             {
-                Mario.State = new IdleLeftBigMarioState(Mario);
+                Mario.State = new IdleLeftFireMarioState(Mario);
             }
             base.Update();
         }
