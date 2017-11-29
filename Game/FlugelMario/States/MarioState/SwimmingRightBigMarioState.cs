@@ -16,7 +16,8 @@ namespace SuperMario.States.MarioStates
             this.MarioDirection = Direction.Right;
             this.MarioShape = Shape.Big;
             mario.IsInWater = true;
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
+            Mario.Velocity = new Vector2(Mario.Velocity.X, GameData.marioInWaterJump);
+            Mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
             if (mario.IsInAir == false && !mario.IsProtected)
             {
                 //SoundManager.Instance.PlaySmallJumpSound();
@@ -36,18 +37,19 @@ namespace SuperMario.States.MarioStates
 
         public override void RunRight()
         {
-            Mario.Location = new Vector2(Mario.Destination.X + 1, Mario.Destination.Y );
+            Mario.Acceleration = new Vector2(GameData.marioInWaterAcc, Mario.Acceleration.Y);
+            Mario.Location = new Vector2(Mario.Destination.X + 1, Mario.Destination.Y);
         }
 
         public override void Swim()
         {
-            Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
+            Mario.Velocity = new Vector2(0, GameData.marioInWaterJump);
+            Mario.Acceleration = new Vector2(Mario.Acceleration.X, GameData.Float + GameData.Gravity);
         }
 
         public override void Crouch()
         {
-            Mario.Velocity = new Vector2(Mario.Velocity.X, 7);
+            Mario.Velocity = new Vector2(Mario.Velocity.X, 0);
             Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
         }
 

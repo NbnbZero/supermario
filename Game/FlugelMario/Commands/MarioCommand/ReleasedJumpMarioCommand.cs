@@ -16,7 +16,10 @@ namespace SuperMario.Commands.ControllerCommand
         }
         public void Execute()
         {
-            
+            if (mario.IsInWater)
+            {
+                mario.Swimable = true;
+            }
         }
     }
 }

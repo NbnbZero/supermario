@@ -37,8 +37,6 @@ namespace SuperMario.States.MarioStates
         public override void Swim()
         {
             Mario.State = new SwimmingLeftSmallMarioState(Mario);
-            Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
         }
 
         public override void Crouch()

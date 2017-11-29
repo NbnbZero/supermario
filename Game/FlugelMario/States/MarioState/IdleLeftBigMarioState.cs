@@ -77,22 +77,7 @@ namespace SuperMario.States.MarioStates
         {
             base.Update();
             if (Mario.IsInAir) return;
-            if (!Mario.IsInAir && Mario.IsInWater) {
-                if (Mario.Velocity.X >= 0.75f)
-                {
-                    Mario.Acceleration = new Vector2(-0.75f, Mario.Acceleration.Y );
-                }
-                else if (Mario.Velocity.X <= -0.75)
-                {
-                    Mario.Acceleration = new Vector2(0.75f, Mario.Acceleration.Y );
-                }
-                else
-                {
-                    Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
-                    Mario.Velocity = new Vector2(0, Mario.Velocity.Y );
-                }
-            }
-            if (!Mario.IsInAir && !Mario.IsInWater)
+            if (!Mario.IsInAir)
             {
                 if (Mario.Velocity.X >= 0.75f)
                 {

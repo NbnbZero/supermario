@@ -100,7 +100,7 @@ namespace SuperMario.Game_Controllers
                 }
                 else if (LeftJump(pressedKeys))
                 {
-                    if (mario.IsInAir)
+                    if (mario.IsInAir || mario.IsInWater)
                     {
                         commandDict[Keys.Left].Execute();
                     }
@@ -116,7 +116,7 @@ namespace SuperMario.Game_Controllers
                 }
                 else if (RightJump(pressedKeys))
                 {
-                    if (mario.IsInAir)
+                    if (mario.IsInAir || mario.IsInWater)
                     {
                         commandDict[Keys.Right].Execute();
                     }
