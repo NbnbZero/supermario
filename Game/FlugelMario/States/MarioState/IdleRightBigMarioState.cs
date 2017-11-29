@@ -37,9 +37,9 @@ namespace SuperMario.States.MarioStates
             }
         }
 
-        public override void SwimRight()
+        public override void Swim()
         {
-            Mario.State = new IdleInWaterRightBigMarioState(Mario);
+            Mario.State = new SwimmingRightBigMarioState(Mario);
 
         }
 
@@ -72,18 +72,21 @@ namespace SuperMario.States.MarioStates
         {
             base.Update();
             if (Mario.IsInAir) return;
-            if (Mario.Velocity.X >= 0.75f)
+            if (!Mario.IsInAir)
             {
-                Mario.Acceleration = new Vector2(-0.75f, Mario.Acceleration.Y);
-            }
-            else if (Mario.Velocity.X <= -0.75f)
-            {
-                Mario.Acceleration = new Vector2(0.75f, Mario.Acceleration.Y);
-            }
-            else
-            {
-                Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
-                Mario.Velocity = new Vector2(0, Mario.Velocity.Y);
+                if (Mario.Velocity.X >= 0.75f)
+                {
+                    Mario.Acceleration = new Vector2(-0.75f, Mario.Acceleration.Y);
+                }
+                else if (Mario.Velocity.X <= -0.75)
+                {
+                    Mario.Acceleration = new Vector2(0.75f, Mario.Acceleration.Y);
+                }
+                else
+                {
+                    Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
+                    Mario.Velocity = new Vector2(0, Mario.Velocity.Y);
+                }
             }
         }
     }

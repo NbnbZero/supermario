@@ -9,5 +9,6 @@ namespace SuperMario.Interfaces
     interface ICommand
     {
         void Execute();
+
     }
 }

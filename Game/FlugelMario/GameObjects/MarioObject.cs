@@ -19,13 +19,23 @@ namespace SuperMario.GameObjects
         public ObjectType Type { get; } = ObjectType.Mario;
         public IMarioState State { get; set; }
         private bool isAir = false;
-        private bool isWater = false;
+        private bool isWater = true;
+        private bool swimable = true;
         public bool IsInAir
         {
             get { return isAir; }
             set
             {
                 isAir = value;
+            }
+        }
+
+        public bool Swimable
+        {
+            get { return swimable; }
+            set
+            {
+                swimable = value;
             }
         }
 
@@ -67,6 +77,7 @@ namespace SuperMario.GameObjects
 
         public Vector2 Velocity { set; get; }
         public float maxSpeed { set; get; }
+        public float maxYSpeed { set; get; }
         public Vector2 Acceleration { set; get; }
         private const int smallMarioVertDis = 3;
         private const int smallMarioHeriDis = 3;
@@ -74,18 +85,18 @@ namespace SuperMario.GameObjects
         private const int bigMarioHeriDis = 2;
         private int protectTime;
         private const int protectDuration = 50;
-        private const int maxYSpeed = 8;
         public MarioObject(Vector2 location)
         {
-            State = new IdleRightSmallMarioState(this);
+            State = new SwimmingRightSmallMarioState(this);
             Location = location;
-            State.MarioPosture = Posture.Stand;
+            State.MarioPosture = Posture.Swimming;
             State.MarioShape = Shape.Small;
             State.MarioDirection = Direction.Right;
             Velocity = new Vector2(0, 0);
-            Acceleration = new Vector2(0, GameData.Gravity);
+            Acceleration = new Vector2(0,GameData.Gravity);
             IsProtected = false;
             maxSpeed = 4f;
+            maxYSpeed = 8f;
         }
 
         public Rectangle Destination
@@ -113,6 +124,11 @@ namespace SuperMario.GameObjects
         
         public void Update()
         {
+            if (IsInWater)
+            {
+                maxSpeed = 2f;
+                maxYSpeed = 4f;
+            }
             if (location.X < Camera.CameraX)
             {
                 location = new Vector2(location.X + 5, location.Y);

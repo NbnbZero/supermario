@@ -161,12 +161,6 @@
     <Compile Include="Sprites\Items\MediumPipeSprite.cs" />
     <Compile Include="Sprites\Items\PipeSprite.cs" />
     <Compile Include="Sprites\Items\PiranhaPlantsSprite.cs" />
-    <Compile Include="Sprites\Mario\IdleInWaterRightSmallMarioSprite.cs" />
-    <Compile Include="Sprites\Mario\IdleInWaterLeftSmallMarioSprite.cs" />
-    <Compile Include="Sprites\Mario\IdleInWaterRightFireMarioSprite.cs" />
-    <Compile Include="Sprites\Mario\IdleInWaterRightBigMarioSprite.cs" />
-    <Compile Include="Sprites\Mario\IdleInWaterLeftFireMarioSprite.cs" />
-    <Compile Include="Sprites\Mario\IdleInWaterLeftBigMarioSprite.cs" />
     <Compile Include="Sprites\Mario\MarioStarSprite.cs" />
     <Compile Include="AbstractClasses\MarioState.cs" />
     <Compile Include="AbstractClasses\AbstractGame.cs" />
@@ -345,6 +339,11 @@
     <Compile Include="States\MarioState\RunningRightSmallMarioState.cs" />
     <Compile Include="States\MarioState\RunningRightStarBigMarioState.cs" />
     <Compile Include="States\MarioState\RunningRightStarSmallMarioState.cs" />
+    <Compile Include="States\MarioState\SwimmingLeftFireMarioState.cs" />
+    <Compile Include="States\MarioState\SwimmingLeftSmallMarioState.cs" />
+    <Compile Include="States\MarioState\SwimmingRightBigMarioState.cs" />
+    <Compile Include="States\MarioState\SwimmingRightFireMarioState.cs" />
+    <Compile Include="States\MarioState\SwimmingRightSmallMarioState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

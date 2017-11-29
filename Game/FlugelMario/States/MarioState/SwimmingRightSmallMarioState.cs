@@ -6,15 +6,15 @@ using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
 {
-    class SwimmingLeftBigMarioState : MarioState
+    class SwimmingRightSmallMarioState : MarioState
     {
         public override bool IsStar { get; } = false;
-        public SwimmingLeftBigMarioState(IMario mario) : base(mario)
+        public SwimmingRightSmallMarioState(IMario mario) : base(mario)
         {
-            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingLeftBigMarioSprite();
+            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingRightSmallMarioSprite();
             this.MarioPosture = Posture.Swimming;
-            this.MarioDirection = Direction.Left;
-            this.MarioShape = Shape.Big;
+            this.MarioDirection = Direction.Right;
+            this.MarioShape = Shape.Small;
             mario.IsInWater = true;
             Mario.Velocity = new Vector2(Mario.Velocity.X, GameData.marioInWaterJump);
             Mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
@@ -27,18 +27,18 @@ namespace SuperMario.States.MarioStates
 
         public override void ChangeFireMode()
         {
-            Mario.State = new SwimmingLeftFireMarioState(Mario);
+            Mario.State = new SwimmingRightFireMarioState(Mario);
         }
 
         public override void RunLeft()
         {
-            Mario.Acceleration = new Vector2(-GameData.marioInWaterAcc, Mario.Acceleration.Y);
-            Mario.Location = new Vector2(Mario.Destination.X - 1, Mario.Destination.Y);
+            Mario.State = new SwimmingLeftSmallMarioState(Mario);
         }
 
         public override void RunRight()
         {
-            Mario.State = new SwimmingRightBigMarioState(Mario);
+            Mario.Acceleration = new Vector2(GameData.marioInWaterAcc, Mario.Acceleration.Y);
+            Mario.Location = new Vector2(Mario.Destination.X + 1, Mario.Destination.Y );
         }
 
         public override void Swim()
@@ -60,14 +60,14 @@ namespace SuperMario.States.MarioStates
 
         public override void ChangeSizeToSmall()
         {
-            Mario.State = new SwimmingLeftSmallMarioState(Mario);
+            Mario.State = new SwimmingRightSmallMarioState(Mario);
         }
 
         public override void Update()
         {
             if (!Mario.IsInAir)
             {
-                Mario.State = new IdleLeftBigMarioState(Mario);
+                Mario.State = new IdleRightSmallMarioState(Mario);
             }
             base.Update();
         }

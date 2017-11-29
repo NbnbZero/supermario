@@ -6,15 +6,15 @@ using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
 {
-    class SwimmingLeftBigMarioState : MarioState
+    class SwimmingLeftFireMarioState : MarioState
     {
         public override bool IsStar { get; } = false;
-        public SwimmingLeftBigMarioState(IMario mario) : base(mario)
+        public SwimmingLeftFireMarioState(IMario mario) : base(mario)
         {
-            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingLeftBigMarioSprite();
+            StateSprite = MarioSpriteFactory.Instance.CreateSwimmingLeftFireMarioSprite();
             this.MarioPosture = Posture.Swimming;
             this.MarioDirection = Direction.Left;
-            this.MarioShape = Shape.Big;
+            this.MarioShape = Shape.Fire;
             mario.IsInWater = true;
             Mario.Velocity = new Vector2(Mario.Velocity.X, GameData.marioInWaterJump);
             Mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
@@ -33,12 +33,13 @@ namespace SuperMario.States.MarioStates
         public override void RunLeft()
         {
             Mario.Acceleration = new Vector2(-GameData.marioInWaterAcc, Mario.Acceleration.Y);
-            Mario.Location = new Vector2(Mario.Destination.X - 1, Mario.Destination.Y);
+            Mario.Location = new Vector2(Mario.Destination.X - 1, Mario.Destination.Y );
         }
 
         public override void RunRight()
         {
-            Mario.State = new SwimmingRightBigMarioState(Mario);
+            
+            Mario.State = new SwimmingRightFireMarioState(Mario);
         }
 
         public override void Swim()
@@ -50,7 +51,7 @@ namespace SuperMario.States.MarioStates
         public override void Crouch()
         {
             Mario.Velocity = new Vector2(Mario.Velocity.X, 0);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
+            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
         }
 
         public override void Terminated()
@@ -67,7 +68,7 @@ namespace SuperMario.States.MarioStates
         {
             if (!Mario.IsInAir)
             {
-                Mario.State = new IdleLeftBigMarioState(Mario);
+                Mario.State = new IdleLeftFireMarioState(Mario);
             }
             base.Update();
         }

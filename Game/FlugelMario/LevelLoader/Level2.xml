@@ -7,5 +7,69 @@
     <color>Normal</color>
   </ObjectData>
 
+  <ItemData>
+    <itemType>Flag</itemType>
+    <xLocation>3235</xLocation>
+    <yLocation>232</yLocation>
+  </ItemData>
 
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>376</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>360</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>344</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>328</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>312</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>296</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>280</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>264</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>248</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>FlagPole</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>232</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>FlagTop</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>216</yLocation>
+  </ItemData>
 </Map>

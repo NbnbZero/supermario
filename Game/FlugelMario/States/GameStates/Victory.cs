@@ -47,7 +47,7 @@ namespace SuperMario.States.GameState
 
         public void Proceed()
         {
-            Game1.State = new Title(game);
+            Game1.State = new PlayingState(game);
         }
     }
 }

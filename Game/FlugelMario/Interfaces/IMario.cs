@@ -14,6 +14,8 @@ namespace SuperMario.Interfaces
         Vector2 Velocity { get; set; }
         Vector2 Acceleration { get; set; }
         float maxSpeed { get; set; }
-       
+        float maxYSpeed { get; set; }
+        bool Swimable { get; set; }
+
     }
 }

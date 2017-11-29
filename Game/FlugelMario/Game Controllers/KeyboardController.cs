@@ -19,7 +19,6 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
         private bool Muted = true;
-
         public KeyboardControls(Game1 game, IMario Mario)
         {
             mygame = game;
@@ -29,6 +28,7 @@ namespace SuperMario.Game_Controllers
 
         public void RegisterCommand()
         {
+
             commandDict.Add(Keys.Left, new LeftMarioCommand(mario));
             commandDict.Add(Keys.Right, new RightMarioCommand(mario));
             commandDict.Add(Keys.Down, new MarioCrouchCommand(mario));
@@ -44,12 +44,13 @@ namespace SuperMario.Game_Controllers
             releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
             releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));
-            releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));            
+            releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));
         }
 
 
         public void Update()
         {
+            //RegisterCommand();
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
             if ((Game1.State.Type == GameStates.Playing))
@@ -99,7 +100,7 @@ namespace SuperMario.Game_Controllers
                 }
                 else if (LeftJump(pressedKeys))
                 {
-                    if (mario.IsInAir)
+                    if (mario.IsInAir || mario.IsInWater)
                     {
                         commandDict[Keys.Left].Execute();
                     }
@@ -115,7 +116,7 @@ namespace SuperMario.Game_Controllers
                 }
                 else if (RightJump(pressedKeys))
                 {
-                    if (mario.IsInAir)
+                    if (mario.IsInAir || mario.IsInWater)
                     {
                         commandDict[Keys.Right].Execute();
                     }
@@ -209,9 +210,9 @@ namespace SuperMario.Game_Controllers
 
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
-                    mygame.Reset();
-                    MarioInfo.ClearTimer();
-                    MarioInfo.MarioLife[0] = 3;    
+                    mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                    //MarioInfo.ClearTimer();
+                    //MarioInfo.MarioLife[0] = 3;    
                     Game1.State.Proceed();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
