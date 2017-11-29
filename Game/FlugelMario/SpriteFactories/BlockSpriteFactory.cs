@@ -38,6 +38,9 @@ namespace SuperMario.SpriteFactories
         public int UnderwaterBlockSpriteColumns { get; } = 1;
         public int UnderwaterBlockSpriteRows { get; } = 1;
 
+        public int SeaWeedSpriteColumns { get; } = 1;
+        public int SeaweedSpriteRows { get; } = 1;
+
 
 
         private Texture2D StairSpriteSheet;
@@ -48,6 +51,7 @@ namespace SuperMario.SpriteFactories
         private Texture2D smallBrickSheet;
 
         private Texture2D UnderwaterBlockSpriteSheet;
+        private Texture2D SeaWeedSpriteSheet;
 
         private static BlockSpriteFactory instance = new BlockSpriteFactory();
         public static BlockSpriteFactory Instance
@@ -71,6 +75,7 @@ namespace SuperMario.SpriteFactories
             RockSpriteSheet = content.Load<Texture2D>("RockBlockSheet");
             smallBrickSheet = content.Load<Texture2D>("smallbrick");
             UnderwaterBlockSpriteSheet = content.Load<Texture2D>("UnderwaterBlockSPrite");
+            SeaWeedSpriteSheet = content.Load<Texture2D>("SeaWeed");
         }
         public int StairBlockWidth
         {
@@ -161,6 +166,22 @@ namespace SuperMario.SpriteFactories
             }
         }
 
+        public int SeaWeedWidth
+        {
+            get
+            {
+                return SeaWeedSpriteSheet.Width / SeaWeedSpriteColumns;
+            }
+        }
+
+        public int SeaWeedHeight
+        {
+            get
+            {
+                return SeaWeedSpriteSheet.Height / SeaweedSpriteRows;
+            }
+        }
+
         public ISprite CreateStairBlock()
         {
             return new StairBlockSprite(StairSpriteSheet) ;
@@ -198,6 +219,11 @@ namespace SuperMario.SpriteFactories
         public ISprite CreateUnderwaterBlock()
         {
             return new UnderwaterBlockSprite(UnderwaterBlockSpriteSheet);
+        }
+
+        public ISprite CreateSeaWeed()
+        {
+            return new SeaWeedSprite(SeaWeedSpriteSheet);
         }
 
         public Vector2 UsedBlockAnimation1 { get; } = new Vector2(0, 0);
