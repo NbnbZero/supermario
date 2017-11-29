@@ -15,14 +15,7 @@ namespace SuperMario.States.MarioStates
             this.MarioPosture = Posture.Running;
             this.MarioDirection = Direction.Left;
             this.MarioShape = Shape.Big;
-            if (!Mario.IsInWater)
-            {
-                Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y);
-            }
-            else
-            {
-                Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y );
-            }
+            Mario.Acceleration = new Vector2(-0.25f, Mario.Acceleration.Y );
         }
 
         public override void ChangeFireMode()
@@ -48,14 +41,12 @@ namespace SuperMario.States.MarioStates
         {
             Mario.State = new JumpLeftBigMarioState(Mario);
             Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
+            Mario.Acceleration = new Vector2(-Mario.Velocity.X, Mario.Acceleration.Y);
         }
 
         public override void Swim()
         {
             Mario.State = new SwimmingLeftBigMarioState(Mario);
-            Mario.Velocity = new Vector2(Mario.Velocity.X, -7);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y+GameData.Float);
         }
 
         public override void Crouch()

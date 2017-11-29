@@ -23,6 +23,8 @@ namespace SuperMario
         public static float MarioAccel { get; } = .25f;
         public static int marioBouncingSpeed { get; } = -2;
         public static int flagPoleBottomY { get; } = 368;
-        public static float Float { get; } = -0.2f;
+        public static float Float { get; } = -0.1f;
+        public static float marioInWaterAcc { get; } = 0.2f;
+        public static float marioInWaterJump { get; } = -5;
     }
 }
