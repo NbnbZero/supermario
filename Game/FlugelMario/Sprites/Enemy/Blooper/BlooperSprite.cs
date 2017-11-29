@@ -43,7 +43,7 @@ namespace SuperMario.Sprites.Blooper
         public void Update()
         {
             Destination = MakeDestinationRectangle(Location);
-            if (counter % 10 == 0)
+            if (counter % 30 == 0)
             {
                 currentFrame++;
                 currentFrame = currentFrame % TotalFrames;

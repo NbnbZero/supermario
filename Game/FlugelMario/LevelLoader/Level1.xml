@@ -147,20 +147,6 @@
 
   ///////////
   <BlockData>
-    <State>Brick</State>
-    <itemType>Coin</itemType>
-    <xLocation>200</xLocation>
-    <yLocation>335</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  <BlockData>
-    <State>Hidden</State>
-    <itemType>Null</itemType>
-    <xLocation>216</xLocation>
-    <yLocation>335</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  <BlockData>
     <State>Question</State>
     <itemType>Coin</itemType>
     <xLocation>400</xLocation>

@@ -14,6 +14,10 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
+            if (handler.enemy.GetType() == typeof(Blooper) || handler.enemy.GetType() == typeof(CheapCheap))
+            {
+                return;
+            }
             handler.enemy.Location = new Vector2(handler.enemy.Location.X - 1, handler.enemy.Location.Y);
             if (handler.enemy.GetType() == typeof(Goomba))
             {

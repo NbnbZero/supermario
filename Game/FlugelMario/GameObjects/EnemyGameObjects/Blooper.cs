@@ -67,12 +67,12 @@ namespace SuperMario
         {
             hasBeenInView = true;
 
-            if (counter >= 0 && counter < 50)
+            if (counter >= 0 && counter < 150)
             {
                 Location = new Vector2(Location.X, Location.Y - velocity.Y);
                 counter++;
             }
-            else if (counter >= 50 && counter < 100)
+            else if (counter >= 150 && counter < 300)
             {
                 Location = new Vector2(Location.X, Location.Y + velocity.Y);
                 counter++;

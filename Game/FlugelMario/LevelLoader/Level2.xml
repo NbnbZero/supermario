@@ -23,6 +23,13 @@
     <color>Normal</color>
   </BlockData>
 
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>425</xLocation>
+    <yLocation>254</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+
   <BlockData>
     <State>UnderwaterBlock</State>
     <itemType>Null</itemType>
@@ -45,6 +52,69 @@
     <color>Normal</color>
   </BlockData>
 
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>700</xLocation>
+    <yLocation>180</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>900</xLocation>
+    <yLocation>260</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>1300</xLocation>
+    <yLocation>180</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>600</xLocation>
+    <yLocation>220</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>616</xLocation>
+    <yLocation>204</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>616</xLocation>
+    <yLocation>236</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>800</xLocation>
+    <yLocation>350</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>816</xLocation>
+    <yLocation>350</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>1200</xLocation>
+    <yLocation>310</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>1450</xLocation>
+    <yLocation>280</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  
+  
   <BlockData>
     <State>SeaWeed</State>
     <itemType>Null</itemType>
@@ -212,6 +282,39 @@
     <color>Normal</color>
   </BlockData>
 
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>1532</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>1564</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>1596</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>1532</xLocation>
+    <yLocation>336</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>1564</xLocation>
+    <yLocation>336</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>1596</xLocation>
+    <yLocation>336</yLocation>
+  </ItemData>
+  
+
 
   <BlockData>
     <State>UnderwaterBlock</State>
@@ -284,6 +387,67 @@
     <color>Normal</color>
   </BlockData>
 
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>1700</xLocation>
+    <yLocation>180</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>1935</xLocation>
+    <yLocation>260</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>Blooper</enemyType>
+    <xLocation>2150</xLocation>
+    <yLocation>180</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>1950</xLocation>
+    <yLocation>220</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>1966</xLocation>
+    <yLocation>204</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>1966</xLocation>
+    <yLocation>236</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>2190</xLocation>
+    <yLocation>350</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>2190</xLocation>
+    <yLocation>350</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>2535</xLocation>
+    <yLocation>310</yLocation>
+    <color>Normal</color>
+  </EnemyData>
+  <EnemyData>
+    <enemyType>CheapCheap</enemyType>
+    <xLocation>2800</xLocation>
+    <yLocation>280</yLocation>
+    <color>Normal</color>
+  </EnemyData>
 
   <BlockData>
     <State>UnderwaterBlock</State>
@@ -549,6 +713,58 @@
     <yLocation>240</yLocation>
     <color>Normal</color>
   </BlockData>
+
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2542</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2572</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2602</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2634</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2666</xLocation>
+    <yLocation>352</yLocation>
+  </ItemData>
+
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2542</xLocation>
+    <yLocation>320</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2572</xLocation>
+    <yLocation>320</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2602</xLocation>
+    <yLocation>320</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2634</xLocation>
+    <yLocation>320</yLocation>
+  </ItemData>
+  <ItemData>
+    <itemType>Coin</itemType>
+    <xLocation>2666</xLocation>
+    <yLocation>320</yLocation>
+  </ItemData>
 
 
   <ItemData>

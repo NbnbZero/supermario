@@ -50,7 +50,6 @@ namespace SuperMario
 
         public void ChangeDirection()
         {
-            Velocity = new Vector2(-Velocity.X, Velocity.Y);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -67,20 +66,7 @@ namespace SuperMario
         {
             hasBeenInView = true;
 
-            if (counter >= 0 && counter < 50)
-            {
-                Location = new Vector2(Location.X - velocity.X, Location.Y);
-                counter++;
-            }
-            else if (counter >= 50 && counter < 100)
-            {
-                Location = new Vector2(Location.X + velocity.X, Location.Y);
-                counter++;
-            }
-            else
-            {
-                counter = 0;
-            }
+            Location = new Vector2(Location.X + velocity.X, Location.Y);
 
             Destination = State.StateSprite.MakeDestinationRectangle(Location);
             State.Update();

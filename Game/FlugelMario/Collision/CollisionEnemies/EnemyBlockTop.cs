@@ -15,7 +15,8 @@ namespace SuperMario.Commands
 
         public void Execute()
         {
-            if (myhandler.block.GetType() == typeof(HiddenBlock))
+            if (myhandler.block.GetType() == typeof(HiddenBlock) || 
+                myhandler.enemy.GetType() == typeof(Blooper) || myhandler.enemy.GetType() == typeof(CheapCheap))
             {
                 return;
             }
