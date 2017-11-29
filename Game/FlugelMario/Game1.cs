@@ -191,7 +191,7 @@ namespace SuperMario
 
         public void LoadNextLevel(string file)
         {
-            Vector2 restartPoint = GameObjectManager.restartPoint;
+            Vector2 restartPoint = new Vector2(50, 200);
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             #region Load Textures
@@ -209,6 +209,7 @@ namespace SuperMario
             Mario = new MarioObject(restartPoint);
             objectManager = new GameObjectManager(this, Mario);
             gamedata = new GameData(objectManager);
+            GameData.Gravity = 0.0f;
             camera1 = new Camera();
             Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);

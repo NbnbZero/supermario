@@ -38,7 +38,7 @@ namespace SuperMario.Display
             winningTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             winningTextSprite.text = "Victory";
             AskForContSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            AskForContSprite.text = "Replay? Y / N";
+            AskForContSprite.text = "Next Level? Y / N";
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             marioTitleTextSprite.text = "Player1Mario";
             scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();

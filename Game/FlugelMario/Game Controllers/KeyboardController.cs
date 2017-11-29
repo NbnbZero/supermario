@@ -210,9 +210,9 @@ namespace SuperMario.Game_Controllers
 
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
-                    mygame.Reset();
-                    MarioInfo.ClearTimer();
-                    MarioInfo.MarioLife[0] = 3;    
+                    mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                    //MarioInfo.ClearTimer();
+                    //MarioInfo.MarioLife[0] = 3;    
                     Game1.State.Proceed();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
