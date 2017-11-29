@@ -133,7 +133,6 @@
     <Compile Include="Interfaces\IText.cs" />
     <Compile Include="Sound\SoundManager.cs" />
     <Compile Include="SpriteFactories\PipeSpriteFactory.cs" />
-    <Compile Include="SpriteFactories\SeaWeedSprite.cs" />
     <Compile Include="SpriteFactories\TextSpriteFactory.cs" />
     <Compile Include="Sprites\Background\BigBushSprite.cs" />
     <Compile Include="Sprites\Background\BigCloudSprite.cs" />
