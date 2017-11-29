@@ -50,7 +50,7 @@ namespace SuperMario
 
         public void ChangeDirection()
         {
-            Velocity = new Vector2(Velocity.X, -Velocity.Y);
+            State = new BlooperCloseState();
         }
 
         public void Draw(SpriteBatch spriteBatch)

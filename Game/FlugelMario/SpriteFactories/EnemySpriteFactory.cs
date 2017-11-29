@@ -145,6 +145,10 @@ namespace SuperMario.SpriteFactories
         {
             return new DeadKoopaSprite(enemyKoopaSpriteSheet);
         }
+        public ISprite CreateBlooperCloseSprite()
+        {
+            return new BlooperCloseSprite(enemyBlooperSpriteSheet);
+        }
         public Vector2 GoombaWalkCord { get; } = new Vector2(0, 0);
         public Vector2 GoombaDeadCord { get; } = new Vector2(2, 0);
         public Vector2 KoopaWalkCord { get; } = new Vector2(0, 0);

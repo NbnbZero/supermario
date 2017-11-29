@@ -147,6 +147,7 @@
     <Compile Include="Sprites\Background\TileImg.cs" />
     <Compile Include="Sprites\Blocks\SeaWeedSprite.cs" />
     <Compile Include="Sprites\Blocks\UnderwaterBlockSprite.cs" />
+    <Compile Include="Sprites\Enemy\Blooper\BlooperCloseSprite.cs" />
     <Compile Include="Sprites\Enemy\Blooper\BlooperSprite.cs" />
     <Compile Include="Sprites\Enemy\CheapCheap\CheapCheap.cs" />
     <Compile Include="Sprites\Items\BigPipeSprite.cs" />
@@ -288,6 +289,7 @@
     <Compile Include="States\BlockStates\HiddenBlockState.cs" />
     <Compile Include="States\BlockStates\QuestionBlockState.cs" />
     <Compile Include="States\EnemyStates\BlooperAliveState.cs" />
+    <Compile Include="States\EnemyStates\BlooperCloseState.cs" />
     <Compile Include="States\EnemyStates\CheapCheapAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaAliveState.cs" />
     <Compile Include="States\EnemyStates\GoombaDeadState.cs" />

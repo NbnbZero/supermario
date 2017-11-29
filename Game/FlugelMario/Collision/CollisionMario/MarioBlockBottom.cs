@@ -43,6 +43,11 @@ namespace SuperMario.Commands
                     myhandler.block.Location = new Vector2(myhandler.block.Location.X, myhandler.block.Location.Y - verticalDisplacement);
                     SoundManager.Instance.PlayBumpSound();
                 }
+                if ((myhandler.mario.State.MarioShape == Shape.Small) && myhandler.block.GetType() == typeof(UnderwaterBlock))
+                {
+                    myhandler.block.Location = new Vector2(myhandler.block.Location.X, myhandler.block.Location.Y);
+                    SoundManager.Instance.PlayBumpSound();
+                }
                 if ((myhandler.mario.State.MarioShape == Shape.Big ||
                     myhandler.mario.State.MarioShape == Shape.Fire ||
                     myhandler.mario.State.MarioShape == Shape.StarBig)
