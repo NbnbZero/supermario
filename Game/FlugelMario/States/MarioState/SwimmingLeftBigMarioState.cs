@@ -2,6 +2,7 @@
 using SuperMario.AbstractClasses;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
+using SuperMario.Sound;
 using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
@@ -18,10 +19,6 @@ namespace SuperMario.States.MarioStates
             mario.IsInWater = true;
             Mario.Velocity = new Vector2(Mario.Velocity.X, GameData.marioInWaterJump);
             Mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
-            if (mario.IsInAir == false && !mario.IsProtected)
-            {
-                //SoundManager.Instance.PlaySmallJumpSound();
-            }
             mario.IsInAir = true;
         }
 

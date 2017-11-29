@@ -24,10 +24,33 @@ namespace SuperMario.Commands
 
             if (myhandler.enemy.Alive)
             {
-                myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X,GameData.marioBouncingSpeed);
-                myhandler.enemy.Terminate("Top");
-                SoundManager.Instance.PlayStompSound();
-                ScoringSystem.AddPointsForStompingEnemy(myhandler.enemy);
+                if (!myhandler.mario.IsInWater)
+                {
+                    myhandler.mario.Velocity = new Vector2(myhandler.mario.Velocity.X, GameData.marioBouncingSpeed);
+                    myhandler.enemy.Terminate("Top");
+                    SoundManager.Instance.PlayStompSound();
+                    ScoringSystem.AddPointsForStompingEnemy(myhandler.enemy);
+                }
+                else
+                {
+                    myhandler.enemy.ChangeDirection();
+                    switch (myhandler.mario.State.MarioShape)
+                    {
+                        case Shape.Small:
+                            myhandler.mario.State.Terminated();
+                            break;
+                        case Shape.Big:
+                            myhandler.mario.IsProtected = true;
+                            myhandler.mario.State.MarioShapeChange(Shape.Small);
+                            SoundManager.Instance.PlayPipeSound();
+                            break;
+                        case Shape.Fire:
+                            myhandler.mario.IsProtected = true;
+                            myhandler.mario.State.MarioShapeChange(Shape.Small);
+                            SoundManager.Instance.PlayPipeSound();
+                            break;
+                    }
+                }
             }
         }
     }
