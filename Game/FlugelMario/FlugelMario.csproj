@@ -103,6 +103,7 @@
     <Compile Include="GameObjects\BlockGameObjects\FloorBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\HiddenBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\QuestionBlock.cs" />
+    <Compile Include="GameObjects\BlockGameObjects\SeaWeed.cs" />
     <Compile Include="GameObjects\BlockGameObjects\StairBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\UnderwaterBlock.cs" />
     <Compile Include="GameObjects\EnemyGameObjects\Blooper.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Interfaces\IText.cs" />
     <Compile Include="Sound\SoundManager.cs" />
     <Compile Include="SpriteFactories\PipeSpriteFactory.cs" />
+    <Compile Include="SpriteFactories\SeaWeedSprite.cs" />
     <Compile Include="SpriteFactories\TextSpriteFactory.cs" />
     <Compile Include="Sprites\Background\BigBushSprite.cs" />
     <Compile Include="Sprites\Background\BigCloudSprite.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Sprites\Background\SmallCLoudSprite.cs" />
     <Compile Include="Sprites\Background\SmallHill.cs" />
     <Compile Include="Sprites\Background\TileImg.cs" />
+    <Compile Include="Sprites\Blocks\SeaWeedSprite.cs" />
     <Compile Include="Sprites\Blocks\UnderwaterBlockSprite.cs" />
     <Compile Include="Sprites\Enemy\Blooper\BlooperSprite.cs" />
     <Compile Include="Sprites\Enemy\CheapCheap\CheapCheap.cs" />
