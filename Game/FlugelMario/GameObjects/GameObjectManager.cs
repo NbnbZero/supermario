@@ -30,6 +30,7 @@ namespace SuperMario.GameObjects
         public IAnimation victoryAnimation;
         private MarioObject mario;
         private Game1 game;
+        private int index = 75;
         private bool isLevelComplete = false;
         private IDisplayPanel titleDisplayPanel;
         private IDisplayPanel gameOverDisplayPanel;
@@ -112,6 +113,18 @@ namespace SuperMario.GameObjects
                     Camera.Move(mario);
                 }
                 mario.Update();
+                if (mario.IsInWater)
+                {
+                    index--;
+                    if (index == 0)
+                    {
+                        MarioInfo.BubbleAnimation(mario,"o");
+                    }
+                    if (index < 0)
+                    {
+                        index = 75;
+                    }
+                }
             }
             restartPoint=continueLevel(mario);
             CheckEndGame();

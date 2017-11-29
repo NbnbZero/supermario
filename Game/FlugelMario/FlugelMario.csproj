@@ -47,6 +47,7 @@
     <Compile Include="AbstractClasses\BigMarioSwimmingSprite.cs" />
     <Compile Include="AbstractClasses\NormalMarioSwimmingSprite.cs" />
     <Compile Include="AbstractClasses\MarioRunningStarSprite.cs" />
+    <Compile Include="Animation\BubbleAnimation.cs" />
     <Compile Include="Animation\CoinOutOfBlockAnimation.cs" />
     <Compile Include="Animation\PoleScoreAnimation.cs" />
     <Compile Include="Animation\ScoreAnimation.cs" />

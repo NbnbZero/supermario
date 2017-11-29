@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using SuperMario.Animation;
 
 namespace SuperMario
 {   
@@ -25,6 +26,14 @@ namespace SuperMario
             {
                 HighestScore = ScoringSystem.Score;
             }
+        }
+
+        public static void BubbleAnimation(IGameObject obj, String scoreToDisplay)
+        {
+            Rectangle objDestination = obj.Destination;
+            Vector2 location = new Vector2(objDestination.X, objDestination.Y);
+            IAnimationInGame BubbleAnimation = new BubbleAnimation(location, scoreToDisplay);
+            BubbleAnimation.StartAnimation();
         }
 
         public static void ResetTimer()
