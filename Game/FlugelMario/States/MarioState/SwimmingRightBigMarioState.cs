@@ -40,6 +40,7 @@ namespace SuperMario.States.MarioStates
 
         public override void Swim()
         {
+            SoundManager.Instance.PlaySmallJumpSound();
             Mario.Velocity = new Vector2(0, GameData.marioInWaterJump);
             Mario.Acceleration = new Vector2(Mario.Acceleration.X, GameData.Float + GameData.Gravity);
         }

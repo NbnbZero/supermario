@@ -32,7 +32,6 @@ namespace SuperMario.Commands.ControllerCommand
                 }
                 else if (mario.Swimable)
                 {
-                    SoundManager.Instance.PlaySmallJumpSound();
                     mario.State.Swim();
                 }
                           

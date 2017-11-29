@@ -2,6 +2,7 @@
 using SuperMario.AbstractClasses;
 using SuperMario.Enums;
 using SuperMario.Interfaces;
+using SuperMario.Sound;
 using SuperMario.SpriteFactories;
 
 namespace SuperMario.States.MarioStates
@@ -44,7 +45,7 @@ namespace SuperMario.States.MarioStates
         public override void Swim()
         {
             Mario.State = new SwimmingRightFireMarioState(Mario);
-
+            SoundManager.Instance.PlaySmallJumpSound();
         }
 
         public override void Crouch()
