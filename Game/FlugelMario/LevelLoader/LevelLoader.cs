@@ -43,32 +43,41 @@ namespace SuperMario
             {
                 myObjects = (List<BlockData>)serializer.Deserialize(reader);
             }
-                #region Floor
-            for (int i = 0; i < 1200; i += 16)
+            #region Floor
+            if (file == "./LevelLoader/Level1.xml")
             {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
-            }
-            for (int i = 1250; i < 1500; i += 16)
+                for (int i = 0; i < 1200; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                }
+                for (int i = 1250; i < 1500; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                }
+                for (int i = 1550; i < 2300; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                }
+                for (int i = 2350; i < 3700; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                }
+                for (int i = 620; i < 1390; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 642)));
+                }
+                for (int i = 800; i < 1100; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 626)));
+                    GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 610)));
+                    GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 594)));
+                }
+            } else
             {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
-            }
-            for (int i = 1550; i < 2300; i += 16)
-            {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
-            }
-            for (int i = 2350; i < 3700; i += 16)
-            {
-                GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
-            }
-            for (int i = 620; i < 1390; i += 16)
-            {
-                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 642)));
-            }
-            for (int i = 800; i < 1100; i += 16)
-            {
-                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 626)));
-                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 610)));
-                GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 594)));
+                for (int i = 0; i < 3700; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                }
             }
                 #endregion
             foreach (BlockData block in myObjects)
