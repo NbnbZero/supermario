@@ -15,7 +15,8 @@ namespace SuperMario.Enums
         Hidden,
         None,
         Broken,
-        Underwater
-        
+        Underwater,
+        UnderwaterBlock,
+        SeaWeed
     }
 }

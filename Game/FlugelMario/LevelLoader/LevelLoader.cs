@@ -72,11 +72,20 @@ namespace SuperMario
                     GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 610)));
                     GameObjectManager.blockList.Add(new BrickBlock(new Vector2(i, 594)));
                 }
-            } else
+            }
+            else if (file == "./LevelLoader/Level2.xml")
             {
-                for (int i = 0; i < 3700; i += 16)
+                for (int i = 0; i < 1500; i += 16)
                 {
-                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 400)));
+                    GameObjectManager.blockList.Add(new UnderwaterBlock(new Vector2(i, 400)));
+                }
+                for (int i = 1650; i < 2500; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new UnderwaterBlock(new Vector2(i, 400)));
+                }
+                for (int i = 2700; i < 3600; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new UnderwaterBlock(new Vector2(i, 400)));
                 }
             }
                 #endregion
@@ -131,7 +140,13 @@ namespace SuperMario
                             case BlockType.Hidden:
                                 GameObjectManager.blockList.Add(new HiddenBlock(new Vector2(block.xLocation, block.yLocation)));
                                 break;
-                    }
+                            case BlockType.UnderwaterBlock:
+                                GameObjectManager.blockList.Add(new UnderwaterBlock(new Vector2(block.xLocation, block.yLocation)));
+                                break;
+                            case BlockType.SeaWeed:
+                                GameObjectManager.blockList.Add(new SeaWeed(new Vector2(block.xLocation, block.yLocation)));
+                                break;
+                }
                 }
             
         }
@@ -188,7 +203,7 @@ namespace SuperMario
                         case ItemType.PiranhaPlants:
                             GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation), mario));
                             break;
-                }
+                    }
 
                 }
             

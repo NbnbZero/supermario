@@ -121,7 +121,14 @@ namespace SuperMario
         /// 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            if (File == "./LevelLoader/Level1.xml")
+            {
+                GraphicsDevice.Clear(Color.CornflowerBlue);
+            }
+            else
+            {
+                GraphicsDevice.Clear(Color.DarkBlue);
+            }
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera2.GetViewMatrix(parallax));
             

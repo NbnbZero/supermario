@@ -19,7 +19,7 @@ namespace SuperMario.GameObjects
 
         public SeaWeed(Vector2 location)
         {
-            sprite = BlockSpriteFactory.Instance.CreateUnderwaterBlock();
+            sprite = BlockSpriteFactory.Instance.CreateSeaWeed();
             Location = location;
             Destination = sprite.MakeDestinationRectangle(Location);
         }

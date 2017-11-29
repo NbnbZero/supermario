@@ -14,19 +14,6 @@
     <color>Normal</color>
   </ObjectData>
 
-  <EnemyData>
-    <enemyType>Blooper</enemyType>
-    <xLocation>400</xLocation>
-    <yLocation>200</yLocation>
-    <color>Normal</color>
-  </EnemyData>
-  <EnemyData>
-    <enemyType>CheapCheap</enemyType>
-    <xLocation>200</xLocation>
-    <yLocation>200</yLocation>
-    <color>Normal</color>
-  </EnemyData>
-
 
   <BlockData>
     <State>Brick</State>
