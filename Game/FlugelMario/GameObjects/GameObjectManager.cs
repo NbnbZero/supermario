@@ -48,7 +48,7 @@ namespace SuperMario.GameObjects
             objectList = new List<IGameObject>();
             cloudList = new List<IGameObject>();
             mario = Mario;
-            restartPoint = new Vector2(150,200);
+            restartPoint = new Vector2(50,200);
             game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();

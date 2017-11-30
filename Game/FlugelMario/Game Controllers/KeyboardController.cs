@@ -15,7 +15,6 @@ namespace SuperMario.Game_Controllers
     public class KeyboardControls
     {
         private IMario mario;
-        private int scoretemp;
         private Game1 mygame;
         private Dictionary<Keys, ICommand> commandDict = new Dictionary<Keys, ICommand>();
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
