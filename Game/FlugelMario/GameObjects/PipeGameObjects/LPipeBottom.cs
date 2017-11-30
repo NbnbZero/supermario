@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Enums;
 using SuperMario.Interfaces;
 using SuperMario.Sound;
 using SuperMario.SpriteFactories;
+using SuperMario.States.MarioStates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,10 +48,27 @@ namespace SuperMario.GameObjects.PipeGameObjects
             sprite.Draw(spriteBatch, this.Location);
         }
 
-        public void Warp(IMario mario)
+        public void Warp(IMario Mario)
         {
             if (IsTelable)
             {
+                if (Mario.IsLevel2)
+                {
+                    Mario.IsInWater = true;
+                    SoundManager.Instance.PlayUnderwaterSong();
+                    switch (Mario.State.MarioShape)
+                    {
+                        case Shape.Small:
+                            Mario.State = new SwimmingRightSmallMarioState(Mario);
+                            break;
+                        case Shape.Big:
+                            Mario.State = new SwimmingRightBigMarioState(Mario);
+                            break;
+                        case Shape.Fire:
+                            Mario.State = new SwimmingRightFireMarioState(Mario);
+                            break;
+                    }
+                }
                 random = rd.Next(0, pipeList.Count-1);
                 IPipe pipe = (IPipe)pipeList[random];
                 while (pipe.Location.Y>420)
@@ -58,8 +77,8 @@ namespace SuperMario.GameObjects.PipeGameObjects
                     pipe = (IPipe)pipeList[random];
                 }
                 Camera.SetCamera(new Vector2(pipe.Destination.X - 16 * 5, 0));
-                mario.Velocity = Vector2.Zero;
-                mario.Location = new Vector2(pipe.Destination.X - 8, pipe.Destination.Y - mario.Destination.Height);
+                Mario.Velocity = Vector2.Zero;
+                Mario.Location = new Vector2(pipe.Destination.X - 8, pipe.Destination.Y - Mario.Destination.Height);
                 SoundManager.Instance.PlayPipeSound();
                 SoundManager.Instance.PlayOverWorldSong();
             }
