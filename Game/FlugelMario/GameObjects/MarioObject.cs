@@ -121,7 +121,11 @@ namespace SuperMario.GameObjects
                     State.MarioShape == Shape.Small ||
                     State.MarioShape == Shape.StarSmall)
                 {
-                    verticalDisplacement = MarioSpriteFactory.Instance.HalfNormalMarioHeight + smallMarioVertDis;
+                    verticalDisplacement = smallMarioVertDis;
+                    horizontalDisplacement = smallMarioHeriDis;
+                }else if(State.MarioPosture == Posture.Swimming)
+                {
+                    verticalDisplacement = smallMarioVertDis;
                     horizontalDisplacement = smallMarioHeriDis;
                 }
                 else
