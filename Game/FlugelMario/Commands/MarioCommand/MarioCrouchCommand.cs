@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperMario.Interfaces;
 using SuperMario.Enums;
+using SuperMario.DisplayPanel;
+
 namespace SuperMario.Commands.ControllerCommand
 {
     class MarioCrouchCommand : ICommand
@@ -18,7 +20,6 @@ namespace SuperMario.Commands.ControllerCommand
 
         public void Execute()
         {
-
             mario.State.Crouch();
 
             if (mario.State.MarioShape == Shape.Small || mario.State.MarioShape== Shape.StarSmall)             

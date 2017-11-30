@@ -27,6 +27,7 @@ namespace SuperMario.States.MarioStates
         public override void ChangeStarMode()
         {
             Mario.State = new JumpRightStarSmallMarioState(Mario);
+
         }
         public override void RunLeft()
         {

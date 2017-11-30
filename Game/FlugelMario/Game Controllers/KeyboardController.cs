@@ -9,6 +9,7 @@ using SuperMario.States.GameState;
 using SuperMario.Commands;
 using SuperMario.Sound;
 using SuperMario.SCsystem;
+using SuperMario.DisplayPanel;
 
 namespace SuperMario.Game_Controllers
 {
@@ -20,6 +21,7 @@ namespace SuperMario.Game_Controllers
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
         private Keys[] preKeys = new Keys[0];
         private bool Muted = true;
+        TitleDisplayPanel titlePanel = (TitleDisplayPanel)GameData.GameObjectManager.TitlePanel;
         public KeyboardControls(Game1 game, IMario Mario)
         {
             mygame = game;
@@ -51,7 +53,6 @@ namespace SuperMario.Game_Controllers
 
         public void Update()
         {
-            //RegisterCommand();
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
             if ((Game1.State.Type == GameStates.Playing))
@@ -148,7 +149,7 @@ namespace SuperMario.Game_Controllers
                     }
                 }
 
-                if ((pressedKeys.Contains(Keys.P) && preKeys != null && preKeys.Contains(Keys.P)))
+                if ((pressedKeys.Contains(Keys.P)))
                 {
                     Game1.State.Pause();
                     SoundManager.Instance.muteAndUnmute(Muted);
@@ -163,12 +164,29 @@ namespace SuperMario.Game_Controllers
                 {
                     mygame.Reset();
                     Game1.State = new PlayingState(mygame);
-                    SoundManager.Instance.PlayOverWorldSong();
-                    MarioInfo.StartTimer();
+                    
+                    if (titlePanel.option == 0)
+                    {
+                        SoundManager.Instance.PlayOverWorldSong();
+                    }
+                    else if (titlePanel.option == 1)
+                    {
+                        mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                        SoundManager.Instance.PlayUnderwaterSong();
+                    }
+                    // MarioInfo.StartTimer();
                 }
                 else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {
                     commandDict[Keys.Q].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.Up) && !preKeys.Contains(Keys.Up)))
+                {
+                    titlePanel.Up();
+                }
+                else if ((pressedKeys.Contains(Keys.Down) && !preKeys.Contains(Keys.Down)))
+                {
+                    titlePanel.Down();
                 }
             }
             else if (Game1.State.Type == GameStates.LifeDisplay)
@@ -234,6 +252,8 @@ namespace SuperMario.Game_Controllers
                 mygame.LoadNextLevel("./LevelLoader/Level2.xml");
                 Game1.State.Proceed();
             }
+
+            preKeys = pressedKeys;
         }
 
         private bool Left(Keys[] pressedKeys)
