@@ -164,7 +164,18 @@ namespace SuperMario
             {
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
             }
-
+            if (file == "./LevelLoader/Level1.xml")
+            {
+                for (int i = 800; i < 1100; i += 32)
+                {
+                    GameObjectManager.itemList.Add(new Coin(new Vector2(i, 578)));
+                    GameObjectManager.itemList.Add(new Coin(new Vector2(i, 514)));
+                }
+                for (int i = 820; i < 1100; i += 32)
+                {
+                    GameObjectManager.itemList.Add(new Coin(new Vector2(i, 546)));
+                }
+            }
             foreach (ItemData item in myObjects)
                 {
                     switch (item.itemType)
