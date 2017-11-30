@@ -75,7 +75,7 @@ namespace SuperMario
             }
             else if (file == "./LevelLoader/Level2.xml")
             {
-                for (int i = 0; i < 1500; i += 16)
+                for (int i = -32; i < 1500; i += 16)
                 {
                     GameObjectManager.blockList.Add(new UnderwaterBlock(new Vector2(i, 400)));
                 }
@@ -278,6 +278,13 @@ namespace SuperMario
             using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<ObjectData>)serializer.Deserialize(reader);
+            }
+            if (file == "./LevelLoader/Level2.xml")
+            {
+                for (int i = -40; i < 3600; i += 14)
+                {
+                    GameObjectManager.objectList.Add(new Wave(new Vector2(i, 0)));
+                }
             }
 
             foreach (ObjectData obj in myObjects)

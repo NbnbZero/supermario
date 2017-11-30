@@ -15,7 +15,7 @@ namespace SuperMario.SCsystem
 {
     public class ScoringSystem
     {
-        private static int score = 0;
+        public static int score = 0;
         public static int Score { get { return score; } }
         public static int flagScore = 0;
 

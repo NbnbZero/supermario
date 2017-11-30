@@ -15,6 +15,7 @@ namespace SuperMario.SpriteFactories
         private Texture2D backgroundSheet;
         private Texture2D titleSheet;
         private Texture2D castleSheet;
+        private Texture2D waveSheet;
 
         private static BackgroundSpriteFactory instance = new BackgroundSpriteFactory();
 
@@ -37,6 +38,7 @@ namespace SuperMario.SpriteFactories
             titleSheet = content.Load<Texture2D>("TitleImage");
             castleSheet = content.Load<Texture2D>("castle");
             backgroundSheet = content.Load<Texture2D>("outside_scenery");
+            waveSheet = content.Load<Texture2D>("wave");
         }
         public ISprite CreateSmallHillSprite()
         {
@@ -82,6 +84,10 @@ namespace SuperMario.SpriteFactories
         public ISprite CreateCastleSprite()
         {
             return new CastleSprite(castleSheet);
+        }
+        public ISprite CreateWaveSprite()
+        {
+            return new WaveSprite(waveSheet);
         }
     }
 }

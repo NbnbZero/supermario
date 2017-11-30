@@ -8,12 +8,14 @@ using SuperMario.Commands.ControllerCommand;
 using SuperMario.States.GameState;
 using SuperMario.Commands;
 using SuperMario.Sound;
+using SuperMario.SCsystem;
 
 namespace SuperMario.Game_Controllers
 {
     public class KeyboardControls
     {
         private IMario mario;
+        private int scoretemp;
         private Game1 mygame;
         private Dictionary<Keys, ICommand> commandDict = new Dictionary<Keys, ICommand>();
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
