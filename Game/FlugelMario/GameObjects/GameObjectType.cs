@@ -30,7 +30,8 @@ namespace SuperMario.GameObjects
             PiranhaPlants,
             blackbackground,
             Blooper,
-            CheapCheap
+            CheapCheap,
+            Wave
         }
     }
 }

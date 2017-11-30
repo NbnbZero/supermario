@@ -99,6 +99,7 @@
     <Compile Include="GameObjects\BackGourndObjects\SmallBush.cs" />
     <Compile Include="GameObjects\BackGourndObjects\SmallCloud.cs" />
     <Compile Include="GameObjects\BackGourndObjects\SmallHill.cs" />
+    <Compile Include="GameObjects\BackGourndObjects\Wave.cs" />
     <Compile Include="GameObjects\BlockGameObjects\BrickBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\CoinBrickBlock.cs" />
     <Compile Include="GameObjects\BlockGameObjects\FloorBlock.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Sprites\Background\SmallCLoudSprite.cs" />
     <Compile Include="Sprites\Background\SmallHill.cs" />
     <Compile Include="Sprites\Background\TileImg.cs" />
+    <Compile Include="Sprites\Background\WaveSprite.cs" />
     <Compile Include="Sprites\Blocks\SeaWeedSprite.cs" />
     <Compile Include="Sprites\Blocks\UnderwaterBlockSprite.cs" />
     <Compile Include="Sprites\Enemy\Blooper\BlooperCloseSprite.cs" />
