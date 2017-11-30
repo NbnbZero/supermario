@@ -197,7 +197,7 @@ namespace SuperMario.Game_Controllers
                     }
                 }
 
-                if ((pressedKeys.Contains(Keys.P)))
+                if (pressedKeys.Contains(Keys.P))
                 {
                     Game1.State.Pause();
                     SoundManager.Instance.muteAndUnmute(Muted);
@@ -261,7 +261,7 @@ namespace SuperMario.Game_Controllers
             }
             else if (Game1.State.Type == GameStates.Pause)
             {
-                if ((pressedKeys.Contains(Keys.P) && preKeys != null))
+                if (pressedKeys.Contains(Keys.P))
                 {
                     Game1.State.Proceed();
                     SoundManager.Instance.muteAndUnmute(Muted);
