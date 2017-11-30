@@ -656,3 +656,9 @@
 /processorParam:Quality=Best
 /build:flash.wav
 
+#begin shenhai.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:shenhai.mp3
+
