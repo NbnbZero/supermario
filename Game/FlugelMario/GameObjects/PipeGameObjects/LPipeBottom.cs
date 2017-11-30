@@ -68,7 +68,11 @@ namespace SuperMario.GameObjects.PipeGameObjects
                             Mario.State = new SwimmingRightFireMarioState(Mario);
                             break;
                     }
+                    Mario.Velocity = Vector2.Zero;
+                    Mario.Location = new Vector2(50, 200);
+                    Camera.SetCamera(new Vector2(50-16*5 , 0));
                 }
+                else { 
                 random = rd.Next(0, pipeList.Count-1);
                 IPipe pipe = (IPipe)pipeList[random];
                 while (pipe.Location.Y>420)
@@ -77,8 +81,10 @@ namespace SuperMario.GameObjects.PipeGameObjects
                     pipe = (IPipe)pipeList[random];
                 }
                 Camera.SetCamera(new Vector2(pipe.Destination.X - 16 * 5, 0));
+                
                 Mario.Velocity = Vector2.Zero;
                 Mario.Location = new Vector2(pipe.Destination.X - 8, pipe.Destination.Y - Mario.Destination.Height);
+                }
                 SoundManager.Instance.PlayPipeSound();
                 SoundManager.Instance.PlayOverWorldSong();
             }

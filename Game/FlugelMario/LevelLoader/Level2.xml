@@ -1021,16 +1021,10 @@
   
   <PipeData>
     <PipeType>LPipeBottom</PipeType>
-    <xLocation>1310</xLocation>
-    <yLocation>862</yLocation>
+    <xLocation>948</xLocation>
+    <yLocation>580</yLocation>
   </PipeData>
   
-  <PipeData>
-    <PipeType>LPipeTop</PipeType>
-    <xLocation>1342</xLocation>
-    <yLocation>464</yLocation>
-  </PipeData>
-
 </Map>
 
 
