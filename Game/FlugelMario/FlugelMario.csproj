@@ -302,6 +302,7 @@
     <Compile Include="States\GameStates\Pause.cs" />
     <Compile Include="States\GameStates\Playing.cs" />
     <Compile Include="States\GameStates\Title.cs" />
+    <Compile Include="States\GameStates\Transition.cs" />
     <Compile Include="States\GameStates\Victory.cs" />
     <Compile Include="States\MarioState\CrouchLeftBigMarioState.cs" />
     <Compile Include="States\MarioState\CrouchLeftFireMarioState.cs" />

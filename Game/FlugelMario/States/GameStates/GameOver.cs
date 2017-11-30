@@ -50,5 +50,8 @@ namespace SuperMario.States.GameState
         {
             Game1.State = new Title(game);
         }
+        public void Transit()
+        {
+        }
     }
 }

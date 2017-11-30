@@ -7,12 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMario.Game_Controllers;
+using SuperMario.GameObjects;
 
 namespace FlugelMario.States.GameState
 {
     public class LevelComplete : IGameState
     {
         private AbstractGame game;
+
         public GameStates Type
         {
             get
@@ -47,9 +50,15 @@ namespace FlugelMario.States.GameState
         {
 
         }
+
         public void Proceed()
         {
             Game1.State = new Victory(game);
+        }
+
+        public void Transit()
+        {
+            Game1.State = new Transition(game);
         }
     }
 }

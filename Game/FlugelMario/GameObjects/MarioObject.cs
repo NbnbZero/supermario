@@ -20,7 +20,7 @@ namespace SuperMario.GameObjects
         public ObjectType Type { get; } = ObjectType.Mario;
         public IMarioState State { get; set; }
         private bool isAir = false;
-        private bool isWater = true;
+        private bool isWater = false;
         private bool swimable = true;
         public bool IsInAir
         {
@@ -88,13 +88,13 @@ namespace SuperMario.GameObjects
         private const int protectDuration = 50;
         public MarioObject(Vector2 location)
         {
-            State = new SwimmingRightSmallMarioState(this);
+            State = new IdleRightSmallMarioState(this);
             Location = location;
-            State.MarioPosture = Posture.Swimming;
+            State.MarioPosture = Posture.Stand;
             State.MarioShape = Shape.Small;
             State.MarioDirection = Direction.Right;
             Velocity = new Vector2(0, 0);
-            Acceleration = new Vector2(0,GameData.Gravity);
+            Acceleration = new Vector2(0, GameData.Gravity);
             IsProtected = false;
             maxSpeed = 4f;
             maxYSpeed = 8f;

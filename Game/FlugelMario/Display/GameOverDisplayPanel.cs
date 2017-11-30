@@ -39,7 +39,7 @@ namespace SuperMario.Display
                 int gameOverTextY = screenHeight / 2 - 60;
                 gameOverTextSprite.Draw(spriteBatch, new Vector2(Camera.CameraX + Camera.CenterOfScreen - halfOfGameOverTextWidth, -Camera.CameraY+gameOverTextY));
                 int askForContX = Camera.CameraX + Camera.CenterOfScreen - (AskForContSprite.MakeDestinationRectangle(Vector2.Zero).Width / 2);
-                AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, -Camera.CameraY+gameOverTextY + 40));
+                AskForContSprite.Draw(spriteBatch, new Vector2(askForContX, -Camera.CameraY + gameOverTextY + 40));
             }
 
         }

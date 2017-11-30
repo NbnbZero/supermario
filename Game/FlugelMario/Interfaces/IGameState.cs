@@ -9,7 +9,7 @@ namespace SuperMario.Interfaces
     public enum GameStates
     {
         Title, Demo, Playing, Pause, LevelComplete, 
-        LifeDisplay, GameOver, Victory
+        LifeDisplay, GameOver, Victory, Transition
     }
 
     public interface IGameState
@@ -20,5 +20,6 @@ namespace SuperMario.Interfaces
         void Pause();
         void MarioDied();
         void GameOver();
+        void Transit();
     }
 }

@@ -21,7 +21,6 @@ namespace SuperMario
         public GameObjectType.ObjectType Type { get; } = GameObjectType.ObjectType.CheapCheap;
         private Vector2 velocity;
         private Vector2 acceleration;
-        private int counter = 0;
         public Vector2 Velocity
         {
             get

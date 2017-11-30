@@ -50,5 +50,10 @@ namespace SuperMario.States.GameState
         {
             TitleDisplayPanel titlePanel = (TitleDisplayPanel)GameData.GameObjectManager.TitlePanel;
         }
+
+        public void Transit()
+        {
+            Game1.State = new Transition(game);
+        }
     }
 }

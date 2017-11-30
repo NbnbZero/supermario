@@ -49,5 +49,9 @@ namespace SuperMario.States.GameState
         {
              Game1.State = new LevelComplete(game);
         }
+
+        public void Transit()
+        {
+        }
     }
 }

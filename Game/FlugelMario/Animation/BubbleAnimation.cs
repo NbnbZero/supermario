@@ -44,6 +44,7 @@ namespace SuperMario.Animation
             State = AnimationState.IsPlaying;
             GameData.GameObjectManager.AddAnimation(this);
             veloY = -1.5f;
+            accelY = 0;
         }
 
         public void Update()

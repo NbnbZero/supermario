@@ -71,7 +71,7 @@ namespace SuperMario
             TextSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
-            Vector2 location = new Vector2(50, 200);
+            Vector2 location = new Vector2(3000, 200);
             Mario = new MarioObject(location);
             objectManager = new GameObjectManager(this,Mario);
             gamedata = new GameData(objectManager);
@@ -194,6 +194,7 @@ namespace SuperMario
             MarioInfo.ClearTimer();
             MarioInfo.ResetTimer();
             MarioInfo.StartTimer();
+            SoundManager.Instance.PlayOverWorldSong();
         }
 
         public void LoadNextLevel(string file)
@@ -216,7 +217,6 @@ namespace SuperMario
             Mario = new MarioObject(restartPoint);
             objectManager = new GameObjectManager(this, Mario);
             gamedata = new GameData(objectManager);
-            GameData.Gravity = 0.0f;
             camera1 = new Camera();
             Camera.LimitationList.Add(3600);
             camera2 = new Camera2D(GraphicsDevice.Viewport);
@@ -226,6 +226,22 @@ namespace SuperMario
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
             Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
+
+
+            Mario.IsInWater = true; 
+            switch (Mario.State.MarioShape)
+            {
+                case Shape.Small:
+                    Mario.State = new SwimmingRightSmallMarioState(Mario);
+                    break;
+                case Shape.Big:
+                    Mario.State = new SwimmingRightBigMarioState(Mario);
+                    break;
+                case Shape.Fire:
+                    Mario.State = new SwimmingRightFireMarioState(Mario);
+                    break;
+            }
+
             MarioInfo.ClearTimer();
             MarioInfo.ResetTimer();
             MarioInfo.StartTimer();

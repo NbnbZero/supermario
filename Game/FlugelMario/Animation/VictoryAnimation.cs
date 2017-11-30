@@ -13,7 +13,7 @@ namespace SuperMario.Animation
 
         private IMario mario_;
         private IItem flag_;
-
+        private static int gate = 1;
         private int stage = 1;
         private int counter = 0;
         private int maxCount = 1;
@@ -88,9 +88,15 @@ namespace SuperMario.Animation
                     }
                     break;
                 default:            
-                    if (Game1.State.Type == GameStates.LevelComplete)
+                    if (Game1.State.Type == GameStates.LevelComplete && gate == 1)
                     {
-                       Game1.State.Proceed(); 
+                        Game1.State.Transit();
+                        gate = 2;
+                    }
+                    if (Game1.State.Type == GameStates.LevelComplete && gate == 2)
+                    {
+                        Game1.State.Proceed();
+                        gate = 1;
                     }
                     break;                 
             }

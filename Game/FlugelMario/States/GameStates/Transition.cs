@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace SuperMario.States.GameState
 {
-    class Victory : IGameState
+    class Transition : IGameState
     {
         private AbstractGame game;
         public Interfaces.GameStates Type
         {
             get
             {
-                return Interfaces.GameStates.Victory;
+                return Interfaces.GameStates.Transition;
             }
         }
 
-        public Victory(AbstractGame _game)
+        public Transition(AbstractGame _game)
         {
             this.game = _game;
         }
