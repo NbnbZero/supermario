@@ -1,0 +1,21 @@
+Author: Yanbo Du
+Date of Review: 11/30/2017
+Sprint: 5
+
+Name of File: 	BubbleAnimation.cs
+
+Author of File:	Chen Ling
+
+Comments:
+	- First of all, easier for the reader to catch the functionality of the class which implement IAnimationInGame
+        interface
+    - uses char "o" to simulate the bubble
+    - When I step in, I found the method is associates with MarioInfo.cs where stores all the timer and score information.
+        From my perspective, it should be in MarioObject.cs where has all the mario attributes.
+    - In the GameObjectManager.cs, the logic for the animation could be refactored to mario.Update() which makes the code more reasonable
+
+Hypothetical changes:
+	- Refactor bubble animation update to mario update
+    - Probably could create bubble sprite to have a more real visual effect
+
+Number of minutes: 20 mins
