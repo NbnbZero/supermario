@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SuperMario.Interfaces;
+using SuperMario.SCsystem;
 using SuperMario.SpriteFactories;
 using System;
 using System.Collections.Generic;

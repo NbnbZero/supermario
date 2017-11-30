@@ -40,7 +40,7 @@ namespace SuperMario.Display
             AskForContSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             AskForContSprite.text = "Next Level? Y / N";
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            marioTitleTextSprite.text = "Player1Mario";
+            marioTitleTextSprite.text = "Mario";
             scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             scoreTextSprite.text = fixText("" + ScoringSystem.Score, scoreLength);
             coinSprite = ItemSpriteFactory.Instance.CreateCoinSprite();

@@ -13,6 +13,7 @@ using SuperMario.Sound;
 using SuperMario.States.GameState;
 using SuperMario.Animation;
 using SuperMario.SCsystem;
+using SuperMario.Display;
 
 namespace SuperMario
 {
@@ -22,6 +23,7 @@ namespace SuperMario
     public class Game1 : AbstractGame
     {
         SpriteBatch spriteBatch;
+        private MarioLifeDisplayPanel marioLifeDisplayPanel;
         KeyboardControls keyboard;
         GamePadControls gamepad; //No！
         Camera camera1;
@@ -242,7 +244,6 @@ namespace SuperMario
                     Mario.State = new SwimmingRightFireMarioState(Mario);
                     break;
             }
-
             MarioInfo.ClearTimer();
             MarioInfo.ResetTimer();
             MarioInfo.StartTimer();
