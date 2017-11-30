@@ -160,8 +160,10 @@ namespace SuperMario
         {
             LoadContent();
             Camera.ResetCamera();
+            CoinSystem.Instance.ResetCoin();
+            ScoringSystem.ResetScore();
             MarioInfo.ResetTimer();
-            MarioInfo.StartTimer();
+            MarioInfo.StopTimer();
         }
 
         public void LevelReset(string file)
@@ -200,7 +202,7 @@ namespace SuperMario
 
         public void LoadNextLevel(string file)
         {
-            Vector2 restartPoint = new Vector2(50, 200);
+            Vector2 restartPoint = new Vector2(670, 520);
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             #region Load Textures
@@ -227,9 +229,8 @@ namespace SuperMario
             loader.Load(file);
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
-            Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
+            Camera.SetCamera(new Vector2(restartPoint.X - 16 * 3, -420));
             SoundManager.Instance.PlayUnderwaterSong();
-
             //下水之后
             Mario.IsInWater = true; 
             switch (Mario.State.MarioShape)

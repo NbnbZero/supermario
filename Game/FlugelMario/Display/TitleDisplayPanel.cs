@@ -39,9 +39,6 @@ namespace SuperMario.DisplayPanel
 
         public TitleDisplayPanel()
         {
-
-            CoinSystem.Instance.ResetCoin();
-            ScoringSystem.ResetScore();
             this.titleImg = BackgroundSpriteFactory.Instance.CreateTitleImgSprite();
             highestScoreText = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             highestScoreText.text = "Top Score - " + fixText(" " + MarioInfo.HighestScore, scoreLength);

@@ -51,6 +51,7 @@
     <Compile Include="Animation\CoinOutOfBlockAnimation.cs" />
     <Compile Include="Animation\PoleScoreAnimation.cs" />
     <Compile Include="Animation\ScoreAnimation.cs" />
+    <Compile Include="Animation\TransitionAnimation.cs" />
     <Compile Include="Animation\VictoryAnimation.cs" />
     <Compile Include="Camera\Camera2D.cs" />
     <Compile Include="Collision\CollisionEnemies\EnemyBlockTop.cs" />

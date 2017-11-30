@@ -30,7 +30,7 @@ namespace SuperMario.Animation
             this.textSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             this.textSprite.text = bubble;
             this.State = AnimationState.ToBegin;
-            this.endpointY = 50;
+            this.endpointY = 25;
             this.location = location;
         }
 
