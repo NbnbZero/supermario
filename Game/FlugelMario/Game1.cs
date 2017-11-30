@@ -124,7 +124,7 @@ namespace SuperMario
         /// 
         protected override void Draw(GameTime gameTime)
         {
-            if (File == "./LevelLoader/Level1.xml")
+            if (!Mario.IsInWater)
             {
                 GraphicsDevice.Clear(Color.CornflowerBlue);
             }

@@ -121,13 +121,17 @@ namespace SuperMario.GameObjects
                     State.MarioShape == Shape.Small ||
                     State.MarioShape == Shape.StarSmall)
                 {
-                    verticalDisplacement = MarioSpriteFactory.Instance.HalfNormalMarioHeight + smallMarioVertDis;
+                    verticalDisplacement = MarioSpriteFactory.Instance.HalfNormalMarioHeight+ smallMarioVertDis;
                     horizontalDisplacement = smallMarioHeriDis;
-                }
-                else
+                }else 
                 {
                     verticalDisplacement = bigMarioVertDis;
                     horizontalDisplacement = bigMarioHeriDis;
+                }
+                if (State.MarioPosture == Posture.Swimming)
+                {
+                    verticalDisplacement = smallMarioVertDis;
+                    horizontalDisplacement = smallMarioHeriDis;
                 }
                 return new Rectangle((int)this.location.X + horizontalDisplacement, (int)this.location.Y + verticalDisplacement, MarioSpriteFactory.Instance.NormalMarioWidth - 2 * horizontalDisplacement, MarioSpriteFactory.Instance.NormalMarioHeight - verticalDisplacement);
             }
@@ -143,6 +147,11 @@ namespace SuperMario.GameObjects
             if (location.X < Camera.CameraX)
             {
                 location = new Vector2(location.X + 5, location.Y);
+                return;
+            }
+            else if (location.Y < Camera.CameraY - 20)
+            {
+                location = new Vector2(location.X, location.Y + 10);
                 return;
             }
             //TODO: add level condition for Game (ground/underground)

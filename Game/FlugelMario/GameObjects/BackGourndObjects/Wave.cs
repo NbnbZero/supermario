@@ -1,33 +1,33 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario;
+using SuperMario.GameObjects;
 using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
-using static SuperMario.GameObjects.GameObjectType;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SuperMario.GameObjects
 {
-    public class UnderwaterBlock: IBlock
+    public class Wave : IGameObject
     {
         private ISprite sprite;
-        public ObjectType Type { get; } = ObjectType.Block;
         public Vector2 Location { get; set; }
         public Rectangle Destination { get; set; }
-
-        public UnderwaterBlock(Vector2 location)
+        public GameObjectType.ObjectType Type { get; } = GameObjectType.ObjectType.Wave;
+        public Wave(Vector2 location)
         {
-            sprite = BlockSpriteFactory.Instance.CreateUnderwaterBlock();
+            sprite = BackgroundSpriteFactory.Instance.CreateWaveSprite();
             Location = location;
             Destination = sprite.MakeDestinationRectangle(Location);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, Location);
+            sprite.Draw(spriteBatch, this.Location);
         }
-
-        public void Trigger()
-        {
-        }
-
         public void Update()
         {
             Destination = sprite.MakeDestinationRectangle(Location);
