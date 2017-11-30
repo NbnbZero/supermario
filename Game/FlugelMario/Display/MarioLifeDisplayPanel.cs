@@ -25,12 +25,20 @@ namespace SuperMario.Display
         private const int marioRowY = screenHeight / 2 - 50;
         private const int secRowY = screenHeight / 2 -30;
         private const int thirdRowY = screenHeight / 2;
-        public MarioLifeDisplayPanel()
+        public MarioLifeDisplayPanel(IMario mario)
         {
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             marioSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            worldTextSprite.text = "WORLD 1-1";
+            System.Console.WriteLine(mario.IsLevel2);
+            if (mario.IsLevel2)
+            {
+                worldTextSprite.text = "WORLD 2-2";
+            }
+            else
+            {
+                worldTextSprite.text = "WORLD 1-1";
+            }          
             multiTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             multiTextSprite.text = "*";
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();

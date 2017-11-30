@@ -12,6 +12,7 @@ using SuperMario.Sprites.Goomba;
 using SuperMario.Sound;
 using SuperMario.States.GameState;
 using SuperMario.Animation;
+using SuperMario.SCsystem;
 
 namespace SuperMario
 {
@@ -166,7 +167,6 @@ namespace SuperMario
         {
             Vector2 restartPoint = GameObjectManager.restartPoint;
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             #region Load Textures
             MarioSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
@@ -215,6 +215,7 @@ namespace SuperMario
             #endregion
 
             Mario = new MarioObject(restartPoint);
+            Mario.IsLevel2 = true;
             objectManager = new GameObjectManager(this, Mario);
             gamedata = new GameData(objectManager);
             camera1 = new Camera();
@@ -226,8 +227,7 @@ namespace SuperMario
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
             Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
-            Mario.IsLevel2 = true;
-
+            
             //下水之后
             Mario.IsInWater = true; 
             switch (Mario.State.MarioShape)

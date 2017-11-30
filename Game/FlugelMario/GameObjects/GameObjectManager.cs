@@ -52,7 +52,7 @@ namespace SuperMario.GameObjects
             game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();
-            marioLifeDisplayPanel = new MarioLifeDisplayPanel();
+            marioLifeDisplayPanel = new MarioLifeDisplayPanel(mario);
             headsUpDisplayPanel = new HeadsUpDisplayPanel();
             animationList = new List<IAnimationInGame>();
             winningDisplayPanel = new WinningDisplayPanel(game);
