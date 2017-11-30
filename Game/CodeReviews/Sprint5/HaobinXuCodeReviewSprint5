@@ -1,0 +1,17 @@
+Author: Haobin Xu
+Date of Review: 11/30/2017
+Sprint: 5
+
+Name of File: 	SwimmingRightSmallMarioSprite.cs
+
+Author of File:	Chen Ling
+
+Comments:
+	-Name seems to be long but it definitely easy for others to understand what is being called or created.
+	-Using inheritance made the class and each single peers is extremely easy for future modification.
+	-Using similiar draw and update scheme with past Mario(runningbig, runningsmall) made it clear for other coder to understand.
+
+Hypothetical changes:
+	- Current swimming frame and swimming frame increment could be decleared or announced in the parent interface so that the code will be more reusable.
+
+Number of minutes: 20 mins
