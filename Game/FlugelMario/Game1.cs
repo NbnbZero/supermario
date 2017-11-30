@@ -23,7 +23,6 @@ namespace SuperMario
     public class Game1 : AbstractGame
     {
         SpriteBatch spriteBatch;
-        private MarioLifeDisplayPanel marioLifeDisplayPanel;
         KeyboardControls keyboard;
         GamePadControls gamepad; //No！
         Camera camera1;
