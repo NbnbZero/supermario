@@ -11,7 +11,6 @@ using SuperMario.Sound;
 using SuperMario.SCsystem;
 using SuperMario.DisplayPanel;
 using SuperMario.Enums;
-using SuperMario.Enums;
 using Microsoft.Xna.Framework;
 namespace SuperMario.Game_Controllers
 {
@@ -40,7 +39,7 @@ namespace SuperMario.Game_Controllers
             commandDict.Add(Keys.Up, new MarioJumpCommand(mario));
 
             commandDict.Add(Keys.Q, new QuitGameCommand(mygame));
-
+            commandDict.Add(Keys.F, new FlashCommand(mario));
             commandDict.Add(Keys.Y, new ChangeSmallState(mario));
             commandDict.Add(Keys.U, new ChangeBigState(mario));
             commandDict.Add(Keys.I, new ChangeFireState(mario));
@@ -50,6 +49,7 @@ namespace SuperMario.Game_Controllers
             releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
             releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));
             releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));
+            releasedCommandDict.Add(Keys.F, new ReleasedFlashCommand(mario));
         }
 
 
@@ -84,6 +84,10 @@ namespace SuperMario.Game_Controllers
                 else if ((pressedKeys.Contains(Keys.O) && preKeys != null))
                 {
                     commandDict[Keys.O].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.F) && preKeys != null))
+                {
+                    commandDict[Keys.F].Execute();
                 }
 
                 if (Left(pressedKeys))

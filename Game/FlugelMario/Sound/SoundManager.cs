@@ -33,6 +33,7 @@ namespace SuperMario.Sound
         private Song overworldSong;
         private Song starSong;
         private Song underwaterSound;
+        private SoundEffect flash;
         private bool IsMuted = false;
 
         private static SoundManager instance = new SoundManager();
@@ -72,6 +73,7 @@ namespace SuperMario.Sound
             flagSound = content.Load<SoundEffect>("v_flag");
             marioScream = content.Load<SoundEffect>("v_AA");
             underwaterSound = content.Load<Song>("My_Jinji");
+            flash = content.Load<SoundEffect>("flash" );
 ;        }
         public void PlayMarioDyingSound()
         {
@@ -112,7 +114,13 @@ namespace SuperMario.Sound
             }
         }
 
-
+        public void PlayFlashSound()
+        {
+            if (!IsMuted)
+            {
+                flash.Play();
+            }
+        }
         public void PlayGameOverSound()
         {
                 if (!IsMuted)

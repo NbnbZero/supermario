@@ -38,6 +38,10 @@ namespace SuperMario.States.MarioStates
         {
         }
 
+        public override void Swim()
+        {
+        }
+
         public override void Crouch()
         {
         }

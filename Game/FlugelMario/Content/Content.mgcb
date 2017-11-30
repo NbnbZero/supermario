@@ -650,3 +650,9 @@
 /processorParam:Quality=Best
 /build:My_Jinji.mp3
 
+#begin flash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:flash.wav
+
