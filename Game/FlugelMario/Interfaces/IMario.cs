@@ -16,6 +16,7 @@ namespace SuperMario.Interfaces
         float maxSpeed { get; set; }
         float maxYSpeed { get; set; }
         bool Swimable { get; set; }
+        bool IsLevel2 { get; set; }
 
     }
 }

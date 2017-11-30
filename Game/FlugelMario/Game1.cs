@@ -226,8 +226,9 @@ namespace SuperMario
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
             Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
+            Mario.IsLevel2 = true;
 
-
+            //下水之后
             Mario.IsInWater = true; 
             switch (Mario.State.MarioShape)
             {

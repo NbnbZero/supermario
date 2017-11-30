@@ -174,7 +174,7 @@ namespace SuperMario.Game_Controllers
             {
                 if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
                 {
-                    if (mario.IsInWater)
+                    if (mario.IsLevel2)
                     {
                         mygame.LoadNextLevel("./LevelLoader/Level2.xml");
                     }

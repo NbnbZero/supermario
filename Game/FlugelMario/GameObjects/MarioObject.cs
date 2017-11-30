@@ -22,12 +22,22 @@ namespace SuperMario.GameObjects
         private bool isAir = false;
         private bool isWater = false;
         private bool swimable = true;
+        private bool Level2 = false;
         public bool IsInAir
         {
             get { return isAir; }
             set
             {
                 isAir = value;
+            }
+        }
+
+        public bool IsLevel2
+        {
+            get { return Level2 ; }
+            set
+            {
+                Level2 = value;
             }
         }
 
