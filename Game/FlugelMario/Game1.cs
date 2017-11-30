@@ -202,7 +202,7 @@ namespace SuperMario
 
         public void LoadNextLevel(string file)
         {
-            Vector2 restartPoint = new Vector2(50,300);
+            Vector2 restartPoint = new Vector2(630,525);
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             #region Load Textures
