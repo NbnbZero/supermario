@@ -9,6 +9,8 @@ using SuperMario.States.GameState;
 using SuperMario.Commands;
 using SuperMario.Sound;
 using SuperMario.SCsystem;
+using SuperMario.Enums;
+using Microsoft.Xna.Framework;
 
 namespace SuperMario.Game_Controllers
 {
@@ -103,6 +105,29 @@ namespace SuperMario.Game_Controllers
                 {
                     if (mario.IsInAir || mario.IsInWater)
                     {
+                        if (mario.IsInWater)
+                        {
+                            if (mario.Swimable)
+                            {
+                                switch (mario.State.MarioShape)
+                                {
+                                    case Shape.Small:
+                                        mario.State = new SwimmingLeftSmallMarioState(mario);
+                                        break;
+                                    case Shape.Big:
+                                        mario.State = new SwimmingLeftBigMarioState(mario);
+                                        break;
+                                    case Shape.Fire:
+                                        mario.State = new SwimmingLeftFireMarioState(mario);
+                                        break;
+                                }
+                                mario.State.MarioPosture = Posture.Swimming;
+                                mario.State.MarioDirection = Direction.Left;
+                                mario.Velocity = new Vector2(mario.Velocity.X, GameData.marioInWaterJump);
+                                mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
+                                mario.Swimable = false;
+                            }
+                        }
                         commandDict[Keys.Left].Execute();
                     }
                     else
@@ -119,6 +144,29 @@ namespace SuperMario.Game_Controllers
                 {
                     if (mario.IsInAir || mario.IsInWater)
                     {
+                        if (mario.IsInWater)
+                        {
+                            if (mario.Swimable)
+                            {
+                                switch (mario.State.MarioShape)
+                                {
+                                    case Shape.Small:
+                                        mario.State = new SwimmingRightSmallMarioState(mario);
+                                        break;
+                                    case Shape.Big:
+                                        mario.State = new SwimmingRightBigMarioState(mario);
+                                        break;
+                                    case Shape.Fire:
+                                        mario.State = new SwimmingRightFireMarioState(mario);
+                                        break;
+                                }
+                                mario.State.MarioPosture = Posture.Swimming;
+                                mario.State.MarioDirection = Direction.Right;
+                                mario.Velocity = new Vector2(mario.Velocity.X, GameData.marioInWaterJump);
+                                mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
+                                mario.Swimable = false;
+                            }
+                        }
                         commandDict[Keys.Right].Execute();
                     }
                     else
