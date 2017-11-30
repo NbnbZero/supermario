@@ -839,182 +839,222 @@
     <yLocation>216</yLocation>
   </ItemData>
 
-///////////
+  ///////////
+  <ObjectData>
+    <BackgroundObjType>Castle</BackgroundObjType>
+    <xLocation>620</xLocation>
+    <yLocation>740</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
+    <itemType>Null</itemType>
+    <xLocation>562</xLocation>
+    <yLocation>820</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  
+  <BlockData>
+    <State>Broken</State>
+    <itemType>Null</itemType>
+    <xLocation>578</xLocation>
+    <yLocation>820</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  
+  <BlockData>
+    <State>Broken</State>
+    <itemType>Null</itemType>
+    <xLocation>594</xLocation>
+    <yLocation>820</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Broken</State>
     <itemType>Null</itemType>
     <xLocation>610</xLocation>
-    <yLocation>610</yLocation>
-    <color>Normal</color>
+    <yLocation>820</yLocation>
+    <color>Normal</color>    
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
     <xLocation>626</xLocation>
-    <yLocation>610</yLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
+  
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
     <xLocation>642</xLocation>
-    <yLocation>610</yLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
+    <itemType>Null</itemType>
+    <xLocation>658</xLocation>
+    <yLocation>820</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Broken</State>
     <itemType>Null</itemType>
     <xLocation>668</xLocation>
-    <yLocation>610</yLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>686</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>676</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>702</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>692</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>718</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>708</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>734</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>724</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>750</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>740</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>766</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>756</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>782</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>772</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>798</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>788</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>814</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>804</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>830</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>820</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>846</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>836</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>862</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>852</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>878</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>868</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>894</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>884</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>910</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>900</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
 
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
-    <xLocation>926</xLocation>
-    <yLocation>610</yLocation>
+    <xLocation>916</xLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
   
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
     <xLocation>932</xLocation>
-    <yLocation>610</yLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
   
   <BlockData>
-    <State>Brick</State>
+    <State>Broken</State>
     <itemType>Null</itemType>
     <xLocation>948</xLocation>
-    <yLocation>610</yLocation>
+    <yLocation>820</yLocation>
     <color>Normal</color>
   </BlockData>
   
@@ -1022,7 +1062,7 @@
   <PipeData>
     <PipeType>LPipeBottom</PipeType>
     <xLocation>948</xLocation>
-    <yLocation>580</yLocation>
+    <yLocation>790</yLocation>
   </PipeData>
   
 </Map>
