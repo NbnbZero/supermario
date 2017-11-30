@@ -121,17 +121,17 @@ namespace SuperMario.GameObjects
                     State.MarioShape == Shape.Small ||
                     State.MarioShape == Shape.StarSmall)
                 {
-                    verticalDisplacement = smallMarioVertDis;
+                    verticalDisplacement = MarioSpriteFactory.Instance.HalfNormalMarioHeight+ smallMarioVertDis;
                     horizontalDisplacement = smallMarioHeriDis;
-                }else if(State.MarioPosture == Posture.Swimming)
-                {
-                    verticalDisplacement = smallMarioVertDis;
-                    horizontalDisplacement = smallMarioHeriDis;
-                }
-                else
+                }else 
                 {
                     verticalDisplacement = bigMarioVertDis;
                     horizontalDisplacement = bigMarioHeriDis;
+                }
+                if (State.MarioPosture == Posture.Swimming)
+                {
+                    verticalDisplacement = smallMarioVertDis;
+                    horizontalDisplacement = smallMarioHeriDis;
                 }
                 return new Rectangle((int)this.location.X + horizontalDisplacement, (int)this.location.Y + verticalDisplacement, MarioSpriteFactory.Instance.NormalMarioWidth - 2 * horizontalDisplacement, MarioSpriteFactory.Instance.NormalMarioHeight - verticalDisplacement);
             }
