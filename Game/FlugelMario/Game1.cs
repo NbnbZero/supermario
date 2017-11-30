@@ -199,7 +199,7 @@ namespace SuperMario
 
         public void LoadNextLevel(string file)
         {
-            Vector2 restartPoint = new Vector2(50, 200);
+            Vector2 restartPoint = new Vector2(670, 520);
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             #region Load Textures
@@ -226,7 +226,7 @@ namespace SuperMario
             loader.Load(file);
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
-            Camera.SetCamera(new Vector2(restartPoint.X - 16 * 5, 0));
+            Camera.SetCamera(new Vector2(restartPoint.X - 16 * 3, -420));
             
             //下水之后
             Mario.IsInWater = true; 
