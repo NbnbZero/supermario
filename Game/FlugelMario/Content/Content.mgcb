@@ -644,3 +644,9 @@
 /processorParam:TextureFormat=Color
 /build:wave.png
 
+#begin My_Jinji.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:My_Jinji.mp3
+

@@ -219,10 +219,7 @@ namespace SuperMario.GameObjects
                 {
                     starTime = starTimeNormal;
                 }
-            }
-
-           
-
+            }           
         }
 
         public void Draw(SpriteBatch spriteBatch)
