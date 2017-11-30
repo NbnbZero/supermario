@@ -211,16 +211,10 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
                 {
                     mygame.Reset();
-                    Game1.State = new PlayingState(mygame);
-                    
-                    if (titlePanel.option == 0)
-                    {
-                        SoundManager.Instance.PlayOverWorldSong();
-                    }
-                    else if (titlePanel.option == 1)
+                    Game1.State = new PlayingState(mygame);                 
+                    if (titlePanel.option == 1)
                     {
                         mygame.LoadNextLevel("./LevelLoader/Level2.xml");
-                        SoundManager.Instance.PlayUnderwaterSong();
                     }
                     // MarioInfo.StartTimer();
                     SoundManager.Instance.PlayOverWorldSong();
