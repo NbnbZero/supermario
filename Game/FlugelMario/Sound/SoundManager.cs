@@ -74,7 +74,7 @@ namespace SuperMario.Sound
             marioScream = content.Load<SoundEffect>("v_AA");
             underwaterSound = content.Load<Song>("My_Jinji");
             flash = content.Load<SoundEffect>("flash" );
-;        }
+;       }
         public void PlayMarioDyingSound()
         {
             if (!IsMuted)

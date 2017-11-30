@@ -23,7 +23,12 @@ namespace SuperMario.Commands
                 return;
             }
 
-            if (!myhandler.item.IsCollected)
+            if (myhandler.item.GetType() == typeof(Peach))
+            {
+                myhandler.item.IsCollected = true;
+            }
+
+            else if (!myhandler.item.IsCollected)
             {
                 myhandler.item.Collect();
                 if (myhandler.item.GetType() == typeof(FireFlower))

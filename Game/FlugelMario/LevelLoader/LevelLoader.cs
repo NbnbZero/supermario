@@ -197,7 +197,7 @@ namespace SuperMario
                         case ItemType.PiranhaPlants:
                             GameObjectManager.itemList.Add(new PiranhaPlants(new Vector2(item.xLocation, item.yLocation), mario));
                             break;
-                    }
+                }
 
                 }
             

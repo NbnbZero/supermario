@@ -50,6 +50,7 @@ namespace SuperMario.SpriteFactories
         public Texture2D FlowerSpriteSheet;
         private Texture2D flagSpriteSheet;
         private Texture2D PiranhaPlantsSpriteSheet;
+        private Texture2D peachSheet;
 
         private static ItemSpriteFactory instance = new ItemSpriteFactory();
         public static ItemSpriteFactory Instance
@@ -71,6 +72,7 @@ namespace SuperMario.SpriteFactories
             FlowerSpriteSheet = content.Load<Texture2D>("FlowerSheet");
             flagSpriteSheet = content.Load<Texture2D>("flagpole");
             PiranhaPlantsSpriteSheet = content.Load<Texture2D>("Piranha Plants");
+            peachSheet = content.Load<Texture2D>("peach");
         }
 
      
@@ -122,6 +124,9 @@ namespace SuperMario.SpriteFactories
         {
             return new PiranhaPlantsSprite(PiranhaPlantsSpriteSheet);
         }
-
+        public ISprite CreatePeachSprite()
+        {
+            return new PeachSprite(peachSheet);
+        }
     }
 }

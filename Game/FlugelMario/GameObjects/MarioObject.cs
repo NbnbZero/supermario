@@ -164,6 +164,11 @@ namespace SuperMario.GameObjects
                 location = new Vector2(location.X, location.Y + 10);
                 return;
             }
+            else if (location.X >= 3580)
+            {
+                location = new Vector2(location.X - 5 , location.Y);
+                return;
+            }
             //TODO: add level condition for Game (ground/underground)
             if (location.Y <= 450 && location.Y >= 445 )
             {

@@ -17,7 +17,7 @@ using SuperMario.Animation;
 
 namespace SuperMario.GameObjects
 {
-    public class GameObjectManager 
+    public class GameObjectManager
     {
         public static List<IGameObject> pipeList;
         public static List<IGameObject> blockList;
@@ -48,7 +48,7 @@ namespace SuperMario.GameObjects
             objectList = new List<IGameObject>();
             cloudList = new List<IGameObject>();
             mario = Mario;
-            restartPoint = new Vector2(50,200);
+            restartPoint = new Vector2(50, 200);
             game = Game;
             gameOverDisplayPanel = new GameOverDisplayPanel(game);
             titleDisplayPanel = new TitleDisplayPanel();
@@ -57,6 +57,14 @@ namespace SuperMario.GameObjects
             animationList = new List<IAnimationInGame>();
             winningDisplayPanel = new WinningDisplayPanel(game);
 
+        }
+        public Game1 myGame
+        {
+            get { return game; }
+            set
+            {
+                game = value;
+            }
         }
 
         public IDisplayPanel TitlePanel
@@ -206,7 +214,8 @@ namespace SuperMario.GameObjects
         private bool IsEndGame()
         {
             return mario.Destination.X + mario.Destination.Width >= 3265&&
-                   mario.Destination.X + mario.Destination.Width <= 3290;
+                   mario.Destination.X + mario.Destination.Width <= 3290 &&
+                   mario.Destination.Y >= 232;
         }
 
         private static bool GamePlayable()

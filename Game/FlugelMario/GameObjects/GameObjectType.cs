@@ -31,7 +31,8 @@ namespace SuperMario.GameObjects
             blackbackground,
             Blooper,
             CheapCheap,
-            Wave
+            Wave,
+            Peach
         }
     }
 }

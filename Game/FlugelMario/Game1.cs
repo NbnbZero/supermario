@@ -33,6 +33,7 @@ namespace SuperMario
         GameObjectManager objectManager;
         GameData gamedata;
         public string File;
+        AbstractGame mygame;
 
         public Game1()
         {
