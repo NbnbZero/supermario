@@ -164,7 +164,7 @@ namespace SuperMario.Game_Controllers
                     mygame.Reset();
                     Game1.State = new PlayingState(mygame);
                     SoundManager.Instance.PlayOverWorldSong();
-                   // MarioInfo.StartTimer();
+                    MarioInfo.StartTimer();
                 }
                 else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {

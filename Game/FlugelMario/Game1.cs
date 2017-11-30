@@ -73,7 +73,7 @@ namespace SuperMario
             TextSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
-            Vector2 location = new Vector2(3000, 200);
+            Vector2 location = new Vector2(50, 200);
             Mario = new MarioObject(location);
             objectManager = new GameObjectManager(this,Mario);
             gamedata = new GameData(objectManager);
@@ -160,8 +160,10 @@ namespace SuperMario
         {
             LoadContent();
             Camera.ResetCamera();
+            CoinSystem.Instance.ResetCoin();
+            ScoringSystem.ResetScore();
             MarioInfo.ResetTimer();
-            MarioInfo.StartTimer();
+            MarioInfo.StopTimer();
         }
 
         public void LevelReset(string file)
