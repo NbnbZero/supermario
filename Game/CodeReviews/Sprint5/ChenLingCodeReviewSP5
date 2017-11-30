@@ -1,0 +1,23 @@
+Author: 	Chen Ling
+Date of Review: 11/30/2017
+Sprint: 	5
+Name of File: 	KeyboardControls.cs
+Author of File:	Haifang Yang
+Comments:
+	This class has a very clear structure. Firstly, it declares mario and game objects, as well as some useful key commands. 
+	All of the local variables are declared as private, which is good. 
+	Here you have a RegisterCommand function, which is used to connect keys and their corresponding commands. 
+    Also, at the end of the class, you have some private functions to detect various ways of pressing keys. 
+    In the update part, there are a lot of stuffs. 
+    You used a lot if-else branches to detect the current game state, and in each game state, you called the corresponding command according to to what keys player pressed.
+
+Number of minutes: ~15 mins
+
+Hypothetical changes:
+	In your update part, for example, between line 111 and line 135; you have a big if-block where you did some changes to mario. 
+    I do not think it is a good choice. Because keyboard class should only care about keys detection and call corresponding commands. 
+    It should not be responsible for mario state changes. You can splite this part to another class. 
+    Also, at line 225, you called mygame.LoadNextLevel(...) and force the game to enter level 2. 
+    Actually, why do you need two level.xml files? You have a mygame.File to load level1. 
+    And for level2, you could have continued the map in level1's file. What you need is just change the location of camera. 
+    There is no need for you to specifically create a new XML file for level2. 
