@@ -31,7 +31,7 @@ namespace SuperMario.Display
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             marioSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            System.Console.WriteLine(mario.IsLevel2);
+
             if (mario.IsLevel2)
             {
                 worldTextSprite.text = "WORLD 2-2";
