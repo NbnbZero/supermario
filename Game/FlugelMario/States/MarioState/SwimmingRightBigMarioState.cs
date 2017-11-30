@@ -47,8 +47,8 @@ namespace SuperMario.States.MarioStates
 
         public override void Crouch()
         {
-            Mario.Velocity = new Vector2(Mario.Velocity.X, 0);
-            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y );
+            Mario.Velocity = new Vector2(Mario.Velocity.X, -GameData.marioInWaterJump);
+            Mario.Acceleration = new Vector2(0, Mario.Acceleration.Y);
         }
 
         public override void Terminated()
