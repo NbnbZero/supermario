@@ -773,6 +773,95 @@
   </ItemData>
 
 
+  ///////////
+  <ObjectData>
+    <BackgroundObjType>Castle</BackgroundObjType>
+    <xLocation>620</xLocation>
+    <yLocation>740</yLocation>
+    <color>Normal</color>
+  </ObjectData>
+
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>964</xLocation>
+    <yLocation>804</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>980</xLocation>
+    <yLocation>804</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>996</xLocation>
+    <yLocation>804</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>1012</xLocation>
+    <yLocation>804</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>980</xLocation>
+    <yLocation>788</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>996</xLocation>
+    <yLocation>788</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>1012</xLocation>
+    <yLocation>788</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>996</xLocation>
+    <yLocation>772</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>1012</xLocation>
+    <yLocation>772</yLocation>
+    <color>Normal</color>
+  </BlockData>
+
+  <BlockData>
+    <State>Stair</State>
+    <itemType>Null</itemType>
+    <xLocation>1012</xLocation>
+    <yLocation>756</yLocation>
+    <color>Normal</color>
+  </BlockData>
+  
+  <PipeData>
+    <PipeType>LPipeBottom</PipeType>
+    <xLocation>948</xLocation>
+    <yLocation>790</yLocation>
+  </PipeData>
+
+  /////
   <ItemData>
     <itemType>Flag</itemType>
     <xLocation>3235</xLocation>
@@ -838,232 +927,21 @@
     <xLocation>3250</xLocation>
     <yLocation>216</yLocation>
   </ItemData>
+  
+  <BlockData>
+    <State>UnderwaterBlock</State>
+    <itemType>Null</itemType>
+    <xLocation>3250</xLocation>
+    <yLocation>384</yLocation>
+    <color>Normal</color>
+  </BlockData>
 
-  ///////////
   <ObjectData>
     <BackgroundObjType>Castle</BackgroundObjType>
-    <xLocation>620</xLocation>
-    <yLocation>740</yLocation>
+    <xLocation>3400</xLocation>
+    <yLocation>320</yLocation>
     <color>Normal</color>
   </ObjectData>
-
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>562</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>578</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>594</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>610</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>    
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>626</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>642</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>658</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>668</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>676</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>692</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>708</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>724</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>740</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>756</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>772</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>788</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>804</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>820</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>836</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>852</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>868</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>884</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>900</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>916</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>932</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  
-  <BlockData>
-    <State>Broken</State>
-    <itemType>Null</itemType>
-    <xLocation>948</xLocation>
-    <yLocation>820</yLocation>
-    <color>Normal</color>
-  </BlockData>
-  
-  
-  <PipeData>
-    <PipeType>LPipeBottom</PipeType>
-    <xLocation>948</xLocation>
-    <yLocation>790</yLocation>
-  </PipeData>
   
 </Map>
 

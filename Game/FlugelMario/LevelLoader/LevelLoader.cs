@@ -87,6 +87,10 @@ namespace SuperMario
                 {
                     GameObjectManager.blockList.Add(new UnderwaterBlock(new Vector2(i, 400)));
                 }
+                for (int i = 562; i < 1500; i += 16)
+                {
+                    GameObjectManager.blockList.Add(new FloorBlock(new Vector2(i, 820)));
+                }
             }
                 #endregion
             foreach (BlockData block in myObjects)
@@ -159,16 +163,6 @@ namespace SuperMario
             using (XmlReader reader = XmlReader.Create(file))
             {
                 myObjects = (List<ItemData>)serializer.Deserialize(reader);
-            }
-
-            for (int i = 800; i < 1100; i += 32)
-            {
-                GameObjectManager.itemList.Add(new Coin(new Vector2(i, 578)));
-                GameObjectManager.itemList.Add(new Coin(new Vector2(i, 514)));
-            }
-            for (int i = 820; i < 1100; i += 32)
-            {
-                GameObjectManager.itemList.Add(new Coin(new Vector2(i, 546)));
             }
 
             foreach (ItemData item in myObjects)

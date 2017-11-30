@@ -57,7 +57,7 @@ namespace SuperMario.Game_Controllers
         {
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
-            if ((Game1.State.Type == GameStates.Playing))
+            if (Game1.State.Type == GameStates.Playing)
             {
 
                 if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
@@ -215,13 +215,17 @@ namespace SuperMario.Game_Controllers
                 if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
                 {
                     mygame.Reset();
-                    Game1.State = new PlayingState(mygame);                 
-                    if (titlePanel.option == 1)
+                    if (titlePanel.option == 0)
+                    {
+                        Game1.State = new PlayingState(mygame);
+                        SoundManager.Instance.PlayOverWorldSong();
+                    }                                    
+                    else if (titlePanel.option == 1)
                     {
                         mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                        Game1.State = new Transition(mygame);
                     }
-                    // MarioInfo.StartTimer();
-                    SoundManager.Instance.PlayOverWorldSong();
+                    // MarioInfo.StartTimer();                   
                     MarioInfo.StartTimer();
                 }
                 else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
@@ -287,7 +291,7 @@ namespace SuperMario.Game_Controllers
                     MarioInfo.ClearTimer();
                     MarioInfo.MarioLife[0] = 3;
                     mygame.Reset();
-                    SoundManager.Instance.PlayOverWorldSong();
+                    //SoundManager.Instance.PlayOverWorldSong();
                     Game1.State.Proceed();
                 }
                 else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))

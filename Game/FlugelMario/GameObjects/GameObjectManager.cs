@@ -151,16 +151,16 @@ namespace SuperMario.GameObjects
             {
                 obj.Draw(spriteBatch);
             }
+            foreach (IGameObject obj in pipeList)
+            {
+                obj.Draw(spriteBatch);
+            }
             foreach (IGameObject obj in blockList)
             {
                 obj.Draw(spriteBatch);
             }
             foreach (IGameObject obj in enemyList)
             {               
-                obj.Draw(spriteBatch);
-            }
-            foreach(IGameObject obj in pipeList)
-            {
                 obj.Draw(spriteBatch);
             }
             foreach (IAnimationInGame obj in animationList)
