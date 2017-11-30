@@ -230,21 +230,7 @@ namespace SuperMario
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
             Camera.SetCamera(new Vector2(restartPoint.X - 16 * 3, -420));
-            SoundManager.Instance.PlayUnderwaterSong();
-            //下水之后
-            Mario.IsInWater = true; 
-            switch (Mario.State.MarioShape)
-            {
-                case Shape.Small:
-                    Mario.State = new SwimmingRightSmallMarioState(Mario);
-                    break;
-                case Shape.Big:
-                    Mario.State = new SwimmingRightBigMarioState(Mario);
-                    break;
-                case Shape.Fire:
-                    Mario.State = new SwimmingRightFireMarioState(Mario);
-                    break;
-            }
+            Mario.State.RunRight();
             MarioInfo.ClearTimer();
             MarioInfo.ResetTimer();
             MarioInfo.StartTimer();
