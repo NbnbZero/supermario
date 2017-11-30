@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SuperMario.Interfaces;
+using SuperMario.SCsystem;
 using SuperMario.SpriteFactories;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace SuperMario.Display
             backgroundSprite = BackgroundSpriteFactory.Instance.CreateBlackBackgroundSprite();
             marioSprite = MarioSpriteFactory.Instance.CreateIdleRightSmallMarioSprite();
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            System.Console.WriteLine(mario.IsLevel2);
+
             if (mario.IsLevel2)
             {
                 worldTextSprite.text = "WORLD 2-2";

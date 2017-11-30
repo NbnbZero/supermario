@@ -36,7 +36,6 @@ namespace SuperMario.GameObjects
             if (canWarp)
             {
                 Camera.SetCamera(new Vector2(teleLocation.X - 16 * 3, -420));
-                System.Console.WriteLine(teleLocation.X);
                 mario.Location = teleLocation;
                 SoundManager.Instance.PlayPipeSound();
                 SoundManager.Instance.PlayUndergroundSong();

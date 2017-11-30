@@ -38,9 +38,6 @@ namespace SuperMario.DisplayPanel
 
         public TitleDisplayPanel()
         {
-
-            CoinSystem.Instance.ResetCoin();
-            ScoringSystem.ResetScore();
             this.titleImg = BackgroundSpriteFactory.Instance.CreateTitleImgSprite();
             instructionText = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             instructionText.text = pressEnter;

@@ -15,7 +15,6 @@ namespace SuperMario.Game_Controllers
     public class KeyboardControls
     {
         private IMario mario;
-        private int scoretemp;
         private Game1 mygame;
         private Dictionary<Keys, ICommand> commandDict = new Dictionary<Keys, ICommand>();
         private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
@@ -165,7 +164,7 @@ namespace SuperMario.Game_Controllers
                     mygame.Reset();
                     Game1.State = new PlayingState(mygame);
                     SoundManager.Instance.PlayOverWorldSong();
-                   // MarioInfo.StartTimer();
+                    MarioInfo.StartTimer();
                 }
                 else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {

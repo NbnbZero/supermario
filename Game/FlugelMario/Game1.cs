@@ -13,6 +13,7 @@ using SuperMario.Sound;
 using SuperMario.States.GameState;
 using SuperMario.Animation;
 using SuperMario.SCsystem;
+using SuperMario.Display;
 
 namespace SuperMario
 {
@@ -72,7 +73,7 @@ namespace SuperMario
             TextSpriteFactory.Instance.LoadAllTextures(Content);
             #endregion
 
-            Vector2 location = new Vector2(3000, 200);
+            Vector2 location = new Vector2(50, 200);
             Mario = new MarioObject(location);
             objectManager = new GameObjectManager(this,Mario);
             gamedata = new GameData(objectManager);
@@ -159,8 +160,10 @@ namespace SuperMario
         {
             LoadContent();
             Camera.ResetCamera();
+            CoinSystem.Instance.ResetCoin();
+            ScoringSystem.ResetScore();
             MarioInfo.ResetTimer();
-            MarioInfo.StartTimer();
+            MarioInfo.StopTimer();
         }
 
         public void LevelReset(string file)
@@ -227,7 +230,7 @@ namespace SuperMario
             keyboard = new KeyboardControls(this, Mario);
             gamepad = new GamePadControls(this, Mario);
             Camera.SetCamera(new Vector2(restartPoint.X - 16 * 3, -420));
-            
+            SoundManager.Instance.PlayUnderwaterSong();
             //下水之后
             Mario.IsInWater = true; 
             switch (Mario.State.MarioShape)
@@ -242,7 +245,6 @@ namespace SuperMario
                     Mario.State = new SwimmingRightFireMarioState(Mario);
                     break;
             }
-
             MarioInfo.ClearTimer();
             MarioInfo.ResetTimer();
             MarioInfo.StartTimer();
