@@ -230,7 +230,6 @@ namespace SuperMario.Sound
             }
         }
 
-
         public void PlayUndergroundSong()
         {
             if (!IsMuted)
