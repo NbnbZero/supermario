@@ -7,6 +7,7 @@ using SuperMario.Interfaces;
 using SuperMario.Enums;
 using Microsoft.Xna.Framework;
 using SuperMario.Sound;
+using SuperMario.DisplayPanel;
 
 namespace SuperMario.Commands.ControllerCommand
 {
