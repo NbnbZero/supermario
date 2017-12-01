@@ -1,0 +1,22 @@
+Sprint5
+Haifeng Yang 
+Date: 2017/11/30
+
+
+File reviewed: Blooper.cs, CheapCheap.cs
+Author of file: Yanbo Du
+
+
+Quality: 
+-Benefit from the IEnemy interface, we do not need to write specific collision response for the enemies. 
+-Consistent format with other enemy object, easy to maintain.
+-The collision response will have tight coupling with these enemies.
+-Like in previous sprint mentioned, the enemy have a little bit different structure compared with mario.
+the mario has a abstract class to inhereted. In enemies, we need to put all the methods again if we want
+to add a new enemy.
+
+Hypothetical change:
+-To make it easier to extend could put an enemyObject abstract class contained all the methods. Override
+when needed.
+
+Time used: 15min.
