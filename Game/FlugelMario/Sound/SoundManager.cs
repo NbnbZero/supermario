@@ -72,7 +72,7 @@ namespace SuperMario.Sound
             gameCompleteSound = content.Load<SoundEffect>("v_gameComplete");
             flagSound = content.Load<SoundEffect>("v_flag");
             marioScream = content.Load<SoundEffect>("v_AA");
-            underwaterSound = content.Load<Song>("My_Jinji");
+            underwaterSound = content.Load<Song>("shenhai");
             flash = content.Load<SoundEffect>("flash" );
 ;       }
         public void PlayMarioDyingSound()
