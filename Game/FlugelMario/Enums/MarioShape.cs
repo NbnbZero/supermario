@@ -11,6 +11,9 @@ namespace SuperMario.Enums
         Small,
         Big,
         Fire,
-        Dead
+        StarBig,
+        StarSmall,
+        Dead,
+        Crouch
     }
 }

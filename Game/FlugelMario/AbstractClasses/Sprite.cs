@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Sprites.Items;
-using FlugelMario;
+using SuperMario;
 
 namespace SuperMario.Interfaces
 {
@@ -51,11 +51,14 @@ namespace SuperMario.Interfaces
         public bool Alive { get => alive; set => alive = value; }
         public bool CanCollide { get => canCollide; set => canCollide = value; }
 
-        private ItemSprite item;
+        private ISprite item;
 
-        public ItemSprite Item => item;
+        public ISprite GetItem()
+        {
+            return item;
+        }
 
-        public void SetItem(ItemSprite value)
+        public void SetItem(ISprite value)
         {
             item = value;
         }
@@ -133,8 +136,6 @@ namespace SuperMario.Interfaces
         {
             var center = new Point(destinationRectangle.X, destinationRectangle.Y);
             CollisionRectangle = new Rectangle(center, new Point(Width, Height));
-            if (CollisionBoundary != null)
-                CollisionBoundary.Dispose();
             CollisionBoundary = new Texture2D(Texture.GraphicsDevice, CollisionRectangle.Width, CollisionRectangle.Height);
 
             Color[] data = new Color[CollisionRectangle.Width * CollisionRectangle.Height];

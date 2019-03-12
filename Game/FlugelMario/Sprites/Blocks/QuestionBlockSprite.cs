@@ -4,35 +4,56 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Enums;
 using SuperMario.Sprites.Items;
-using FlugelMario;
+
 
 namespace SuperMario.Sprites.Blocks
 {
-    class QuestionBlockSprite : BlockSprite
+    class QuestionBlockSprite : ISprite
     {
+        public Texture2D Texture { get; set; }
+        private int height;
+        private int width;
+        private int row;
+        private int column;
+        private int currentFrame;
+        private int totalFrame;
+        private int counter;
 
-        public QuestionBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        public QuestionBlockSprite(Texture2D texture)
         {
-            Width = BlockSpriteFactory.Instance.QuestionBlockWidth;
-            Height = BlockSpriteFactory.Instance.QuestionBlockHeight;
-
-            TextureX = (int)BlockSpriteFactory.Instance.QuestionBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.QuestionBlockAnimation1.Y;
-
-            TotalFrames = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
-
-            SetItem(item);
+            Texture = texture;
+            height = BlockSpriteFactory.Instance.QuestionBlockHeight;
+            width = BlockSpriteFactory.Instance.QuestionBlockWidth;
+            row = BlockSpriteFactory.Instance.QuestionSpriteSheetRows;
+            column = BlockSpriteFactory.Instance.QuestionSpriteSheetColum;
+            totalFrame = BlockSpriteFactory.Instance.QuestionBlockAnimeTotalFrame;
+            currentFrame = 0;
+            counter = 0;         
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Update()
         {
-            Animate();
+            if (counter % 10 == 0)
+            {
+                currentFrame++;
+                currentFrame = currentFrame % totalFrame;
+                counter = 0;
+            }
+            counter++;
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Item.Draw(spriteBatch, Item.Location);
-            base.Draw(spriteBatch, location);
+            Rectangle sourceRectangle = new Rectangle((currentFrame*width), 0, width, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
+        }
+
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width, height);
         }
     }
 }

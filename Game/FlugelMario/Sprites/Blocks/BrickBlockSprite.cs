@@ -7,38 +7,36 @@ using SuperMario.Sprites.Items;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class BrickBlockSprite : BlockSprite
+    class BrickBlockSprite : ISprite
     {
-        public BrickBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        public Texture2D Texture { get; set; }
+        private int height;
+        private int width;
+
+        public BrickBlockSprite(Texture2D texture)
         {
-            Width = BlockSpriteFactory.Instance.BrickBlockWidth;
-            Height = BlockSpriteFactory.Instance.BrickBlockHeight;
-
-            TextureX = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.BrickBlockAnimation1.Y;
-
-            TotalFrames = BlockSpriteFactory.Instance.BrickBlockAnimeTotalFrame;
-
-            SetItem(item);
+            Texture = texture;
+            width = BlockSpriteFactory.Instance.BrickBlockWidth;
+            height = BlockSpriteFactory.Instance.BrickBlockHeight;
+            int row = BlockSpriteFactory.Instance.BrickSpriteSheetRows;
+            int column = BlockSpriteFactory.Instance.BrickSpriteSheetColum;
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            if (Item!= null)
-            {
-                Item.Draw(spriteBatch, Item.Location);
-                base.Draw(spriteBatch, location);
-            }
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {            
+            Rectangle sourceRectangle = new Rectangle(width* 0, height* 0, width,height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);            
         }
 
-        public override void RespondToCollision(CollisionDirection direction)
+        public void Update()
         {
-            if (direction == CollisionDirection.Bottom)
-            {
-                BumpUp();
-                //Animate();
-                Item.Reveal();
-            }
+        }
+
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width, height);
         }
     }
 }

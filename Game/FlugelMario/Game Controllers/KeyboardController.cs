@@ -3,64 +3,376 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SuperMario.States.MarioStates;
-
+using SuperMario.Interfaces;
+using SuperMario.Commands.ControllerCommand;
+using SuperMario.States.GameState;
+using SuperMario.Commands;
+using SuperMario.Sound;
+using SuperMario.SCsystem;
+using SuperMario.DisplayPanel;
+using SuperMario.Enums;
+using Microsoft.Xna.Framework;
 namespace SuperMario.Game_Controllers
 {
-    class KeyboardControls : Controller
+    public class KeyboardControls
     {
-        private Dictionary<Keys, Action<InputState>> controllerMappings;
-        private Keys[] previousKeys;
-        
-        public KeyboardControls(MarioState state, Game1 game) : base (state, game)
+        private IMario mario;
+        private Game1 mygame;
+        private Dictionary<Keys, ICommand> commandDict = new Dictionary<Keys, ICommand>();
+        private Dictionary<Keys, ICommand> releasedCommandDict = new Dictionary<Keys, ICommand>();
+        private Keys[] preKeys = new Keys[0];
+        private bool Muted = true;
+        TitleDisplayPanel titlePanel = (TitleDisplayPanel)GameData.GameObjectManager.TitlePanel;
+        public KeyboardControls(Game1 game, IMario Mario)
         {
-            Game = game;
-            controllerMappings = new Dictionary<Keys, Action<InputState>>();
+            mygame = game;
+            mario = Mario;
             RegisterCommand();
-            previousKeys = new Keys[0];
         }
 
         public void RegisterCommand()
         {
-            controllerMappings.Add(Keys.Q, HandleQuit);
-            controllerMappings.Add(Keys.P , HandlePauseOrResume);
-            controllerMappings.Add(Keys.R, HandlePauseOrResume);
-            controllerMappings.Add(Keys.Left, HandleLeft);
-            controllerMappings.Add(Keys.Right, HandleRight);
-            controllerMappings.Add(Keys.Up, HandleAscend);
-            controllerMappings.Add(Keys.Down,HandleDown);
-            controllerMappings.Add(Keys.Y, MakeSmall);
-            controllerMappings.Add(Keys.U, MakeBig);
-            controllerMappings.Add(Keys.I, MakeFire);
-            controllerMappings.Add(Keys.O, MakeDead);
-            controllerMappings.Add(Keys.B, BumpUp);
-            controllerMappings.Add(Keys.X, ChangeToUsed);            
-            controllerMappings.Add(Keys.Z, HandleJump);
-            //controllerMappings.Add(Keys )
+
+            commandDict.Add(Keys.Left, new LeftMarioCommand(mario));
+            commandDict.Add(Keys.Right, new RightMarioCommand(mario));
+            commandDict.Add(Keys.Down, new MarioCrouchCommand(mario));
+            commandDict.Add(Keys.Up, new MarioJumpCommand(mario));
+
+            commandDict.Add(Keys.Q, new QuitGameCommand(mygame));
+            commandDict.Add(Keys.F, new FlashCommand(mario));
+            commandDict.Add(Keys.Y, new ChangeSmallState(mario));
+            commandDict.Add(Keys.U, new ChangeBigState(mario));
+            commandDict.Add(Keys.I, new ChangeFireState(mario));
+            commandDict.Add(Keys.O, new ChangeDeadState(mario));
+
+            releasedCommandDict.Add(Keys.Left, new ReleasedLeftMarioCommand(mario));
+            releasedCommandDict.Add(Keys.Right, new ReleasedRightMarioCommand(mario));
+            releasedCommandDict.Add(Keys.Down, new ReleasedCrouchMarioCommand(mario));
+            releasedCommandDict.Add(Keys.Up, new ReleasedJumpMarioCommand(mario));
+            releasedCommandDict.Add(Keys.F, new ReleasedFlashCommand(mario));
         }
+
 
         public void Update()
         {
-            if (!Game.Paused)
-            {
-                Keys[] keysPressed = Keyboard.GetState().GetPressedKeys();
+            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
-                foreach (Keys key in keysPressed.Except(previousKeys))
+            if (Game1.State.Type == GameStates.Playing)
+            {
+
+                if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
                 {
-                    if (controllerMappings.ContainsKey(key))
+                    commandDict[Keys.Q].Execute();
+                }
+                if ((pressedKeys.Contains(Keys.M) && !preKeys.Contains(Keys.M)))
+                {
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
+                }
+                else if ((pressedKeys.Contains(Keys.Y) && preKeys != null))
+                {
+                    commandDict[Keys.Y].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.U) && preKeys != null))
+                {
+                    commandDict[Keys.U].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.I) && preKeys != null))
+                {
+                    commandDict[Keys.I].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.O) && preKeys != null))
+                {
+                    commandDict[Keys.O].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.F) && preKeys != null))
+                {
+                    commandDict[Keys.F].Execute();
+                }
+
+                if (Left(pressedKeys))
+                {
+                    commandDict[Keys.Left].Execute();
+                }
+                else if (Right(pressedKeys))
+                {
+                    commandDict[Keys.Right].Execute();
+                }
+                else if (Jump(pressedKeys))
+                {
+                    commandDict[Keys.Up].Execute();
+                }
+                else if (Down(pressedKeys))
+                {
+                    commandDict[Keys.Down].Execute();
+                }
+                else if (LeftJump(pressedKeys))
+                {
+                    if (mario.IsInAir || mario.IsInWater)
                     {
-                        controllerMappings[key](State);
+                        if (mario.IsInWater)
+                        {
+                            if (mario.Swimable)
+                            {
+                                switch (mario.State.MarioShape)
+                                {
+                                    case Shape.Small:
+                                        mario.State = new SwimmingLeftSmallMarioState(mario);
+                                        break;
+                                    case Shape.Big:
+                                        mario.State = new SwimmingLeftBigMarioState(mario);
+                                        break;
+                                    case Shape.Fire:
+                                        mario.State = new SwimmingLeftFireMarioState(mario);
+                                        break;
+                                }
+                                mario.State.MarioPosture = Posture.Swimming;
+                                mario.State.MarioDirection = Direction.Left;
+                                mario.Velocity = new Vector2(mario.Velocity.X, GameData.marioInWaterJump);
+                                mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
+                                mario.Swimable = false;
+                            }
+                        }
+                        commandDict[Keys.Left].Execute();
+                    }
+                    else
+                    {
+                        commandDict[Keys.Up].Execute();
+                    }
+
+                }
+                else if (LeftDown(pressedKeys))
+                {
+                    commandDict[Keys.Down].Execute();
+                }
+                else if (RightJump(pressedKeys))
+                {
+                    if (mario.IsInAir || mario.IsInWater)
+                    {
+                        if (mario.IsInWater)
+                        {
+                            if (mario.Swimable)
+                            {
+                                switch (mario.State.MarioShape)
+                                {
+                                    case Shape.Small:
+                                        mario.State = new SwimmingRightSmallMarioState(mario);
+                                        break;
+                                    case Shape.Big:
+                                        mario.State = new SwimmingRightBigMarioState(mario);
+                                        break;
+                                    case Shape.Fire:
+                                        mario.State = new SwimmingRightFireMarioState(mario);
+                                        break;
+                                }
+                                mario.State.MarioPosture = Posture.Swimming;
+                                mario.State.MarioDirection = Direction.Right;
+                                mario.Velocity = new Vector2(mario.Velocity.X, GameData.marioInWaterJump);
+                                mario.Acceleration = new Vector2(0, GameData.Gravity + GameData.Float);
+                                mario.Swimable = false;
+                            }
+                        }
+                        commandDict[Keys.Right].Execute();
+                    }
+                    else
+                    {
+                        commandDict[Keys.Up].Execute();
+                    }
+                }
+                else if (RightDown(pressedKeys))
+                {
+                    commandDict[Keys.Down].Execute();
+                }
+                else if (LeftRightJump(pressedKeys))
+                {
+                    commandDict[Keys.Up].Execute();
+                }
+
+                if (preKeys != null)
+                {
+                    foreach (Keys key in preKeys)
+                    {
+
+                        if (preKeys.Contains(key) && Keyboard.GetState().IsKeyUp(key))
+                        {
+                            if (releasedCommandDict.ContainsKey(key))
+                                releasedCommandDict[key].Execute();
+                        }
                     }
                 }
 
-                previousKeys = keysPressed;
-
-            } else
-            {
-                if (Keyboard.GetState().GetPressedKeys().Contains(Keys.R))
+                if (pressedKeys.Contains(Keys.P))
                 {
-                    HandlePauseOrResume(State);
+                    Game1.State.Pause();
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
+                }
+
+                preKeys = pressedKeys;
+            }
+            else if (Game1.State.Type == GameStates.Title)
+            {
+                if ((pressedKeys.Contains(Keys.Enter) && preKeys != null && !preKeys.Contains(Keys.Enter)))
+                {
+                    mygame.Reset();
+                    if (titlePanel.option == 0)
+                    {
+                        Game1.State = new PlayingState(mygame);
+                        SoundManager.Instance.PlayOverWorldSong();
+                    }                                    
+                    else if (titlePanel.option == 1)
+                    {
+                        mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                        Game1.State = new Transition(mygame);
+                    }
+                    // MarioInfo.StartTimer();                   
+                    MarioInfo.StartTimer();
+                }
+                else if ((pressedKeys.Contains(Keys.Q) && preKeys != null && !preKeys.Contains(Keys.Q)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
+                else if ((pressedKeys.Contains(Keys.Up) && !preKeys.Contains(Keys.Up)))
+                {
+                    titlePanel.Up();
+                }
+                else if ((pressedKeys.Contains(Keys.Down) && !preKeys.Contains(Keys.Down)))
+                {
+                    titlePanel.Down();
                 }
             }
+            else if (Game1.State.Type == GameStates.LifeDisplay)
+            {
+                if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
+                {
+                    if (mario.IsLevel2)
+                    {
+                        mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                    }
+                    else
+                    {
+                        mygame.LevelReset(mygame.File);
+                    }
+                    Game1.State.Proceed();
+                    //SoundManager.Instance.PlayOverWorldSong();
+                }
+                else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
+            }
+            else if (Game1.State.Type == GameStates.Pause)
+            {
+                if (pressedKeys.Contains(Keys.P))
+                {
+                    Game1.State.Proceed();
+                    SoundManager.Instance.muteAndUnmute(Muted);
+                    Muted = !Muted;
+                }
+            }
+            else if (Game1.State.Type == GameStates.GameOver)
+            {
+
+                if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
+                {
+                    Game1.State.Proceed();
+                    MarioInfo.ClearTimer();
+                }
+                else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
+            }
+            else if (Game1.State.Type == GameStates.Victory)
+            {
+
+                if ((pressedKeys.Contains(Keys.Y) && preKeys != null && !preKeys.Contains(Keys.Y)))
+                {
+                    MarioInfo.ClearTimer();
+                    MarioInfo.MarioLife[0] = 3;
+                    mygame.Reset();
+                    //SoundManager.Instance.PlayOverWorldSong();
+                    Game1.State.Proceed();
+                }
+                else if ((pressedKeys.Contains(Keys.N) && preKeys != null && !preKeys.Contains(Keys.N)))
+                {
+                    commandDict[Keys.Q].Execute();
+                }
+            }
+            else if (Game1.State.Type == GameStates.Transition)
+            {
+                mygame.LoadNextLevel("./LevelLoader/Level2.xml");
+                Game1.State.Proceed();
+            }
+
+            preKeys = pressedKeys;
+        }
+
+        private bool Left(Keys[] pressedKeys)
+        {
+            return pressedKeys.Contains(Keys.Left) &&
+                !pressedKeys.Contains(Keys.Up) &&
+                !pressedKeys.Contains(Keys.Right) &&
+                !pressedKeys.Contains(Keys.Down);
+        }
+        private bool Right(Keys[] pressedKeys)
+        {
+            return !pressedKeys.Contains(Keys.Left) &&
+                !pressedKeys.Contains(Keys.Up) &&
+                pressedKeys.Contains(Keys.Right) &&
+                !pressedKeys.Contains(Keys.Down);
+        }
+        private bool Jump(Keys[] pressedKeys)
+        {
+            return !pressedKeys.Contains(Keys.Left) &&
+                pressedKeys.Contains(Keys.Up) &&
+                !pressedKeys.Contains(Keys.Right) &&
+                !pressedKeys.Contains(Keys.Down);
+        }
+        private bool Down(Keys[] pressedKeys)
+        {
+            return !pressedKeys.Contains(Keys.Left) &&
+                !pressedKeys.Contains(Keys.Up) &&
+                !pressedKeys.Contains(Keys.Right) &&
+                pressedKeys.Contains(Keys.Down);
+        }
+
+        private bool LeftJump(Keys[] pressedKeys)
+        {
+            return pressedKeys.Contains(Keys.Left) &&
+                pressedKeys.Contains(Keys.Up) &&
+                !pressedKeys.Contains(Keys.Right) &&
+                !pressedKeys.Contains(Keys.Down);
+        }
+        private bool LeftDown(Keys[] pressedKeys)
+        {
+            return pressedKeys.Contains(Keys.Left) &&
+                !pressedKeys.Contains(Keys.Up) &&
+                !pressedKeys.Contains(Keys.Right) &&
+                 pressedKeys.Contains(Keys.Down);
+        }
+        private bool RightJump(Keys[] pressedKeys)
+        {
+            return !pressedKeys.Contains(Keys.Left) &&
+                pressedKeys.Contains(Keys.Up) &&
+                pressedKeys.Contains(Keys.Right) &&
+                !pressedKeys.Contains(Keys.Down);
+        }
+        private bool RightDown(Keys[] pressedKeys)
+        {
+            return !pressedKeys.Contains(Keys.Left) &&
+                !pressedKeys.Contains(Keys.Up) &&
+                pressedKeys.Contains(Keys.Right) &&
+                pressedKeys.Contains(Keys.Down);
+        }
+
+        private bool LeftRightJump(Keys[] pressedKeys)
+        {
+            return pressedKeys.Contains(Keys.Left) &&
+                pressedKeys.Contains(Keys.Up) &&
+                pressedKeys.Contains(Keys.Right) &&
+                !pressedKeys.Contains(Keys.Down);
         }
     }
 }
+

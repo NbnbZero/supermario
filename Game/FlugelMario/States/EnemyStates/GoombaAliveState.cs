@@ -1,33 +1,43 @@
-﻿using SuperMario.GameObjects;
-using SuperMario.Interfaces;
+﻿using SuperMario.Interfaces;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario;
 using SuperMario.SpriteFactories;
+using SuperMario.States.EnemyStates;
 
 namespace SuperMario.States.EnemyStates
 {
     public class GoombaAliveState : IEnemyState
     {
-        public Sprite StateSprite { get; set; }
+        public ISprite StateSprite { get; set; }
 
-        private Goomba2 goomba;
+        private Goomba goomba;
 
-        public GoombaAliveState(Goomba2 goomba)
+        public GoombaAliveState(Goomba goomba)
         {
             StateSprite = EnemySpriteFactory.Instance.CreateGoombaSprite();
             this.goomba = goomba;
         }
+
+        public void ChangeDirection()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             StateSprite.Draw(spriteBatch, location);
         }
 
-        public void Terminate()
+        public void Terminate(string direction)
         {
-            goomba.State = new GoombaDeadState();
+            if (direction.ToUpper().Equals("TOP"))
+                goomba.State = new GoombaDeadState();
         }
+
         public void Update()
-        {        
+        {
             StateSprite.Update();
         }
     }

@@ -6,10 +6,12 @@ namespace SuperMario.Sprites.Mario
 {
     class RunningRightSmallMarioSprite : MarioRunningSprite
     {
-        public RunningRightSmallMarioSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        private int TextureX = (int)MarioSpriteFactory.Instance.RunningRightSmallMarioCord.X;
+        private int TextureY = (int)MarioSpriteFactory.Instance.RunningRightSmallMarioCord.Y;
+        public RunningRightSmallMarioSprite(Texture2D texture) : base(texture)
         {
-            TextureX = (int)MarioSpriteFactory.Instance.RunningRightSmallMarioCord.X;
-            TextureY = (int)MarioSpriteFactory.Instance.RunningRightSmallMarioCord.Y;
+            CurrentRunningFrame = 0;
+            RunningFrameIncrement = -1;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)

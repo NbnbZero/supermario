@@ -13,8 +13,8 @@ namespace SuperMario.Sprites.Background
     {
         public Texture2D Texture { get; set; }
         Rectangle sourceRectangle;
-        private int blackBackgroundWidth = 480;
-        private int blackBackgroundHeight = 360;
+        private int blackBackgroundWidth = 1200;
+        private int blackBackgroundHeight = 600;
         private int textureX = 0;
         private int textureY = 0;
         public BlackBackgroundSprite(Texture2D texture)

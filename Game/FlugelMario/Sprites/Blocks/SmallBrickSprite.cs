@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Interfaces;
-using FlugelMario;
 
 namespace SuperMario.Sprites.Block
 {
-    class SmallBrickSprite : Sprite
+    class SmallBrickSprite : ISprite
     {
+        public Texture2D Texture { get; set; }
+
+        Texture2D ISprite.Texture { get; set; }
 
         private Rectangle sourceRectangle;
         private Rectangle ltDestRect;
@@ -29,26 +31,26 @@ namespace SuperMario.Sprites.Block
         private bool isInitial = true;
         private int counter = 100;
 
-        public SmallBrickSprite(Texture2D texture, Vector2 location) : base(texture, location)
+        public SmallBrickSprite(Texture2D texture) 
         {
-            this.Texture = texture;
+            Texture = texture;
             width = Texture.Width;
             height = Texture.Height;
-            this.color = Color.White;
+            color = Color.White;
             sourceRectangle = new Rectangle(0, 0, width, height);
         }
 
-        public SmallBrickSprite(Texture2D texture, bool underground,Vector2 location) : base(texture, location)
+        public SmallBrickSprite(Texture2D texture, bool underground) 
         {
-            this.Texture = texture;
+            Texture = texture;
             width = Texture.Width;
             height = Texture.Height;
-            this.color = Color.DeepSkyBlue;
+            color = Color.DeepSkyBlue;
             sourceRectangle = new Rectangle(0, 0, width, height);
             underground.ToString();
         }
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             if (isInitial)
             {
@@ -70,7 +72,7 @@ namespace SuperMario.Sprites.Block
 
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Update()
         {
             
             if (isInitial)
@@ -92,8 +94,12 @@ namespace SuperMario.Sprites.Block
                 rbDestRect.Y = (int)(rbDestRect.Y + vertSpeed);
                 vertSpeed += vertAcce;
                 counter--;
-            }
-            
+            }            
+        }
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width, height);
         }
     }
+    
 }

@@ -1,0 +1,36 @@
+﻿Author of the code review
+    - Chris Hutchinson
+
+
+Date of the code review
+    - November 30, 2017
+
+
+Sprint number
+    - 5
+
+
+Name of the .cs file being reviewed
+    - CheapCheap.cs
+
+
+Author of the .cs file being reviewed
+    - Yanbo Du
+
+
+Specific comments on code quality
+    - Should probably set values in the constructor instead of outside of it in the class
+    - Get rid of the extra unneccessary lines
+    - Not sure what HasBeenInView being set to true does in update
+    - Privates should have a _ in front of them
+
+
+Number of minutes taken to complete the review
+    - 15ish minutes
+
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+    - In general, what if we wanted to add another enemy?
+            - we would copy and paste a bunch of code into a new class file
+    - All in all, we can move a loot of these things to a parent class and inherit them
+    - Enemies just define what they do when they die

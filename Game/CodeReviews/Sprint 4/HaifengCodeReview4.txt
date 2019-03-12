@@ -1,0 +1,21 @@
+Author: Haifeng Yang
+Date: 11/14/2017
+Sprint: 4
+File Being Reviewed: ScoringSystem.cs
+
+Author of File:	Chen Ling
+
+Comments on Quality: 
+Easy to understand and to extend.
+It is a class used to keep track of the score mario within 3 lifes. 
+ScoringSystem is loose in coupling since it uses no concrete classes of the project.
+It is considered high cohesion since the score integer is used through all the methods that add the score.
+The methods and integer initialization is easy to read and understand by name. The scoring is easy to 
+be understand by grouping all scoring circunmstances together in a scoring system.
+
+
+Hypo changes: 
+The static number for flag cutoff point and score for the cutoff are better to be put into a together to a 
+file that note all of the data need for the game. By doing this, it would be easier to have other grading idea 
+added if we want to make changes to the grading instead of flag pole. I mean like in the water, the constant int
+will need to be changed. So I guess like using the portion of a flagpole for the grading scale is a better idea.

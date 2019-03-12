@@ -2,15 +2,19 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMario.Sprites.Items;
-using FlugelMario;
 
 namespace SuperMario
 {
-    class DisappearedSprite : Sprite
+    class DisappearedSprite : ISprite
     {
-        public DisappearedSprite(Texture2D texture) : base(texture) { }
+        public Texture2D Texture { get; set; }
+
+        public DisappearedSprite(Texture2D texture)
+        {
+            this.Texture = texture;
+        }
         
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             if (spriteBatch != null)
             {
@@ -20,11 +24,11 @@ namespace SuperMario
             }
         }
 
-        public override Rectangle MakeDestinationRectangle(Vector2 location)
+        public Rectangle MakeDestinationRectangle(Vector2 location)
         {
             return new Rectangle((int)location.X, (int)location.Y, 0, 0);
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation) { }       
+        public void Update() { }       
     }
 }

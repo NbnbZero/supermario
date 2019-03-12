@@ -1,9 +1,11 @@
 ﻿using SuperMario.Interfaces;
 using SuperMario.Sprites.Goomba;
 using SuperMario.Sprites.Koopa;
+using SuperMario.Sprites.Blooper;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMario.Sprites.CheapCheap;
 
 namespace SuperMario.SpriteFactories
 {
@@ -15,9 +17,14 @@ namespace SuperMario.SpriteFactories
         public int KoopaSpriteSheetColumn { get; } = 5;
         public int KoopaSpriteSheetRows { get; } = 1;
         public int KoopaWalkTotalFrame { get; } = 2;
+        public int BlooperSpriteSheetColumn { get; } = 2;
+        public int BlooperSpriteSheetRows { get; } = 1;
 
         private Texture2D enemyGoombaSpriteSheet;
         private Texture2D enemyKoopaSpriteSheet;
+        private Texture2D enemyKoopaRightSpriteSheet;
+        private Texture2D enemyBlooperSpriteSheet;
+        private Texture2D enemyCheapCheapSpriteSheet;
 
         private static EnemySpriteFactory instance = new EnemySpriteFactory();
 
@@ -38,7 +45,10 @@ namespace SuperMario.SpriteFactories
             if (content != null)
             {
                 enemyGoombaSpriteSheet = content.Load<Texture2D>("GoombaSheet");
-                enemyKoopaSpriteSheet = content.Load<Texture2D>("TurtleSheet1");
+                enemyKoopaSpriteSheet = content.Load<Texture2D>("turtle_sheet_3");
+                enemyKoopaRightSpriteSheet = content.Load<Texture2D>("turtle_sheet2");
+                enemyBlooperSpriteSheet = content.Load<Texture2D>("Blooper");
+                enemyCheapCheapSpriteSheet = content.Load<Texture2D>("cheapcheap");
             }
         }
 
@@ -73,31 +83,71 @@ namespace SuperMario.SpriteFactories
                 return enemyKoopaSpriteSheet.Height / KoopaSpriteSheetRows;
             }
         }
-
-        // TODO: Make this go bye bye
-        public Sprite CreateGoombaSprite()
+        public int BlooperWidth
         {
-            return new GoombaSprite(enemyGoombaSpriteSheet) { Color = Color.Red };
+            get
+            {
+                return enemyBlooperSpriteSheet.Width / BlooperSpriteSheetColumn;
+            }
         }
 
-        public Sprite CreateGoombaSprite(Vector2 location)
+        public int BlooperHeight
         {
-            return new GoombaSprite(enemyGoombaSpriteSheet, location) { Color = Color.Red };
+            get
+            {
+                return enemyBlooperSpriteSheet.Height / BlooperSpriteSheetRows;
+            }
+        }
+        public int CheapCheapWidth
+        {
+            get
+            {
+                return enemyCheapCheapSpriteSheet.Width;
+            }
         }
 
-        public Sprite CreateKoopaSprite(Vector2 location)
+        public int CheapCheapHeight
         {
-            return new KoopaSprite(enemyKoopaSpriteSheet, location) { Color = Color.Red };
+            get
+            {
+                return enemyCheapCheapSpriteSheet.Height;
+            }
         }
 
-        public Sprite CreateDeadGoombaSprite(Vector2 location)
+        public ISprite CreateGoombaSprite()
         {
-            return new DeadGoombaSprite(enemyGoombaSpriteSheet, location) { Color = Color.Red };
+            return new GoombaSprite(enemyGoombaSpriteSheet);
         }
 
-        public Sprite CreateDeadKoopaSprite(Vector2 location)
+        public ISprite CreateKoopaSprite()
         {
-            return new DeadKoopaSprite(enemyKoopaSpriteSheet, location) { Color = Color.Red };
+            return new KoopaSprite(enemyKoopaSpriteSheet);
+        }
+        public ISprite CreateBlooperSprite()
+        {
+            return new BlooperSprite(enemyBlooperSpriteSheet);
+        }
+        public ISprite CreateCheapCheapSprite()
+        {
+            return new CheapCheapSprite(enemyCheapCheapSpriteSheet);
+        }
+        public ISprite CreateKoopaRightSprite()
+        {
+            return new KoopaSprite(enemyKoopaRightSpriteSheet);
+        }
+
+        public ISprite CreateDeadGoombaSprite()
+        {
+            return new DeadGoombaSprite(enemyGoombaSpriteSheet);
+        }
+
+        public ISprite CreateDeadKoopaSprite()
+        {
+            return new DeadKoopaSprite(enemyKoopaSpriteSheet);
+        }
+        public ISprite CreateBlooperCloseSprite()
+        {
+            return new BlooperCloseSprite(enemyBlooperSpriteSheet);
         }
         public Vector2 GoombaWalkCord { get; } = new Vector2(0, 0);
         public Vector2 GoombaDeadCord { get; } = new Vector2(2, 0);

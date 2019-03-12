@@ -35,6 +35,12 @@ namespace SuperMario.SpriteFactories
         public int RockSpriteSheetRows { get; } = 1;
         public int RockBlockAnimeTotalFrame { get; } = 1;
 
+        public int UnderwaterBlockSpriteColumns { get; } = 1;
+        public int UnderwaterBlockSpriteRows { get; } = 1;
+
+        public int SeaWeedSpriteColumns { get; } = 1;
+        public int SeaweedSpriteRows { get; } = 1;
+
 
 
         private Texture2D StairSpriteSheet;
@@ -43,6 +49,9 @@ namespace SuperMario.SpriteFactories
         private Texture2D BrickSpriteSheet;
         private Texture2D RockSpriteSheet;
         private Texture2D smallBrickSheet;
+
+        private Texture2D UnderwaterBlockSpriteSheet;
+        private Texture2D SeaWeedSpriteSheet;
 
         private static BlockSpriteFactory instance = new BlockSpriteFactory();
         public static BlockSpriteFactory Instance
@@ -65,6 +74,8 @@ namespace SuperMario.SpriteFactories
             BrickSpriteSheet = content.Load<Texture2D>("BrickBlockSheet");
             RockSpriteSheet = content.Load<Texture2D>("RockBlockSheet");
             smallBrickSheet = content.Load<Texture2D>("smallbrick");
+            UnderwaterBlockSpriteSheet = content.Load<Texture2D>("UnderwaterBlockSPrite");
+            SeaWeedSpriteSheet = content.Load<Texture2D>("SeaWeed");
         }
         public int StairBlockWidth
         {
@@ -140,45 +151,86 @@ namespace SuperMario.SpriteFactories
                 return RockSpriteSheet.Height / RockSpriteSheetRows;
             }
         }
-
-        public Sprite CreateStairBlock(Vector2 location)
+        public int UnderwaterBlockWidth
         {
-            return new StairBlockSprite(StairSpriteSheet, location) { Color = Color.Blue };
+            get
+            {
+                return UnderwaterBlockSpriteSheet.Width / UnderwaterBlockSpriteColumns;
+            }
+        }
+        public int UnderwaterBlockHeight
+        {
+            get
+            {
+                return UnderwaterBlockSpriteSheet.Height / UnderwaterBlockSpriteRows;
+            }
         }
 
-        public Sprite CreateUsedBlock(Vector2 location, ItemSprite item)
+        public int SeaWeedWidth
         {
-            return new UsedBlockSprite(UsedSpriteSheet, location, item) { Color = Color.Blue };
+            get
+            {
+                return SeaWeedSpriteSheet.Width / SeaWeedSpriteColumns;
+            }
         }
 
-        public Sprite CreateSmallBrickBlockSprite(Vector2 location)
+        public int SeaWeedHeight
         {
-            return new SmallBrickSprite(smallBrickSheet, location) { Color = Color.Blue };
+            get
+            {
+                return SeaWeedSpriteSheet.Height / SeaweedSpriteRows;
+            }
         }
 
-        public Sprite CreateQuestionBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateStairBlock()
         {
-            return new QuestionBlockSprite(QuestionSpriteSheet, location, item) { Color = Color.Blue };
+            return new StairBlockSprite(StairSpriteSheet) ;
         }
 
-        public Sprite CreateBrickBlock(Vector2 location, ItemSprite item)
+        public ISprite CreateUsedBlock()
         {
-            return new BrickBlockSprite(BrickSpriteSheet, location, item) { Color = Color.Blue };
+            return new UsedBlockSprite(UsedSpriteSheet) ;
         }
 
-        public Sprite CreateRockBlock(Vector2 location)
+        public ISprite CreateSmallBrickBlockSprite()
         {
-            return new RockBlockSprite(RockSpriteSheet, location) { Color = Color.Blue };
+            return new SmallBrickSprite(smallBrickSheet) ;
         }
-        public Sprite CreateHiddenBlock()
+
+        public ISprite CreateQuestionBlock()
         {
-            return new HiddenBlockSprite(UsedSpriteSheet) { Color = Color.Blue };
+            return new QuestionBlockSprite(QuestionSpriteSheet) ;
+        }
+
+        public ISprite CreateBrickBlock()
+        {
+            return new BrickBlockSprite(BrickSpriteSheet);
+        }
+
+        public ISprite CreateRockBlock()
+        {
+            return new RockBlockSprite(RockSpriteSheet) ;
+        }
+        public ISprite CreateHiddenBlock()
+        {
+            return new HiddenBlockSprite(UsedSpriteSheet);
+        }
+
+        public ISprite CreateUnderwaterBlock()
+        {
+            return new UnderwaterBlockSprite(UnderwaterBlockSpriteSheet);
+        }
+
+        public ISprite CreateSeaWeed()
+        {
+            return new SeaWeedSprite(SeaWeedSpriteSheet);
         }
 
         public Vector2 UsedBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 QuestionBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 BrickBlockAnimation1 { get; } = new Vector2(0, 0);
         public Vector2 RockBlockAnimation1 { get; } = new Vector2(0, 0);
+        public Vector2 UnderwaterBlockAnimation1 { get; } = new Vector2(0, 0);
 
 
     }

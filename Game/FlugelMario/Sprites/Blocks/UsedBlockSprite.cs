@@ -1,49 +1,40 @@
-﻿using SuperMario.Interfaces;
-using SuperMario.SpriteFactories;
+﻿using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SuperMario.Enums;
-using SuperMario.Sprites.Items;
-using FlugelMario;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class UsedBlockSprite : BlockSprite
+    class UsedBlockSprite : ISprite
     {
-        public UsedBlockSprite(Texture2D texture, Vector2 location, ItemSprite item) : base(texture, location)
+        public Texture2D Texture { get; set; }
+        protected int width;
+        protected int height;
+        protected int row;
+        protected int column;
+
+        public UsedBlockSprite(Texture2D texture)
         {
-            Width = BlockSpriteFactory.Instance.UsedBlockWidth;
-            Height = BlockSpriteFactory.Instance.UsedBlockHeight;
+            Texture = texture;
+            width = BlockSpriteFactory.Instance.UsedBlockWidth;
+            height = BlockSpriteFactory.Instance.UsedBlockHeight;
+            row = BlockSpriteFactory.Instance.UsedSpriteSheetRows;
+            column = BlockSpriteFactory.Instance.UsedSpriteSheetColum;
 
-            TextureX = (int)BlockSpriteFactory.Instance.UsedBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.UsedBlockAnimation1.Y;
-
-            TotalFrames = BlockSpriteFactory.Instance.UsedBlockAnimeTotalFrame;
-
-            SetItem(item);
+        }
+        public void Update()
+        {
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Animate();
-        }
+            Rectangle sourceRectangle = new Rectangle(0, 0, width, height);
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            if (Item!= null)
-            {
-                Item.Draw(spriteBatch, Item.Location);
-                base.Draw(spriteBatch, location);
-            }
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
-
-        public override void RespondToCollision(CollisionDirection direction)
+        public Rectangle MakeDestinationRectangle(Vector2 location)
         {
-            if (direction == CollisionDirection.Bottom)
-            {
-                BumpUp();
-                Item.Reveal();
-            }
+            return new Rectangle((int)location.X, (int)location.Y, width , height);
         }
     }
 }

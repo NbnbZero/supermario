@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using SuperMario.Enums;
 using Microsoft.Xna.Framework;
 using System.Xml.Serialization;
+using static SuperMario.GameObjects.GameObjectType;
 
 namespace TileDefinition
-{
+{   
     public class StartData
     {
         public int xLocation;
@@ -34,10 +35,16 @@ namespace TileDefinition
         public int yLocation;
     }
 
-    public class MarioData
+    public class PipeData
     {
-        public float graviy = (float)0.1;
-        public float JumpVelocity = -(float)2.5;
-        public Vector2 maxVelocity = new Vector2(2,3);
+        public PipeType PipeType;
+        public int xLocation;
+        public int yLocation;
+    }
+    public class ObjectData
+    {
+        public BackgroundObjType BackgourndObj;
+        public int xLocation;
+        public int yLocation;
     }
 }

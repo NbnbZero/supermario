@@ -12,6 +12,8 @@ namespace SuperMario.Enums
         Crouch,
         Jump,
         Running,
-        Dead
+        Dead,
+        Swimming,
+        IdleInWater
     }
 }

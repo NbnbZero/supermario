@@ -1,25 +1,39 @@
 ﻿using SuperMario.Interfaces;
 using SuperMario.SpriteFactories;
 using Microsoft.Xna.Framework.Graphics;
-using FlugelMario;
 using Microsoft.Xna.Framework;
 
 namespace SuperMario.Sprites.Blocks
 {
-    class HiddenBlockSprite : Sprite
+    class HiddenBlockSprite : ISprite
     {
-        public HiddenBlockSprite(Texture2D texture) : base(texture)
+        public Texture2D Texture { get; set; }
+        private int height;
+        private int width;
+        
+        public HiddenBlockSprite(Texture2D texture)
         {
-            Width = BlockSpriteFactory.Instance.UsedBlockWidth;
-            Height = BlockSpriteFactory.Instance.UsedBlockHeight;
-
-            TextureX = (int)BlockSpriteFactory.Instance.UsedBlockAnimation1.X;
-            TextureY = (int)BlockSpriteFactory.Instance.UsedBlockAnimation1.Y;
+            Texture = texture;
+            width = BlockSpriteFactory.Instance.UsedBlockWidth;
+            height = BlockSpriteFactory.Instance.UsedBlockHeight;            
         }
 
-        public override void Update(Viewport viewport, Vector2 marioLocation)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Animate();
+            Rectangle sourceRectangle = new Rectangle();
+            Rectangle destinationRectangle = MakeDestinationRectangle(location);
+
+
+            spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.Transparent);
+
+        }
+        public void Update()
+        {            
+        }
+
+        public Rectangle MakeDestinationRectangle(Vector2 location)
+        {
+            return new Rectangle((int)location.X, (int)location.Y, width , height);
         }
     }
 }
